@@ -1,9 +1,9 @@
 import express from 'express';
-import { characters } from './data/characters.js';
 import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import { characters } from './data/characters.js';
+import colors from 'colors';
 // import path from 'path';
-// import connectDB from './config/db.js';
-// import colors from 'colors';
 // import morgan from 'morgan';
 // import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 // import productRoutes from './routes/productRoutes.js';
@@ -13,7 +13,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// connectDB();
+connectDB();
 
 const app = express();
 
@@ -36,7 +36,9 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(
 	PORT,
-	console.log(`Server running in ${process.env.NODE_ENV} on port ${PORT}`)
+	console.log(
+		`Server running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold
+	)
 );
 
 // app.use(express.json());
