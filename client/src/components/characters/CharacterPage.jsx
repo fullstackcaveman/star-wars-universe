@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Background from '../Background';
-import Loader from '../Loader';
+// import Loader from '../Loader';
 import Characters from './Characters';
 import Pagination from '../Pagination';
 
 const CharacterPage = () => {
 	const [characters, setCharacters] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set characters per page
 	const [charactersPerPage] = useState(10);

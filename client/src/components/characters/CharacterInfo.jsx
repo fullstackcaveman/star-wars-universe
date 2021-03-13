@@ -31,7 +31,7 @@ const CharacterInfo = ({ match }) => {
 		};
 
 		fetchCharacter();
-	}, []);
+	}, [match]);
 
 	return (
 		<>
