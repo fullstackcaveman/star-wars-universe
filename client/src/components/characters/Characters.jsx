@@ -18,7 +18,7 @@ const Characters = (props) => {
 		<div className='characters-wrapper'>
 			{characters.map((character) => {
 				return (
-					<Link to={`/characters/${character.id}`} key={character.id}>
+					<Link to={`/characters/${character._id}`} key={character._id}>
 						<Suspense fallback={Loader}>
 							<CharacterCard character={character} loading={loading} />
 						</Suspense>

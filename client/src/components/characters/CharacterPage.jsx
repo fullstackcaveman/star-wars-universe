@@ -4,12 +4,14 @@ import { AKABAB_BASE_URL } from '../../constants';
 import Background from '../Background';
 import Loader from '../Loader';
 
+import { characters as characterList } from '../../characterData';
+
 // Lazy Loading
 const Characters = lazy(() => import('./Characters'));
 const Pagination = lazy(() => import('../Pagination'));
 
 const CharacterPage = () => {
-	const [characters, setCharacters] = useState([]);
+	const [characters, setCharacters] = useState(characterList);
 	const [loading, setLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set characters per page
@@ -18,22 +20,22 @@ const CharacterPage = () => {
 	const pages = document.querySelectorAll('.page-item');
 
 	// GET characters from the api
-	useEffect(() => {
-		const fetchCharacters = () => {
-			setLoading(true);
-			axios
-				.get(`${AKABAB_BASE_URL}/all.json`)
-				.then((res) => {
-					setCharacters(res.data);
-					setLoading(false);
-					console.log(res.data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		};
-		fetchCharacters();
-	}, []);
+	// useEffect(() => {
+	// 	const fetchCharacters = () => {
+	// 		setLoading(true);
+	// 		axios
+	// 			.get(`${AKABAB_BASE_URL}/all.json`)
+	// 			.then((res) => {
+	// 				setCharacters(res.data);
+	// 				setLoading(false);
+	// 				console.log(res.data);
+	// 			})
+	// 			.catch((err) => {
+	// 				console.log(err);
+	// 			});
+	// 	};
+	// 	fetchCharacters();
+	// }, []);
 
 	// Sets structure of pagination
 	const indexOfLastCharacter = currentPage * charactersPerPage;
