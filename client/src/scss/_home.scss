@@ -1,0 +1,100 @@
+#home {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+
+	.links-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		flex-wrap: wrap;
+		width: 95%;
+		padding: 10px;
+		// margin-top: 80px;
+
+		// border: #ffee58 2px solid;
+
+		& .characters-link {
+			background-image: url('../images/DarthVader.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 480px;
+			height: 320px;
+			border-radius: 2px;
+			margin: 10px;
+
+			border: #ffee58 2px solid;
+		}
+
+		& .films-link {
+			background-image: url('../images/StarWarsFilms.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 480px;
+			height: 320px;
+			border-radius: 2px;
+			margin: 10px;
+
+			border: #ffee58 2px solid;
+		}
+
+		& .starships-link {
+			background-image: url('../images/starships.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 480px;
+			height: 320px;
+			border-radius: 2px;
+			margin: 10px;
+
+			border: #ffee58 2px solid;
+		}
+
+		& .species-link {
+			background-image: url('../images/species.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 480px;
+			height: 320px;
+			border-radius: 2px;
+			margin: 10px;
+
+			border: #ffee58 2px solid;
+		}
+
+		& .vehicles-link {
+			background-image: url('../images/vehicles.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 480px;
+			height: 320px;
+			border-radius: 2px;
+			margin: 10px;
+
+			border: #ffee58 2px solid;
+		}
+
+		& .planets-link {
+			background-image: url('../images/planets.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			width: 480px;
+			height: 320px;
+			border-radius: 2px;
+			margin: 10px;
+
+			border: #ffee58 2px solid;
+		}
+	}
+}

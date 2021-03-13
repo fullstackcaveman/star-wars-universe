@@ -1,0 +1,35 @@
+.pagination {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	li {
+		border: 1px solid black;
+		border-radius: 3px;
+		margin: 10px 3px;
+		background: linear-gradient(
+			to bottom,
+			rgb(253, 143, 0) 0%,
+			$starwars-yellow 30%,
+			#fff 50%,
+			$starwars-yellow 80%,
+			rgb(253, 143, 0) 100%
+		);
+		cursor: pointer;
+
+		p {
+			color: $primary-font-color;
+			font-size: 1.6rem;
+			padding: 0 10px;
+			padding-top: 5px;
+
+			&.active {
+				color: black;
+			}
+		}
+
+		&.active {
+			opacity: 0.4;
+		}
+	}
+}

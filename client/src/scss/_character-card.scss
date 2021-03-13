@@ -1,0 +1,25 @@
+.MuiCard-root {
+	box-sizing: border-box;
+	width: 250px;
+	margin: 10px;
+	height: 370px;
+
+	&.MuiPaper-root {
+		color: $starwars-yellow;
+		border: 3px solid $starwars-yellow;
+		background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png);
+	}
+
+	.MuiCardMedia-root {
+		max-height: 100%;
+		width: auto;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	.MuiTypography-root {
+		font-family: $starwars-font;
+		font-size: large;
+	}
+}

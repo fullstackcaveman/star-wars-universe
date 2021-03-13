@@ -1,0 +1,110 @@
+// Header
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	padding: 5px;
+	// background-color: rgb(61, 61, 61);
+	z-index: 100;
+
+	.header-left {
+		padding: 0 20px;
+	}
+
+	.nav-btn {
+		padding: 0 20px;
+	}
+}
+
+// Hero Section
+.starwars {
+	position: relative;
+	height: 170px;
+	width: 260px;
+	margin-top: 100px;
+
+	p,
+	span {
+		font-family: $starwars-font;
+		font-size: 5rem;
+		color: black;
+		text-shadow: -2px -2px 0 #ffee58, 2px -2px 0 #ffee58, -2px 2px 0 #ffee58,
+			2px 2px 0 #ffee58;
+
+		&.wars {
+			position: absolute;
+			top: 65px;
+			left: 12px;
+		}
+	}
+}
+
+// Buttons
+.btn {
+	border: none;
+	cursor: pointer;
+
+	&.btn-primary {
+		color: $color-white;
+		margin: 0 10px;
+		padding: 2px 8px;
+		border-radius: 3px;
+		background-color: $primary-font-color;
+
+		&.btn-character {
+			position: absolute;
+			top: 6px;
+			right: 0;
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+// Footer
+footer {
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	height: 50px;
+	width: 100%;
+	margin-top: 20px;
+	background-color: transparent;
+	z-index: 100;
+
+	.footer-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 0 20px;
+		width: 100%;
+		color: white;
+	}
+
+	.footer-top {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.8rem;
+	}
+
+	.footer-top,
+	.footer-bottom {
+		align-items: center;
+		text-align: center;
+		margin: 5px auto;
+		width: 100%;
+	}
+}
