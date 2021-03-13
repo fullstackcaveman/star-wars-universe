@@ -1,30 +1,48 @@
 import express from 'express';
-import path from 'path';
-import dotenv from 'dotenv';
-import connectDB from './config/db.js';
-import colors from 'colors';
-import morgan from 'morgan';
-import { errorHandler, notFound } from './middleware/errorMiddleware.js';
+import { characters } from './data/characters.js';
+// import path from 'path';
+// import dotenv from 'dotenv';
+// import connectDB from './config/db.js';
+// import colors from 'colors';
+// import morgan from 'morgan';
+// import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 // import productRoutes from './routes/productRoutes.js';
 // import userRoutes from './routes/userRoutes.js';
 // import orderRoutes from './routes/orderRoutes.js';
 // import uploadRoutes from './routes/uploadRoutes.js';
 
-dotenv.config();
+// dotenv.config();
 
-connectDB();
+// connectDB();
 
 const app = express();
-
-app.use(express.json());
-
-if (process.env.NODE_ENV === 'development') {
-	app.use(morgan('dev'));
-}
 
 app.get('/', (req, res) => {
 	res.send('API is running...');
 });
+
+app.get('/api/characters', (req, res) => {
+	res.json(characters);
+});
+
+app.get('/api/characters/:id', (req, res) => {
+	const character = characters.find(
+		(character) => character._id === req.params.id
+	);
+	res.json(character);
+});
+
+app.listen(5000, console.log('Server Running On port 5000'));
+
+// app.use(express.json());
+
+// if (process.env.NODE_ENV === 'development') {
+// 	app.use(morgan('dev'));
+// }
+
+// app.get('/', (req, res) => {
+// 	res.send('API is running...');
+// });
 
 // app.use('/api/products', productRoutes);
 // app.use('/api/users', userRoutes);
@@ -35,19 +53,19 @@ app.get('/', (req, res) => {
 // 	res.send(process.env.PAYPAL_CLIENT_ID);
 // });
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 // app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
-app.use(notFound);
+// app.use(notFound);
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
-app.listen(
-	PORT,
-	console.log(
-		`Server running in ${process.env.NODE_ENV} mode on port: ${PORT}`.yellow
-			.bold
-	)
-);
+// app.listen(
+// 	PORT,
+// 	console.log(
+// 		`Server running in ${process.env.NODE_ENV} mode on port: ${PORT}`.yellow
+// 			.bold
+// 	)
+// );
