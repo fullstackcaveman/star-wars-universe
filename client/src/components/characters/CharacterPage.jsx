@@ -1,17 +1,12 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AKABAB_BASE_URL } from '../../constants';
 import Background from '../Background';
 import Loader from '../Loader';
-
-import { characters as characterList } from '../../characterData';
-
-// Lazy Loading
-const Characters = lazy(() => import('./Characters'));
-const Pagination = lazy(() => import('../Pagination'));
+import Characters from './Characters';
+import Pagination from '../Pagination';
 
 const CharacterPage = () => {
-	const [characters, setCharacters] = useState(characterList);
+	const [characters, setCharacters] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set characters per page
@@ -19,23 +14,17 @@ const CharacterPage = () => {
 
 	const pages = document.querySelectorAll('.page-item');
 
-	// GET characters from the api
-	// useEffect(() => {
-	// 	const fetchCharacters = () => {
-	// 		setLoading(true);
-	// 		axios
-	// 			.get(`${AKABAB_BASE_URL}/all.json`)
-	// 			.then((res) => {
-	// 				setCharacters(res.data);
-	// 				setLoading(false);
-	// 				console.log(res.data);
-	// 			})
-	// 			.catch((err) => {
-	// 				console.log(err);
-	// 			});
-	// 	};
-	// 	fetchCharacters();
-	// }, []);
+	useEffect(() => {
+		const fetchCharacters = async () => {
+			const { data } = await axios
+				.get('/api/characters')
+				.catch((err) => console.log(err));
+
+			setCharacters(data);
+		};
+
+		fetchCharacters();
+	}, []);
 
 	// Sets structure of pagination
 	const indexOfLastCharacter = currentPage * charactersPerPage;
@@ -78,18 +67,14 @@ const CharacterPage = () => {
 	return (
 		<div className='character-page'>
 			<h1>Characters</h1>
-			<Suspense fallback={Loader}>
-				<Characters characters={currentCharacters} loading={loading} />
-			</Suspense>
-			<Suspense fallback={Loader}>
-				<Pagination
-					charactersPerPage={charactersPerPage}
-					totalCharacters={characters.length}
-					paginate={paginate}
-					prev={prevPage}
-					next={nextPage}
-				/>
-			</Suspense>
+			<Characters characters={currentCharacters} loading={loading} />
+			<Pagination
+				charactersPerPage={charactersPerPage}
+				totalCharacters={characters.length}
+				paginate={paginate}
+				prev={prevPage}
+				next={nextPage}
+			/>
 
 			<Background />
 		</div>
