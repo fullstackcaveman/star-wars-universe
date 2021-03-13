@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AKABAB_BASE_URL, SWAPI_BASE_URL } from '../../constants';
 import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
-import Loader from '../Loader';
+// import Loader from '../Loader';
 import Background from '../Background';
 import RelatedFilms from '../films/RelatedFilms';
 
@@ -23,8 +23,8 @@ const CharacterInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${character.name}`;
 
-	const [capSpecies, setCapSpecies] = useState();
-	const [capBorn, setCapBorn] = useState();
+	// const [capSpecies, setCapSpecies] = useState();
+	// const [capBorn, setCapBorn] = useState();
 
 	const getCharacter = () => {
 		// setLoading(true);
@@ -34,8 +34,8 @@ const CharacterInfo = ({ match }) => {
 				const data = res.data;
 				console.log(data);
 				setCharacter(data);
-				setCapSpecies(data.species);
-				setCapBorn(data.born);
+				// setCapSpecies(data.species);
+				// setCapBorn(data.born);
 				// setLoading(false);
 				console.log(data);
 			})
@@ -61,16 +61,16 @@ const CharacterInfo = ({ match }) => {
 
 	console.log(swapiCharacter);
 
-	useEffect(() => {
-		const toCapital = (value) => {
-			const valueToUse = value.charAt(0).toUpperCase() + value.slice(1);
-			if (value === 'species') {
-				setCapSpecies(valueToUse);
-			} else if (value === 'born') {
-				setCapBorn(valueToUse);
-			}
-		};
-	}, []);
+	// useEffect(() => {
+	// 	const toCapital = (value) => {
+	// 		const valueToUse = value.charAt(0).toUpperCase() + value.slice(1);
+	// 		if (value === 'species') {
+	// 			setCapSpecies(valueToUse);
+	// 		} else if (value === 'born') {
+	// 			setCapBorn(valueToUse);
+	// 		}
+	// 	};
+	// }, []);
 
 	return (
 		<>
