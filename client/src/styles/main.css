@@ -1,0 +1,648 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "STARJEDI";
+  src: local("STARJEDI"), url("../fonts/STARJEDI.TTF") format("truetype");
+  font-weight: normal;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+}
+body #root {
+  box-sizing: border-box;
+}
+body .App {
+  font-size: 62.5%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  max-height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  padding: 5px;
+  z-index: 100;
+}
+header .header-left {
+  padding: 0 20px;
+}
+header .nav-btn {
+  padding: 0 20px;
+}
+
+.starwars {
+  position: relative;
+  height: 170px;
+  width: 260px;
+  margin-top: 100px;
+}
+.starwars p,
+.starwars span {
+  font-family: "STARJEDI";
+  font-size: 5rem;
+  color: black;
+  text-shadow: -2px -2px 0 #ffee58, 2px -2px 0 #ffee58, -2px 2px 0 #ffee58, 2px 2px 0 #ffee58;
+}
+.starwars p.wars,
+.starwars span.wars {
+  position: absolute;
+  top: 65px;
+  left: 12px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+}
+.btn.btn-primary {
+  color: #fff;
+  margin: 0 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background-color: #4f1605;
+}
+.btn.btn-primary.btn-character {
+  position: absolute;
+  top: 6px;
+  right: 0;
+}
+.btn:focus {
+  outline: none;
+}
+
+footer {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: transparent;
+  z-index: 100;
+}
+footer .footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  width: 100%;
+  color: white;
+}
+footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+footer .footer-top,
+footer .footer-bottom {
+  align-items: center;
+  text-align: center;
+  margin: 5px auto;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.pagination li {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 10px 3px;
+  background: linear-gradient(to bottom, #fd8f00 0%, #ffe81f 30%, #fff 50%, #ffe81f 80%, #fd8f00 100%);
+  cursor: pointer;
+}
+.pagination li p {
+  color: #4f1605;
+  font-size: 1.6rem;
+  padding: 0 10px;
+  padding-top: 5px;
+}
+.pagination li p.active {
+  color: black;
+}
+.pagination li.active {
+  opacity: 0.4;
+}
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+.background-container img {
+  height: 70vh;
+  width: 70vh;
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+}
+.background-container .stars {
+  background: black url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png") repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+}
+.background-container .twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  -moz-animation: move-background 50s linear infinite;
+  -ms-animation: move-background 50s linear infinite;
+  -o-animation: move-background 50s linear infinite;
+  -webkit-animation: move-background 50s linear infinite;
+  animation: move-background 50s linear infinite;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+#home .links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 95%;
+  padding: 10px;
+}
+#home .links-container .characters-link {
+  background-image: url("../images/DarthVader.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 480px;
+  height: 320px;
+  border-radius: 2px;
+  margin: 10px;
+  border: #ffee58 2px solid;
+}
+#home .links-container .films-link {
+  background-image: url("../images/StarWarsFilms.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 480px;
+  height: 320px;
+  border-radius: 2px;
+  margin: 10px;
+  border: #ffee58 2px solid;
+}
+#home .links-container .starships-link {
+  background-image: url("../images/starships.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 480px;
+  height: 320px;
+  border-radius: 2px;
+  margin: 10px;
+  border: #ffee58 2px solid;
+}
+#home .links-container .species-link {
+  background-image: url("../images/species.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 480px;
+  height: 320px;
+  border-radius: 2px;
+  margin: 10px;
+  border: #ffee58 2px solid;
+}
+#home .links-container .vehicles-link {
+  background-image: url("../images/vehicles.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 480px;
+  height: 320px;
+  border-radius: 2px;
+  margin: 10px;
+  border: #ffee58 2px solid;
+}
+#home .links-container .planets-link {
+  background-image: url("../images/planets.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 480px;
+  height: 320px;
+  border-radius: 2px;
+  margin: 10px;
+  border: #ffee58 2px solid;
+}
+
+.character-wrapper {
+  display: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  height: 30px;
+  padding: 5px 10px;
+  border: 1px solid #4f1605;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background: linear-gradient(to bottom, #f6e6b4 0%, #ea8100 100%);
+  color: #4f1605;
+  letter-spacing: 0.05rem;
+}
+.character-wrapper.expand {
+  height: 280px;
+}
+.character-wrapper .container {
+  position: relative;
+  height: 29px;
+}
+.character-wrapper .container .name {
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.character-wrapper .flex {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.character-wrapper .flex.hidden {
+  display: none;
+}
+.character-wrapper .flex .row {
+  display: flex;
+  justify-content: space-around;
+  height: 80%;
+  width: 100%;
+  padding: 10px;
+}
+.character-wrapper .flex .row .image {
+  visibility: visible;
+  width: 200px;
+  background-image: url("../images/placeholder.jpg") no-repeat center center/cover;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+.character-wrapper .flex .row .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 90%;
+  margin-top: 20px;
+}
+.character-wrapper .flex .row .info p {
+  margin: 8px auto;
+  font-size: 1.1rem;
+}
+
+.character-page {
+  display: flex;
+  flex-direction: column;
+  max-width: 1480px;
+}
+.character-page h1 {
+  font-family: "STARJEDI";
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 10px auto;
+  color: black;
+  text-shadow: -1px -1px 0 #ffee58, 1px -1px 0 #ffee58, -1px 1px 0 #ffee58, 1px 1px 0 #ffee58;
+}
+.character-page .characters-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.MuiCard-root {
+  box-sizing: border-box;
+  width: 250px;
+  margin: 10px;
+  height: 370px;
+}
+.MuiCard-root.MuiPaper-root {
+  color: #ffe81f;
+  border: 3px solid #ffe81f;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png);
+}
+.MuiCard-root .MuiCardMedia-root {
+  max-height: 100%;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.MuiCard-root .MuiTypography-root {
+  font-family: "STARJEDI";
+  font-size: large;
+}
+
+.character-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1480px;
+  height: 100%;
+}
+.character-info-container .character-info-card {
+  display: flex;
+  width: 600px;
+}
+.character-info-container .character-info-card .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.character-info-container .character-info-card .flex .character-data {
+  margin: 0 auto;
+  color: #fff;
+}
+.character-info-container .character-info-card .flex .character-data h1 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+}
+.character-info-container .character-info-card .flex .character-data h3 {
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+}
+
+.films-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/under-construction.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+.relatedFilms-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  width: auto;
+  height: 200px;
+  border: 3px solid #ffe81f;
+  border-radius: 2px;
+}
+
+.planets-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/under-construction.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+.species-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/under-construction.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+.starships-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/under-construction.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+.vehicles-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/under-construction.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=main.css.map */

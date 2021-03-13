@@ -1,0 +1,22 @@
+.character-page {
+	display: flex;
+	flex-direction: column;
+	max-width: 1480px;
+
+	h1 {
+		font-family: $starwars-font;
+		font-size: 2.5rem;
+		font-weight: bold;
+		margin: 10px auto;
+		color: black;
+		text-shadow: -1px -1px 0 #ffee58, 1px -1px 0 #ffee58, -1px 1px 0 #ffee58,
+			1px 1px 0 #ffee58;
+	}
+	.characters-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		flex-wrap: wrap;
+	}
+}

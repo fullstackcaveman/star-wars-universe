@@ -1,0 +1,61 @@
+// sass --watch src/scss/main.scss:src/styles/main.css
+@import 'reset';
+
+@import 'variables';
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: $primary-font;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+	text-align: center;
+
+	#root {
+		box-sizing: border-box;
+	}
+
+	.App {
+		font-size: 62.5%;
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		box-sizing: border-box;
+		max-height: 100%;
+	}
+}
+
+@import 'elements';
+@import 'pagination';
+@import 'twinkling';
+
+@import 'home';
+
+// Character Styles
+@import 'character';
+@import 'characters';
+@import 'character-card';
+@import 'character-info';
+
+// Films styles
+@import 'films';
+
+// Planets styles
+@import 'planets';
+
+// Species styles
+@import 'species';
+
+// Starship styles
+@import 'starships';
+
+// Vehicle styles
+@import 'vehicles';

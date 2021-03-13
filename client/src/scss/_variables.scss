@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'STARJEDI';
+	src: local('STARJEDI'), url('../fonts/STARJEDI.TTF') format('truetype');
+	font-weight: normal;
+}
+
+// Fonts
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Impact', sans-serif;
+$starwars-font: 'STARJEDI';
+
+// Colors
+$primary-font-color: #4f1605;
+$color-white: #fff;
+$starwars-yellow: #ffe81f;
+
+// Background Animation
+$background-animation-time: 50s;
+$background-image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png';
+$background-twinkle: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png';
