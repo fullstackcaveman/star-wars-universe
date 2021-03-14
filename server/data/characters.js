@@ -1,6 +1,5 @@
 export const characters = [
 	{
-		_id: '1',
 		name: 'Luke Skywalker',
 		height: 1.72,
 		mass: 73,
@@ -39,7 +38,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '2',
 		name: 'C-3PO',
 		height: 1.71,
 		mass: 75,
@@ -82,7 +80,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '3',
 		name: 'R2-D2',
 		height: 1.09,
 		mass: 32,
@@ -132,7 +129,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '4',
 		name: 'Darth Vader',
 		height: 2.03,
 		mass: 120,
@@ -170,7 +166,6 @@ export const characters = [
 		],
 	},
 	{
-		_id: '5',
 		name: 'Leia Organa',
 		height: 1.5,
 		mass: 51,
@@ -204,7 +199,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '6',
 		name: 'Owen Lars',
 		height: 1.7,
 		mass: 120,
@@ -224,7 +218,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '7',
 		name: 'Beru Whitesun lars',
 		height: 1.65,
 		mass: 75,
@@ -244,7 +237,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '8',
 		name: 'R5-D4',
 		height: 0.97,
 		mass: 32,
@@ -265,7 +257,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '9',
 		name: 'Biggs Darklighter',
 		height: 1.83,
 		mass: 84,
@@ -291,7 +282,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '10',
 		name: 'Obi-Wan Kenobi',
 		height: 1.82,
 		mass: 81,
@@ -319,7 +309,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '11',
 		name: 'Anakin Skywalker',
 		height: 2.03,
 		mass: 120,
@@ -357,7 +346,6 @@ export const characters = [
 		],
 	},
 	{
-		_id: '12',
 		name: 'Wilhuff Tarkin',
 		height: 1.82,
 		gender: 'male',
@@ -389,7 +377,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '13',
 		name: 'Chewbacca',
 		height: 2.28,
 		mass: 112,
@@ -416,7 +403,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '14',
 		name: 'Han Solo',
 		height: 1.8,
 		mass: 80,
@@ -449,7 +435,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '15',
 		name: 'Greedo',
 		height: 1.74,
 		mass: 74,
@@ -468,7 +453,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '16',
 		name: 'Jabba Desilijic Tiure',
 		height: 3.9,
 		mass: 1358,
@@ -496,7 +480,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '18',
 		name: 'Wedge Antilles',
 		height: 1.7,
 		mass: 77,
@@ -523,7 +506,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '19',
 		name: 'Jek Tono Porkins',
 		height: 1.8,
 		mass: 110,
@@ -547,7 +529,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '20',
 		name: 'Yoda',
 		height: 0.66,
 		mass: 13,
@@ -582,7 +563,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '21',
 		name: 'Palpatine',
 		height: 1.78,
 		mass: 75,
@@ -631,7 +611,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '22',
 		name: 'Boba Fett',
 		height: 1.83,
 		mass: 78,
@@ -654,7 +633,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '23',
 		name: 'IG-88',
 		height: 1.96,
 		mass: 140,
@@ -696,7 +674,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '24',
 		name: 'Bossk',
 		height: 1.9,
 		mass: 113,
@@ -717,7 +694,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '25',
 		name: 'Lando Calrissian',
 		height: 1.77,
 		mass: 79,
@@ -744,7 +720,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '26',
 		name: 'Lobot',
 		height: 1.75,
 		mass: 79,
@@ -768,7 +743,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '27',
 		name: 'Ackbar',
 		height: 1.8,
 		mass: 83,
@@ -801,7 +775,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '28',
 		name: 'Mon Mothma',
 		height: 1.73,
 		gender: 'female',
@@ -827,7 +800,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '29',
 		name: 'Arvel Crynyd',
 		gender: 'male',
 		wiki: 'http://starwars.wikia.com/wiki/Arvel_Crynyd',
@@ -843,7 +815,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '30',
 		name: 'Wicket Systri Warrick',
 		height: 0.8,
 		mass: 20,
@@ -861,7 +832,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '31',
 		name: 'Nien Nunb',
 		height: 1.6,
 		mass: 68,
@@ -884,7 +854,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '32',
 		name: 'Qui-Gon Jinn',
 		height: 1.93,
 		mass: 89,
@@ -910,7 +879,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '33',
 		name: 'Nute Gunray',
 		height: 1.91,
 		mass: 90,
@@ -932,7 +900,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '34',
 		name: 'Finis Valorum',
 		height: 1.7,
 		gender: 'male',
@@ -949,7 +916,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '35',
 		name: 'Padmé Am_idala',
 		height: 1.65,
 		mass: 45,
@@ -979,7 +945,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '36',
 		name: 'Jar Jar Binks',
 		height: 1.96,
 		mass: 66,
@@ -1003,7 +968,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '37',
 		name: 'Roos Tarpals',
 		height: 2.24,
 		mass: 82,
@@ -1021,7 +985,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '38',
 		name: 'Rugor Nass',
 		height: 2.06,
 		gender: 'male',
@@ -1036,7 +999,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '39',
 		name: 'Ric Olié',
 		height: 1.83,
 		gender: 'male',
@@ -1056,7 +1018,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '40',
 		name: 'Watto',
 		height: 1.37,
 		gender: 'male',
@@ -1072,7 +1033,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '41',
 		name: 'Sebulba',
 		height: 1.12,
 		mass: 40,
@@ -1088,7 +1048,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '42',
 		name: 'Quarsh Panaka',
 		height: 1.83,
 		gender: 'male',
@@ -1113,7 +1072,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '43',
 		name: 'Shmi Skywalker',
 		height: 1.63,
 		gender: 'female',
@@ -1132,7 +1090,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '44',
 		name: 'Darth Maul',
 		height: 1.75,
 		mass: 80,
@@ -1160,7 +1117,6 @@ export const characters = [
 		formerAffiliations: ['Trade Federation'],
 	},
 	{
-		_id: '45',
 		name: 'Bib Fortuna',
 		height: 2,
 		gender: 'male',
@@ -1177,7 +1133,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '46',
 		name: 'Ayla Secura',
 		height: 1.7,
 		mass: 55,
@@ -1201,7 +1156,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '47',
 		name: 'Ratts Tyerell',
 		height: 0.79,
 		mass: 15,
@@ -1219,7 +1173,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '48',
 		name: 'Dud Bolt',
 		height: 0.94,
 		mass: 45,
@@ -1235,7 +1188,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '49',
 		name: 'Gasgano',
 		height: 1.22,
 		gender: 'male',
@@ -1250,7 +1202,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '50',
 		name: 'Ben Quadinaros',
 		height: 1.63,
 		mass: 65,
@@ -1266,7 +1217,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '51',
 		name: 'Mace Windu',
 		height: 1.92,
 		mass: 84,
@@ -1295,7 +1245,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '52',
 		name: 'Ki-Adi-Mundi',
 		height: 1.98,
 		mass: 82,
@@ -1321,7 +1270,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '53',
 		name: 'Kit Fisto',
 		height: 1.96,
 		mass: 87,
@@ -1346,7 +1294,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '54',
 		name: 'Eeth Koth',
 		height: 1.71,
 		gender: 'male',
@@ -1367,7 +1314,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '55',
 		name: 'Adi Gallia',
 		height: 1.84,
 		mass: 50,
@@ -1391,7 +1337,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '56',
 		name: 'Saesee Tiin',
 		height: 1.93,
 		gender: 'male',
@@ -1414,7 +1359,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '57',
 		name: 'Yarael Poof',
 		height: 2.64,
 		gender: 'male',
@@ -1430,7 +1374,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '58',
 		name: 'Plo Koon',
 		height: 1.88,
 		mass: 80,
@@ -1455,7 +1398,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '59',
 		name: 'Mas Amedda',
 		height: 1.96,
 		gender: 'male',
@@ -1478,7 +1420,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '60',
 		name: 'Gregar Typho',
 		height: 1.85,
 		mass: 85,
@@ -1499,7 +1440,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '61',
 		name: 'Cordé',
 		height: 1.57,
 		gender: 'female',
@@ -1521,7 +1461,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '62',
 		name: 'Cliegg Lars',
 		height: 1.83,
 		gender: 'male',
@@ -1539,7 +1478,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '63',
 		name: 'Poggle the Lesser',
 		height: 1.75,
 		mass: 80,
@@ -1564,7 +1502,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '64',
 		name: 'Luminara Unduli',
 		height: 1.76,
 		mass: 56.2,
@@ -1589,7 +1526,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '65',
 		name: 'Barriss Offee',
 		height: 1.66,
 		mass: 50,
@@ -1613,7 +1549,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '66',
 		name: 'Dormé',
 		height: 1.65,
 		gender: 'female',
@@ -1633,7 +1568,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '67',
 		name: 'Dooku',
 		height: 1.93,
 		mass: 86,
@@ -1667,7 +1601,6 @@ export const characters = [
 		formerAffiliations: ['Jedi Order', 'Galactic Republic'],
 	},
 	{
-		_id: '68',
 		name: 'Bail Prestor Organa',
 		height: 1.91,
 		gender: 'male',
@@ -1704,7 +1637,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '69',
 		name: 'Jango Fett',
 		height: 1.83,
 		mass: 79,
@@ -1724,7 +1656,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '70',
 		name: 'Zam Wesell',
 		height: 1.68,
 		mass: 55,
@@ -1743,7 +1674,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '71',
 		name: 'Dexter Jettster',
 		height: 1.88,
 		mass: 102,
@@ -1760,7 +1690,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '72',
 		name: 'Lama Su',
 		height: 2.29,
 		mass: 88,
@@ -1776,7 +1705,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '73',
 		name: 'Taun We',
 		height: 2.13,
 		gender: 'female',
@@ -1791,7 +1719,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '74',
 		name: 'Jocasta Nu',
 		height: 1.69,
 		gender: 'female',
@@ -1809,7 +1736,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '75',
 		name: 'R4-P17',
 		height: 1.09,
 		gender: 'female',
@@ -1830,7 +1756,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '76',
 		name: 'Wat Tambor',
 		height: 1.98,
 		mass: 48,
@@ -1853,7 +1778,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '77',
 		name: 'San Hill',
 		height: 1.91,
 		gender: 'male',
@@ -1875,7 +1799,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '78',
 		name: 'Shaak Ti',
 		height: 1.87,
 		mass: 57,
@@ -1900,7 +1823,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '79',
 		name: 'Grievous',
 		height: 2.16,
 		mass: 159,
@@ -1924,7 +1846,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '80',
 		name: 'Tarfful',
 		height: 2.32,
 		mass: 136,
@@ -1941,7 +1862,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '81',
 		name: 'Raymus Antilles',
 		height: 1.88,
 		mass: 79,
@@ -1964,7 +1884,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '82',
 		name: 'Sly Moore',
 		height: 1.78,
 		mass: 48,
@@ -1984,7 +1903,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '83',
 		name: 'Tion Medon',
 		height: 2.06,
 		mass: 80,
@@ -2000,7 +1918,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '84',
 		name: 'Finn',
 		height: 1.78,
 		mass: 73,
@@ -2017,7 +1934,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '85',
 		name: 'Rey',
 		height: 1.7,
 		mass: 54,
@@ -2036,7 +1952,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '86',
 		name: 'Poe Dameron',
 		height: 1.72,
 		mass: 80,
@@ -2063,7 +1978,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '87',
 		name: 'BB8',
 		height: 0.67,
 		mass: 18,
@@ -2092,7 +2006,6 @@ export const characters = [
 		formerAffiliations: [],
 	},
 	{
-		_id: '88',
 		name: 'Captain Phasma',
 		height: 2.0,
 		mass: 76,

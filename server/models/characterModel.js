@@ -2,36 +2,32 @@ import mongoose from 'mongoose';
 
 const characterSchema = mongoose.Schema(
 	{
-		_id: {
-			type: String,
-			unique: true,
-		},
 		name: {
 			type: String,
-			required: true,
+			// required: true,
 			unique: true,
 		},
 		height: {
-			type: Number,
-			required: true,
+			type: String,
+			// required: true,
 		},
 		mass: {
-			type: Number,
-			required: true,
+			type: String,
+			// required: true,
 		},
 		gender: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		homeworld: {
-			type: String,
-			required: true,
+			type: Array,
+			// required: true,
 		},
 		wiki: String,
 		image: String,
 		born: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		bornLocation: {
 			type: String,
@@ -39,24 +35,24 @@ const characterSchema = mongoose.Schema(
 		},
 		died: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		diedLocation: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		species: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		hairColor: String,
 		eyeColor: String,
 		skinColor: String,
-		cybernetics: String,
-		affiliations: [],
-		masters: [],
-		apprentices: [],
-		formerAffiliations: [],
+		cybernetics: Array,
+		affiliations: Array,
+		masters: Array,
+		apprentices: Array,
+		formerAffiliations: Array,
 	},
 	{
 		timestamps: true,
