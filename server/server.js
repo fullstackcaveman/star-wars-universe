@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-import { characters } from './data/characters.js';
 import colors from 'colors';
+
+import characterRoutes from './routes/characterRoutes.js';
 // import path from 'path';
 // import morgan from 'morgan';
 // import { errorHandler, notFound } from './middleware/errorMiddleware.js';
@@ -21,16 +22,7 @@ app.get('/', (req, res) => {
 	res.send('API is running...');
 });
 
-app.get('/api/characters', (req, res) => {
-	res.json(characters);
-});
-
-app.get('/api/characters/:id', (req, res) => {
-	const character = characters.find(
-		(character) => character._id === req.params.id
-	);
-	res.json(character);
-});
+app.use('/api/characters', characterRoutes);
 
 const PORT = process.env.PORT || 5000;
 
