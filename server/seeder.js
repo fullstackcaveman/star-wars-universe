@@ -23,7 +23,7 @@ connectDB();
 
 const importData = async () => {
 	try {
-		await User.deleteMany();
+		// await User.deleteMany();
 		// await Character.deleteMany();
 		// await Film.deleteMany();
 		// await Planet.deleteMany();
@@ -31,7 +31,7 @@ const importData = async () => {
 		// await Starship.deleteMany();
 		// await Vehicle.deleteMany();
 		console.log('Characters Deleted');
-		await User.insertMany(users);
+		// await User.insertMany(users);
 		// await Character.insertMany(characters);
 		// await Film.insertMany(films);
 		// await Planet.insertMany(planets);
