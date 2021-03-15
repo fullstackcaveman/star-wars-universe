@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import Background from '../Background';
-// import Loader from '../Loader';
+import Loader from '../Loader';
+import Message from '../Message';
 import Characters from './Characters';
 import Pagination from '../Pagination';
 
+import { listCharacters } from '../../actions/characterActions';
+
 const CharacterPage = () => {
-	const [characters, setCharacters] = useState([]);
-	const [loading] = useState(false);
+	const dispatch = useDispatch();
+
+	const characterList = useSelector((state) => state.characterList);
+	const { loading, error, characters } = characterList;
+
 	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set characters per page
 	const [charactersPerPage] = useState(10);
@@ -15,17 +21,10 @@ const CharacterPage = () => {
 	const pages = document.querySelectorAll('.page-item');
 
 	useEffect(() => {
-		const fetchCharacters = async () => {
-			const { data } = await axios
-				.get('/api/characters')
-				.catch((err) => console.log(err));
+		dispatch(listCharacters());
+	}, [dispatch]);
 
-			setCharacters(data);
-		};
-
-		fetchCharacters();
-	}, []);
-
+	// Fix this - shouldn't run if character fetch has an error
 	// Sets structure of pagination
 	const indexOfLastCharacter = currentPage * charactersPerPage;
 	const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
@@ -33,6 +32,7 @@ const CharacterPage = () => {
 		indexOfFirstCharacter,
 		indexOfLastCharacter
 	);
+	// ######################^^^^^^^^^^^^########################
 
 	// Controls which characters to display and button styling
 	const paginate = (pageNumber) => {
@@ -67,14 +67,22 @@ const CharacterPage = () => {
 	return (
 		<div className='character-page'>
 			<h1>Characters</h1>
-			<Characters characters={currentCharacters} loading={loading} />
-			<Pagination
-				charactersPerPage={charactersPerPage}
-				totalCharacters={characters.length}
-				paginate={paginate}
-				prev={prevPage}
-				next={nextPage}
-			/>
+			{loading ? (
+				<Loader />
+			) : error ? (
+				<Message severity='error' message={error} />
+			) : (
+				<>
+					<Characters characters={currentCharacters} loading={loading} />
+					<Pagination
+						charactersPerPage={charactersPerPage}
+						totalCharacters={characters.length}
+						paginate={paginate}
+						prev={prevPage}
+						next={nextPage}
+					/>
+				</>
+			)}
 
 			<Background />
 		</div>
