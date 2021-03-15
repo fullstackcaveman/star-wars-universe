@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Background from '../Background';
 import Loader from '../Loader';
+import Message from '../Message';
 import Characters from './Characters';
 import Pagination from '../Pagination';
 
@@ -23,6 +24,7 @@ const CharacterPage = () => {
 		dispatch(listCharacters());
 	}, [dispatch]);
 
+	// Fix this - shouldn't run if character fetch has an error
 	// Sets structure of pagination
 	const indexOfLastCharacter = currentPage * charactersPerPage;
 	const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
@@ -30,6 +32,7 @@ const CharacterPage = () => {
 		indexOfFirstCharacter,
 		indexOfLastCharacter
 	);
+	// ######################^^^^^^^^^^^^########################
 
 	// Controls which characters to display and button styling
 	const paginate = (pageNumber) => {
@@ -67,7 +70,7 @@ const CharacterPage = () => {
 			{loading ? (
 				<Loader />
 			) : error ? (
-				<h3>{error}</h3>
+				<Message severity='error' message={error} />
 			) : (
 				<>
 					<Characters characters={currentCharacters} loading={loading} />
