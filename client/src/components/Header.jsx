@@ -8,6 +8,9 @@ const Header = () => {
 				<Link to='/'>
 					<button>Home</button>
 				</Link>
+				<Link to='/users/login'>
+					<button>Login</button>
+				</Link>
 			</div>
 		</header>
 	);

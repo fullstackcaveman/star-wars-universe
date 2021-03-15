@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Planets from './components/planets/Planets';
 import Species from './components/species/Species';
 import Starships from './components/starships/Starships';
+import UserLoginForm from './components/UserLoginForm';
 import Vehicles from './components/vehicles/Vehicles';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 			<Header />
 			<HeroSection />
 			<Switch>
+				<Route path='/users/login' component={UserLoginForm} />
 				<Route exact path='/characters' component={CharacterPage} />
 				<Route path='/characters/:id' component={CharacterInfo} />
 				<Route exact path='/films' component={Films} />
