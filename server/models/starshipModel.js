@@ -7,6 +7,11 @@ const starshipSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		pretty_url: {
+			type: String,
+			// required: true,
+			unique: true,
+		},
 		model: String,
 		maunfacturer: String,
 		cost_in_credits: String,

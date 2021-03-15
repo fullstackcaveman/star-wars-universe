@@ -7,6 +7,11 @@ const vehicleSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		pretty_url: {
+			type: String,
+			// required: true,
+			unique: true,
+		},
 		model: String,
 		maunfacturer: Array,
 		cost_in_credits: String,

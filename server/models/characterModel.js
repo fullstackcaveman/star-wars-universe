@@ -7,6 +7,11 @@ const characterSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		pretty_url: {
+			type: String,
+			// required: true,
+			unique: true,
+		},
 		height: {
 			type: String,
 			// required: true,
