@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import Background from '../Background';
-// import Loader from '../Loader';
+import Loader from '../Loader';
 import Characters from './Characters';
 import Pagination from '../Pagination';
 
+import { listCharacters } from '../../actions/characterActions';
+
 const CharacterPage = () => {
-	const [characters, setCharacters] = useState([]);
-	const [loading] = useState(false);
+	const dispatch = useDispatch();
+
+	const characterList = useSelector((state) => state.characterList);
+	const { loading, error, characters } = characterList;
+
 	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set characters per page
 	const [charactersPerPage] = useState(10);
@@ -15,16 +20,8 @@ const CharacterPage = () => {
 	const pages = document.querySelectorAll('.page-item');
 
 	useEffect(() => {
-		const fetchCharacters = async () => {
-			const { data } = await axios
-				.get('/api/characters')
-				.catch((err) => console.log(err));
-
-			setCharacters(data);
-		};
-
-		fetchCharacters();
-	}, []);
+		dispatch(listCharacters());
+	}, [dispatch]);
 
 	// Sets structure of pagination
 	const indexOfLastCharacter = currentPage * charactersPerPage;
@@ -67,14 +64,22 @@ const CharacterPage = () => {
 	return (
 		<div className='character-page'>
 			<h1>Characters</h1>
-			<Characters characters={currentCharacters} loading={loading} />
-			<Pagination
-				charactersPerPage={charactersPerPage}
-				totalCharacters={characters.length}
-				paginate={paginate}
-				prev={prevPage}
-				next={nextPage}
-			/>
+			{loading ? (
+				<Loader />
+			) : error ? (
+				<h3>{error}</h3>
+			) : (
+				<>
+					<Characters characters={currentCharacters} loading={loading} />
+					<Pagination
+						charactersPerPage={charactersPerPage}
+						totalCharacters={characters.length}
+						paginate={paginate}
+						prev={prevPage}
+						next={nextPage}
+					/>
+				</>
+			)}
 
 			<Background />
 		</div>
