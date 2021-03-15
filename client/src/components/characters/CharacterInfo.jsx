@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AKABAB_BASE_URL, SWAPI_BASE_URL } from '../../constants';
 import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
 // import Loader from '../Loader';
 import Background from '../Background';
@@ -8,7 +7,6 @@ import RelatedFilms from '../films/RelatedFilms';
 
 const CharacterInfo = ({ match }) => {
 	const [character, setCharacter] = useState({});
-	const [swapiCharacter, setSwapiCharacter] = useState({});
 	const {
 		name,
 		species,
@@ -23,54 +21,17 @@ const CharacterInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${character.name}`;
 
-	// const [capSpecies, setCapSpecies] = useState();
-	// const [capBorn, setCapBorn] = useState();
-
-	const getCharacter = () => {
-		// setLoading(true);
-		axios
-			.get(`${AKABAB_BASE_URL}/id/${match.params.id}.json`)
-			.then((res) => {
-				const data = res.data;
-				console.log(data);
-				setCharacter(data);
-				// setCapSpecies(data.species);
-				// setCapBorn(data.born);
-				// setLoading(false);
-				console.log(data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	};
-
-	const getSwapi = () => {
-		axios
-			.get(`${SWAPI_BASE_URL}/people/${match.params.id}`)
-			.then((res) => {
-				const character = res.data;
-				setSwapiCharacter(character);
-			})
-			.catch((err) => console.log(err));
-	};
-
 	useEffect(() => {
-		getCharacter();
-		getSwapi();
-	}, []);
+		const fetchCharacter = async () => {
+			const { data } = await axios
+				.get(`/api/characters/${match.params.id}`)
+				.catch((err) => console.log(err));
 
-	console.log(swapiCharacter);
+			setCharacter(data);
+		};
 
-	// useEffect(() => {
-	// 	const toCapital = (value) => {
-	// 		const valueToUse = value.charAt(0).toUpperCase() + value.slice(1);
-	// 		if (value === 'species') {
-	// 			setCapSpecies(valueToUse);
-	// 		} else if (value === 'born') {
-	// 			setCapBorn(valueToUse);
-	// 		}
-	// 	};
-	// }, []);
+		fetchCharacter();
+	}, [match]);
 
 	return (
 		<>
