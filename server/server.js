@@ -5,6 +5,7 @@ import colors from 'colors';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 import characterRoutes from './routes/characterRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 // import path from 'path';
 // import morgan from 'morgan';
 
@@ -14,11 +15,14 @@ connectDB();
 
 const app = express();
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
 	res.send('API is running...');
 });
 
 app.use('/api/characters', characterRoutes);
+app.use('/api/users', userRoutes);
 
 app.use(notFound);
 
