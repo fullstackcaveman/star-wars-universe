@@ -26,7 +26,8 @@ router.get(
 		if (character) {
 			res.json(character);
 		} else {
-			res.status(404).json({ message: 'Character not found' });
+			res.status(404);
+			throw new Error('Character not found');
 		}
 	})
 );
