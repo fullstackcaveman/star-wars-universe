@@ -7,6 +7,11 @@ const planetSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		pretty_url: {
+			type: String,
+			// required: true,
+			unique: true,
+		},
 		rotation_period: String,
 		orbital_period: String,
 		diameter: String,

@@ -7,6 +7,11 @@ const speciesSchema = mongoose.Schema(
 			unique: true,
 			required: true,
 		},
+		pretty_url: {
+			type: String,
+			// required: true,
+			unique: true,
+		},
 		classification: String,
 		designation: String,
 		average_height: String,

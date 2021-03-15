@@ -7,6 +7,11 @@ const filmSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		pretty_url: {
+			type: String,
+			// required: true,
+			unique: true,
+		},
 		episode_id: String,
 		opening_crawl: String,
 		director: String,
