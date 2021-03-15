@@ -1,8 +1,8 @@
 import express from 'express';
 const router = express.Router();
 import {
-	getCharacterById,
 	getCharacters,
+	getCharacterById,
 } from '../controllers/characterController.js';
 
 router.route('/').get(getCharacters);
