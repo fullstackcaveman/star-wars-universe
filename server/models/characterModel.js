@@ -9,24 +9,24 @@ const characterSchema = mongoose.Schema(
 		},
 		pretty_url: {
 			type: String,
-			// required: true,
+			required: true,
 			unique: true,
 		},
 		height: {
 			type: String,
-			// required: true,
+			required: true,
 		},
 		mass: {
 			type: String,
-			// required: true,
+			required: true,
 		},
 		gender: {
 			type: String,
-			// required: true,
+			required: true,
 		},
 		homeworld: {
 			type: Array,
-			// required: true,
+			required: true,
 		},
 		wiki: String,
 		image: String,
@@ -36,7 +36,7 @@ const characterSchema = mongoose.Schema(
 		},
 		bornLocation: {
 			type: String,
-			require: true,
+			// require: true,
 		},
 		died: {
 			type: String,
@@ -48,7 +48,7 @@ const characterSchema = mongoose.Schema(
 		},
 		species: {
 			type: String,
-			// required: true,
+			required: true,
 		},
 		hairColor: String,
 		eyeColor: String,
