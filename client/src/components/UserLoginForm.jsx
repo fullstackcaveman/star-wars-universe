@@ -68,12 +68,6 @@ const UserLoginForm = ({ location, history }) => {
 		cursor: 'pointer',
 	};
 
-	const cancelBtn = {
-		fontSize: 12,
-		color: 'lightgrey',
-		marginTop: 5,
-		cursor: 'pointer',
-	};
 	return (
 		<>
 			<Grid className='add-user'>
@@ -87,19 +81,6 @@ const UserLoginForm = ({ location, history }) => {
 					{error && <Message severity='error'>{error}</Message>}
 					{loading && <Loader />}
 					<form onSubmit={submitHandler}>
-						{/* <TextField
-							style={inputStyle}
-							label='User Name'
-							placeholder='Enter User Name'
-							variant='outlined'
-							size='small'
-							fullWidth
-							required
-							name='username'
-							// value={}
-							// onChange={onChange}
-						/> */}
-
 						<TextField
 							style={inputStyle}
 							label='Email'
@@ -122,6 +103,7 @@ const UserLoginForm = ({ location, history }) => {
 							fullWidth
 							required
 							name='password'
+							type='password'
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
