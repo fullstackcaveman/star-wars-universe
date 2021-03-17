@@ -45,7 +45,7 @@ const CharacterInfo = ({ match }) => {
 							<div className='flex'>
 								<CardMedia
 									component='img'
-									alt='character.name'
+									alt={character.name}
 									image={character.image}
 								/>
 								<CardContent className='character-data'>

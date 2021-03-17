@@ -18,6 +18,9 @@ header {
 	}
 
 	.nav-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		padding: 0 20px;
 	}
 }
@@ -97,7 +100,33 @@ footer {
 	.footer-top {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		text-align: center;
 		font-size: 0.8rem;
+
+		a {
+			color: white;
+
+			&:visited {
+				color: white;
+			}
+		}
+
+		.github-icon,
+		.linkedin-icon {
+			height: 15px;
+			color: white;
+		}
+	}
+
+	.footer-bottom {
+		a {
+			color: white;
+
+			&:visited {
+				color: white;
+			}
+		}
 	}
 
 	.footer-top,

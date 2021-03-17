@@ -1,20 +1,19 @@
-// import GitHubIcon from '@material-ui/icons/GitHub';
-// import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const Footer = () => {
 	return (
 		<footer>
 			<div className='footer-container'>
 				<div className='footer-top'>
-					{/* <h2>
+					<h2>
 						FullStackCaveman |{' '}
 						<a
 							href='https://github.com/fullstackcaveman'
 							target='_blank'
 							rel='noreferrer'
 						>
-							<GitHubIcon />
-							GitHub
+							<GitHubIcon className='github-icon' /> GitHub
 						</a>{' '}
 						|{' '}
 						<a
@@ -23,10 +22,10 @@ const Footer = () => {
 							rel='noreferrer'
 						>
 							{' '}
-							<LinkedInIcon /> LinkedIn{' '}
+							<LinkedInIcon className='linkedin-icon' /> LinkedIn
 						</a>
 					</h2>
-					<h2>&copy;FullStackCaveman 2021</h2> */}
+					<h2>&copy;FullStackCaveman 2021</h2>
 				</div>
 				<div className='footer-bottom'>
 					<h2>
