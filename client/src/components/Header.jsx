@@ -1,18 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Avatar } from '@material-ui/core';
+import { Link, useHistory } from 'react-router-dom';
+import { Avatar, Button, Divider, Typography } from '@material-ui/core';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { logout } from '../actions/userActions';
 
 const useStyles = makeStyles({
 	list: {
@@ -24,6 +20,8 @@ const useStyles = makeStyles({
 });
 
 const Header = () => {
+	const dispatch = useDispatch();
+
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
@@ -40,6 +38,20 @@ const Header = () => {
 		setOpen(openState);
 	};
 
+	const history = useHistory();
+
+	const handleClick = (route) => {
+		if (route === 'home') {
+			history.push('/');
+		} else if (route === 'profile') {
+			history.push('/users/profile');
+		}
+	};
+
+	const logoutHandler = () => {
+		dispatch(logout());
+	};
+
 	const list = () => (
 		<div
 			className={clsx(classes.list, {
@@ -50,25 +62,42 @@ const Header = () => {
 			onKeyDown={toggleDrawer(false)}
 		>
 			<List>
-				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
-			</List>
-			<Divider />
-			<List>
-				{['All mail', 'Trash', 'Spam'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
+				<ListItem>
+					<Button
+						fullWidth
+						variant='contained'
+						onClick={() => handleClick('home')}
+					>
+						<Typography>Home</Typography>
+					</Button>
+				</ListItem>
+
+				<ListItem>
+					<Button
+						fullWidth
+						variant='contained'
+						onClick={() => handleClick('profile')}
+					>
+						<Typography>Profile</Typography>
+					</Button>
+				</ListItem>
+
+				{/* <ListItem>
+					<Button
+						fullWidth
+						variant='contained'
+						onClick={() => handleClick('home')}
+					>
+						<Typography>Log In</Typography>
+					</Button>
+				</ListItem> */}
+				<Divider />
+
+				<ListItem>
+					<Button fullWidth variant='contained' onClick={logoutHandler}>
+						<Typography>Log Out</Typography>
+					</Button>
+				</ListItem>
 			</List>
 		</div>
 	);
@@ -77,9 +106,11 @@ const Header = () => {
 		<header id='header' className='header'>
 			<div className='header-left'>{/* <h1>HEADER</h1> */}</div>
 			<div className='nav-btn'>
-				<Link to='/'>
-					<button>Home</button>
-				</Link>
+				{/* <div>
+					<Button variant='contained' size='small' onClick={toggleDrawer(true)}>
+						Menu
+					</Button>
+				</div> */}
 				{userInfo ? (
 					<div key={anchor}>
 						<div>
@@ -96,7 +127,9 @@ const Header = () => {
 					</div>
 				) : (
 					<Link to='/users/login'>
-						<button>Login</button>
+						<Button variant='contained' size='small'>
+							Login
+						</Button>
 					</Link>
 				)}
 			</div>

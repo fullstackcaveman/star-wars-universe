@@ -180,6 +180,9 @@ header .header-left {
   padding: 0 20px;
 }
 header .nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0 20px;
 }
 
@@ -249,7 +252,26 @@ footer .footer-container {
 footer .footer-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
   font-size: 0.8rem;
+}
+footer .footer-top a {
+  color: white;
+}
+footer .footer-top a:visited {
+  color: white;
+}
+footer .footer-top .github-icon,
+footer .footer-top .linkedin-icon {
+  height: 15px;
+  color: white;
+}
+footer .footer-bottom a {
+  color: white;
+}
+footer .footer-bottom a:visited {
+  color: white;
 }
 footer .footer-top,
 footer .footer-bottom {
