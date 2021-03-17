@@ -12,16 +12,19 @@ import {
 import Message from './Message';
 import Loader from './Loader';
 import Background from './Background';
-import { login } from '../actions/userActions';
+import { register } from '../actions/userActions';
 
-const UserLoginForm = ({ location, history }) => {
+const UserRegisterForm = ({ location, history }) => {
+	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [confirmPassword, setConfirmPassword] = useState('');
+	const [message, setMessage] = useState(null);
 
 	const dispatch = useDispatch();
 
-	const userLogin = useSelector((state) => state.userLogin);
-	const { loading, error, userInfo } = userLogin;
+	const userRegister = useSelector((state) => state.userRegister);
+	const { loading, error, userInfo } = userRegister;
 
 	const redirect = location.search ? location.search.split('=')[1] : '/';
 
@@ -33,10 +36,15 @@ const UserLoginForm = ({ location, history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		dispatch(login(email, password));
+		if (password !== confirmPassword) {
+			setMessage('Passwords do not match');
+		} else {
+			dispatch(register(name, email, password));
+		}
 	};
 
 	const paperStyle = {
+		backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,
@@ -75,12 +83,26 @@ const UserLoginForm = ({ location, history }) => {
 					<Grid align='center'>
 						<Avatar style={avatarStyle} />
 						<Typography variant='h5' id='add-user-h2'>
-							Sign In
+							Sign Up
 						</Typography>
 					</Grid>
-					{error && <Message severity='error'>{error}</Message>}
+					{message && <Message severity='error' message={message} />}
+					{error && <Message severity='error' message={error} />}
 					{loading && <Loader />}
 					<form onSubmit={submitHandler}>
+						<TextField
+							style={inputStyle}
+							label='Name'
+							placeholder='Enter User Name'
+							variant='outlined'
+							size='small'
+							fullWidth
+							required
+							name='name'
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						/>
+
 						<TextField
 							style={inputStyle}
 							label='Email'
@@ -108,6 +130,20 @@ const UserLoginForm = ({ location, history }) => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
+						<TextField
+							style={inputStyle}
+							label='Confirm Password'
+							placeholder='Confirm Password'
+							variant='outlined'
+							size='small'
+							fullWidth
+							required
+							name='confirmPassword'
+							type='password'
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
+						/>
+
 						<Button
 							style={submitBtnStyle}
 							type='submit'
@@ -116,19 +152,17 @@ const UserLoginForm = ({ location, history }) => {
 							fullWidth
 							// disabled={disabled}
 						>
-							SIGN IN
+							Register
 						</Button>
 					</form>
 					<Grid align='center'>
 						<Link
 							to={
-								redirect
-									? `/users/register?redirect=${redirect}`
-									: '/users/register'
+								redirect ? `/users/login?redirect=${redirect}` : '/users/login'
 							}
 							style={newUserBtnStyle}
 						>
-							New User? Register
+							Have An Account? Login
 						</Link>
 					</Grid>
 				</Paper>
@@ -138,4 +172,4 @@ const UserLoginForm = ({ location, history }) => {
 	);
 };
 
-export default UserLoginForm;
+export default UserRegisterForm;
