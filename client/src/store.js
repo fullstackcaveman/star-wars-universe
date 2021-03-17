@@ -6,12 +6,13 @@ import {
 	chracterListReducer,
 	characterInfoReducer,
 } from './reducers/characterReducers';
-import { userLoginReducer } from './reducers/userReducers';
+import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
 
 const reducer = combineReducers({
 	characterList: chracterListReducer,
 	characterInfo: characterInfoReducer,
 	userLogin: userLoginReducer,
+	userRegister: userRegisterReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
