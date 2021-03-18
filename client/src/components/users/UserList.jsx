@@ -18,7 +18,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
-import { listUsers } from '../../actions/userActions';
+import { listUsers, deleteUser } from '../../actions/userActions';
 
 const UserList = ({ history }) => {
 	const dispatch = useDispatch();
@@ -29,16 +29,21 @@ const UserList = ({ history }) => {
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
+	const userDelete = useSelector((state) => state.userDelete);
+	const { success: successDelete } = userDelete;
+
 	useEffect(() => {
 		if (userInfo && userInfo.isAdmin) {
 			dispatch(listUsers());
 		} else {
 			history.push('/users/login');
 		}
-	}, [dispatch, history, userInfo]);
+	}, [dispatch, history, userInfo, successDelete]);
 
 	const deleteHandler = (id) => {
-		console.log(id);
+		if (window.confirm('Are you sure?')) {
+			dispatch(deleteUser(id));
+		}
 	};
 
 	return (
