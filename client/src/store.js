@@ -8,17 +8,19 @@ import {
 } from './reducers/characterReducers';
 import {
 	userDetailsReducer,
+	userListReducer,
 	userLoginReducer,
 	userRegisterReducer,
 	userUpdateProfileReducer,
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
-	characterList: chracterListReducer,
 	characterInfo: characterInfoReducer,
+	characterList: chracterListReducer,
+	userDetails: userDetailsReducer,
+	userList: userListReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
-	userDetails: userDetailsReducer,
 	userUpdateProfile: userUpdateProfileReducer,
 });
 

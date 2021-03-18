@@ -10,6 +10,7 @@ import Planets from './components/planets/Planets';
 import Species from './components/species/Species';
 import Starships from './components/starships/Starships';
 import UserLoginForm from './components/forms/UserLoginForm';
+import UserList from './components/users/UserList';
 import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
@@ -20,6 +21,7 @@ const App = () => {
 			<Header />
 			<HeroSection />
 			<Switch>
+				<Route path='/admin/userlist' component={UserList} />
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />
 				<Route path='/users/register' component={UserRegisterForm} />
