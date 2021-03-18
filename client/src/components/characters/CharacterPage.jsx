@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Background from '../Background';
-import Loader from '../Loader';
-import Message from '../Message';
+import Background from '../elements/Background';
+import Loader from '../elements/Loader';
+import Message from '../elements/Message';
 import Characters from './Characters';
-import Pagination from '../Pagination';
+import Pagination from '../elements/Pagination';
 
 import { listCharacters } from '../../actions/characterActions';
 

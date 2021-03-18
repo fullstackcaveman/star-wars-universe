@@ -9,10 +9,10 @@ import {
 	TextField,
 	Typography,
 } from '@material-ui/core';
-import Message from './Message';
-import Loader from './Loader';
-import Background from './Background';
-import { register } from '../actions/userActions';
+import Message from '../elements/Message';
+import Loader from '../elements/Loader';
+import Background from '../elements/Background';
+import { register } from '../../actions/userActions';
 
 const UserRegisterForm = ({ location, history }) => {
 	const [name, setName] = useState('');

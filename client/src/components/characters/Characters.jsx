@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Loader from '../Loader';
+import Loader from '../elements/Loader';
 import CharacterCard from './CharacterCard';
 
 const Characters = (props) => {
