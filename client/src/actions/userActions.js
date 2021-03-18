@@ -4,6 +4,7 @@ import {
 	USER_DETAILS_SUCCESS,
 	USER_LIST_FAIL,
 	USER_LIST_REQUEST,
+	USER_LIST_RESET,
 	USER_LIST_SUCCESS,
 	USER_LOGIN_FAIL,
 	USER_LOGIN_REQUEST,
@@ -56,6 +57,7 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
 	localStorage.removeItem('userInfo');
 	dispatch({ type: USER_LOGOUT });
+	dispatch({ type: USER_LIST_RESET });
 };
 
 export const register = (name, email, password) => async (dispatch) => {
