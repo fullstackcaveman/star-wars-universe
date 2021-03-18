@@ -11,7 +11,7 @@ import {
 import Message from './Message';
 import Loader from './Loader';
 import Background from './Background';
-import { getUserDetails } from '../actions/userActions';
+import { getUserDetails, updateUserProfile } from '../actions/userActions';
 
 const UserProfile = ({ location, history }) => {
 	const [name, setName] = useState('');
@@ -28,6 +28,9 @@ const UserProfile = ({ location, history }) => {
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
+	const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+	const { success } = userUpdateProfile;
+
 	useEffect(() => {
 		if (!userInfo) {
 			history.push('/users/login');
@@ -37,6 +40,8 @@ const UserProfile = ({ location, history }) => {
 			} else {
 				setName(user.name);
 				setEmail(user.email);
+				setPassword(user.password);
+				setConfirmPassword(user.confirmPassword);
 			}
 		}
 	}, [history, userInfo, dispatch, user]);
@@ -46,7 +51,7 @@ const UserProfile = ({ location, history }) => {
 		if (password !== confirmPassword) {
 			setMessage('Passwords do not match');
 		} else {
-			// Dispatch update profile
+			dispatch(updateUserProfile({ id: user._id, name, email, password }));
 		}
 	};
 
@@ -86,6 +91,7 @@ const UserProfile = ({ location, history }) => {
 					</Grid>
 					{message && <Message severity='error' message={message} />}
 					{error && <Message severity='error' message={error} />}
+					{success && <Message severity='info' message='Profile Updated' />}
 					{loading && <Loader />}
 					<form onSubmit={submitHandler}>
 						<TextField
@@ -95,7 +101,6 @@ const UserProfile = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='name'
 							value={name}
 							onChange={(e) => setName(e.target.value)}
@@ -108,7 +113,6 @@ const UserProfile = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='email'
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
@@ -121,7 +125,6 @@ const UserProfile = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='password'
 							type='password'
 							value={password}
@@ -135,7 +138,6 @@ const UserProfile = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='confirmPassword'
 							type='password'
 							value={confirmPassword}
