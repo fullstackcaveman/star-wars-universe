@@ -283,15 +283,7 @@ footer .footer-bottom {
 
 .add-user .MuiPaper-root {
   border: 2px solid #ffe81f;
-  background-color: transparent;
 }
-.add-user .MuiFormControl-root {
-  background-color: #ffee58;
-}
-.add-user .MuiTypography-root.MuiTypography-h5 {
-  color: #ffee58;
-}
-
 .pagination {
   display: flex;
   flex-direction: row;

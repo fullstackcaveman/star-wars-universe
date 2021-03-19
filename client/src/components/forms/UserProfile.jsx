@@ -56,7 +56,7 @@ const UserProfile = ({ location, history }) => {
 	};
 
 	const paperStyle = {
-		backgroundColor: 'black',
+		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,
@@ -102,7 +102,7 @@ const UserProfile = ({ location, history }) => {
 							size='small'
 							fullWidth
 							name='name'
-							value={name}
+							value={name || ''}
 							onChange={(e) => setName(e.target.value)}
 						/>
 
@@ -114,7 +114,7 @@ const UserProfile = ({ location, history }) => {
 							size='small'
 							fullWidth
 							name='email'
-							value={email}
+							value={email || ''}
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 
@@ -127,7 +127,7 @@ const UserProfile = ({ location, history }) => {
 							fullWidth
 							name='password'
 							type='password'
-							value={password}
+							value={password || ''}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
@@ -140,7 +140,7 @@ const UserProfile = ({ location, history }) => {
 							fullWidth
 							name='confirmPassword'
 							type='password'
-							value={confirmPassword}
+							value={confirmPassword || ''}
 							onChange={(e) => setConfirmPassword(e.target.value)}
 						/>
 

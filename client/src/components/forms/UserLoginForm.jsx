@@ -62,7 +62,7 @@ const UserLoginForm = ({ location, history }) => {
 	const newUserBtnStyle = {
 		backgroundColor: 'transparent',
 
-		color: '#ffee58',
+		color: 'grey',
 		fontFamily: 'Impact, sans-serif',
 		fontSize: '1rem',
 		cursor: 'pointer',

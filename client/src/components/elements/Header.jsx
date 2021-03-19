@@ -143,6 +143,15 @@ const Header = () => {
 		</div>
 	);
 
+	const avatarStyle = {
+		backgroundColor: '#ffee58',
+		marginBottom: 10,
+		color: 'black',
+		height: '30px',
+		width: '30px',
+		cursor: 'pointer',
+	};
+
 	return (
 		<header id='header' className='header'>
 			<div className='header-left'>{/* <h1>HEADER</h1> */}</div>
@@ -151,6 +160,7 @@ const Header = () => {
 					<div key={anchor}>
 						<div>
 							<Avatar
+								style={avatarStyle}
 								alt={userInfo.name}
 								src='../images/DarthVader.jpg'
 								id='user-avatar'

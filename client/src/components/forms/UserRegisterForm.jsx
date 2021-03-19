@@ -44,7 +44,7 @@ const UserRegisterForm = ({ location, history }) => {
 	};
 
 	const paperStyle = {
-		backgroundColor: 'black',
+		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,
@@ -70,7 +70,7 @@ const UserRegisterForm = ({ location, history }) => {
 	const newUserBtnStyle = {
 		backgroundColor: 'transparent',
 
-		color: '#ffee58',
+		color: 'grey',
 		fontFamily: 'Impact, sans-serif',
 		fontSize: '1rem',
 		cursor: 'pointer',

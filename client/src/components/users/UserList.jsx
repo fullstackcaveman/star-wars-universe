@@ -58,28 +58,27 @@ const UserList = ({ history }) => {
 					<Table size='small'>
 						<TableHead>
 							<TableRow>
-								<TableCell>ID</TableCell>
-								<TableCell>NAME</TableCell>
-								<TableCell>EMAIL</TableCell>
-								<TableCell>ADMIN</TableCell>
-								<TableCell></TableCell>
+								<TableCell align='center'>ID</TableCell>
+								<TableCell align='center'>NAME</TableCell>
+								<TableCell align='center'>EMAIL</TableCell>
+								<TableCell align='center'>ADMIN</TableCell>
+								<TableCell align='center'></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							{users.map((user) => {
 								return (
 									<TableRow key={user._id}>
-										<TableCell>{user._id}</TableCell>
-										<TableCell>{user.name}</TableCell>
-										<TableCell>
+										<TableCell align='center'>{user._id}</TableCell>
+										<TableCell align='center'>{user.name}</TableCell>
+										<TableCell align='center'>
 											<a href={`mailto:${user.email}`}>{user.email}</a>
 										</TableCell>
-										<TableCell>
+										<TableCell align='center'>
 											{user.isAdmin ? <CheckIcon /> : <ClearIcon />}
 										</TableCell>
-										<TableCell>{user._id}</TableCell>
-										<TableCell>
-											<NavLink to={`/user/${user._id}/edit`}>
+										<TableCell align='center'>
+											<NavLink to={`/admin/user/${user._id}/edit`}>
 												<Button
 													variant='contained'
 													size='small'

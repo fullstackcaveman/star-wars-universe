@@ -14,6 +14,7 @@ import UserList from './components/users/UserList';
 import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
+import UserEdit from './components/users/UserEdit';
 
 const App = () => {
 	return (
@@ -21,6 +22,7 @@ const App = () => {
 			<Header />
 			<HeroSection />
 			<Switch>
+				<Route path='/admin/user/:id/edit' component={UserEdit} />
 				<Route path='/admin/userlist' component={UserList} />
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />
