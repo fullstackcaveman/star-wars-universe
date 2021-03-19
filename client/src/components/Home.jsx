@@ -1,5 +1,5 @@
 import { Switch, Link } from 'react-router-dom';
-import Background from './Background';
+import Background from '../components/elements/Background';
 
 const Home = () => {
 	document.title = 'Star Wars Universe';

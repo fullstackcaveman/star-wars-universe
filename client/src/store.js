@@ -7,18 +7,22 @@ import {
 	characterInfoReducer,
 } from './reducers/characterReducers';
 import {
+	userDeleteReducer,
 	userDetailsReducer,
+	userListReducer,
 	userLoginReducer,
 	userRegisterReducer,
 	userUpdateProfileReducer,
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
-	characterList: chracterListReducer,
 	characterInfo: characterInfoReducer,
+	characterList: chracterListReducer,
+	userDelete: userDeleteReducer,
+	userDetails: userDetailsReducer,
+	userList: userListReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
-	userDetails: userDetailsReducer,
 	userUpdateProfile: userUpdateProfileReducer,
 });
 

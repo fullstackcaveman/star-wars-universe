@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import { logout } from '../actions/userActions';
+import { logout } from '../../actions/userActions';
 
 const useStyles = makeStyles({
 	list: {
@@ -45,6 +45,10 @@ const Header = () => {
 			history.push('/');
 		} else if (route === 'profile') {
 			history.push('/users/profile');
+		} else if (route === 'users') {
+			history.push('/admin/userlist');
+		} else if (route === 'characters') {
+			history.push('/admin/characterlist');
 		}
 	};
 
@@ -82,15 +86,52 @@ const Header = () => {
 					</Button>
 				</ListItem>
 
-				{/* <ListItem>
-					<Button
-						fullWidth
-						variant='contained'
-						onClick={() => handleClick('home')}
-					>
-						<Typography>Log In</Typography>
-					</Button>
-				</ListItem> */}
+				{userInfo && userInfo.isAdmin ? (
+					<>
+						<Divider />
+						<Typography>ADMIN</Typography>
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('users')}
+							>
+								<Typography>Users</Typography>
+							</Button>
+						</ListItem>
+
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('characters')}
+							>
+								<Typography>Characters</Typography>
+							</Button>
+						</ListItem>
+
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('films')}
+							>
+								<Typography>Films</Typography>
+							</Button>
+						</ListItem>
+
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('planets')}
+							>
+								<Typography>Planets</Typography>
+							</Button>
+						</ListItem>
+					</>
+				) : null}
+
 				<Divider />
 
 				<ListItem>
@@ -102,19 +143,24 @@ const Header = () => {
 		</div>
 	);
 
+	const avatarStyle = {
+		backgroundColor: '#ffee58',
+		marginBottom: 10,
+		color: 'black',
+		height: '30px',
+		width: '30px',
+		cursor: 'pointer',
+	};
+
 	return (
 		<header id='header' className='header'>
 			<div className='header-left'>{/* <h1>HEADER</h1> */}</div>
 			<div className='nav-btn'>
-				{/* <div>
-					<Button variant='contained' size='small' onClick={toggleDrawer(true)}>
-						Menu
-					</Button>
-				</div> */}
 				{userInfo ? (
 					<div key={anchor}>
 						<div>
 							<Avatar
+								style={avatarStyle}
 								alt={userInfo.name}
 								src='../images/DarthVader.jpg'
 								id='user-avatar'

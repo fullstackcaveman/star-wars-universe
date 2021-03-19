@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
-import Loader from '../Loader';
-import Message from '../Message';
-import Background from '../Background';
+import Loader from '../elements/Loader';
+import Message from '../elements/Message';
+import Background from '../elements/Background';
 import RelatedFilms from '../films/RelatedFilms';
 
 import { listCharacterInfo } from '../../actions/characterActions';

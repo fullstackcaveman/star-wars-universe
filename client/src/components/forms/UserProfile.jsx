@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Avatar,
@@ -9,12 +8,12 @@ import {
 	TextField,
 	Typography,
 } from '@material-ui/core';
-import Message from './Message';
-import Loader from './Loader';
-import Background from './Background';
-import { register } from '../actions/userActions';
+import Message from '../elements/Message';
+import Loader from '../elements/Loader';
+import Background from '../elements/Background';
+import { getUserDetails, updateUserProfile } from '../../actions/userActions';
 
-const UserRegisterForm = ({ location, history }) => {
+const UserProfile = ({ location, history }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -23,28 +22,41 @@ const UserRegisterForm = ({ location, history }) => {
 
 	const dispatch = useDispatch();
 
-	const userRegister = useSelector((state) => state.userRegister);
-	const { loading, error, userInfo } = userRegister;
+	const userDetails = useSelector((state) => state.userDetails);
+	const { loading, error, user } = userDetails;
 
-	const redirect = location.search ? location.search.split('=')[1] : '/';
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+	const { success } = userUpdateProfile;
 
 	useEffect(() => {
-		if (userInfo) {
-			history.push(redirect);
+		if (!userInfo) {
+			history.push('/users/login');
+		} else {
+			if (!user.name) {
+				dispatch(getUserDetails('profile'));
+			} else {
+				setName(user.name);
+				setEmail(user.email);
+				setPassword(user.password);
+				setConfirmPassword(user.confirmPassword);
+			}
 		}
-	}, [history, userInfo, redirect]);
+	}, [history, userInfo, dispatch, user]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
 			setMessage('Passwords do not match');
 		} else {
-			dispatch(register(name, email, password));
+			dispatch(updateUserProfile({ id: user._id, name, email, password }));
 		}
 	};
 
 	const paperStyle = {
-		backgroundColor: 'black',
+		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,
@@ -67,15 +79,6 @@ const UserRegisterForm = ({ location, history }) => {
 		fontSize: '1rem',
 	};
 
-	const newUserBtnStyle = {
-		backgroundColor: 'transparent',
-
-		color: '#ffee58',
-		fontFamily: 'Impact, sans-serif',
-		fontSize: '1rem',
-		cursor: 'pointer',
-	};
-
 	return (
 		<>
 			<Grid className='add-user'>
@@ -83,11 +86,12 @@ const UserRegisterForm = ({ location, history }) => {
 					<Grid align='center'>
 						<Avatar style={avatarStyle} />
 						<Typography variant='h5' id='add-user-h2'>
-							Sign Up
+							User Profile
 						</Typography>
 					</Grid>
 					{message && <Message severity='error' message={message} />}
 					{error && <Message severity='error' message={error} />}
+					{success && <Message severity='info' message='Profile Updated' />}
 					{loading && <Loader />}
 					<form onSubmit={submitHandler}>
 						<TextField
@@ -97,9 +101,8 @@ const UserRegisterForm = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='name'
-							value={name}
+							value={name || ''}
 							onChange={(e) => setName(e.target.value)}
 						/>
 
@@ -110,9 +113,8 @@ const UserRegisterForm = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='email'
-							value={email}
+							value={email || ''}
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 
@@ -123,10 +125,9 @@ const UserRegisterForm = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='password'
 							type='password'
-							value={password}
+							value={password || ''}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
@@ -137,10 +138,9 @@ const UserRegisterForm = ({ location, history }) => {
 							variant='outlined'
 							size='small'
 							fullWidth
-							required
 							name='confirmPassword'
 							type='password'
-							value={confirmPassword}
+							value={confirmPassword || ''}
 							onChange={(e) => setConfirmPassword(e.target.value)}
 						/>
 
@@ -150,21 +150,10 @@ const UserRegisterForm = ({ location, history }) => {
 							color='primary'
 							variant='contained'
 							fullWidth
-							// disabled={disabled}
 						>
-							Register
+							Update
 						</Button>
 					</form>
-					<Grid align='center'>
-						<Link
-							to={
-								redirect ? `/users/login?redirect=${redirect}` : '/users/login'
-							}
-							style={newUserBtnStyle}
-						>
-							Have An Account? Login
-						</Link>
-					</Grid>
 				</Paper>
 			</Grid>
 			<Background />
@@ -172,4 +161,4 @@ const UserRegisterForm = ({ location, history }) => {
 	);
 };
 
-export default UserRegisterForm;
+export default UserProfile;
