@@ -14,7 +14,8 @@ import {
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
-import { getUserDetails } from '../../actions/userActions';
+import { getUserDetails, updateUserProfile } from '../../actions/userActions';
+import { userUpdateProfileReducer } from '../../reducers/userReducers';
 
 const UserEdit = ({ match, history }) => {
 	const userId = match.params.id;
@@ -40,6 +41,8 @@ const UserEdit = ({ match, history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+		dispatch(updateUserProfile({ id: user._id, name, email, isAdmin }));
+		history.push('/admin/userList');
 	};
 
 	const paperStyle = {
@@ -68,7 +71,6 @@ const UserEdit = ({ match, history }) => {
 
 	return (
 		<>
-			<Link to='/admin/userList'>Go Back</Link>
 			<Grid className='add-user'>
 				<Paper elevation={10} style={paperStyle}>
 					<Grid align='center'>
@@ -111,7 +113,7 @@ const UserEdit = ({ match, history }) => {
 								control={
 									<Checkbox
 										checked={isAdmin}
-										onchange={(e) => setIsAdmin(e.target.checked)}
+										onChange={(e) => setIsAdmin(e.target.checked)}
 										name='isAdmin'
 										color='primary'
 									/>
@@ -130,6 +132,9 @@ const UserEdit = ({ match, history }) => {
 							</Button>
 						</form>
 					)}
+					<Typography variant='p'>
+						<Link to='/admin/userList'>CANCEL</Link>
+					</Typography>
 				</Paper>
 			</Grid>
 			<Background />
