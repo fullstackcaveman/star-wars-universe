@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import {
 	chracterListReducer,
 	characterInfoReducer,
+	characterDeleteReducer,
 } from './reducers/characterReducers';
 import {
 	adminUserUpdateProfileReducer,
@@ -17,6 +18,7 @@ import {
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
+	characterDelete: characterDeleteReducer,
 	characterInfo: characterInfoReducer,
 	characterList: chracterListReducer,
 	userDelete: userDeleteReducer,
