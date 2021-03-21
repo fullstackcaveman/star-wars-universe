@@ -186,6 +186,10 @@ header .nav-btn {
   padding: 0 20px;
 }
 
+.MuiDrawer-paper.MuiDrawer-paperAnchorRight {
+  background-color: black;
+}
+
 .starwars {
   position: relative;
   height: 170px;
@@ -284,6 +288,7 @@ footer .footer-bottom {
 .add-user .MuiPaper-root {
   border: 2px solid #ffe81f;
 }
+
 .pagination {
   display: flex;
   flex-direction: row;
