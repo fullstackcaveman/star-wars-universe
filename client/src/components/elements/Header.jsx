@@ -8,16 +8,27 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+// import HomeIcon from '@material-ui/icons/Home';
+// import PersonIcon from '@material-ui/icons/Person';
+// import PeopleIcon from '@material-ui/icons/People';
+// import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
+// import LanguageIcon from '@material-ui/icons/Language';
 import { logout } from '../../actions/userActions';
 
 const useStyles = makeStyles({
 	list: {
 		width: 200,
+		backgroundColor: 'black',
 	},
 	fullList: {
 		width: 'auto',
 	},
 });
+
+const buttonStyles = {
+	padding: 0,
+	color: 'white',
+};
 
 const Header = () => {
 	const dispatch = useDispatch();
@@ -73,11 +84,12 @@ const Header = () => {
 			onClick={toggleDrawer(false)}
 			onKeyDown={toggleDrawer(false)}
 		>
-			<List>
+			<List className='menu-list'>
 				<ListItem>
+					{/* <HomeIcon /> */}
 					<Button
+						style={buttonStyles}
 						fullWidth
-						variant='contained'
 						onClick={() => handleClick('home')}
 					>
 						<Typography>Home</Typography>
@@ -85,23 +97,33 @@ const Header = () => {
 				</ListItem>
 
 				<ListItem>
+					{/* <PersonIcon /> */}
 					<Button
+						style={buttonStyles}
 						fullWidth
-						variant='contained'
 						onClick={() => handleClick('profile')}
 					>
 						<Typography>Profile</Typography>
 					</Button>
 				</ListItem>
+				<Divider style={{ backgroundColor: 'white' }} />
 
 				{userInfo && userInfo.isAdmin ? (
 					<>
-						<Divider />
-						<Typography>ADMIN</Typography>
+						<Typography
+							style={{
+								marginTop: '5px',
+								padding: '3px',
+								color: '#ffee58',
+							}}
+						>
+							-- ADMIN --
+						</Typography>
 						<ListItem>
+							{/* <PeopleIcon /> */}
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('users')}
 							>
 								<Typography>Users</Typography>
@@ -110,8 +132,8 @@ const Header = () => {
 
 						<ListItem>
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('characters')}
 							>
 								<Typography>Characters</Typography>
@@ -119,9 +141,10 @@ const Header = () => {
 						</ListItem>
 
 						<ListItem>
+							{/* <LocalMoviesIcon /> */}
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('films')}
 							>
 								<Typography>Films</Typography>
@@ -129,9 +152,10 @@ const Header = () => {
 						</ListItem>
 
 						<ListItem>
+							{/* <LanguageIcon /> */}
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('planets')}
 							>
 								<Typography>Planets</Typography>
@@ -140,8 +164,8 @@ const Header = () => {
 
 						<ListItem>
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('species')}
 							>
 								<Typography>Species</Typography>
@@ -150,8 +174,8 @@ const Header = () => {
 
 						<ListItem>
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('starships')}
 							>
 								<Typography>Starships</Typography>
@@ -160,8 +184,8 @@ const Header = () => {
 
 						<ListItem>
 							<Button
+								style={buttonStyles}
 								fullWidth
-								variant='contained'
 								onClick={() => handleClick('vehicles')}
 							>
 								<Typography>Vehicles</Typography>
@@ -170,10 +194,10 @@ const Header = () => {
 					</>
 				) : null}
 
-				<Divider />
+				<Divider style={{ backgroundColor: 'white' }} />
 
 				<ListItem>
-					<Button fullWidth variant='contained' onClick={logoutHandler}>
+					<Button style={buttonStyles} fullWidth onClick={logoutHandler}>
 						<Typography>Log Out</Typography>
 					</Button>
 				</ListItem>
@@ -216,7 +240,7 @@ const Header = () => {
 					</div>
 				) : (
 					<Link to='/users/login'>
-						<Button style={loginStyle} variant='outlined' size='small'>
+						<Button style={loginStyle} size='small'>
 							Login
 						</Button>
 					</Link>

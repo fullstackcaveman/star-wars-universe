@@ -25,6 +25,10 @@ header {
 	}
 }
 
+.MuiDrawer-paper.MuiDrawer-paperAnchorRight {
+	background-color: black;
+}
+
 // Hero Section
 .starwars {
 	position: relative;
@@ -143,13 +147,5 @@ footer {
 	.MuiPaper-root {
 		border: 2px solid $starwars-yellow;
 		// background-color: grey;
-	}
-
-	.MuiFormControl-root {
-		// background-color: #ffee58;
-	}
-
-	.MuiTypography-root.MuiTypography-h5 {
-		// color: #ffee58;
 	}
 }

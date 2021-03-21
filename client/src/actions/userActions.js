@@ -257,10 +257,9 @@ export const adminUpdateUserProfile = (user) => async (dispatch, getState) => {
 
 		const { data } = await axios.put(`/api/users/${user.id}`, user, config);
 
-		dispatch({
-			type: ADMIN_USER_UPDATE_PROFILE_SUCCESS,
-			payload: data,
-		});
+		dispatch({ type: ADMIN_USER_UPDATE_PROFILE_SUCCESS });
+
+		dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({
 			type: ADMIN_USER_UPDATE_PROFILE_FAIL,
