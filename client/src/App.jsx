@@ -1,5 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import CharacterInfo from './components/characters/CharacterInfo';
+import CharacterList from './components/characters/CharacterList';
 import CharacterPage from './components/characters/CharacterPage';
 import Films from './components/films/Films';
 import Footer from './components/elements/Footer';
@@ -22,6 +23,7 @@ const App = () => {
 			<Header />
 			<HeroSection />
 			<Switch>
+				<Route path='/admin/characterList' component={CharacterList} />
 				<Route path='/admin/user/:id/edit' component={UserEdit} />
 				<Route path='/admin/userlist' component={UserList} />
 				<Route path='/users/login' component={UserLoginForm} />
