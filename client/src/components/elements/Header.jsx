@@ -49,6 +49,14 @@ const Header = () => {
 			history.push('/admin/userlist');
 		} else if (route === 'characters') {
 			history.push('/admin/characterlist');
+		} else if (route === 'films') {
+			history.push('/admin/films');
+		} else if (route === 'species') {
+			history.push('/admin/species');
+		} else if (route === 'starships') {
+			history.push('/admin/starships');
+		} else if (route === 'vehicles') {
+			history.push('/admin/vehicles');
 		}
 	};
 
@@ -129,6 +137,36 @@ const Header = () => {
 								<Typography>Planets</Typography>
 							</Button>
 						</ListItem>
+
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('species')}
+							>
+								<Typography>Species</Typography>
+							</Button>
+						</ListItem>
+
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('starships')}
+							>
+								<Typography>Starships</Typography>
+							</Button>
+						</ListItem>
+
+						<ListItem>
+							<Button
+								fullWidth
+								variant='contained'
+								onClick={() => handleClick('vehicles')}
+							>
+								<Typography>Vehicles</Typography>
+							</Button>
+						</ListItem>
 					</>
 				) : null}
 
@@ -152,6 +190,11 @@ const Header = () => {
 		cursor: 'pointer',
 	};
 
+	const loginStyle = {
+		color: '#ffee58',
+		border: '1px solid #ffee58',
+	};
+
 	return (
 		<header id='header' className='header'>
 			<div className='header-left'>{/* <h1>HEADER</h1> */}</div>
@@ -173,7 +216,7 @@ const Header = () => {
 					</div>
 				) : (
 					<Link to='/users/login'>
-						<Button variant='contained' size='small'>
+						<Button style={loginStyle} variant='outlined' size='small'>
 							Login
 						</Button>
 					</Link>
