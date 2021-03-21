@@ -44,8 +44,8 @@ const deleteCharacter = asyncHandler(async (req, res) => {
 // @access Private/Admin
 const createCharacter = asyncHandler(async (req, res) => {
 	const character = new Character({
-		name: 'unknown',
-		pretty_url: 'unknown',
+		name: 'New Character',
+		pretty_url: 'new-character',
 		height: 'unknown',
 		mass: 'unknown',
 		gender: 'unknown',

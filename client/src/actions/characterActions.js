@@ -8,6 +8,9 @@ import {
 	CHARACTER_DELETE_REQUEST,
 	CHARACTER_DELETE_SUCCESS,
 	CHARACTER_DELETE_FAIL,
+	CHARACTER_CREATE_REQUEST,
+	CHARACTER_CREATE_SUCCESS,
+	CHARACTER_CREATE_FAIL,
 } from '../constants/characterConstants';
 import axios from 'axios';
 
@@ -77,6 +80,39 @@ export const deleteCharacter = (id) => async (dispatch, getState) => {
 	} catch (error) {
 		dispatch({
 			type: CHARACTER_DELETE_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
+export const createCharacter = () => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: CHARACTER_CREATE_REQUEST,
+		});
+
+		const {
+			userLogin: { userInfo },
+		} = getState();
+
+		const config = {
+			headers: {
+				Authorization: `Bearer ${userInfo.token}`,
+			},
+		};
+
+		const { data } = await axios.post(`/api/characters`, {}, config);
+
+		dispatch({
+			type: CHARACTER_CREATE_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: CHARACTER_CREATE_FAIL,
 			payload:
 				error.response && error.response.data.message
 					? error.response.data.message

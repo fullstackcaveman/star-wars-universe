@@ -20,7 +20,9 @@ import Background from '../elements/Background';
 import {
 	listCharacters,
 	deleteCharacter,
+	createCharacter,
 } from '../../actions/characterActions';
+import { CHARACTER_CREATE_RESET } from '../../constants/characterConstants';
 
 const CharacterList = ({ history, match }) => {
 	const dispatch = useDispatch();
@@ -35,16 +37,37 @@ const CharacterList = ({ history, match }) => {
 		success: successDelete,
 	} = characterDelete;
 
+	const characterCreate = useSelector((state) => state.characterCreate);
+	const {
+		loading: loadingCreate,
+		error: errorCreate,
+		success: successCreate,
+		character: createdCharacter,
+	} = characterCreate;
+
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
 	useEffect(() => {
-		if (userInfo && userInfo.isAdmin) {
-			dispatch(listCharacters());
-		} else {
+		dispatch({ type: CHARACTER_CREATE_RESET });
+
+		if (!userInfo.isAdmin) {
 			history.push('/users/login');
 		}
-	}, [dispatch, history, userInfo, successDelete]);
+
+		if (successCreate) {
+			history.push(`/admin/character/${createdCharacter._id}/edit`);
+		} else {
+			dispatch(listCharacters());
+		}
+	}, [
+		dispatch,
+		history,
+		userInfo,
+		successDelete,
+		successCreate,
+		createdCharacter,
+	]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure?')) {
@@ -52,9 +75,9 @@ const CharacterList = ({ history, match }) => {
 		}
 	};
 
-	const createCharacterHandler = (character) => [
-		// Create Character
-	];
+	const createCharacterHandler = () => {
+		dispatch(createCharacter());
+	};
 
 	return (
 		<>
@@ -68,7 +91,9 @@ const CharacterList = ({ history, match }) => {
 			</Button>
 
 			{loadingDelete && <Loader />}
-			{errorDelete && <Message severity='error' message={error} />}
+			{errorDelete && <Message severity='error' message={errorDelete} />}
+			{loadingCreate && <Loader />}
+			{errorCreate && <Message severity='error' message={errorCreate} />}
 			{loading ? (
 				<Loader />
 			) : error ? (

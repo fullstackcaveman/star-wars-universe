@@ -6,6 +6,7 @@ import {
 	chracterListReducer,
 	characterInfoReducer,
 	characterDeleteReducer,
+	characterCreateReducer,
 } from './reducers/characterReducers';
 import {
 	adminUserUpdateProfileReducer,
@@ -18,6 +19,7 @@ import {
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
+	characterCreate: characterCreateReducer,
 	characterDelete: characterDeleteReducer,
 	characterInfo: characterInfoReducer,
 	characterList: chracterListReducer,
