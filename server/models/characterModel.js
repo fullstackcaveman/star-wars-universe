@@ -58,6 +58,10 @@ const characterSchema = mongoose.Schema(
 		masters: Array,
 		apprentices: Array,
 		formerAffiliations: Array,
+		relatedPlanets: Array,
+		relatedStarships: Array,
+		relatedVehicles: Array,
+		relatedFilms: Array,
 	},
 	{
 		timestamps: true,

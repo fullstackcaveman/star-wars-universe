@@ -39,4 +39,37 @@ const deleteCharacter = asyncHandler(async (req, res) => {
 	}
 });
 
+// @desc   Create a character
+// @route  Post /api/characters
+// @access Private/Admin
+const createCharacter = asyncHandler(async (req, res) => {
+	const character = new Character({
+		name: 'unknown',
+		pretty_url: 'unknown',
+		height: 'unknown',
+		mass: 'unknown',
+		gender: 'unknown',
+		homeworld: ['unknown'],
+		wiki: 'unknown',
+		image: 'unknown',
+		born: 'unknown',
+		bornLocation: 'unknown',
+		died: 'unknown',
+		diedLocation: 'unknown',
+		species: 'unknown',
+		hairColor: 'unknown',
+		eyeColor: 'unknown',
+		skincolor: 'unknown',
+		cybernetics: ['unknown'],
+		affiliations: ['unknown'],
+		masters: ['unknown'],
+		apprentices: ['unknown'],
+		formerAffiliations: ['unknown'],
+		relatedPlanets: ['unknown'],
+		relatedStarships: ['unknown'],
+		relatedVehicles: ['unknown'],
+		relatedFilms: ['unknown'],
+	});
+});
+
 export { getCharacters, getCharacterById, deleteCharacter };
