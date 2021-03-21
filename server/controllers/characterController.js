@@ -51,7 +51,7 @@ const createCharacter = asyncHandler(async (req, res) => {
 		gender: 'unknown',
 		homeworld: ['unknown'],
 		wiki: 'unknown',
-		image: 'unknown',
+		image: '/images/placeholder.jpg',
 		born: 'unknown',
 		bornLocation: 'unknown',
 		died: 'unknown',
@@ -70,6 +70,84 @@ const createCharacter = asyncHandler(async (req, res) => {
 		relatedVehicles: ['unknown'],
 		relatedFilms: ['unknown'],
 	});
+
+	const createdCharacter = await character.save();
+	res.status(201).json(createdCharacter);
 });
 
-export { getCharacters, getCharacterById, deleteCharacter };
+// @desc   Update a character
+// @route  PUT /api/characters/:id
+// @access Private/Admin
+const updateCharacter = asyncHandler(async (req, res) => {
+	const {
+		name,
+		pretty_url,
+		height,
+		mass,
+		gender,
+		homeworld,
+		wiki,
+		image,
+		born,
+		bornLocation,
+		died,
+		diedLocation,
+		species,
+		hairColor,
+		eyeColor,
+		skincolor,
+		cybernetics,
+		affiliations,
+		masters,
+		apprentices,
+		formerAffiliations,
+		relatedPlanets,
+		relatedStarships,
+		relatedVehicles,
+		relatedFilms,
+	} = req.body;
+
+	const character = await Character.findById(req.params.id);
+
+	if (character) {
+		character.name = name;
+		character.pretty_url = pretty_url;
+		character.heght = height;
+		character.mass = mass;
+		character.gender = gender;
+		character.homeworld = homeworld;
+		character.wiki = wiki;
+		character.image = image;
+		character.born = born;
+		character.bornLocation = bornLocation;
+		character.died = died;
+		character.diedLocation = diedLocation;
+		character.species = species;
+		character.hairColor = hairColor;
+		character.eyeColor = eyeColor;
+		character.skincolor = skincolor;
+		character.cybernetics = cybernetics;
+		character.affiliations = affiliations;
+		character.masters = masters;
+		character.apprentices = apprentices;
+		character.formerAffiliations = formerAffiliations;
+		character.relatedPlanets = relatedPlanets;
+		character.relatedStarships = relatedStarships;
+		character.relatedVehicles = relatedVehicles;
+		character.relatedFilms = relatedFilms;
+
+		const updatedCharacter = await character.save();
+		res.json(updatedCharacter);
+	} else {
+		res.status(404);
+		throw new Error('Character Not Found');
+	}
+});
+
+export {
+	getCharacters,
+	getCharacterById,
+	deleteCharacter,
+	createCharacter,
+	updateCharacter,
+};
