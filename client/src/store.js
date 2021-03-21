@@ -7,6 +7,7 @@ import {
 	characterInfoReducer,
 } from './reducers/characterReducers';
 import {
+	adminUserUpdateProfileReducer,
 	userDeleteReducer,
 	userDetailsReducer,
 	userListReducer,
@@ -24,6 +25,7 @@ const reducer = combineReducers({
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userUpdateProfile: userUpdateProfileReducer,
+	adminUserUpdate: adminUserUpdateProfileReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

@@ -14,8 +14,10 @@ import {
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
-import { getUserDetails, updateUserProfile } from '../../actions/userActions';
-import { userUpdateProfileReducer } from '../../reducers/userReducers';
+import {
+	adminUpdateUserProfile,
+	getUserDetails,
+} from '../../actions/userActions';
 
 const UserEdit = ({ match, history }) => {
 	const userId = match.params.id;
@@ -41,7 +43,7 @@ const UserEdit = ({ match, history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		dispatch(updateUserProfile({ id: user._id, name, email, isAdmin }));
+		dispatch(adminUpdateUserProfile({ id: user._id, name, email, isAdmin }));
 		history.push('/admin/userList');
 	};
 
@@ -132,7 +134,7 @@ const UserEdit = ({ match, history }) => {
 							</Button>
 						</form>
 					)}
-					<Typography variant='p'>
+					<Typography variant='body2'>
 						<Link to='/admin/userList'>CANCEL</Link>
 					</Typography>
 				</Paper>
