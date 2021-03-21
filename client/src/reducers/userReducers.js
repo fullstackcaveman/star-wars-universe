@@ -1,4 +1,7 @@
 import {
+	ADMIN_USER_UPDATE_PROFILE_FAIL,
+	ADMIN_USER_UPDATE_PROFILE_REQUEST,
+	ADMIN_USER_UPDATE_PROFILE_SUCCESS,
 	USER_DELETE_FAIL,
 	USER_DELETE_REQUEST,
 	USER_DELETE_SUCCESS,
@@ -97,6 +100,19 @@ export const userDeleteReducer = (state = {}, action) => {
 		case USER_DELETE_SUCCESS:
 			return { loading: false, success: true };
 		case USER_DELETE_FAIL:
+			return { loading: false, error: action.payload };
+		default:
+			return state;
+	}
+};
+
+export const adminUserUpdateProfileReducer = (state = {}, action) => {
+	switch (action.type) {
+		case ADMIN_USER_UPDATE_PROFILE_REQUEST:
+			return { loading: true };
+		case ADMIN_USER_UPDATE_PROFILE_SUCCESS:
+			return { loading: false, success: true, userInfo: action.payload };
+		case ADMIN_USER_UPDATE_PROFILE_FAIL:
 			return { loading: false, error: action.payload };
 		default:
 			return state;
