@@ -17,13 +17,23 @@ import AddIcon from '@material-ui/icons/Add';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
-import { listCharacters } from '../../actions/characterActions';
+import {
+	listCharacters,
+	deleteCharacter,
+} from '../../actions/characterActions';
 
 const CharacterList = ({ history, match }) => {
 	const dispatch = useDispatch();
 
 	const characterList = useSelector((state) => state.characterList);
 	const { loading, error, characters } = characterList;
+
+	const characterDelete = useSelector((state) => state.characterDelete);
+	const {
+		loading: loadingDelete,
+		error: errorDelete,
+		success: successDelete,
+	} = characterDelete;
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
@@ -34,11 +44,11 @@ const CharacterList = ({ history, match }) => {
 		} else {
 			history.push('/users/login');
 		}
-	}, [dispatch, history, userInfo]);
+	}, [dispatch, history, userInfo, successDelete]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure?')) {
-			// DELETE CHARACTER
+			dispatch(deleteCharacter(id));
 		}
 	};
 
@@ -57,6 +67,8 @@ const CharacterList = ({ history, match }) => {
 				<AddIcon /> Create Character
 			</Button>
 
+			{loadingDelete && <Loader />}
+			{errorDelete && <Message severity='error' message={error} />}
 			{loading ? (
 				<Loader />
 			) : error ? (

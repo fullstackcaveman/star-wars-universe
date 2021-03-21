@@ -24,4 +24,19 @@ const getCharacterById = asyncHandler(async (req, res) => {
 	}
 });
 
-export { getCharacters, getCharacterById };
+// @desc   Delete character
+// @route  DELETE /api/characters/:id
+// @access Private/Admin
+const deleteCharacter = asyncHandler(async (req, res) => {
+	const character = await Character.findById(req.params.id);
+
+	if (character) {
+		await character.remove();
+		res.json({ message: 'Character Removed' });
+	} else {
+		res.status(404);
+		throw new Error('Character not found');
+	}
+});
+
+export { getCharacters, getCharacterById, deleteCharacter };
