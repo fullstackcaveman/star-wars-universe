@@ -29,7 +29,7 @@ const CharacterPage = () => {
 			const page1 = document.getElementById('page1');
 			page1.classList.add('active');
 		};
-		setTimeout(() => findPage1(), 1500);
+		setTimeout(() => findPage1(), 500);
 	}, []);
 
 	const indexOfLastCharacter = currentPage * charactersPerPage;

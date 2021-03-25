@@ -1,4 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
+import CharacterEdit from './components/characters/CharacterEdit';
 import CharacterInfo from './components/characters/CharacterInfo';
 import CharacterList from './components/characters/CharacterList';
 import CharacterPage from './components/characters/CharacterPage';
@@ -23,6 +24,7 @@ const App = () => {
 			<Header />
 			<HeroSection />
 			<Switch>
+				<Route path='/admin/character/:id/edit' component={CharacterEdit} />
 				<Route path='/admin/characterList' component={CharacterList} />
 				<Route path='/admin/user/:id/edit' component={UserEdit} />
 				<Route path='/admin/userlist' component={UserList} />

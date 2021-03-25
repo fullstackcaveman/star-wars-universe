@@ -59,7 +59,7 @@ const createCharacter = asyncHandler(async (req, res) => {
 		species: 'unknown',
 		hairColor: 'unknown',
 		eyeColor: 'unknown',
-		skincolor: 'unknown',
+		skinColor: 'unknown',
 		cybernetics: ['unknown'],
 		affiliations: ['unknown'],
 		masters: ['unknown'],
