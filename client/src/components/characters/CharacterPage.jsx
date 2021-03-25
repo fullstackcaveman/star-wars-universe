@@ -18,14 +18,20 @@ const CharacterPage = () => {
 	// Change this to set characters per page
 	const [charactersPerPage] = useState(10);
 
-	const pages = document.querySelectorAll('.page-item');
-
 	useEffect(() => {
 		dispatch(listCharacters());
 	}, [dispatch]);
 
 	// Fix this - shouldn't run if character fetch has an error
 	// Sets structure of pagination
+	useEffect(() => {
+		const findPage1 = () => {
+			const page1 = document.getElementById('page1');
+			page1.classList.add('active');
+		};
+		setTimeout(() => findPage1(), 500);
+	}, []);
+
 	const indexOfLastCharacter = currentPage * charactersPerPage;
 	const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
 	const currentCharacters = characters.slice(
@@ -36,18 +42,13 @@ const CharacterPage = () => {
 
 	// Controls which characters to display and button styling
 	const paginate = (pageNumber) => {
-		setCurrentPage(pageNumber);
-		// Clears active class from all pagination items
-		pages.forEach((page) => {
-			page.classList.remove('active');
-		});
+		const thisPage = document.getElementById(`page${currentPage}`);
+		thisPage.classList.remove('active');
 
-		// Adds class 'active' to pagination element
-		pages.forEach((page) => {
-			if (page.id === `page${pageNumber}`) {
-				page.classList.add('active');
-			}
-		});
+		const newPage = document.getElementById(`page${pageNumber}`);
+		newPage.classList.add('active');
+
+		setCurrentPage(pageNumber);
 	};
 
 	const prevPage = () => {
