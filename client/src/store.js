@@ -3,15 +3,16 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import {
-	chracterListReducer,
-	characterInfoReducer,
-	characterDeleteReducer,
 	characterCreateReducer,
+	characterDeleteReducer,
+	characterInfoReducer,
+	chracterListReducer,
+	characterUpdateReducer,
 } from './reducers/characterReducers';
 import {
 	adminUserUpdateProfileReducer,
-	userDeleteReducer,
 	userDetailsReducer,
+	userDeleteReducer,
 	userListReducer,
 	userLoginReducer,
 	userRegisterReducer,
@@ -23,6 +24,7 @@ const reducer = combineReducers({
 	characterDelete: characterDeleteReducer,
 	characterInfo: characterInfoReducer,
 	characterList: chracterListReducer,
+	characterUpdate: characterUpdateReducer,
 	userDelete: userDeleteReducer,
 	userDetails: userDetailsReducer,
 	userList: userListReducer,

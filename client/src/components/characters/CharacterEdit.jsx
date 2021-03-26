@@ -12,7 +12,11 @@ import {
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
-import { listCharacterInfo } from '../../actions/characterActions';
+import {
+	listCharacterInfo,
+	updateCharacter,
+} from '../../actions/characterActions';
+import { CHARACTER_UPDATE_RESET } from '../../constants/characterConstants';
 
 const CharacterEdit = ({ match, history }) => {
 	const characterId = match.params.id;
@@ -43,48 +47,87 @@ const CharacterEdit = ({ match, history }) => {
 	const [relatedVehicles, setRelatedVehicles] = useState([]);
 	const [relatedFilms, setRelatedFilms] = useState([]);
 
-	// const [isAdmin, setIsAdmin] = useState(false);
-
 	const dispatch = useDispatch();
 
 	const characterInfo = useSelector((state) => state.characterInfo);
 	const { loading, error, character } = characterInfo;
 
+	const characterUpdate = useSelector((state) => state.characterUpdate);
+	const {
+		loading: loadingUpdate,
+		error: errorUpdate,
+		success: successUpdate,
+	} = characterUpdate;
+
 	useEffect(() => {
-		if (!character.name || character._id !== characterId) {
-			dispatch(listCharacterInfo(characterId));
+		if (successUpdate) {
+			dispatch({ type: CHARACTER_UPDATE_RESET });
+			history.push('/admin/characterlist');
 		} else {
-			setName(character.name);
-			setPretty_url(character.pretty_url);
-			setHeight(character.height);
-			setMass(character.mass);
-			setGender(character.gender);
-			setHomeworld(character.homeworld);
-			setWiki(character.wiki);
-			setImage(character.image);
-			setBorn(character.born);
-			setBornLocation(character.bornLocation);
-			setDied(character.died);
-			setDiedLocation(character.diedLocation);
-			setSpecies(character.species);
-			setHairColor(character.hairColor);
-			setEyeColor(character.eyeColor);
-			setSkinColor(character.skinColor);
-			setCybernetics(character.cybernetics);
-			setAffiliations(character.affiliations);
-			setMasters(character.masters);
-			setApprentices(character.apprentices);
-			setFormerAffiliations(character.formerAffiliations);
-			setRelatedPlanets(character.relatedPlanets);
-			setRelatedStarships(character.relatedStarships);
-			setRelatedVehicles(character.relatedVehicles);
-			setRelatedFilms(character.relatedFilms);
+			if (!character.name || character._id !== characterId) {
+				dispatch(listCharacterInfo(characterId));
+			} else {
+				setName(character.name);
+				setPretty_url(character.pretty_url);
+				setHeight(character.height);
+				setMass(character.mass);
+				setGender(character.gender);
+				setHomeworld(character.homeworld);
+				setWiki(character.wiki);
+				setImage(character.image);
+				setBorn(character.born);
+				setBornLocation(character.bornLocation);
+				setDied(character.died);
+				setDiedLocation(character.diedLocation);
+				setSpecies(character.species);
+				setHairColor(character.hairColor);
+				setEyeColor(character.eyeColor);
+				setSkinColor(character.skinColor);
+				setCybernetics(character.cybernetics);
+				setAffiliations(character.affiliations);
+				setMasters(character.masters);
+				setApprentices(character.apprentices);
+				setFormerAffiliations(character.formerAffiliations);
+				setRelatedPlanets(character.relatedPlanets);
+				setRelatedStarships(character.relatedStarships);
+				setRelatedVehicles(character.relatedVehicles);
+				setRelatedFilms(character.relatedFilms);
+			}
 		}
-	}, [character, characterId, dispatch]);
+	}, [character, characterId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// Update Character
+		dispatch(
+			updateCharacter({
+				_id: characterId,
+				name,
+				pretty_url,
+				height,
+				mass,
+				gender,
+				homeworld,
+				wiki,
+				image,
+				born,
+				bornLocation,
+				died,
+				diedLocation,
+				species,
+				hairColor,
+				eyeColor,
+				skinColor,
+				cybernetics,
+				affiliations,
+				masters,
+				apprentices,
+				formerAffiliations,
+				relatedPlanets,
+				relatedStarships,
+				relatedVehicles,
+				relatedFilms,
+			})
+		);
 	};
 
 	const paperStyle = {
@@ -119,6 +162,10 @@ const CharacterEdit = ({ match, history }) => {
 						<Avatar style={avatarStyle} />
 						<Typography variant='h5' id='add-user-h2'>
 							{`Edit ${character.name}`}
+							{loadingUpdate && <Loader />}
+							{errorUpdate && (
+								<Message severity='error' message={errorUpdate} />
+							)}
 						</Typography>
 					</Grid>
 					{loading ? (
