@@ -11,6 +11,10 @@ import {
 	CHARACTER_CREATE_REQUEST,
 	CHARACTER_CREATE_SUCCESS,
 	CHARACTER_CREATE_FAIL,
+	CHARACTER_UPDATE_REQUEST,
+	CHARACTER_UPDATE_SUCCESS,
+	CHARACTER_UPDATE_FAIL,
+	CHARACTER_INFO_RESET,
 } from '../constants/characterConstants';
 import axios from 'axios';
 
@@ -41,10 +45,14 @@ export const listCharacterInfo = (id) => async (dispatch) => {
 
 		const { data } = await axios.get(`/api/characters/${id}`);
 
+		console.log(data);
+
 		dispatch({
 			type: CHARACTER_INFO_SUCCESS,
 			payload: data,
 		});
+
+		// dispatch({ type: CHARACTER_INFO_RESET, payload: data });
 	} catch (error) {
 		dispatch({
 			type: CHARACTER_INFO_FAIL,
@@ -113,6 +121,47 @@ export const createCharacter = () => async (dispatch, getState) => {
 	} catch (error) {
 		dispatch({
 			type: CHARACTER_CREATE_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
+export const updateCharacter = (character) => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: CHARACTER_UPDATE_REQUEST,
+		});
+
+		const {
+			userLogin: { userInfo },
+		} = getState();
+
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${userInfo.token}`,
+			},
+		};
+
+		const { data } = await axios.put(
+			`/api/characters/${character._id}`,
+			character,
+			config
+		);
+
+		dispatch({
+			type: CHARACTER_UPDATE_SUCCESS,
+			payload: data,
+		});
+		// #########################################################
+		dispatch({ type: CHARACTER_INFO_SUCCESS, payload: data });
+		// #########################################################
+	} catch (error) {
+		dispatch({
+			type: CHARACTER_UPDATE_FAIL,
 			payload:
 				error.response && error.response.data.message
 					? error.response.data.message

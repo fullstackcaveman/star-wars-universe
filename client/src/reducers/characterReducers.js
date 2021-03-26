@@ -12,6 +12,11 @@ import {
 	CHARACTER_CREATE_SUCCESS,
 	CHARACTER_CREATE_FAIL,
 	CHARACTER_CREATE_RESET,
+	CHARACTER_UPDATE_REQUEST,
+	CHARACTER_UPDATE_SUCCESS,
+	CHARACTER_UPDATE_FAIL,
+	CHARACTER_UPDATE_RESET,
+	CHARACTER_INFO_RESET,
 } from '../constants/characterConstants';
 
 export const chracterListReducer = (
@@ -45,6 +50,7 @@ export const characterInfoReducer = (
 			return { loading: false, character: action.payload };
 		case CHARACTER_INFO_FAIL:
 			return { loading: false, error: action.payload };
+
 		default:
 			return state;
 	}
@@ -73,6 +79,21 @@ export const characterCreateReducer = (state = {}, action) => {
 			return { loading: false, error: action.payload };
 		case CHARACTER_CREATE_RESET:
 			return {};
+		default:
+			return state;
+	}
+};
+
+export const characterUpdateReducer = (state = { character: {} }, action) => {
+	switch (action.type) {
+		case CHARACTER_UPDATE_REQUEST:
+			return { loading: true };
+		case CHARACTER_UPDATE_SUCCESS:
+			return { loading: false, success: true, character: action.payload };
+		case CHARACTER_UPDATE_FAIL:
+			return { loading: false, error: action.payload };
+		case CHARACTER_UPDATE_RESET:
+			return { character: {} };
 		default:
 			return state;
 	}
