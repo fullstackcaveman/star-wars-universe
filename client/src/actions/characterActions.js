@@ -14,7 +14,6 @@ import {
 	CHARACTER_UPDATE_REQUEST,
 	CHARACTER_UPDATE_SUCCESS,
 	CHARACTER_UPDATE_FAIL,
-	CHARACTER_INFO_RESET,
 } from '../constants/characterConstants';
 import axios from 'axios';
 
