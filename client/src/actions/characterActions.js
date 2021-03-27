@@ -44,8 +44,6 @@ export const listCharacterInfo = (id) => async (dispatch) => {
 
 		const { data } = await axios.get(`/api/characters/${id}`);
 
-		console.log(data);
-
 		dispatch({
 			type: CHARACTER_INFO_SUCCESS,
 			payload: data,
@@ -155,9 +153,8 @@ export const updateCharacter = (character) => async (dispatch, getState) => {
 			type: CHARACTER_UPDATE_SUCCESS,
 			payload: data,
 		});
-		// #########################################################
+
 		dispatch({ type: CHARACTER_INFO_SUCCESS, payload: data });
-		// #########################################################
 	} catch (error) {
 		dispatch({
 			type: CHARACTER_UPDATE_FAIL,
