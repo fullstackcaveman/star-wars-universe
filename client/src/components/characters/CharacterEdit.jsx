@@ -21,31 +21,33 @@ import { CHARACTER_UPDATE_RESET } from '../../constants/characterConstants';
 const CharacterEdit = ({ match, history }) => {
 	const characterId = match.params.id;
 
-	const [name, setName] = useState('');
-	const [pretty_url, setPretty_url] = useState('');
-	const [height, setHeight] = useState('');
-	const [mass, setMass] = useState('');
-	const [gender, setGender] = useState('');
-	const [homeworld, setHomeworld] = useState([]);
-	const [wiki, setWiki] = useState('');
-	const [image, setImage] = useState('');
-	const [born, setBorn] = useState('');
-	const [bornLocation, setBornLocation] = useState('');
-	const [died, setDied] = useState('');
-	const [diedLocation, setDiedLocation] = useState('');
-	const [species, setSpecies] = useState('');
-	const [hairColor, setHairColor] = useState('');
-	const [eyeColor, setEyeColor] = useState('');
-	const [skinColor, setSkinColor] = useState('');
-	const [cybernetics, setCybernetics] = useState([]);
-	const [affiliations, setAffiliations] = useState([]);
-	const [masters, setMasters] = useState([]);
-	const [apprentices, setApprentices] = useState([]);
-	const [formerAffiliations, setFormerAffiliations] = useState([]);
-	const [relatedPlanets, setRelatedPlanets] = useState([]);
-	const [relatedStarships, setRelatedStarships] = useState([]);
-	const [relatedVehicles, setRelatedVehicles] = useState([]);
-	const [relatedFilms, setRelatedFilms] = useState([]);
+	const [characterForm, setCharacterForm] = useState({
+		name: '',
+		pretty_url: '',
+		height: '',
+		mass: '',
+		gender: '',
+		homeworld: [''],
+		wiki: '',
+		image: '',
+		born: '',
+		bornLocation: '',
+		died: '',
+		diedLocation: '',
+		species: '',
+		hairColor: '',
+		eyeColor: '',
+		skinColor: '',
+		cybernetics: [''],
+		affiliations: [''],
+		masters: [''],
+		apprentices: [''],
+		formerAffiliations: [''],
+		relatedPlanets: [''],
+		relatedStarships: [''],
+		relatedVehicles: [''],
+		relatedFilms: [''],
+	});
 
 	const dispatch = useDispatch();
 
@@ -67,31 +69,33 @@ const CharacterEdit = ({ match, history }) => {
 			if (!character.name || character._id !== characterId) {
 				dispatch(listCharacterInfo(characterId));
 			} else {
-				setName(character.name);
-				setPretty_url(character.pretty_url);
-				setHeight(character.height);
-				setMass(character.mass);
-				setGender(character.gender);
-				setHomeworld(character.homeworld);
-				setWiki(character.wiki);
-				setImage(character.image);
-				setBorn(character.born);
-				setBornLocation(character.bornLocation);
-				setDied(character.died);
-				setDiedLocation(character.diedLocation);
-				setSpecies(character.species);
-				setHairColor(character.hairColor);
-				setEyeColor(character.eyeColor);
-				setSkinColor(character.skinColor);
-				setCybernetics(character.cybernetics);
-				setAffiliations(character.affiliations);
-				setMasters(character.masters);
-				setApprentices(character.apprentices);
-				setFormerAffiliations(character.formerAffiliations);
-				setRelatedPlanets(character.relatedPlanets);
-				setRelatedStarships(character.relatedStarships);
-				setRelatedVehicles(character.relatedVehicles);
-				setRelatedFilms(character.relatedFilms);
+				setCharacterForm({
+					name: character.name,
+					pretty_url: character.pretty_url,
+					height: character.height,
+					mass: character.mass,
+					gender: character.gender,
+					homeworld: character.homeworld,
+					wiki: character.wiki,
+					image: character.image,
+					born: character.born,
+					bornLocation: character.bornLocation,
+					died: character.died,
+					diedLocation: character.diedLocation,
+					species: character.species,
+					hairColor: character.hairColor,
+					eyeColor: character.eyeColor,
+					skinColor: character.skinColor,
+					cybernetics: character.cybernetics,
+					affiliations: character.affiliations,
+					masters: character.masters,
+					apprentices: character.apprentices,
+					formerAffiliations: character.formerAffiliations,
+					relatedPlanets: character.relatedPlanets,
+					relatedStarships: character.relatedStarships,
+					relatedVehicles: character.relatedVehicles,
+					relatedFilms: character.relatedFilms,
+				});
 			}
 		}
 	}, [character, characterId, dispatch, successUpdate, history]);
@@ -101,31 +105,7 @@ const CharacterEdit = ({ match, history }) => {
 		dispatch(
 			updateCharacter({
 				_id: characterId,
-				name,
-				pretty_url,
-				height,
-				mass,
-				gender,
-				homeworld,
-				wiki,
-				image,
-				born,
-				bornLocation,
-				died,
-				diedLocation,
-				species,
-				hairColor,
-				eyeColor,
-				skinColor,
-				cybernetics,
-				affiliations,
-				masters,
-				apprentices,
-				formerAffiliations,
-				relatedPlanets,
-				relatedStarships,
-				relatedVehicles,
-				relatedFilms,
+				...characterForm,
 			})
 		);
 	};
@@ -182,8 +162,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='name'
-								value={name}
-								onChange={(e) => setName(e.target.value)}
+								value={characterForm.name}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, name: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -194,8 +176,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='pretty_url'
-								value={pretty_url}
-								onChange={(e) => setPretty_url(e.target.value)}
+								value={characterForm.pretty_url}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										pretty_url: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -206,8 +193,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='height'
-								value={height}
-								onChange={(e) => setHeight(e.target.value)}
+								value={characterForm.height}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, height: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -218,8 +207,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='mass'
-								value={mass}
-								onChange={(e) => setMass(e.target.value)}
+								value={characterForm.mass}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, mass: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -230,8 +221,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='gender'
-								value={gender}
-								onChange={(e) => setGender(e.target.value)}
+								value={characterForm.gender}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, gender: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -242,8 +235,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='homeworld'
-								value={homeworld}
-								onChange={(e) => setHomeworld(e.target.value)}
+								value={characterForm.homeworld}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										homeworld: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -254,8 +252,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='wiki'
-								value={wiki}
-								onChange={(e) => setWiki(e.target.value)}
+								value={characterForm.wiki}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, wiki: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -266,8 +266,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='image'
-								value={image}
-								onChange={(e) => setImage(e.target.value)}
+								value={characterForm.image}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, image: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -278,8 +280,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='born'
-								value={born}
-								onChange={(e) => setBorn(e.target.value)}
+								value={characterForm.born}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, born: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -290,8 +294,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='bornLocation'
-								value={bornLocation}
-								onChange={(e) => setBornLocation(e.target.value)}
+								value={characterForm.bornLocation}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										bornLocation: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -302,8 +311,10 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='died'
-								value={died}
-								onChange={(e) => setDied(e.target.value)}
+								value={characterForm.died}
+								onChange={(e) =>
+									setCharacterForm({ ...characterForm, died: e.target.value })
+								}
 							/>
 
 							<TextField
@@ -314,8 +325,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='diedLocation'
-								value={diedLocation}
-								onChange={(e) => setDiedLocation(e.target.value)}
+								value={characterForm.diedLocation}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										diedLocation: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -326,8 +342,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='species'
-								value={species}
-								onChange={(e) => setSpecies(e.target.value)}
+								value={characterForm.species}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										species: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -338,8 +359,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='hairColor'
-								value={hairColor}
-								onChange={(e) => setHairColor(e.target.value)}
+								value={characterForm.hairColor}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										hairColor: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -350,8 +376,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='eyeColor'
-								value={eyeColor}
-								onChange={(e) => setEyeColor(e.target.value)}
+								value={characterForm.eyeColor}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										eyeColor: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -362,8 +393,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='skinColor'
-								value={skinColor}
-								onChange={(e) => setSkinColor(e.target.value)}
+								value={characterForm.skinColor}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										skinColor: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -374,8 +410,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='cybernetics'
-								value={cybernetics}
-								onChange={(e) => setCybernetics(e.target.value)}
+								value={characterForm.cybernetics}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										cybernetics: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -386,8 +427,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='affiliations'
-								value={affiliations}
-								onChange={(e) => setAffiliations(e.target.value)}
+								value={characterForm.affiliations}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										affiliations: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -398,8 +444,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='masters'
-								value={masters}
-								onChange={(e) => setMasters(e.target.value)}
+								value={characterForm.masters}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										masters: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -410,8 +461,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='apprentices'
-								value={apprentices}
-								onChange={(e) => setApprentices(e.target.value)}
+								value={characterForm.apprentices}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										apprentices: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -422,8 +478,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='formerAffiliations'
-								value={formerAffiliations}
-								onChange={(e) => setFormerAffiliations(e.target.value)}
+								value={characterForm.formerAffiliations}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										formerAffiliations: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -434,8 +495,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='relatedPlanets'
-								value={relatedPlanets}
-								onChange={(e) => setRelatedPlanets(e.target.value)}
+								value={characterForm.relatedPlanets}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										relatedPlanets: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -446,8 +512,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='relatedStarships'
-								value={relatedStarships}
-								onChange={(e) => setRelatedStarships(e.target.value)}
+								value={characterForm.relatedStarships}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										relatedStarships: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -458,8 +529,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='relatedVehicles'
-								value={relatedVehicles}
-								onChange={(e) => setRelatedVehicles(e.target.value)}
+								value={characterForm.relatedVehicles}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										relatedVehicles: e.target.value,
+									})
+								}
 							/>
 
 							<TextField
@@ -470,8 +546,13 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='relatedFilms'
-								value={relatedFilms}
-								onChange={(e) => setRelatedFilms(e.target.value)}
+								value={characterForm.relatedFilms}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										relatedFilms: e.target.value,
+									})
+								}
 							/>
 
 							<Button
