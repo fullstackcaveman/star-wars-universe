@@ -9,7 +9,7 @@ const Message = ({ severity, message }) => {
 };
 
 Message.defaultProps = {
-	severity: 'info',
+	severity: 'error',
 	message: 'Alert',
 };
 
