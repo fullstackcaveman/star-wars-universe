@@ -8,7 +8,6 @@ import Footer from './components/elements/Footer';
 import Header from './components/elements/Header';
 import HeroSection from './components/elements/HeroSection';
 import Home from './components/Home';
-import Planets from './components/planets/Planets';
 import Species from './components/species/Species';
 import Starships from './components/starships/Starships';
 import UserEdit from './components/users/UserEdit';
@@ -18,6 +17,7 @@ import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
 import PlanetPage from './components/planets/PlanetPage';
+import PlanetInfo from './components/planets/PlanetInfo';
 
 const App = () => {
 	return (
@@ -32,7 +32,8 @@ const App = () => {
 				<Route exact path='/characters' component={CharacterPage} />
 				<Route path='/characters/:id' component={CharacterInfo} />
 				<Route exact path='/films' component={Films} />
-				<Route path='/planets' component={PlanetPage} />
+				<Route exact path='/planets' component={PlanetPage} />
+				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route exact path='/species' component={Species} />
 				<Route path='/starships' component={Starships} />
 				<Route path='/users/login' component={UserLoginForm} />
