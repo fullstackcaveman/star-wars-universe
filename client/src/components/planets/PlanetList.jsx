@@ -18,48 +18,48 @@ import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
 import {
-	listCharacters,
-	deleteCharacter,
-	createCharacter,
-} from '../../actions/characterActions';
-import { CHARACTER_CREATE_RESET } from '../../constants/characterConstants';
+	listPlanets,
+	deletePlanet,
+	createPlanet,
+} from '../../actions/planetActions';
+import { PLANET_CREATE_RESET } from '../../constants/planetConstants';
 
-const CharacterList = ({ history, match }) => {
-	document.title = 'Star Wars | Character List';
+const PlanetList = ({ history, match }) => {
+	document.title = 'Star Wars | Planet List';
 	const dispatch = useDispatch();
 
-	const characterList = useSelector((state) => state.characterList);
-	const { loading, error, characters } = characterList;
+	const planetList = useSelector((state) => state.planetList);
+	const { loading, error, planets } = planetList;
 
-	const characterDelete = useSelector((state) => state.characterDelete);
+	const planetDelete = useSelector((state) => state.planetDelete);
 	const {
 		loading: loadingDelete,
 		error: errorDelete,
 		success: successDelete,
-	} = characterDelete;
+	} = planetDelete;
 
-	const characterCreate = useSelector((state) => state.characterCreate);
+	const planetCreate = useSelector((state) => state.planetCreate);
 	const {
 		loading: loadingCreate,
 		error: errorCreate,
 		success: successCreate,
-		character: createdCharacter,
-	} = characterCreate;
+		planet: createdPlanet,
+	} = planetCreate;
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
 	useEffect(() => {
-		dispatch({ type: CHARACTER_CREATE_RESET });
+		dispatch({ type: PLANET_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
 			history.push('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/character/${createdCharacter._id}/edit`);
+			history.push(`/admin/planet/${createdPlanet._id}/edit`);
 		} else {
-			dispatch(listCharacters());
+			dispatch(listPlanets());
 		}
 	}, [
 		dispatch,
@@ -67,17 +67,17 @@ const CharacterList = ({ history, match }) => {
 		userInfo,
 		successDelete,
 		successCreate,
-		createdCharacter,
+		createdPlanet,
 	]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure?')) {
-			dispatch(deleteCharacter(id));
+			dispatch(deletePlanet(id));
 		}
 	};
 
-	const createCharacterHandler = () => {
-		dispatch(createCharacter());
+	const createPlanetHandler = () => {
+		dispatch(createPlanet());
 	};
 
 	return (
@@ -86,9 +86,9 @@ const CharacterList = ({ history, match }) => {
 				style={{ marginBottom: '10px' }}
 				variant='contained'
 				color='primary'
-				onClick={createCharacterHandler}
+				onClick={createPlanetHandler}
 			>
-				<AddIcon /> Create Character
+				<AddIcon /> Create Planet
 			</Button>
 
 			{loadingDelete && <Loader />}
@@ -106,25 +106,25 @@ const CharacterList = ({ history, match }) => {
 							<TableRow>
 								{/* <TableCell align='center'>ID</TableCell> */}
 								<TableCell align='center'>NAME</TableCell>
-								<TableCell align='center'>SPECIES</TableCell>
-								<TableCell align='center'>HOMEWORLD</TableCell>
+								<TableCell align='center'>POPULATION</TableCell>
+								<TableCell align='center'>TERRAIN</TableCell>
 								<TableCell align='center'></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{characters.map((character) => {
+							{planets.map((planet) => {
 								return (
-									<TableRow key={character._id}>
+									<TableRow key={planet._id}>
 										{/* <TableCell align='center'>{character._id}</TableCell> */}
-										<TableCell align='center'>{character.name}</TableCell>
-										<TableCell align='center'>{character.species}</TableCell>
+										<TableCell align='center'>{planet.name}</TableCell>
+										<TableCell align='center'>{planet.population}</TableCell>
 										<TableCell align='center'>
-											{character.homeworld.map((world) => (
-												<p>{world}</p>
+											{planet.terrain.map((terra) => (
+												<p>{terra}</p>
 											))}
 										</TableCell>
 										<TableCell align='center'>
-											<NavLink to={`/admin/character/${character._id}/edit`}>
+											<NavLink to={`/admin/planet/${planet._id}/edit`}>
 												<Button
 													variant='contained'
 													size='small'
@@ -137,7 +137,7 @@ const CharacterList = ({ history, match }) => {
 												variant='contained'
 												color='secondary'
 												size='small'
-												onClick={() => deleteHandler(character._id)}
+												onClick={() => deleteHandler(planet._id)}
 											>
 												<DeleteForeverIcon />
 											</Button>
@@ -154,4 +154,4 @@ const CharacterList = ({ history, match }) => {
 	);
 };
 
-export default CharacterList;
+export default PlanetList;

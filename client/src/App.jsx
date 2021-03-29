@@ -18,6 +18,8 @@ import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
 import PlanetPage from './components/planets/PlanetPage';
 import PlanetInfo from './components/planets/PlanetInfo';
+import PlanetList from './components/planets/PlanetList';
+import PlanetEdit from './components/planets/PlanetEdit';
 
 const App = () => {
 	return (
@@ -26,7 +28,9 @@ const App = () => {
 			<HeroSection />
 			<Switch>
 				<Route path='/admin/character/:id/edit' component={CharacterEdit} />
-				<Route path='/admin/characterList' component={CharacterList} />
+				<Route path='/admin/characterlist' component={CharacterList} />
+				<Route path='/admin/planet/:id/edit' component={PlanetEdit} />
+				<Route path='/admin/planetlist' component={PlanetList} />
 				<Route path='/admin/user/:id/edit' component={UserEdit} />
 				<Route path='/admin/userlist' component={UserList} />
 				<Route exact path='/characters' component={CharacterPage} />

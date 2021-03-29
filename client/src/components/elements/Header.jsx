@@ -62,12 +62,14 @@ const Header = () => {
 			history.push('/admin/characterlist');
 		} else if (route === 'films') {
 			history.push('/admin/films');
+		} else if (route === 'planets') {
+			history.push('/admin/planetlist');
 		} else if (route === 'species') {
-			history.push('/admin/species');
+			history.push('/admin/specieslist');
 		} else if (route === 'starships') {
-			history.push('/admin/starships');
+			history.push('/admin/starshipslist');
 		} else if (route === 'vehicles') {
-			history.push('/admin/vehicles');
+			history.push('/admin/vehicleslist');
 		}
 	};
 
