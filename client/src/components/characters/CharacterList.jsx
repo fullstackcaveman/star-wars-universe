@@ -25,6 +25,7 @@ import {
 import { CHARACTER_CREATE_RESET } from '../../constants/characterConstants';
 
 const CharacterList = ({ history, match }) => {
+	document.title = 'Star Wars | Character List';
 	const dispatch = useDispatch();
 
 	const characterList = useSelector((state) => state.characterList);

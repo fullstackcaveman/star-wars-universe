@@ -5,6 +5,7 @@ import colors from 'colors';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 import characterRoutes from './routes/characterRoutes.js';
+import planetRoutes from './routes/planetRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/characters', characterRoutes);
+app.use('/api/planets', planetRoutes);
 app.use('/api/users', userRoutes);
 
 app.use(notFound);

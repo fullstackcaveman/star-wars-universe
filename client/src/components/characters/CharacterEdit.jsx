@@ -608,7 +608,7 @@ const CharacterEdit = ({ match, history }) => {
 									margin: '5px 0',
 								}}
 							>
-								<Typography variant='body1'>Form Affiliations:</Typography>
+								<Typography variant='body1'>Former Affiliations:</Typography>
 								{(characterForm.formerAffiliations || []).map(
 									(_world, index) => (
 										<div key={index} className='formerAffiliations'>

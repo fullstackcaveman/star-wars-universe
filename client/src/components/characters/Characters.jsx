@@ -3,9 +3,8 @@ import Loader from '../elements/Loader';
 import CharacterCard from './CharacterCard';
 
 const Characters = (props) => {
-	const { characters, loading } = props;
-
 	document.title = 'Star Wars Characters';
+	const { characters, loading } = props;
 
 	if (loading) {
 		return <Loader />;
