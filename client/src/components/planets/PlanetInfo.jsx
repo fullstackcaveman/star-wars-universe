@@ -46,11 +46,20 @@ const PlanetInfo = ({ match }) => {
 					<>
 						<Card className='planet-info-card'>
 							<div className='flex'>
-								<CardMedia
-									component='img'
-									alt={planet.name}
-									image={planet.image}
-								/>
+								{!planet.image ? (
+									<CardMedia
+										component='img'
+										alt={planet.name}
+										image='../../images/placeholder.jpg'
+									/>
+								) : (
+									<CardMedia
+										component='img'
+										alt={planet.name}
+										image={planet.image}
+									/>
+								)}
+
 								<CardContent className='planet-data'>
 									<Typography component='h1'>{name}</Typography>
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { CHARACTER_INFO_RESET } from '../constants/characterConstants';
 import {
 	PLANET_LIST_REQUEST,
 	PLANET_LIST_SUCCESS,
@@ -6,6 +7,7 @@ import {
 	PLANET_INFO_REQUEST,
 	PLANET_INFO_SUCCESS,
 	PLANET_INFO_FAIL,
+	PLANET_INFO_RESET,
 } from '../constants/planetConstants';
 
 export const listPlanets = () => async (dispatch) => {

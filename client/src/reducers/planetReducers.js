@@ -5,6 +5,7 @@ import {
 	PLANET_INFO_REQUEST,
 	PLANET_INFO_SUCCESS,
 	PLANET_INFO_FAIL,
+	PLANET_INFO_RESET,
 } from '../constants/planetConstants';
 
 export const planetListReducer = (
@@ -38,7 +39,8 @@ export const planetInfoReducer = (
 			return { loading: false, planet: action.payload };
 		case PLANET_INFO_FAIL:
 			return { loading: false, error: action.payload };
-
+		case PLANET_INFO_RESET:
+			return {};
 		default:
 			return state;
 	}
