@@ -1,4 +1,5 @@
-.character-info-container {
+.character-info-container,
+.planet-info-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -7,7 +8,8 @@
 	max-width: 1480px;
 	height: 100%;
 
-	.character-info-card {
+	.character-info-card,
+	.planet-info-card {
 		display: flex;
 		width: 600px;
 
@@ -17,7 +19,8 @@
 			align-items: center;
 			width: 100%;
 
-			.character-data {
+			.character-data,
+			.planet-data {
 				margin: 0 auto;
 				color: $color-white;
 				h1 {

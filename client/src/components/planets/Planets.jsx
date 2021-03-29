@@ -12,13 +12,13 @@ const Planets = (props) => {
 
 	return (
 		<div className='planets-container'>
-			{/* {planets.map((planet) => {
+			{planets.map((planet) => {
 				return (
 					<Link to={`/planets/${planet._id}`} key={planet._id}>
 						<PlanetCard planet={planet} loading={loading} />
 					</Link>
 				);
-			})} */}
+			})}
 		</div>
 	);
 };

@@ -66,7 +66,7 @@ const CharacterPage = () => {
 	};
 
 	return (
-		<div className='character-page'>
+		<div className='list-page'>
 			<h1>Characters</h1>
 			{loading ? (
 				<Loader />
@@ -76,8 +76,8 @@ const CharacterPage = () => {
 				<>
 					<Characters characters={currentCharacters} loading={loading} />
 					<Pagination
-						charactersPerPage={charactersPerPage}
-						totalCharacters={characters.length}
+						items={charactersPerPage}
+						totalitems={characters.length}
 						paginate={paginate}
 						prev={prevPage}
 						next={nextPage}

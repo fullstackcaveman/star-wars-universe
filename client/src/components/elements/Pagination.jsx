@@ -1,16 +1,10 @@
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 
-const Pagination = ({
-	charactersPerPage,
-	totalCharacters,
-	paginate,
-	prev,
-	next,
-}) => {
+const Pagination = ({ items, totalitems, paginate, prev, next }) => {
 	const pageNumbers = [];
 
-	for (let i = 1; i <= Math.ceil(totalCharacters / charactersPerPage); i++) {
+	for (let i = 1; i <= Math.ceil(totalitems / items); i++) {
 		pageNumbers.push(i);
 	}
 
