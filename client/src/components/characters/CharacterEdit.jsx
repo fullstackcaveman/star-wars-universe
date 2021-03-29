@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import update from 'immutability-helper';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,7 +9,10 @@ import {
 	Paper,
 	TextField,
 	Typography,
+	IconButton,
 } from '@material-ui/core';
+import { DeleteForever, Send } from '@material-ui/icons';
+
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -109,6 +113,35 @@ const CharacterEdit = ({ match, history }) => {
 			})
 		);
 	};
+
+	// ******************************************************************
+	// Handle Arrays in form fields -
+	const handleArrayChange = (e, index, arr) => {
+		setCharacterForm(
+			update(characterForm, {
+				[arr]: {
+					[index]: {
+						$set: e.target.value,
+					},
+				},
+			})
+		);
+	};
+
+	const handleAddItem = (arr) => {
+		const newArray = characterForm[arr].push('');
+		setCharacterForm({ ...characterForm, newArray });
+	};
+
+	const handleDelete = (arr, index) => {
+		console.log(arr, index);
+		const newArray = characterForm[arr].filter(
+			(item) => item !== characterForm[arr][index]
+		);
+		setCharacterForm({ ...characterForm, [arr]: newArray });
+	};
+
+	// ******************************************************************
 
 	const paperStyle = {
 		// backgroundColor: 'black',
@@ -227,22 +260,40 @@ const CharacterEdit = ({ match, history }) => {
 								}
 							/>
 
-							<TextField
-								style={inputStyle}
-								label='Homeworld'
-								placeholder='Enter Homeworld'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='homeworld'
-								value={characterForm.homeworld}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										homeworld: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='planets'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Homeworld(s):</Typography>
+								{(characterForm.homeworld || []).map((_world, index) => (
+									<div key={index} className='homeworld'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.homeworld[index]}
+											name='homeworld'
+											onChange={(e) => handleArrayChange(e, index, 'homeworld')}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('homeworld', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('homeworld')}
+								>
+									Add New Planet
+								</Button>
+							</div>
 
 							<TextField
 								style={inputStyle}
@@ -402,158 +453,340 @@ const CharacterEdit = ({ match, history }) => {
 								}
 							/>
 
-							<TextField
-								style={inputStyle}
-								label='Cybernetics'
-								placeholder='Enter Cybernetics'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='cybernetics'
-								value={characterForm.cybernetics}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										cybernetics: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='cybernetics'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Cybernetics:</Typography>
+								{(characterForm.cybernetics || []).map((_world, index) => (
+									<div key={index} className='cybernetics'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.cybernetics[index]}
+											name='cybernetics'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'cybernetics')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('cybernetics', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('cybernetics')}
+								>
+									Add New Cybernetic
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Affiliations'
-								placeholder='Enter Affiliations'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='affiliations'
-								value={characterForm.affiliations}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										affiliations: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='affiliations'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Affiliations:</Typography>
+								{(characterForm.affiliations || []).map((_world, index) => (
+									<div key={index} className='affiliations'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.affiliations[index]}
+											name='affiliations'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'affiliations')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('affiliations', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('affiliations')}
+								>
+									Add New Affiliation
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Masters'
-								placeholder='Enter Masters'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='masters'
-								value={characterForm.masters}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										masters: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='masters'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Masters:</Typography>
+								{(characterForm.masters || []).map((_world, index) => (
+									<div key={index} className='masters'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.masters[index]}
+											name='masters'
+											onChange={(e) => handleArrayChange(e, index, 'masters')}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('masters', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('masters')}
+								>
+									Add New Master
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Apprentices'
-								placeholder='Enter Apprentices'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='apprentices'
-								value={characterForm.apprentices}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										apprentices: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='apprentices'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Apprentices:</Typography>
+								{(characterForm.apprentices || []).map((_world, index) => (
+									<div key={index} className='apprentices'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.apprentices[index]}
+											name='apprentices'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'apprentices')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('apprentices', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('apprentices')}
+								>
+									Add New Apprentice
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Former Affiliations'
-								placeholder='Enter Former Affiliations'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='formerAffiliations'
-								value={characterForm.formerAffiliations}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										formerAffiliations: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='formerAffiliations'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Form Affiliations:</Typography>
+								{(characterForm.formerAffiliations || []).map(
+									(_world, index) => (
+										<div key={index} className='formerAffiliations'>
+											<TextField
+												variant='outlined'
+												size='small'
+												value={characterForm.formerAffiliations[index]}
+												name='formerAffiliations'
+												onChange={(e) =>
+													handleArrayChange(e, index, 'formerAffiliations')
+												}
+											/>
+											<IconButton
+												size='small'
+												onClick={() =>
+													handleDelete('formerAffiliations', index)
+												}
+											>
+												<DeleteForever />
+											</IconButton>
+										</div>
+									)
+								)}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('formerAffiliations')}
+								>
+									Add New Affiliation
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Related Planets'
-								placeholder='Enter Related Planets'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='relatedPlanets'
-								value={characterForm.relatedPlanets}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										relatedPlanets: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='relatedPlanets'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Related Planets:</Typography>
+								{(characterForm.relatedPlanets || []).map((_world, index) => (
+									<div key={index} className='relatedPlanets'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.relatedPlanets[index]}
+											name='relatedPlanets'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedPlanets')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('relatedPlanets', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('relatedPlanets')}
+								>
+									Add New Planet
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Related Starships'
-								placeholder='Enter Related Starships'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='relatedStarships'
-								value={characterForm.relatedStarships}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										relatedStarships: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='relatedStarships'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Related Starships:</Typography>
+								{(characterForm.relatedStarships || []).map((_world, index) => (
+									<div key={index} className='relatedStarships'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.relatedStarships[index]}
+											name='relatedStarships'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedStarships')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('relatedStarships', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('relatedStarships')}
+								>
+									Add New Starship
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Related Vehicles'
-								placeholder='Enter Related Vehicles'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='relatedVehicles'
-								value={characterForm.relatedVehicles}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										relatedVehicles: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='relatedVehicles'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Related Vehicles:</Typography>
+								{(characterForm.relatedVehicles || []).map((_world, index) => (
+									<div key={index} className='relatedVehicles'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.relatedVehicles[index]}
+											name='relatedVehicles'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedVehicles')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('relatedVehicles', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('relatedVehicles')}
+								>
+									Add New Vehicle
+								</Button>
+							</div>
 
-							<TextField
-								style={inputStyle}
-								label='Related Films'
-								placeholder='Enter Related Films'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='relatedFilms'
-								value={characterForm.relatedFilms}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										relatedFilms: e.target.value,
-									})
-								}
-							/>
+							<div
+								className='relatedFilms'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Related Films:</Typography>
+								{(characterForm.relatedFilms || []).map((_world, index) => (
+									<div key={index} className='relatedFilms'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.relatedFilms[index]}
+											name='relatedFilms'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedFilms')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('relatedFilms', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('relatedFilms')}
+								>
+									Add New Film
+								</Button>
+							</div>
 
 							<Button
 								style={submitBtnStyle}
