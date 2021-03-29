@@ -119,16 +119,6 @@ const Header = () => {
 						>
 							-- ADMIN --
 						</Typography>
-						<ListItem>
-							{/* <PeopleIcon /> */}
-							<Button
-								style={buttonStyles}
-								fullWidth
-								onClick={() => handleClick('users')}
-							>
-								<Typography>Users</Typography>
-							</Button>
-						</ListItem>
 
 						<ListItem>
 							<Button
@@ -179,6 +169,17 @@ const Header = () => {
 								onClick={() => handleClick('starships')}
 							>
 								<Typography>Starships</Typography>
+							</Button>
+						</ListItem>
+
+						<ListItem>
+							{/* <PeopleIcon /> */}
+							<Button
+								style={buttonStyles}
+								fullWidth
+								onClick={() => handleClick('users')}
+							>
+								<Typography>Users</Typography>
 							</Button>
 						</ListItem>
 
