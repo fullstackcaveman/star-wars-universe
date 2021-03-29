@@ -220,6 +220,23 @@ const CharacterEdit = ({ match, history }) => {
 
 							<TextField
 								style={inputStyle}
+								label='Species'
+								placeholder='Enter Species'
+								variant='outlined'
+								size='small'
+								fullWidth
+								name='species'
+								value={characterForm.species}
+								onChange={(e) =>
+									setCharacterForm({
+										...characterForm,
+										species: e.target.value,
+									})
+								}
+							/>
+
+							<TextField
+								style={inputStyle}
 								label='Height'
 								placeholder='Enter Height'
 								variant='outlined'
@@ -259,41 +276,6 @@ const CharacterEdit = ({ match, history }) => {
 									setCharacterForm({ ...characterForm, gender: e.target.value })
 								}
 							/>
-
-							<div
-								className='planets'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
-								<Typography variant='body1'>Homeworld(s):</Typography>
-								{(characterForm.homeworld || []).map((_world, index) => (
-									<div key={index} className='homeworld'>
-										<TextField
-											variant='outlined'
-											size='small'
-											value={characterForm.homeworld[index]}
-											name='homeworld'
-											onChange={(e) => handleArrayChange(e, index, 'homeworld')}
-										/>
-										<IconButton
-											size='small'
-											onClick={() => handleDelete('homeworld', index)}
-										>
-											<DeleteForever />
-										</IconButton>
-									</div>
-								))}
-								<Button
-									variant='contained'
-									onClick={() => handleAddItem('homeworld')}
-								>
-									Add New Planet
-								</Button>
-							</div>
 
 							<TextField
 								style={inputStyle}
@@ -387,23 +369,6 @@ const CharacterEdit = ({ match, history }) => {
 
 							<TextField
 								style={inputStyle}
-								label='Species'
-								placeholder='Enter Species'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='species'
-								value={characterForm.species}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										species: e.target.value,
-									})
-								}
-							/>
-
-							<TextField
-								style={inputStyle}
 								label='Hair Color'
 								placeholder='Enter Hair Color'
 								variant='outlined'
@@ -452,6 +417,41 @@ const CharacterEdit = ({ match, history }) => {
 									})
 								}
 							/>
+
+							<div
+								className='planets'
+								style={{
+									border: '1px solid #bdbdbd',
+									borderRadius: '5px',
+									padding: '5px 0',
+									margin: '5px 0',
+								}}
+							>
+								<Typography variant='body1'>Homeworld(s):</Typography>
+								{(characterForm.homeworld || []).map((_world, index) => (
+									<div key={index} className='homeworld'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.homeworld[index]}
+											name='homeworld'
+											onChange={(e) => handleArrayChange(e, index, 'homeworld')}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('homeworld', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
+								<Button
+									variant='contained'
+									onClick={() => handleAddItem('homeworld')}
+								>
+									Add New Planet
+								</Button>
+							</div>
 
 							<div
 								className='cybernetics'

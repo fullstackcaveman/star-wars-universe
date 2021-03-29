@@ -49,7 +49,6 @@ const createCharacter = asyncHandler(async (req, res) => {
 		height: 'unknown',
 		mass: 'unknown',
 		gender: 'unknown',
-		homeworld: ['unknown'],
 		wiki: 'unknown',
 		image: '/images/placeholder.jpg',
 		born: 'unknown',
@@ -60,15 +59,16 @@ const createCharacter = asyncHandler(async (req, res) => {
 		hairColor: 'unknown',
 		eyeColor: 'unknown',
 		skinColor: 'unknown',
-		cybernetics: ['unknown'],
-		affiliations: ['unknown'],
-		masters: ['unknown'],
-		apprentices: ['unknown'],
-		formerAffiliations: ['unknown'],
-		relatedPlanets: ['unknown'],
-		relatedStarships: ['unknown'],
-		relatedVehicles: ['unknown'],
-		relatedFilms: ['unknown'],
+		homeworld: [],
+		cybernetics: [],
+		affiliations: [],
+		masters: [],
+		apprentices: [],
+		formerAffiliations: [],
+		relatedPlanets: [],
+		relatedStarships: [],
+		relatedVehicles: [],
+		relatedFilms: [],
 	});
 
 	const createdCharacter = await character.save();
@@ -85,7 +85,6 @@ const updateCharacter = asyncHandler(async (req, res) => {
 		height,
 		mass,
 		gender,
-		homeworld,
 		wiki,
 		image,
 		born,
@@ -96,6 +95,7 @@ const updateCharacter = asyncHandler(async (req, res) => {
 		hairColor,
 		eyeColor,
 		skincolor,
+		homeworld,
 		cybernetics,
 		affiliations,
 		masters,
@@ -115,7 +115,6 @@ const updateCharacter = asyncHandler(async (req, res) => {
 		character.heght = height;
 		character.mass = mass;
 		character.gender = gender;
-		character.homeworld = homeworld;
 		character.wiki = wiki;
 		character.image = image;
 		character.born = born;
@@ -126,6 +125,7 @@ const updateCharacter = asyncHandler(async (req, res) => {
 		character.hairColor = hairColor;
 		character.eyeColor = eyeColor;
 		character.skincolor = skincolor;
+		character.homeworld = homeworld;
 		character.cybernetics = cybernetics;
 		character.affiliations = affiliations;
 		character.masters = masters;
