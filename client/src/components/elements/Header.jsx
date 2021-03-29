@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { Avatar, Button, Divider, Typography } from '@material-ui/core';
+import {
+	Avatar,
+	Button,
+	Divider,
+	Typography,
+	Drawer,
+	List,
+	ListItem,
+	makeStyles,
+} from '@material-ui/core';
 
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-// import HomeIcon from '@material-ui/icons/Home';
-// import PersonIcon from '@material-ui/icons/Person';
-// import PeopleIcon from '@material-ui/icons/People';
-// import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
-// import LanguageIcon from '@material-ui/icons/Language';
+
 import { logout } from '../../actions/userActions';
 
 const useStyles = makeStyles({
