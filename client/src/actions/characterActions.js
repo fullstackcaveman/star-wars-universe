@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
 	CHARACTER_LIST_REQUEST,
 	CHARACTER_LIST_SUCCESS,
@@ -15,7 +16,6 @@ import {
 	CHARACTER_UPDATE_SUCCESS,
 	CHARACTER_UPDATE_FAIL,
 } from '../constants/characterConstants';
-import axios from 'axios';
 
 export const listCharacters = () => async (dispatch) => {
 	try {

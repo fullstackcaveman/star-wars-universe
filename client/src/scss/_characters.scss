@@ -1,4 +1,4 @@
-.character-page {
+.list-page {
 	display: flex;
 	flex-direction: column;
 	max-width: 1480px;
@@ -12,11 +12,13 @@
 		text-shadow: -1px -1px 0 #ffee58, 1px -1px 0 #ffee58, -1px 1px 0 #ffee58,
 			1px 1px 0 #ffee58;
 	}
-	.characters-wrapper {
+	.characters-wrapper,
+	.planets-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
 		flex-wrap: wrap;
+		width: 100%;
 	}
 }
