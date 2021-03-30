@@ -11,6 +11,7 @@ const planetSchema = mongoose.Schema(
 			type: String,
 			unique: true,
 		},
+		image: String,
 		rotation_period: String,
 		orbital_period: String,
 		diameter: String,

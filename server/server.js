@@ -5,6 +5,7 @@ import colors from 'colors';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 import characterRoutes from './routes/characterRoutes.js';
+import filmRoutes from './routes/filmRoutes.js';
 import planetRoutes from './routes/planetRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/characters', characterRoutes);
+app.use('/api/films', filmRoutes);
 app.use('/api/planets', planetRoutes);
 app.use('/api/users', userRoutes);
 
