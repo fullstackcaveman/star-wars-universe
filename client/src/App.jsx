@@ -20,6 +20,7 @@ import PlanetPage from './components/planets/PlanetPage';
 import PlanetInfo from './components/planets/PlanetInfo';
 import PlanetList from './components/planets/PlanetList';
 import PlanetEdit from './components/planets/PlanetEdit';
+import FilmPage from './components/films/FilmPage';
 
 const App = () => {
 	return (
@@ -35,7 +36,7 @@ const App = () => {
 				<Route path='/admin/userlist' component={UserList} />
 				<Route exact path='/characters' component={CharacterPage} />
 				<Route path='/characters/:id' component={CharacterInfo} />
-				<Route exact path='/films' component={Films} />
+				<Route exact path='/films' component={FilmPage} />
 				<Route exact path='/planets' component={PlanetPage} />
 				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route exact path='/species' component={Species} />

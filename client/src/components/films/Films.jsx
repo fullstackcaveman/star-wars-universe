@@ -1,15 +1,27 @@
-import React from 'react';
-import Background from '../elements/Background';
+import { Link } from 'react-router-dom';
+import Loader from '../elements/Loader';
+import FilmCard from './FilmCard';
 
-const Films = () => {
+const Films = (props) => {
 	document.title = 'Star Wars Films';
+	const { films, loading } = props;
+
+	console.log(films);
+
+	if (loading) {
+		return <Loader />;
+	}
+
 	return (
-		<>
-			<div className='vehicles-container'>
-				<h2>Under Construction</h2>
-			</div>
-			<Background />
-		</>
+		<div className='characters-wrapper'>
+			{films.map((film) => {
+				return (
+					<Link to={`/films/${film._id}`} key={film._id}>
+						<FilmCard film={film} loading={loading} />
+					</Link>
+				);
+			})}
+		</div>
 	);
 };
 
