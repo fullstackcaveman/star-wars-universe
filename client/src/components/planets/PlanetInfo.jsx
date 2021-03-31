@@ -37,14 +37,14 @@ const PlanetInfo = ({ match }) => {
 
 	return (
 		<>
-			<div className='planet-info-container'>
+			<div className='info-container'>
 				{loading ? (
 					<Loader />
 				) : error ? (
 					<Message severity='error' message={error} />
 				) : (
 					<>
-						<Card className='planet-info-card'>
+						<Card className='info-card'>
 							<div className='flex'>
 								{!planet.image ? (
 									<CardMedia
@@ -60,7 +60,7 @@ const PlanetInfo = ({ match }) => {
 									/>
 								)}
 
-								<CardContent className='planet-data'>
+								<CardContent className='card-data'>
 									<Typography component='h1'>{name}</Typography>
 
 									{!population ? (
