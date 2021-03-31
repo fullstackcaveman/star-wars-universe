@@ -27,6 +27,14 @@ import {
 } from './reducers/planetReducers';
 
 import {
+	speciesCreateReducer,
+	speciesDeleteReducer,
+	speciesInfoReducer,
+	speciesListReducer,
+	speciesUpdateReducer,
+} from './reducers/speciesReducers';
+
+import {
 	adminUserUpdateProfileReducer,
 	userDetailsReducer,
 	userDeleteReducer,
@@ -52,6 +60,11 @@ const reducer = combineReducers({
 	planetInfo: planetInfoReducer,
 	planetList: planetListReducer,
 	planetUpdate: planetUpdateReducer,
+	speciesCreate: speciesCreateReducer,
+	speciesDelete: speciesDeleteReducer,
+	speciesInfo: speciesInfoReducer,
+	speciesUpdate: speciesUpdateReducer,
+	speciesList: speciesListReducer,
 	userDelete: userDeleteReducer,
 	userDetails: userDetailsReducer,
 	userList: userListReducer,

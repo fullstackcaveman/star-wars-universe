@@ -1,19 +1,19 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import colors from 'colors';
-// import { characters } from './data/characters.js';
+// import { characters } from './data/charactersData.js';
 // import Character from './models/characterModel.js';
-import { films } from './data/films.js';
-import Film from './models/filmModel.js';
-// import { planets } from './data/planets.js';
+// import { films } from './data/filmsData.js';
+// import Film from './models/filmModel.js';
+// import { planets } from './data/planetsData.js';
 // import Planet from './models/planetModel.js';
-// import { species } from './data/species.js';
-// import Species from './models/speciesModel.js';
-// import { starships } from './data/starships.js';
+import { species } from './data/speciesData.js';
+import Species from './models/speciesModel.js';
+// import { starships } from './data/starshipsData.js';
 // import Starship from './models/starshipModel.js';
-// import { users } from './data/users.js';
+// import { users } from './data/usersData.js';
 // import User from './models/userModel.js';
-// import { vehicles } from './data/vehicles.js';
+// import { vehicles } from './data/vehiclesData.js';
 // import Vehicle from './models/vehicleModel.js';
 import connectDB from './config/db.js';
 
@@ -25,7 +25,7 @@ const importData = async () => {
 	try {
 		// await User.deleteMany();
 		// await Character.deleteMany();
-		await Film.deleteMany();
+		// await Film.deleteMany();
 		// await Planet.deleteMany();
 		// await Species.deleteMany();
 		// await Starship.deleteMany();
@@ -33,7 +33,7 @@ const importData = async () => {
 		// console.log('Characters Deleted');
 		// await User.insertMany(users);
 		// await Character.insertMany(characters);
-		await Film.insertMany(films);
+		// await Film.insertMany(films);
 		// await Planet.insertMany(planets);
 		// await Species.insertMany(species);
 		// await Starship.insertMany(starships);
