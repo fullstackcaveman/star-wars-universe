@@ -104,8 +104,6 @@ const SpeciesList = ({ history, match }) => {
 					<Table size='small'>
 						<TableHead>
 							<TableRow>
-								{/* <TableCell align='center'>ID</TableCell> */}
-								{/* <TableCell align='center'>NAME</TableCell> */}
 								<TableCell align='center'>SPECIES</TableCell>
 								<TableCell align='center'>HOMEWORLD</TableCell>
 								<TableCell align='center'>LANGUAGE</TableCell>
@@ -120,11 +118,7 @@ const SpeciesList = ({ history, match }) => {
 										<TableCell align='center'>{species.name}</TableCell>
 										<TableCell align='center'>{species.homeworld}</TableCell>
 										<TableCell align='center'>{species.language}</TableCell>
-										<TableCell align='center'>
-											{/* {species.homeworld.map((world) => (
-												<p>{world}</p>
-											))} */}
-										</TableCell>
+
 										<TableCell align='center'>
 											<NavLink to={`/admin/species/${species._id}/edit`}>
 												<Button

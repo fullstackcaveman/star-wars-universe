@@ -12,6 +12,8 @@ import PlanetPage from './components/planets/PlanetPage';
 import PlanetInfo from './components/planets/PlanetInfo';
 import PlanetList from './components/planets/PlanetList';
 import PlanetEdit from './components/planets/PlanetEdit';
+import SpeciesList from './components/species/SpeciesList';
+import SpeciesEdit from './components/species/SpeciesEdit';
 import SpeciesPage from './components/species/SpeciesPage';
 import Starships from './components/starships/Starships';
 import UserEdit from './components/users/UserEdit';
@@ -20,7 +22,6 @@ import UserList from './components/users/UserList';
 import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
-import SpeciesList from './components/species/SpeciesList';
 
 const App = () => {
 	return (
@@ -32,6 +33,7 @@ const App = () => {
 				<Route path='/admin/characterlist' component={CharacterList} />
 				<Route path='/admin/planet/:id/edit' component={PlanetEdit} />
 				<Route path='/admin/planetlist' component={PlanetList} />
+				<Route path='/admin/species/:id/edit' component={SpeciesEdit} />
 				<Route path='/admin/specieslist' component={SpeciesList} />
 				<Route path='/admin/user/:id/edit' component={UserEdit} />
 				<Route path='/admin/userlist' component={UserList} />

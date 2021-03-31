@@ -60,8 +60,8 @@ const createSpecies = asyncHandler(async (req, res) => {
 		films: ['unknown'],
 	});
 
-	const createdCharacter = await character.save();
-	res.status(201).json(createdCharacter);
+	const createdSpecies = await species.save();
+	res.status(201).json(createdSpecies);
 });
 
 // @desc   Update a species
