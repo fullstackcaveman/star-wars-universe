@@ -9,9 +9,9 @@ const speciesSchema = mongoose.Schema(
 		},
 		pretty_url: {
 			type: String,
-			// required: true,
 			unique: true,
 		},
+		image: String,
 		classification: String,
 		designation: String,
 		average_height: String,
@@ -23,7 +23,6 @@ const speciesSchema = mongoose.Schema(
 		eye_colors: Array,
 		people: Array,
 		films: Array,
-		url: String,
 	},
 	{
 		timestamps: true,

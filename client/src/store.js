@@ -9,13 +9,23 @@ import {
 	chracterListReducer,
 	characterUpdateReducer,
 } from './reducers/characterReducers';
+
 import {
+	filmListReducer,
+	filmInfoReducer,
+	filmDeleteReducer,
+	filmCreateReducer,
+	filmUpdateReducer,
+} from './reducers/filmReducers';
+
+import {
+	planetCreateReducer,
+	planetDeleteReducer,
 	planetInfoReducer,
 	planetListReducer,
-	planetCreateReducer,
 	planetUpdateReducer,
-	planetDeleteReducer,
 } from './reducers/planetReducers';
+
 import {
 	adminUserUpdateProfileReducer,
 	userDetailsReducer,
@@ -32,6 +42,11 @@ const reducer = combineReducers({
 	characterInfo: characterInfoReducer,
 	characterList: chracterListReducer,
 	characterUpdate: characterUpdateReducer,
+	filmCreate: filmCreateReducer,
+	filmDelete: filmDeleteReducer,
+	filmInfo: filmInfoReducer,
+	filmList: filmListReducer,
+	filmUpdate: filmUpdateReducer,
 	planetCreate: planetCreateReducer,
 	planetDelete: planetDeleteReducer,
 	planetInfo: planetInfoReducer,
