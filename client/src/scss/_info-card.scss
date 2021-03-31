@@ -1,0 +1,70 @@
+.info-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	max-width: 1480px;
+	height: 100%;
+
+	.info-card {
+		display: flex;
+		width: auto;
+		// width: 600px;
+
+		.flex {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+
+			.card-data {
+				display: flex;
+				flex-direction: column;
+				margin: 0 auto;
+				color: $color-white;
+				h1 {
+					font-family: $primary-font;
+					text-align: center;
+					font-size: 2rem;
+				}
+
+				h3 {
+					font-family: $primary-font;
+					text-align: left;
+					//
+				}
+
+				.info-blocks {
+					display: flex;
+					flex-wrap: wrap;
+
+					.left-info,
+					.right-info {
+						flex-wrap: wrap;
+						margin: 10px;
+
+						.info-array-container {
+							// For wrapping array items
+							margin-bottom: 10px;
+						}
+
+						span {
+							background-color: $starwars-yellow;
+							font-family: $primary-font;
+
+							margin: 0 2px;
+							padding: 2px 7px;
+							border-radius: 10px;
+							color: black;
+						}
+					}
+
+					.left-info {
+						margin-right: 30px;
+					}
+				}
+			}
+		}
+	}
+}

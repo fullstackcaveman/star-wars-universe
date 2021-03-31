@@ -34,21 +34,21 @@ const CharacterInfo = ({ match }) => {
 
 	return (
 		<>
-			<div className='character-info-container'>
+			<div className='info-container'>
 				{loading ? (
 					<Loader />
 				) : error ? (
 					<Message severity='error' message={error} />
 				) : (
 					<>
-						<Card className='character-info-card'>
+						<Card className='info-card'>
 							<div className='flex'>
 								<CardMedia
 									component='img'
 									alt={character.name}
 									image={character.image}
 								/>
-								<CardContent className='character-data'>
+								<CardContent className='card-data'>
 									<Typography component='h1'>{name}</Typography>
 
 									{!species ? (

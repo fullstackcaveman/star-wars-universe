@@ -22,6 +22,7 @@ import UserList from './components/users/UserList';
 import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
+import SpeciesInfo from './components/species/SpeciesInfo';
 
 const App = () => {
 	return (
@@ -43,6 +44,7 @@ const App = () => {
 				<Route exact path='/planets' component={PlanetPage} />
 				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route exact path='/species' component={SpeciesPage} />
+				<Route path='/species/:id' component={SpeciesInfo} />
 				{/* <Route path='/starships' component={StarshipsPage} /> */}
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />

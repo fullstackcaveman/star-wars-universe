@@ -473,6 +473,66 @@ footer .footer-bottom {
   border: #ffee58 2px solid;
 }
 
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1480px;
+  height: 100%;
+}
+.info-container .info-card {
+  display: flex;
+  width: auto;
+}
+.info-container .info-card .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.info-container .info-card .flex .card-data {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: #fff;
+}
+.info-container .info-card .flex .card-data h1 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+}
+.info-container .info-card .flex .card-data h3 {
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+}
+.info-container .info-card .flex .card-data .info-blocks {
+  display: flex;
+  flex-wrap: wrap;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info,
+.info-container .info-card .flex .card-data .info-blocks .right-info {
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container,
+.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container {
+  margin-bottom: 10px;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info span,
+.info-container .info-card .flex .card-data .info-blocks .right-info span {
+  background-color: #ffe81f;
+  font-family: "Roboto", sans-serif;
+  margin: 0 2px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  color: black;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info {
+  margin-right: 30px;
+}
+
 .character-wrapper,
 .planet-wrapper {
   display: relative;
