@@ -51,6 +51,7 @@ const createPlanet = asyncHandler(async (req, res) => {
 		diameter: 'unknown',
 		surface_water: 'unknown',
 		population: 'unknown',
+		image: '/images/placeholder.jpg',
 		climate: [],
 		gravity: [],
 		terrain: [],

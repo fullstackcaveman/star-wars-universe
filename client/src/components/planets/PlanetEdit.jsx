@@ -30,6 +30,7 @@ const PlanetEdit = ({ match, history }) => {
 		diameter: '',
 		surface_water: '',
 		population: '',
+		image: '',
 		climate: [],
 		gravity: [],
 		terrain: [],
@@ -66,6 +67,7 @@ const PlanetEdit = ({ match, history }) => {
 					diameter: planet.diameter,
 					surface_water: planet.surface_water,
 					population: planet.population,
+					image: planet.image,
 					climate: planet.climate,
 					gravity: planet.gravity,
 					terrain: planet.terrain,
@@ -272,6 +274,23 @@ const PlanetEdit = ({ match, history }) => {
 									setPlanetForm({
 										...planetForm,
 										surface_water: e.target.value,
+									})
+								}
+							/>
+
+							<TextField
+								style={inputStyle}
+								label='Image'
+								placeholder='Enter Image'
+								variant='outlined'
+								size='small'
+								fullWidth
+								name='image'
+								value={planetForm.image}
+								onChange={(e) =>
+									setPlanetForm({
+										...planetForm,
+										image: e.target.value,
 									})
 								}
 							/>
