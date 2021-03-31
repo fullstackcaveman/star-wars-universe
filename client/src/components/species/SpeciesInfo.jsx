@@ -4,7 +4,7 @@ import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
-import RelatedFilms from '../films/RelatedFilms';
+// import RelatedFilms from '../films/RelatedFilms';
 
 import { listSpeciesInfo } from '../../actions/speciesActions';
 
@@ -153,9 +153,7 @@ const SpeciesInfo = ({ match }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'>
-							<RelatedFilms />
-						</div>
+						<div className='flex'>{/* <RelatedFilms /> */}</div>
 					</>
 				)}
 			</div>
