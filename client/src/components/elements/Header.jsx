@@ -62,7 +62,7 @@ const Header = () => {
 		} else if (route === 'characters') {
 			history.push('/admin/characterlist');
 		} else if (route === 'films') {
-			history.push('/admin/films');
+			history.push('/admin/filmlist');
 		} else if (route === 'planets') {
 			history.push('/admin/planetlist');
 		} else if (route === 'species') {

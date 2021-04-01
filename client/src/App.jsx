@@ -23,6 +23,9 @@ import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
 import SpeciesInfo from './components/species/SpeciesInfo';
+import FilmInfo from './components/films/FilmInfo';
+import FilmList from './components/films/FilmList';
+import FilmEdit from './components/films/FilmEdit';
 
 const App = () => {
 	return (
@@ -32,6 +35,8 @@ const App = () => {
 			<Switch>
 				<Route path='/admin/character/:id/edit' component={CharacterEdit} />
 				<Route path='/admin/characterlist' component={CharacterList} />
+				<Route path='/admin/film/:id/edit' component={FilmEdit} />
+				<Route path='/admin/filmlist' component={FilmList} />
 				<Route path='/admin/planet/:id/edit' component={PlanetEdit} />
 				<Route path='/admin/planetlist' component={PlanetList} />
 				<Route path='/admin/species/:id/edit' component={SpeciesEdit} />
@@ -41,6 +46,7 @@ const App = () => {
 				<Route exact path='/characters' component={CharacterPage} />
 				<Route path='/characters/:id' component={CharacterInfo} />
 				<Route exact path='/films' component={FilmPage} />
+				<Route path='/films/:id' component={FilmInfo} />
 				<Route exact path='/planets' component={PlanetPage} />
 				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route exact path='/species' component={SpeciesPage} />
