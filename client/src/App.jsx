@@ -23,6 +23,7 @@ import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import Vehicles from './components/vehicles/Vehicles';
 import SpeciesInfo from './components/species/SpeciesInfo';
+import FilmInfo from './components/films/FilmInfo';
 
 const App = () => {
 	return (
@@ -41,6 +42,7 @@ const App = () => {
 				<Route exact path='/characters' component={CharacterPage} />
 				<Route path='/characters/:id' component={CharacterInfo} />
 				<Route exact path='/films' component={FilmPage} />
+				<Route path='/films/:id' component={FilmInfo} />
 				<Route exact path='/planets' component={PlanetPage} />
 				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route exact path='/species' component={SpeciesPage} />

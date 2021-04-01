@@ -479,7 +479,7 @@ footer .footer-bottom {
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 1480px;
+  max-width: 1920px;
   height: 100%;
 }
 .info-container .info-card {
@@ -514,11 +514,16 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks .left-info,
 .info-container .info-card .flex .card-data .info-blocks .right-info {
   flex-wrap: wrap;
+  max-width: 500px;
   margin: 10px;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container {
   margin-bottom: 10px;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.crawl,
+.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.crawl {
+  font-family: "Roboto", sans-serif;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info span,
 .info-container .info-card .flex .card-data .info-blocks .right-info span {

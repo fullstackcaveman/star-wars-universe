@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	max-width: 1480px;
+	max-width: 1920px;
 	height: 100%;
 
 	.info-card {
@@ -42,11 +42,18 @@
 					.left-info,
 					.right-info {
 						flex-wrap: wrap;
+						max-width: 500px;
 						margin: 10px;
 
 						.info-array-container {
 							// For wrapping array items
 							margin-bottom: 10px;
+
+							.info-array {
+								&.crawl {
+									font-family: $primary-font;
+								}
+							}
 						}
 
 						span {
