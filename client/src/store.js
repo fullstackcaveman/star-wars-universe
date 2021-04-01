@@ -35,6 +35,14 @@ import {
 } from './reducers/speciesReducers';
 
 import {
+	starshipCreateReducer,
+	starshipDeleteReducer,
+	starshipInfoReducer,
+	starshipListReducer,
+	starshipUpdateReducer,
+} from './reducers/starshipReducers';
+
+import {
 	adminUserUpdateProfileReducer,
 	userDetailsReducer,
 	userDeleteReducer,
@@ -63,8 +71,13 @@ const reducer = combineReducers({
 	speciesCreate: speciesCreateReducer,
 	speciesDelete: speciesDeleteReducer,
 	speciesInfo: speciesInfoReducer,
-	speciesUpdate: speciesUpdateReducer,
 	speciesList: speciesListReducer,
+	speciesUpdate: speciesUpdateReducer,
+	starshipCreate: starshipCreateReducer,
+	starshipDelete: starshipDeleteReducer,
+	starshipInfo: starshipInfoReducer,
+	starshipList: starshipListReducer,
+	starshipUpdate: starshipUpdateReducer,
 	userDelete: userDeleteReducer,
 	userDetails: userDetailsReducer,
 	userList: userListReducer,
