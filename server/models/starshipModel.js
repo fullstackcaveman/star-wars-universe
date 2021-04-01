@@ -9,11 +9,9 @@ const starshipSchema = mongoose.Schema(
 		},
 		pretty_url: {
 			type: String,
-			// required: true,
 			unique: true,
 		},
-		model: String,
-		maunfacturer: String,
+		ship_model: String,
 		cost_in_credits: String,
 		length: String,
 		max_atmosphering_speed: String,
@@ -24,9 +22,9 @@ const starshipSchema = mongoose.Schema(
 		hyperdrive_rating: String,
 		MGLT: String,
 		starship_class: String,
+		manufacturer: Array,
 		pilots: Array,
 		films: Array,
-		url: String,
 	},
 	{
 		timestamps: true,

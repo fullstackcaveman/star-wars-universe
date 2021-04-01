@@ -9,8 +9,8 @@ import colors from 'colors';
 // import Planet from './models/planetModel.js';
 // import { species } from './data/speciesData.js';
 // import Species from './models/speciesModel.js';
-// import { starships } from './data/starshipsData.js';
-// import Starship from './models/starshipModel.js';
+import { starships } from './data/starshipData.js';
+import Starship from './models/starshipModel.js';
 // import { users } from './data/usersData.js';
 // import User from './models/userModel.js';
 // import { vehicles } from './data/vehiclesData.js';
@@ -28,7 +28,7 @@ const importData = async () => {
 		// await Film.deleteMany();
 		// await Planet.deleteMany();
 		// await Species.deleteMany();
-		// await Starship.deleteMany();
+		await Starship.deleteMany();
 		// await Vehicle.deleteMany();
 		// console.log('Characters Deleted');
 		// await User.insertMany(users);
@@ -36,7 +36,7 @@ const importData = async () => {
 		// await Film.insertMany(films);
 		// await Planet.insertMany(planets);
 		// await Species.insertMany(species);
-		// await Starship.insertMany(starships);
+		await Starship.insertMany(starships);
 		// await Vehicle.insertMany(vehicles);
 		console.log('Data Imported!'.green.inverse);
 		process.exit();

@@ -8,6 +8,7 @@ import characterRoutes from './routes/characterRoutes.js';
 import filmRoutes from './routes/filmRoutes.js';
 import planetRoutes from './routes/planetRoutes.js';
 import speciesRoutes from './routes/speciesRoutes.js';
+import starshipRoutes from './routes/starshipRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
@@ -23,9 +24,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/characters', characterRoutes);
-app.use('/api/species', speciesRoutes);
 app.use('/api/films', filmRoutes);
 app.use('/api/planets', planetRoutes);
+app.use('/api/species', speciesRoutes);
+app.use('/api/starships', starshipRoutes);
 app.use('/api/users', userRoutes);
 
 app.use(notFound);
