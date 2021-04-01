@@ -6,8 +6,6 @@ const Films = (props) => {
 	document.title = 'Star Wars Films';
 	const { films, loading } = props;
 
-	console.log(films);
-
 	if (loading) {
 		return <Loader />;
 	}

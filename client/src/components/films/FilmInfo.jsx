@@ -72,9 +72,9 @@ const FilmInfo = ({ match }) => {
 
 											<div className='info-array-container'>
 												<Typography component='h3'>Producer(s):</Typography>
-												<Typography component='body2' className='info-array'>
+												<Typography component='p' className='info-array'>
 													{(producer || []).map((producer) => (
-														<span>{`${producer}`}</span>
+														<span key={producer}>{`${producer}`}</span>
 													))}
 												</Typography>
 											</div>
@@ -89,7 +89,7 @@ const FilmInfo = ({ match }) => {
 												<div className='info-array-container'>
 													<Typography component='h3'>Opening Crawl:</Typography>
 													<Typography
-														component='body2'
+														component='p'
 														className='info-array crawl'
 													>
 														{opening_crawl}

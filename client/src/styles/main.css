@@ -524,11 +524,13 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.crawl,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.crawl {
   font-family: "Roboto", sans-serif;
+  color: #ffe81f;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info span,
 .info-container .info-card .flex .card-data .info-blocks .right-info span {
   background-color: #ffe81f;
   font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
   margin: 0 2px;
   padding: 2px 7px;
   border-radius: 10px;

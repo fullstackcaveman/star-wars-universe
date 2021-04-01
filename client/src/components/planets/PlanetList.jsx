@@ -104,7 +104,6 @@ const PlanetList = ({ history, match }) => {
 					<Table size='small'>
 						<TableHead>
 							<TableRow>
-								{/* <TableCell align='center'>ID</TableCell> */}
 								<TableCell align='center'>NAME</TableCell>
 								<TableCell align='center'>POPULATION</TableCell>
 								<TableCell align='center'>TERRAIN</TableCell>
@@ -115,12 +114,11 @@ const PlanetList = ({ history, match }) => {
 							{planets.map((planet) => {
 								return (
 									<TableRow key={planet._id}>
-										{/* <TableCell align='center'>{character._id}</TableCell> */}
 										<TableCell align='center'>{planet.name}</TableCell>
 										<TableCell align='center'>{planet.population}</TableCell>
 										<TableCell align='center'>
 											{planet.terrain.map((terra) => (
-												<p>{terra}</p>
+												<p key={terra}>{terra}</p>
 											))}
 										</TableCell>
 										<TableCell align='center'>
