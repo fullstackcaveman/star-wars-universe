@@ -60,8 +60,6 @@ const FilmPage = () => {
 		}
 	};
 
-	console.log(films.length);
-
 	return (
 		<div className='list-page'>
 			<h1>Films</h1>

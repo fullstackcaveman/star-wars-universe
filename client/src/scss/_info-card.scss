@@ -52,6 +52,7 @@
 							.info-array {
 								&.crawl {
 									font-family: $primary-font;
+									color: $starwars-yellow;
 								}
 							}
 						}
@@ -59,6 +60,7 @@
 						span {
 							background-color: $starwars-yellow;
 							font-family: $primary-font;
+							font-size: 0.9rem;
 
 							margin: 0 2px;
 							padding: 2px 7px;

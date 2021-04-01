@@ -111,9 +111,9 @@ const SpeciesInfo = ({ match }) => {
 											) : (
 												<div className='info-array-container'>
 													<Typography component='h3'>Hair Color(s):</Typography>
-													<Typography component='body2' className='info-array'>
+													<Typography component='p' className='info-array'>
 														{hair_colors.map((color) => (
-															<span>{`${color}`}</span>
+															<span key={color}>{`${color}`}</span>
 														))}
 													</Typography>
 												</div>
@@ -126,9 +126,9 @@ const SpeciesInfo = ({ match }) => {
 											) : (
 												<div className='info-array-container'>
 													<Typography component='h3'>Skin Color(s):</Typography>
-													<Typography component='body2' className='info-array'>
+													<Typography component='p' className='info-array'>
 														{skin_colors.map((color) => (
-															<span>{`${color}`}</span>
+															<span key={color}>{`${color}`}</span>
 														))}
 													</Typography>
 												</div>
@@ -141,9 +141,9 @@ const SpeciesInfo = ({ match }) => {
 											) : (
 												<div className='info-array-container'>
 													<Typography component='h3'>Eye Color(s):</Typography>
-													<Typography component='body2' className='info-array'>
+													<Typography component='p' className='info-array'>
 														{eye_colors.map((color) => (
-															<span>{`${color}`}</span>
+															<span key={color}>{`${color}`}</span>
 														))}
 													</Typography>
 												</div>

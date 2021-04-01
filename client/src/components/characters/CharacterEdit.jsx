@@ -195,7 +195,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='name'
-								value={characterForm.name}
+								value={characterForm.name || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, name: e.target.value })
 								}
@@ -209,7 +209,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='pretty_url'
-								value={characterForm.pretty_url}
+								value={characterForm.pretty_url || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
@@ -226,7 +226,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='species'
-								value={characterForm.species}
+								value={characterForm.species || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
@@ -243,7 +243,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='height'
-								value={characterForm.height}
+								value={characterForm.height || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, height: e.target.value })
 								}
@@ -257,7 +257,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='mass'
-								value={characterForm.mass}
+								value={characterForm.mass || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, mass: e.target.value })
 								}
@@ -271,7 +271,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='gender'
-								value={characterForm.gender}
+								value={characterForm.gender || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, gender: e.target.value })
 								}
@@ -285,7 +285,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='wiki'
-								value={characterForm.wiki}
+								value={characterForm.wiki || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, wiki: e.target.value })
 								}
@@ -299,7 +299,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='image'
-								value={characterForm.image}
+								value={characterForm.image || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, image: e.target.value })
 								}
@@ -313,7 +313,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='born'
-								value={characterForm.born}
+								value={characterForm.born || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, born: e.target.value })
 								}
@@ -327,7 +327,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='bornLocation'
-								value={characterForm.bornLocation}
+								value={characterForm.bornLocation || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
@@ -344,7 +344,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='died'
-								value={characterForm.died}
+								value={characterForm.died || ''}
 								onChange={(e) =>
 									setCharacterForm({ ...characterForm, died: e.target.value })
 								}
@@ -358,7 +358,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='diedLocation'
-								value={characterForm.diedLocation}
+								value={characterForm.diedLocation || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
@@ -375,7 +375,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='hairColor'
-								value={characterForm.hairColor}
+								value={characterForm.hairColor || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
@@ -392,7 +392,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='eyeColor'
-								value={characterForm.eyeColor}
+								value={characterForm.eyeColor || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
@@ -409,7 +409,7 @@ const CharacterEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='skinColor'
-								value={characterForm.skinColor}
+								value={characterForm.skinColor || ''}
 								onChange={(e) =>
 									setCharacterForm({
 										...characterForm,
