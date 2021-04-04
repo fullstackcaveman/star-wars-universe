@@ -50,9 +50,12 @@ import {
 	userLoginReducer,
 	userRegisterReducer,
 	userUpdateProfileReducer,
+	adminShowEditBtnReducer,
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
+	adminShowEditBtn: adminShowEditBtnReducer,
+	adminUserUpdate: adminUserUpdateProfileReducer,
 	characterCreate: characterCreateReducer,
 	characterDelete: characterDeleteReducer,
 	characterInfo: characterInfoReducer,
@@ -84,7 +87,6 @@ const reducer = combineReducers({
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userUpdateProfile: userUpdateProfileReducer,
-	adminUserUpdate: adminUserUpdateProfileReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

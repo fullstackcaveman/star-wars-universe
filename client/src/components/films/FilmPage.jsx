@@ -22,6 +22,7 @@ const FilmPage = () => {
 		dispatch(listFilms());
 	}, [dispatch]);
 
+	// Enable this after the last films are added VVVVV
 	// useEffect(() => {
 	// 	const findPage1 = () => {
 	// 		const page1 = document.getElementById('page1');

@@ -104,7 +104,6 @@ const CharacterList = ({ history, match }) => {
 					<Table size='small'>
 						<TableHead>
 							<TableRow>
-								{/* <TableCell align='center'>ID</TableCell> */}
 								<TableCell align='center'>NAME</TableCell>
 								<TableCell align='center'>SPECIES</TableCell>
 								<TableCell align='center'>HOMEWORLD</TableCell>
@@ -115,12 +114,11 @@ const CharacterList = ({ history, match }) => {
 							{characters.map((character) => {
 								return (
 									<TableRow key={character._id}>
-										{/* <TableCell align='center'>{character._id}</TableCell> */}
 										<TableCell align='center'>{character.name}</TableCell>
 										<TableCell align='center'>{character.species}</TableCell>
 										<TableCell align='center'>
 											{character.homeworld.map((world) => (
-												<p>{world}</p>
+												<p key={world}>{world}</p>
 											))}
 										</TableCell>
 										<TableCell align='center'>

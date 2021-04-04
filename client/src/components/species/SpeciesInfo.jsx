@@ -94,21 +94,13 @@ const SpeciesInfo = ({ match }) => {
 												<Typography component='h3'>{`Avg Lifespan: ${average_lifespan} years`}</Typography>
 											)}
 
-											{!average_height ? (
-												<Typography component='h3'>
-													Avg Height: unknown
-												</Typography>
-											) : (
+											{!average_height ? null : (
 												<Typography component='h3'>{`Avg Height: ${average_height} cm`}</Typography>
 											)}
 										</div>
 
 										<div className='right-info'>
-											{!hair_colors ? (
-												<Typography component='h3'>
-													Hair Color(s): unknown
-												</Typography>
-											) : (
+											{hair_colors.length !== 0 ? (
 												<div className='info-array-container'>
 													<Typography component='h3'>Hair Color(s):</Typography>
 													<Typography component='p' className='info-array'>
@@ -117,13 +109,9 @@ const SpeciesInfo = ({ match }) => {
 														))}
 													</Typography>
 												</div>
-											)}
+											) : null}
 
-											{!skin_colors ? (
-												<Typography component='h3'>
-													Skin Color(s): unknown
-												</Typography>
-											) : (
+											{skin_colors.length !== 0 ? (
 												<div className='info-array-container'>
 													<Typography component='h3'>Skin Color(s):</Typography>
 													<Typography component='p' className='info-array'>
@@ -132,13 +120,9 @@ const SpeciesInfo = ({ match }) => {
 														))}
 													</Typography>
 												</div>
-											)}
+											) : null}
 
-											{!eye_colors ? (
-												<Typography component='h3'>
-													Eye Color(s): unknown
-												</Typography>
-											) : (
+											{eye_colors.length !== 0 ? (
 												<div className='info-array-container'>
 													<Typography component='h3'>Eye Color(s):</Typography>
 													<Typography component='p' className='info-array'>
@@ -147,7 +131,7 @@ const SpeciesInfo = ({ match }) => {
 														))}
 													</Typography>
 												</div>
-											)}
+											) : null}
 										</div>
 									</div>
 								</CardContent>

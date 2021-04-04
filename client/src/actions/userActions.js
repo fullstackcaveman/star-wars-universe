@@ -2,6 +2,7 @@ import {
 	ADMIN_USER_UPDATE_PROFILE_FAIL,
 	ADMIN_USER_UPDATE_PROFILE_REQUEST,
 	ADMIN_USER_UPDATE_PROFILE_SUCCESS,
+	ADMIN_SHOW_EDIT_BUTTON,
 	USER_DELETE_FAIL,
 	USER_DELETE_REQUEST,
 	USER_DELETE_SUCCESS,
@@ -238,7 +239,6 @@ export const deleteUser = (id) => async (dispatch, getState) => {
 };
 
 export const adminUpdateUserProfile = (user) => async (dispatch, getState) => {
-	console.log(user);
 	try {
 		dispatch({
 			type: ADMIN_USER_UPDATE_PROFILE_REQUEST,
@@ -269,4 +269,8 @@ export const adminUpdateUserProfile = (user) => async (dispatch, getState) => {
 					: error.message,
 		});
 	}
+};
+
+export const adminShowEditBtn = (dispatch, getState) => {
+	dispatch({ type: ADMIN_SHOW_EDIT_BUTTON });
 };

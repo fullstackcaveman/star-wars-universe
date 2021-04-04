@@ -10,11 +10,14 @@ import {
 	List,
 	ListItem,
 	makeStyles,
+	Checkbox,
+	FormControlLabel,
 } from '@material-ui/core';
 
 import clsx from 'clsx';
 
 import { logout } from '../../actions/userActions';
+import { ADMIN_SHOW_EDIT_BUTTON } from '../../constants/userConstants';
 
 const useStyles = makeStyles({
 	list: {
@@ -31,6 +34,11 @@ const buttonStyles = {
 	color: 'white',
 };
 
+const checkboxStyles = {
+	color: 'white',
+	marginLeft: '15px',
+};
+
 const Header = () => {
 	const dispatch = useDispatch();
 
@@ -39,6 +47,13 @@ const Header = () => {
 
 	const classes = useStyles();
 	const [open, setOpen] = useState(false);
+
+	const [isChecked, setIsChecked] = useState(false);
+
+	const handleCheck = () => {
+		dispatch({ type: ADMIN_SHOW_EDIT_BUTTON });
+		setIsChecked(!isChecked);
+	};
 
 	const anchor = 'right';
 
@@ -89,7 +104,6 @@ const Header = () => {
 		>
 			<List className='menu-list'>
 				<ListItem>
-					{/* <HomeIcon /> */}
 					<Button
 						style={buttonStyles}
 						fullWidth
@@ -100,7 +114,6 @@ const Header = () => {
 				</ListItem>
 
 				<ListItem>
-					{/* <PersonIcon /> */}
 					<Button
 						style={buttonStyles}
 						fullWidth
@@ -134,7 +147,6 @@ const Header = () => {
 						</ListItem>
 
 						<ListItem>
-							{/* <LocalMoviesIcon /> */}
 							<Button
 								style={buttonStyles}
 								fullWidth
@@ -145,7 +157,6 @@ const Header = () => {
 						</ListItem>
 
 						<ListItem>
-							{/* <LanguageIcon /> */}
 							<Button
 								style={buttonStyles}
 								fullWidth
@@ -176,7 +187,6 @@ const Header = () => {
 						</ListItem>
 
 						<ListItem>
-							{/* <PeopleIcon /> */}
 							<Button
 								style={buttonStyles}
 								fullWidth
@@ -194,6 +204,20 @@ const Header = () => {
 							>
 								<Typography>Vehicles</Typography>
 							</Button>
+						</ListItem>
+
+						<ListItem>
+							<FormControlLabel
+								style={{ color: 'white' }}
+								control={
+									<Checkbox
+										style={checkboxStyles}
+										checked={isChecked}
+										onChange={handleCheck}
+									/>
+								}
+								label='Show Edit Btn'
+							/>
 						</ListItem>
 					</>
 				) : null}

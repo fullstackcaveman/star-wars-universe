@@ -11,7 +11,7 @@ import {
 	Typography,
 	IconButton,
 } from '@material-ui/core';
-import { DeleteForever, Send } from '@material-ui/icons';
+import { DeleteForever } from '@material-ui/icons';
 
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
@@ -134,7 +134,6 @@ const CharacterEdit = ({ match, history }) => {
 	};
 
 	const handleDelete = (arr, index) => {
-		console.log(arr, index);
 		const newArray = characterForm[arr].filter(
 			(item) => item !== characterForm[arr][index]
 		);
@@ -463,7 +462,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Cybernetics:</Typography>
-								{(characterForm.cybernetics || []).map((_world, index) => (
+								{(characterForm.cybernetics || []).map((_cyb, index) => (
 									<div key={index} className='cybernetics'>
 										<TextField
 											variant='outlined'
@@ -500,7 +499,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Affiliations:</Typography>
-								{(characterForm.affiliations || []).map((_world, index) => (
+								{(characterForm.affiliations || []).map((_aff, index) => (
 									<div key={index} className='affiliations'>
 										<TextField
 											variant='outlined'
@@ -537,7 +536,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Masters:</Typography>
-								{(characterForm.masters || []).map((_world, index) => (
+								{(characterForm.masters || []).map((_mas, index) => (
 									<div key={index} className='masters'>
 										<TextField
 											variant='outlined'
@@ -572,7 +571,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Apprentices:</Typography>
-								{(characterForm.apprentices || []).map((_world, index) => (
+								{(characterForm.apprentices || []).map((_app, index) => (
 									<div key={index} className='apprentices'>
 										<TextField
 											variant='outlined'
@@ -609,29 +608,25 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Former Affiliations:</Typography>
-								{(characterForm.formerAffiliations || []).map(
-									(_world, index) => (
-										<div key={index} className='formerAffiliations'>
-											<TextField
-												variant='outlined'
-												size='small'
-												value={characterForm.formerAffiliations[index]}
-												name='formerAffiliations'
-												onChange={(e) =>
-													handleArrayChange(e, index, 'formerAffiliations')
-												}
-											/>
-											<IconButton
-												size='small'
-												onClick={() =>
-													handleDelete('formerAffiliations', index)
-												}
-											>
-												<DeleteForever />
-											</IconButton>
-										</div>
-									)
-								)}
+								{(characterForm.formerAffiliations || []).map((_fa, index) => (
+									<div key={index} className='formerAffiliations'>
+										<TextField
+											variant='outlined'
+											size='small'
+											value={characterForm.formerAffiliations[index]}
+											name='formerAffiliations'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'formerAffiliations')
+											}
+										/>
+										<IconButton
+											size='small'
+											onClick={() => handleDelete('formerAffiliations', index)}
+										>
+											<DeleteForever />
+										</IconButton>
+									</div>
+								))}
 								<Button
 									variant='contained'
 									onClick={() => handleAddItem('formerAffiliations')}
@@ -650,7 +645,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Related Planets:</Typography>
-								{(characterForm.relatedPlanets || []).map((_world, index) => (
+								{(characterForm.relatedPlanets || []).map((_rp, index) => (
 									<div key={index} className='relatedPlanets'>
 										<TextField
 											variant='outlined'
@@ -687,7 +682,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Related Starships:</Typography>
-								{(characterForm.relatedStarships || []).map((_world, index) => (
+								{(characterForm.relatedStarships || []).map((_rs, index) => (
 									<div key={index} className='relatedStarships'>
 										<TextField
 											variant='outlined'
@@ -724,7 +719,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Related Vehicles:</Typography>
-								{(characterForm.relatedVehicles || []).map((_world, index) => (
+								{(characterForm.relatedVehicles || []).map((_rv, index) => (
 									<div key={index} className='relatedVehicles'>
 										<TextField
 											variant='outlined'
@@ -761,7 +756,7 @@ const CharacterEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Related Films:</Typography>
-								{(characterForm.relatedFilms || []).map((_world, index) => (
+								{(characterForm.relatedFilms || []).map((_rf, index) => (
 									<div key={index} className='relatedFilms'>
 										<TextField
 											variant='outlined'
