@@ -4,7 +4,6 @@ import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
-// import RelatedFilms from '../films/RelatedFilms';
 
 import { listFilmInfo } from '../../actions/filmActions';
 

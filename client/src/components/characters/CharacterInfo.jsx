@@ -1,15 +1,24 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
+import {
+	Typography,
+	Card,
+	CardMedia,
+	CardContent,
+	Button,
+} from '@material-ui/core';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
-import RelatedFilms from '../films/RelatedFilms';
 
 import { listCharacterInfo } from '../../actions/characterActions';
+import { NavLink } from 'react-router-dom';
 
 const CharacterInfo = ({ match }) => {
 	const dispatch = useDispatch();
+
+	const checked = useSelector((state) => state.adminShowEditBtn);
+	const { adminShowEditBtn } = checked;
 
 	const characterInfo = useSelector((state) => state.characterInfo);
 	const { loading, error, character } = characterInfo;
@@ -98,6 +107,19 @@ const CharacterInfo = ({ match }) => {
 									) : (
 										<Typography component='h3'>{`Homeworld: ${homeworld}`}</Typography>
 									)}
+
+									{adminShowEditBtn ? (
+										<NavLink to={`/admin/character/${character._id}/edit`}>
+											<Button
+												variant='contained'
+												color='secondary'
+												size='small'
+												style={{ width: '50px' }}
+											>
+												EDIT
+											</Button>
+										</NavLink>
+									) : null}
 								</CardContent>
 							</div>
 						</Card>
