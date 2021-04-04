@@ -648,7 +648,7 @@ footer .footer-bottom {
 .MuiCard-root.MuiPaper-root {
   color: #ffe81f;
   border: 3px solid #ffe81f;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png);
+  background: transparent;
 }
 .MuiCard-root .MuiCardMedia-root {
   max-height: 100%;

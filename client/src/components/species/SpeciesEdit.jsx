@@ -380,7 +380,7 @@ const SpeciesEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('hair')}
+									onClick={() => handleAddItem('hair_colors')}
 								>
 									Add New Hair Color
 								</Button>

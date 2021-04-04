@@ -11,6 +11,10 @@ import { listSpeciesInfo } from '../../actions/speciesActions';
 const SpeciesInfo = ({ match }) => {
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		dispatch(listSpeciesInfo(match.params.id));
+	}, [match, dispatch]);
+
 	const speciesInfo = useSelector((state) => state.speciesInfo);
 	const { loading, error, species } = speciesInfo;
 
@@ -32,9 +36,7 @@ const SpeciesInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${species.name}`;
 
-	useEffect(() => {
-		dispatch(listSpeciesInfo(match.params.id));
-	}, [match, dispatch]);
+	console.log(hair_colors);
 
 	return (
 		<>
@@ -100,38 +102,32 @@ const SpeciesInfo = ({ match }) => {
 										</div>
 
 										<div className='right-info'>
-											{hair_colors.length !== 0 ? (
-												<div className='info-array-container'>
-													<Typography component='h3'>Hair Color(s):</Typography>
-													<Typography component='p' className='info-array'>
-														{hair_colors.map((color) => (
-															<span key={color}>{`${color}`}</span>
-														))}
-													</Typography>
-												</div>
-											) : null}
+											<div className='info-array-container'>
+												<Typography component='h3'>Hair Color(s):</Typography>
+												<Typography component='p' className='info-array'>
+													{(hair_colors || []).map((color) => (
+														<span key={color}>{`${color}`}</span>
+													))}
+												</Typography>
+											</div>
 
-											{skin_colors.length !== 0 ? (
-												<div className='info-array-container'>
-													<Typography component='h3'>Skin Color(s):</Typography>
-													<Typography component='p' className='info-array'>
-														{skin_colors.map((color) => (
-															<span key={color}>{`${color}`}</span>
-														))}
-													</Typography>
-												</div>
-											) : null}
+											<div className='info-array-container'>
+												<Typography component='h3'>Skin Color(s):</Typography>
+												<Typography component='p' className='info-array'>
+													{(skin_colors || []).map((color) => (
+														<span key={color}>{`${color}`}</span>
+													))}
+												</Typography>
+											</div>
 
-											{eye_colors.length !== 0 ? (
-												<div className='info-array-container'>
-													<Typography component='h3'>Eye Color(s):</Typography>
-													<Typography component='p' className='info-array'>
-														{eye_colors.map((color) => (
-															<span key={color}>{`${color}`}</span>
-														))}
-													</Typography>
-												</div>
-											) : null}
+											<div className='info-array-container'>
+												<Typography component='h3'>Eye Color(s):</Typography>
+												<Typography component='p' className='info-array'>
+													{(eye_colors || []).map((color) => (
+														<span key={color}>{`${color}`}</span>
+													))}
+												</Typography>
+											</div>
 										</div>
 									</div>
 								</CardContent>
