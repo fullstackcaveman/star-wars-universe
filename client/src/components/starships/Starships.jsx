@@ -1,13 +1,25 @@
-import React from 'react';
-import Background from '../elements/Background';
+import { Link } from 'react-router-dom';
+import Loader from '../elements/Loader';
+import StarshipCard from './StarshipCard';
 
-const Starships = () => {
+const Starships = (props) => {
 	document.title = 'Star Wars Starships';
+	const { starships, loading } = props;
+
+	if (loading) {
+		return <Loader />;
+	}
+
 	return (
-		<>
-			<div className='starships-container'></div>
-			<Background />
-		</>
+		<div className='characters-wrapper'>
+			{starships.map((starship) => {
+				return (
+					<Link to={`/starships/${starship._id}`} key={starship._id}>
+						<StarshipCard starship={starship} loading={loading} />
+					</Link>
+				);
+			})}
+		</div>
 	);
 };
 
