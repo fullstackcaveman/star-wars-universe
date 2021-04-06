@@ -1,14 +1,24 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
+import {
+	Typography,
+	Card,
+	CardMedia,
+	CardContent,
+	Button,
+} from '@material-ui/core';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
 import { listFilmInfo } from '../../actions/filmActions';
+import { NavLink } from 'react-router-dom';
 
 const FilmInfo = ({ match }) => {
 	const dispatch = useDispatch();
+
+	const checked = useSelector((state) => state.adminShowEditBtn);
+	const { adminShowEditBtn } = checked;
 
 	const filmInfo = useSelector((state) => state.filmInfo);
 	const { loading, error, film } = filmInfo;
@@ -97,6 +107,19 @@ const FilmInfo = ({ match }) => {
 											)}
 										</div>
 									</div>
+
+									{adminShowEditBtn ? (
+										<NavLink to={`/admin/film/${film._id}/edit`}>
+											<Button
+												variant='contained'
+												color='secondary'
+												size='small'
+												style={{ width: '50px' }}
+											>
+												EDIT
+											</Button>
+										</NavLink>
+									) : null}
 								</CardContent>
 							</div>
 						</Card>

@@ -1,15 +1,25 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
+import {
+	Typography,
+	Card,
+	CardMedia,
+	CardContent,
+	Button,
+} from '@material-ui/core';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 // import RelatedFilms from '../films/RelatedFilms';
 
 import { listPlanetInfo } from '../../actions/planetActions';
+import { NavLink } from 'react-router-dom';
 
 const PlanetInfo = ({ match }) => {
 	const dispatch = useDispatch();
+
+	const checked = useSelector((state) => state.adminShowEditBtn);
+	const { adminShowEditBtn } = checked;
 
 	const planetInfo = useSelector((state) => state.planetInfo);
 	const { loading, error, planet } = planetInfo;
@@ -114,6 +124,19 @@ const PlanetInfo = ({ match }) => {
 									) : (
 										<Typography component='h3'>{`Climate: ${climate}`}</Typography>
 									)}
+
+									{adminShowEditBtn ? (
+										<NavLink to={`/admin/planet/${planet._id}/edit`}>
+											<Button
+												variant='contained'
+												color='secondary'
+												size='small'
+												style={{ width: '50px' }}
+											>
+												EDIT
+											</Button>
+										</NavLink>
+									) : null}
 								</CardContent>
 							</div>
 						</Card>
