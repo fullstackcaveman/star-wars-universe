@@ -1,12 +1,19 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, Card, CardMedia, CardContent } from '@material-ui/core';
+import {
+	Typography,
+	Card,
+	CardMedia,
+	CardContent,
+	Button,
+} from '@material-ui/core';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 // import RelatedFilms from '../films/RelatedFilms';
 
 import { listSpeciesInfo } from '../../actions/speciesActions';
+import { NavLink } from 'react-router-dom';
 
 const SpeciesInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -14,6 +21,9 @@ const SpeciesInfo = ({ match }) => {
 	useEffect(() => {
 		dispatch(listSpeciesInfo(match.params.id));
 	}, [match, dispatch]);
+
+	const checked = useSelector((state) => state.adminShowEditBtn);
+	const { adminShowEditBtn } = checked;
 
 	const speciesInfo = useSelector((state) => state.speciesInfo);
 	const { loading, error, species } = speciesInfo;
@@ -128,6 +138,19 @@ const SpeciesInfo = ({ match }) => {
 											</div>
 										</div>
 									</div>
+
+									{adminShowEditBtn ? (
+										<NavLink to={`/admin/species/${species._id}/edit`}>
+											<Button
+												variant='contained'
+												color='secondary'
+												size='small'
+												style={{ width: '50px' }}
+											>
+												EDIT
+											</Button>
+										</NavLink>
+									) : null}
 								</CardContent>
 							</div>
 						</Card>
