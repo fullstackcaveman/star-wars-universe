@@ -36,8 +36,6 @@ const SpeciesInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${species.name}`;
 
-	console.log(hair_colors);
-
 	return (
 		<>
 			<div className='info-container'>
