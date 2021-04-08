@@ -83,7 +83,7 @@ const Header = () => {
 		} else if (route === 'species') {
 			history.push('/admin/specieslist');
 		} else if (route === 'starships') {
-			history.push('/admin/starshipslist');
+			history.push('/admin/starshiplist');
 		} else if (route === 'vehicles') {
 			history.push('/admin/vehicleslist');
 		}
