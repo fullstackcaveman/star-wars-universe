@@ -28,6 +28,8 @@ import FilmList from './components/films/FilmList';
 import FilmEdit from './components/films/FilmEdit';
 import StarshipPage from './components/starships/StarshipPage';
 import StarshipInfo from './components/starships/StarshipInfo';
+import StarshipList from './components/starships/StarshipList';
+import StarshipEdit from './components/starships/StarshipEdit';
 
 const App = () => {
 	return (
@@ -44,6 +46,8 @@ const App = () => {
 				<Route path='/admin/species/:id/edit' component={SpeciesEdit} />
 				<Route path='/admin/specieslist' component={SpeciesList} />
 				<Route path='/admin/user/:id/edit' component={UserEdit} />
+				<Route path='/admin/starship/:id/edit' component={StarshipEdit} />
+				<Route path='/admin/starshiplist' component={StarshipList} />
 				<Route path='/admin/userlist' component={UserList} />
 				<Route exact path='/characters' component={CharacterPage} />
 				<Route path='/characters/:id' component={CharacterInfo} />

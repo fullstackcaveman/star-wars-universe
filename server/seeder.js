@@ -13,7 +13,7 @@ import colors from 'colors';
 // import Starship from './models/starshipModel.js';
 // import { users } from './data/usersData.js';
 // import User from './models/userModel.js';
-// import { vehicles } from './data/vehiclesData.js';
+// import { vehicles } from './data/vehicleData.js';
 // import Vehicle from './models/vehicleModel.js';
 import connectDB from './config/db.js';
 
