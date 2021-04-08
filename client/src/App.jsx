@@ -7,29 +7,29 @@ import Footer from './components/elements/Footer';
 import Header from './components/elements/Header';
 import HeroSection from './components/elements/HeroSection';
 import Home from './components/Home';
-import FilmPage from './components/films/FilmPage';
-import PlanetPage from './components/planets/PlanetPage';
-import PlanetInfo from './components/planets/PlanetInfo';
-import PlanetList from './components/planets/PlanetList';
-import PlanetEdit from './components/planets/PlanetEdit';
-import SpeciesList from './components/species/SpeciesList';
-import SpeciesEdit from './components/species/SpeciesEdit';
-import SpeciesInfo from './components/species/SpeciesInfo';
-import SpeciesPage from './components/species/SpeciesPage';
-import Starships from './components/starships/Starships';
-import UserEdit from './components/users/UserEdit';
-import UserLoginForm from './components/forms/UserLoginForm';
-import UserList from './components/users/UserList';
-import UserProfile from './components/forms/UserProfile';
-import UserRegisterForm from './components/forms/UserRegisterForm';
-import Vehicles from './components/vehicles/Vehicles';
+import FilmEdit from './components/films/FilmEdit';
 import FilmInfo from './components/films/FilmInfo';
 import FilmList from './components/films/FilmList';
-import FilmEdit from './components/films/FilmEdit';
-import StarshipPage from './components/starships/StarshipPage';
+import FilmPage from './components/films/FilmPage';
+import PlanetEdit from './components/planets/PlanetEdit';
+import PlanetInfo from './components/planets/PlanetInfo';
+import PlanetList from './components/planets/PlanetList';
+import PlanetPage from './components/planets/PlanetPage';
+import SpeciesEdit from './components/species/SpeciesEdit';
+import SpeciesInfo from './components/species/SpeciesInfo';
+import SpeciesList from './components/species/SpeciesList';
+import SpeciesPage from './components/species/SpeciesPage';
+import StarshipEdit from './components/starships/StarshipEdit';
 import StarshipInfo from './components/starships/StarshipInfo';
 import StarshipList from './components/starships/StarshipList';
-import StarshipEdit from './components/starships/StarshipEdit';
+import StarshipPage from './components/starships/StarshipPage';
+import UserEdit from './components/users/UserEdit';
+import UserList from './components/users/UserList';
+import UserLoginForm from './components/forms/UserLoginForm';
+import UserProfile from './components/forms/UserProfile';
+import UserRegisterForm from './components/forms/UserRegisterForm';
+import VehicleInfo from './components/vehicles/VehicleInfo';
+import VehiclePage from './components/vehicles/VehiclePage';
 
 const App = () => {
 	return (
@@ -62,7 +62,8 @@ const App = () => {
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />
 				<Route path='/users/register' component={UserRegisterForm} />
-				{/* <Route exact path='/vehicles' component={VehiclesPage} /> */}
+				<Route path='/vehicles/:id' component={VehicleInfo} />
+				<Route exact path='/vehicles' component={VehiclePage} />
 				<Route exact path='/' component={Home} />
 			</Switch>
 			<Footer />

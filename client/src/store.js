@@ -43,6 +43,14 @@ import {
 } from './reducers/starshipReducers';
 
 import {
+	vehicleCreateReducer,
+	vehicleDeleteReducer,
+	vehicleInfoReducer,
+	vehicleListReducer,
+	vehicleUpdateReducer,
+} from './reducers/vehicleReducers';
+
+import {
 	adminUserUpdateProfileReducer,
 	userDetailsReducer,
 	userDeleteReducer,
@@ -81,6 +89,11 @@ const reducer = combineReducers({
 	starshipInfo: starshipInfoReducer,
 	starshipList: starshipListReducer,
 	starshipUpdate: starshipUpdateReducer,
+	vehicleCreate: vehicleCreateReducer,
+	vehicleDelete: vehicleDeleteReducer,
+	vehicleInfo: vehicleInfoReducer,
+	vehicleList: vehicleListReducer,
+	vehicleUpdate: vehicleUpdateReducer,
 	userDelete: userDeleteReducer,
 	userDetails: userDetailsReducer,
 	userList: userListReducer,

@@ -507,7 +507,7 @@ const StarshipEdit = ({ match, history }) => {
 						</form>
 					)}
 					<Typography variant='body2'>
-						<Link to='/admin/characterList'>CANCEL</Link>
+						<Link to='/admin/starshipList'>CANCEL</Link>
 					</Typography>
 				</Paper>
 			</Grid>

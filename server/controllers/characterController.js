@@ -112,7 +112,7 @@ const updateCharacter = asyncHandler(async (req, res) => {
 	if (character) {
 		character.name = name;
 		character.pretty_url = pretty_url;
-		character.heght = height;
+		character.height = height;
 		character.mass = mass;
 		character.gender = gender;
 		character.wiki = wiki;

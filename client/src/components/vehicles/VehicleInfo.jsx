@@ -11,23 +11,22 @@ import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
-import { listStarshipInfo } from '../../actions/starshipActions';
+import { listVehicleInfo } from '../../actions/vehicleActions';
 import { NavLink } from 'react-router-dom';
 
-const StarshipInfo = ({ match }) => {
+const VehicleInfo = ({ match }) => {
 	const dispatch = useDispatch();
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
 
-	const starshipInfo = useSelector((state) => state.starshipInfo);
-	const { loading, error, starship } = starshipInfo;
+	const vehicleInfo = useSelector((state) => state.vehicleInfo);
+	const { loading, error, vehicle } = vehicleInfo;
 
 	const {
 		name,
-		pretty_url,
-		image,
 		model,
+		image,
 		cost_in_credits,
 		length,
 		max_atmosphering_speed,
@@ -35,18 +34,16 @@ const StarshipInfo = ({ match }) => {
 		passengers,
 		cargo_capacity,
 		consumables,
-		hyperdrive_rating,
-		MGLT,
-		starship_class,
+		vehicle_class,
 		manufacturer,
 		pilots,
 		films,
-	} = starship;
+	} = vehicle;
 
-	document.title = `Star Wars | ${starship.name}`;
+	document.title = `Star Wars | ${vehicle.name}`;
 
 	useEffect(() => {
-		dispatch(listStarshipInfo(match.params.id));
+		dispatch(listVehicleInfo(match.params.id));
 	}, [match, dispatch]);
 
 	return (
@@ -73,52 +70,41 @@ const StarshipInfo = ({ match }) => {
 												<Typography component='h3'>{`Model: ${model}`}</Typography>
 											)}
 
-											{!starship_class ? (
-												<Typography component='h3'>Class: unknown</Typography>
+											{!vehicle_class ? (
+												<Typography component='h3'>
+													Vehicle Class: unknown
+												</Typography>
 											) : (
-												<Typography component='h3'>{`Class: ${starship_class}`}</Typography>
+												<Typography component='h3'>{`Vehicle Class: ${vehicle_class}`}</Typography>
 											)}
 
 											{!cost_in_credits ? (
 												<Typography component='h3'>Cost: unknown</Typography>
 											) : (
-												<Typography component='h3'>{`Cost: ${cost_in_credits}`}</Typography>
-											)}
-
-											{!max_atmosphering_speed ? (
-												<Typography component='h3'>Speed: unknown</Typography>
-											) : (
-												<Typography component='h3'>{`Speed: ${max_atmosphering_speed}`}</Typography>
-											)}
-
-											{!hyperdrive_rating ? (
-												<Typography component='h3'>
-													Hyperdrive Rating: unknown
-												</Typography>
-											) : (
-												<Typography component='h3'>{`Hyperdrive Rating: ${hyperdrive_rating}`}</Typography>
-											)}
-
-											{!MGLT ? (
-												<Typography component='h3'>MGLT: unknown</Typography>
-											) : (
-												<Typography component='h3'>{`MGLT: ${MGLT}`}</Typography>
+												<Typography component='h3'>{`Cost: ${cost_in_credits} credits`}</Typography>
 											)}
 
 											{!length ? (
 												<Typography component='h3'>Length: unknown</Typography>
 											) : (
-												<Typography component='h3'>{`Length: ${length}`}</Typography>
+												<Typography component='h3'>{`Length: ${length}m`}</Typography>
 											)}
-										</div>
 
-										<div className='right-info'>
+											{!max_atmosphering_speed ? (
+												<Typography component='h3'>
+													Max Speed: unknown
+												</Typography>
+											) : (
+												<Typography component='h3'>{`Max Speed: ${max_atmosphering_speed}km/h`}</Typography>
+											)}
 											{!crew ? (
 												<Typography component='h3'>Crew: unknown</Typography>
 											) : (
 												<Typography component='h3'>{`Crew: ${crew}`}</Typography>
 											)}
+										</div>
 
+										<div className='right-info'>
 											{!passengers ? (
 												<Typography component='h3'>
 													Passengers: unknown
@@ -132,7 +118,7 @@ const StarshipInfo = ({ match }) => {
 													Cargo Capacity: unknown
 												</Typography>
 											) : (
-												<Typography component='h3'>{`Cargo capacity: ${cargo_capacity}`}</Typography>
+												<Typography component='h3'>{`Cargo Capacity: ${cargo_capacity}kg`}</Typography>
 											)}
 
 											{!consumables ? (
@@ -154,7 +140,7 @@ const StarshipInfo = ({ match }) => {
 									</div>
 
 									{adminShowEditBtn ? (
-										<NavLink to={`/admin/starship/${starship._id}/edit`}>
+										<NavLink to={`/admin/vehicle/${vehicle._id}/edit`}>
 											<Button
 												variant='contained'
 												color='secondary'
@@ -177,4 +163,4 @@ const StarshipInfo = ({ match }) => {
 	);
 };
 
-export default StarshipInfo;
+export default VehicleInfo;
