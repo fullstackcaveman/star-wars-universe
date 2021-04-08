@@ -44,8 +44,9 @@ const deleteStarship = asyncHandler(async (req, res) => {
 // @access Private/Admin
 const createStarship = asyncHandler(async (req, res) => {
 	const starship = new Starship({
-		name: 'New Character',
-		pretty_url: 'new-character',
+		name: 'New Starship',
+		pretty_url: 'new-starship',
+		image: '/images/placeholder.jpg',
 		ship_model: 'unknown',
 		cost_in_credits: 'unknown',
 		length: 'unknown',
