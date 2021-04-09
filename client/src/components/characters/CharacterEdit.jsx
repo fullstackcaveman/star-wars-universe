@@ -114,8 +114,6 @@ const CharacterEdit = ({ match, history }) => {
 		);
 	};
 
-	// ******************************************************************
-	// Handle Arrays in form fields -
 	const handleArrayChange = (e, index, arr) => {
 		setCharacterForm(
 			update(characterForm, {
@@ -140,10 +138,7 @@ const CharacterEdit = ({ match, history }) => {
 		setCharacterForm({ ...characterForm, [arr]: newArray });
 	};
 
-	// ******************************************************************
-
 	const paperStyle = {
-		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,

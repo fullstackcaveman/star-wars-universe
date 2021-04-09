@@ -15,15 +15,12 @@ const CharacterPage = () => {
 	const { loading, error, characters } = characterList;
 
 	const [currentPage, setCurrentPage] = useState(1);
-	// Change this to set characters per page
 	const [charactersPerPage] = useState(10);
 
 	useEffect(() => {
 		dispatch(listCharacters());
 	}, [dispatch]);
 
-	// Fix this - shouldn't run if character fetch has an error
-	// Sets structure of pagination
 	useEffect(() => {
 		const findPage1 = () => {
 			const page1 = document.getElementById('page1');
@@ -38,9 +35,7 @@ const CharacterPage = () => {
 		indexOfFirstCharacter,
 		indexOfLastCharacter
 	);
-	// ######################^^^^^^^^^^^^########################
 
-	// Controls which characters to display and button styling
 	const paginate = (pageNumber) => {
 		const thisPage = document.getElementById(`page${currentPage}`);
 		thisPage.classList.remove('active');

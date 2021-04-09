@@ -48,7 +48,6 @@ const UserEdit = ({ match, history }) => {
 	};
 
 	const paperStyle = {
-		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,

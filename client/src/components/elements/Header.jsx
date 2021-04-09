@@ -249,7 +249,7 @@ const Header = () => {
 
 	return (
 		<header id='header' className='header'>
-			<div className='header-left'>{/* <h1>HEADER</h1> */}</div>
+			<div className='header-left'></div>
 			<div className='nav-btn'>
 				{userInfo ? (
 					<div key={anchor}>

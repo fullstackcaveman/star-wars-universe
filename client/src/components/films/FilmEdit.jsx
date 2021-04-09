@@ -88,7 +88,6 @@ const FilmEdit = ({ match, history }) => {
 		);
 	};
 
-	// Handle Arrays in form fields -
 	const handleArrayChange = (e, index, arr) => {
 		setFilmForm(
 			update(filmForm, {
@@ -115,7 +114,6 @@ const FilmEdit = ({ match, history }) => {
 	};
 
 	const paperStyle = {
-		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,

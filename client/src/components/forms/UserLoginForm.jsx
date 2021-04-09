@@ -114,7 +114,6 @@ const UserLoginForm = ({ location, history }) => {
 							color='primary'
 							variant='contained'
 							fullWidth
-							// disabled={disabled}
 						>
 							SIGN IN
 						</Button>
