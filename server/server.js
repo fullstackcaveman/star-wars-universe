@@ -21,6 +21,14 @@ connectDB();
 
 const app = express();
 
+app.use(function (req, res, next) {
+	res.setHeader(
+		'Content-Security-Policy-Report-Only',
+		"default-src 'self'; font-src 'self'; img-src 'self' https://https://cloud.mongodb.com/v2/604d43fd100168432629c328; script-src 'self'; style-src 'self'; frame-src 'self'"
+	);
+	next();
+});
+
 app.use(cors());
 app.use(express.json());
 app.use(helmet());
