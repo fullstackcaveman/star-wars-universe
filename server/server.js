@@ -21,13 +21,37 @@ connectDB();
 
 const app = express();
 
-app.use(function (req, res, next) {
-	res.setHeader(
-		'Content-Security-Policy',
-		"default-src 'self'; font-src 'self'; img-src *; script-src 'self'; style-src 'self'; frame-src 'self'"
-	);
-	next();
-});
+app.use(
+	helmet.contentSecurityPolicy({
+		directives: {
+			defaultSrc: ["'self'"],
+			connectSrc: ["'self'"],
+			frameSrc: ["'self'"],
+			childSrc: ["'self'"],
+			scriptSrc: ["'self'"],
+			styleSrc: [
+				"'self'",
+				// 'https://fonts.googleapis.com',
+				// 'https://checkout.stripe.com',
+			],
+			fontSrc: ["'self'"],
+			imgSrc: [
+				"'self'",
+				'https://vignette.wikia.nocookie.net/',
+				'https://starwars-visualguide.com/',
+			],
+			baseUri: ["'self'"],
+		},
+	})
+);
+
+// app.use(function (req, res, next) {
+// 	res.setHeader(
+// 		'Content-Security-Policy',
+// 		"default-src 'self'; font-src 'self'; img-src *; script-src 'self'; style-src 'self'; frame-src 'self'"
+// 	);
+// 	next();
+// });
 
 app.use(cors());
 app.use(express.json());
