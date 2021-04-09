@@ -55,7 +55,7 @@ app.use(
 
 app.use(cors());
 app.use(express.json());
-app.use(helmet());
+// app.use(helmet());
 
 app.use('/api/characters', characterRoutes);
 app.use('/api/films', filmRoutes);
