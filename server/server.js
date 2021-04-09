@@ -24,7 +24,7 @@ const app = express();
 app.use(function (req, res, next) {
 	res.setHeader(
 		'Content-Security-Policy-Report-Only',
-		"default-src 'self'; font-src 'self'; img-src 'self' https://vignette.wikia.nocookie.net/ https://starwars-visualguide.com/; script-src 'self'; style-src 'self'; frame-src 'self'"
+		"default-src 'self'; font-src 'self'; img-src *; script-src 'self'; style-src 'self'; frame-src 'self'"
 	);
 	next();
 });
