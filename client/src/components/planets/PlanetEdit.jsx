@@ -11,7 +11,7 @@ import {
 	Typography,
 	IconButton,
 } from '@material-ui/core';
-import { DeleteForever, Send } from '@material-ui/icons';
+import { DeleteForever } from '@material-ui/icons';
 
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
@@ -119,7 +119,6 @@ const PlanetEdit = ({ match, history }) => {
 	// ******************************************************************
 
 	const paperStyle = {
-		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,

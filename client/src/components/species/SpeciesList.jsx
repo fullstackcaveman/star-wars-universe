@@ -114,7 +114,6 @@ const SpeciesList = ({ history, match }) => {
 							{species.map((species) => {
 								return (
 									<TableRow key={species._id}>
-										{/* <TableCell align='center'>{species._id}</TableCell> */}
 										<TableCell align='center'>{species.name}</TableCell>
 										<TableCell align='center'>{species.homeworld}</TableCell>
 										<TableCell align='center'>{species.language}</TableCell>

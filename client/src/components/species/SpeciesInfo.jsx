@@ -10,7 +10,6 @@ import {
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
-// import RelatedFilms from '../films/RelatedFilms';
 
 import { listSpeciesInfo } from '../../actions/speciesActions';
 import { NavLink } from 'react-router-dom';
@@ -154,7 +153,7 @@ const SpeciesInfo = ({ match }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'>{/* <RelatedFilms /> */}</div>
+						<div className='flex'></div>
 					</>
 				)}
 			</div>

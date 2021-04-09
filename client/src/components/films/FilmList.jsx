@@ -93,7 +93,6 @@ const FilmList = ({ history, match }) => {
 					<Table size='small'>
 						<TableHead>
 							<TableRow>
-								{/* <TableCell align='center'>ID</TableCell> */}
 								<TableCell align='center'>TITLE</TableCell>
 								<TableCell align='center'>RELEASE DATE</TableCell>
 								<TableCell align='center'>DIRECTOR</TableCell>

@@ -44,7 +44,6 @@ const UserRegisterForm = ({ location, history }) => {
 	};
 
 	const paperStyle = {
-		// backgroundColor: 'black',
 		padding: 20,
 		height: 'auto',
 		width: 250,
@@ -150,7 +149,6 @@ const UserRegisterForm = ({ location, history }) => {
 							color='primary'
 							variant='contained'
 							fullWidth
-							// disabled={disabled}
 						>
 							Register
 						</Button>

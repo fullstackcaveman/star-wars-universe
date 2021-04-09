@@ -154,7 +154,7 @@ const VehicleInfo = ({ match }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'>{/* <RelatedFilms /> */}</div>
+						<div className='flex'></div>
 					</>
 				)}
 			</div>
