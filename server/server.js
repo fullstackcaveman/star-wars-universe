@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
-import contentSecurityPolicy from 'helmet-csp';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import colors from 'colors';
@@ -42,8 +41,8 @@ app.use(
 			fontSrc: ["'self'"],
 			imgSrc: [
 				"'self'",
-				'https://vignette.wikia.nocookie.net/*',
-				'https://starwars-visualguide.com/*',
+				'https://vignette.wikia.nocookie.net/',
+				'https://starwars-visualguide.com/',
 			],
 			baseUri: ["'self'"],
 		},
