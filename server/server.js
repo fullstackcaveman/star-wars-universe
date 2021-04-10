@@ -22,14 +22,14 @@ connectDB();
 
 const app = express();
 
+app.use(cors());
+app.use(express.json());
+app.use(helmet());
+
 app.use(
-	contentSecurityPolicy({
+	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: [
-				"'self'",
-				'https://vignette.wikia.nocookie.net/',
-				'https://starwars-visualguide.com/',
-			],
+			defaultSrc: ["'self'"],
 			connectSrc: ["'self'"],
 			frameSrc: ["'self'"],
 			childSrc: ["'self'"],
@@ -50,18 +50,6 @@ app.use(
 		reportOnly: false,
 	})
 );
-
-// app.use(function (req, res, next) {
-// 	res.setHeader(
-// 		'Content-Security-Policy',
-// 		"default-src 'self'; font-src 'self'; img-src *; script-src 'self'; style-src 'self'; frame-src 'self'"
-// 	);
-// 	next();
-// });
-
-app.use(cors());
-app.use(express.json());
-app.use(helmet());
 
 app.use('/api/characters', characterRoutes);
 app.use('/api/films', filmRoutes);
