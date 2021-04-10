@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
-import contentSecurityPolicy from 'helmet-csp';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import colors from 'colors';
