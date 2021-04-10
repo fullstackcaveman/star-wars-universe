@@ -114,7 +114,6 @@ const CharacterInfo = ({ match }) => {
 												variant='contained'
 												color='secondary'
 												size='small'
-												style={{ width: '50px' }}
 											>
 												EDIT
 											</Button>
