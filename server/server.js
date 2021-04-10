@@ -28,7 +28,7 @@ app.use(helmet());
 app.use(
 	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: ["'self'"],
+			defaultSrc: ["'self'", "'imgSrc *'"],
 			connectSrc: ["'self'"],
 			frameSrc: ["'self'"],
 			childSrc: ["'self'"],
@@ -39,11 +39,11 @@ app.use(
 				// 'https://checkout.stripe.com',
 			],
 			fontSrc: ["'self'"],
-			imgSrc: [
-				"'self'",
-				'https://vignette.wikia.nocookie.net/*',
-				'https://starwars-visualguide.com/*',
-			],
+			// imgSrc: [
+			// 	"'self'",
+			// 	'https://vignette.wikia.nocookie.net/*',
+			// 	'https://starwars-visualguide.com/*',
+			// ],
 			baseUri: ["'self'"],
 		},
 		reportOnly: false,
