@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import helmet from 'helmet';
+// import helmet from 'helmet';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import colors from 'colors';
@@ -23,36 +23,34 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(helmet());
+// app.use(helmet());
 
-app.use(
-	helmet.contentSecurityPolicy({
-		directives: {
-			defaultSrc: ["'self'"],
-			connectSrc: ["'self'"],
-			frameSrc: ["'self'"],
-			childSrc: ["'self'"],
-			scriptSrc: ["'self'"],
-			styleSrc: [
-				"'self'",
-				"'unsafe-hashes'",
-				"'sha256-nMxMqdZhkHUU7&AuW/PAoLvECll944meAxD/BNRG15huA='",
-				// 'https://fonts.googleapis.com',
-				// 'https://checkout.stripe.com',
-			],
-			fontSrc: ["'self'"],
-			imgSrc: [
-				"'self'",
-				'data:',
-				'https:',
-				// 'https://vignette.wikia.nocookie.net/*',
-				// 'https://starwars-visualguide.com/*',
-			],
-			baseUri: ["'self'"],
-		},
-		reportOnly: false,
-	})
-);
+// app.use(
+// 	helmet.contentSecurityPolicy({
+// 		directives: {
+// 			defaultSrc: ["'self'"],
+// 			connectSrc: ["'self'"],
+// 			frameSrc: ["'self'"],
+// 			childSrc: ["'self'"],
+// 			scriptSrc: ["'self'"],
+// 			styleSrc: [
+// 				"'self'",
+// 				// 'https://fonts.googleapis.com',
+// 				// 'https://checkout.stripe.com',
+// 			],
+// 			fontSrc: ["'self'"],
+// 			imgSrc: [
+// 				"'self'",
+// 				'data:',
+// 				'https:',
+// 				// 'https://vignette.wikia.nocookie.net/*',
+// 				// 'https://starwars-visualguide.com/*',
+// 			],
+// 			baseUri: ["'self'"],
+// 		},
+// 		reportOnly: false,
+// 	})
+// );
 
 app.use('/api/characters', characterRoutes);
 app.use('/api/films', filmRoutes);
