@@ -25,7 +25,11 @@ const app = express();
 app.use(
 	contentSecurityPolicy({
 		directives: {
-			defaultSrc: ["'self'"],
+			defaultSrc: [
+				"'self'",
+				'https://vignette.wikia.nocookie.net/',
+				'https://starwars-visualguide.com/',
+			],
 			connectSrc: ["'self'"],
 			frameSrc: ["'self'"],
 			childSrc: ["'self'"],
