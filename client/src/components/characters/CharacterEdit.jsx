@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import update from 'immutability-helper';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHandleForm } from '../../hooks/useHandleForm';
 import {
 	Avatar,
 	Button,
@@ -12,7 +12,6 @@ import {
 	IconButton,
 } from '@material-ui/core';
 import { DeleteForever } from '@material-ui/icons';
-
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -25,13 +24,19 @@ import { CHARACTER_UPDATE_RESET } from '../../constants/characterConstants';
 const CharacterEdit = ({ match, history }) => {
 	const characterId = match.params.id;
 
-	const [characterForm, setCharacterForm] = useState({
+	const [
+		characterForm,
+		setCharacterForm,
+		handleInputChange,
+		handleArrayChange,
+		handleAddItem,
+		handleDelete,
+	] = useHandleForm({
 		name: '',
 		pretty_url: '',
 		height: '',
 		mass: '',
 		gender: '',
-		homeworld: [],
 		wiki: '',
 		image: '',
 		born: '',
@@ -42,6 +47,7 @@ const CharacterEdit = ({ match, history }) => {
 		hairColor: '',
 		eyeColor: '',
 		skinColor: '',
+		homeworld: [],
 		cybernetics: [],
 		affiliations: [],
 		masters: [],
@@ -114,30 +120,6 @@ const CharacterEdit = ({ match, history }) => {
 		);
 	};
 
-	const handleArrayChange = (e, index, arr) => {
-		setCharacterForm(
-			update(characterForm, {
-				[arr]: {
-					[index]: {
-						$set: e.target.value,
-					},
-				},
-			})
-		);
-	};
-
-	const handleAddItem = (arr) => {
-		const newArray = characterForm[arr].push('');
-		setCharacterForm({ ...characterForm, newArray });
-	};
-
-	const handleDelete = (arr, index) => {
-		const newArray = characterForm[arr].filter(
-			(item) => item !== characterForm[arr][index]
-		);
-		setCharacterForm({ ...characterForm, [arr]: newArray });
-	};
-
 	const paperStyle = {
 		padding: 20,
 		height: 'auto',
@@ -159,6 +141,13 @@ const CharacterEdit = ({ match, history }) => {
 		color: 'rgb(3, 53, 50)',
 		fontFamily: 'Impact, sans-serif',
 		fontSize: '1rem',
+	};
+
+	const arrayStyle = {
+		border: '1px solid #bdbdbd',
+		borderRadius: '5px',
+		padding: '5px 0',
+		margin: '5px 0',
 	};
 
 	return (
@@ -190,9 +179,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='name'
 								value={characterForm.name || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, name: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -204,12 +191,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='pretty_url'
 								value={characterForm.pretty_url || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										pretty_url: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -221,12 +203,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='species'
 								value={characterForm.species || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										species: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -238,9 +215,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='height'
 								value={characterForm.height || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, height: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -252,9 +227,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='mass'
 								value={characterForm.mass || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, mass: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -266,9 +239,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='gender'
 								value={characterForm.gender || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, gender: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -280,9 +251,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='wiki'
 								value={characterForm.wiki || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, wiki: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -294,9 +263,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={characterForm.image || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, image: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -308,9 +275,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='born'
 								value={characterForm.born || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, born: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -322,12 +287,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='bornLocation'
 								value={characterForm.bornLocation || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										bornLocation: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -339,9 +299,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='died'
 								value={characterForm.died || ''}
-								onChange={(e) =>
-									setCharacterForm({ ...characterForm, died: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -353,12 +311,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='diedLocation'
 								value={characterForm.diedLocation || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										diedLocation: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -370,12 +323,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='hairColor'
 								value={characterForm.hairColor || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										hairColor: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -387,12 +335,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='eyeColor'
 								value={characterForm.eyeColor || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										eyeColor: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -404,23 +347,10 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='skinColor'
 								value={characterForm.skinColor || ''}
-								onChange={(e) =>
-									setCharacterForm({
-										...characterForm,
-										skinColor: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
-							<div
-								className='planets'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='planets' style={arrayStyle}>
 								<Typography variant='body1'>Homeworld(s):</Typography>
 								{(characterForm.homeworld || []).map((_world, index) => (
 									<div key={index} className='homeworld'>
@@ -447,15 +377,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='cybernetics'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='cybernetics' style={arrayStyle}>
 								<Typography variant='body1'>Cybernetics:</Typography>
 								{(characterForm.cybernetics || []).map((_cyb, index) => (
 									<div key={index} className='cybernetics'>
@@ -484,15 +406,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='affiliations'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='affiliations' style={arrayStyle}>
 								<Typography variant='body1'>Affiliations:</Typography>
 								{(characterForm.affiliations || []).map((_aff, index) => (
 									<div key={index} className='affiliations'>
@@ -521,15 +435,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='masters'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='masters' style={arrayStyle}>
 								<Typography variant='body1'>Masters:</Typography>
 								{(characterForm.masters || []).map((_mas, index) => (
 									<div key={index} className='masters'>
@@ -556,15 +462,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='apprentices'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='apprentices' style={arrayStyle}>
 								<Typography variant='body1'>Apprentices:</Typography>
 								{(characterForm.apprentices || []).map((_app, index) => (
 									<div key={index} className='apprentices'>
@@ -593,15 +491,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='formerAffiliations'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='formerAffiliations' style={arrayStyle}>
 								<Typography variant='body1'>Former Affiliations:</Typography>
 								{(characterForm.formerAffiliations || []).map((_fa, index) => (
 									<div key={index} className='formerAffiliations'>
@@ -630,15 +520,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='relatedPlanets'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='relatedPlanets' style={arrayStyle}>
 								<Typography variant='body1'>Related Planets:</Typography>
 								{(characterForm.relatedPlanets || []).map((_rp, index) => (
 									<div key={index} className='relatedPlanets'>
@@ -667,15 +549,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='relatedStarships'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='relatedStarships' style={arrayStyle}>
 								<Typography variant='body1'>Related Starships:</Typography>
 								{(characterForm.relatedStarships || []).map((_rs, index) => (
 									<div key={index} className='relatedStarships'>
@@ -704,15 +578,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='relatedVehicles'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='relatedVehicles' style={arrayStyle}>
 								<Typography variant='body1'>Related Vehicles:</Typography>
 								{(characterForm.relatedVehicles || []).map((_rv, index) => (
 									<div key={index} className='relatedVehicles'>
@@ -741,15 +607,7 @@ const CharacterEdit = ({ match, history }) => {
 								</Button>
 							</div>
 
-							<div
-								className='relatedFilms'
-								style={{
-									border: '1px solid #bdbdbd',
-									borderRadius: '5px',
-									padding: '5px 0',
-									margin: '5px 0',
-								}}
-							>
+							<div className='relatedFilms' style={arrayStyle}>
 								<Typography variant='body1'>Related Films:</Typography>
 								{(characterForm.relatedFilms || []).map((_rf, index) => (
 									<div key={index} className='relatedFilms'>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import update from 'immutability-helper';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHandleForm } from '../../hooks/useHandleForm';
 import {
 	Avatar,
 	Button,
@@ -13,7 +13,6 @@ import {
 	TextareaAutosize,
 } from '@material-ui/core';
 import { DeleteForever } from '@material-ui/icons';
-
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -23,7 +22,14 @@ import { FILM_UPDATE_RESET } from '../../constants/filmConstants';
 const FilmEdit = ({ match, history }) => {
 	const filmId = match.params.id;
 
-	const [filmForm, setFilmForm] = useState({
+	const [
+		filmForm,
+		setFilmForm,
+		handleInputChange,
+		handleArrayChange,
+		handleAddItem,
+		handleDelete,
+	] = useHandleForm({
 		title: '',
 		pretty_url: '',
 		episode_id: '',
@@ -88,31 +94,6 @@ const FilmEdit = ({ match, history }) => {
 		);
 	};
 
-	const handleArrayChange = (e, index, arr) => {
-		setFilmForm(
-			update(filmForm, {
-				[arr]: {
-					[index]: {
-						$set: e.target.value,
-					},
-				},
-			})
-		);
-	};
-
-	const handleAddItem = (arr) => {
-		const newArray = filmForm[arr].push('');
-		setFilmForm({ ...filmForm, newArray });
-	};
-
-	const handleDelete = (arr, index) => {
-		console.log(arr, index);
-		const newArray = filmForm[arr].filter(
-			(item) => item !== filmForm[arr][index]
-		);
-		setFilmForm({ ...filmForm, [arr]: newArray });
-	};
-
 	const paperStyle = {
 		padding: 20,
 		height: 'auto',
@@ -174,9 +155,7 @@ const FilmEdit = ({ match, history }) => {
 								fullWidth
 								name='title'
 								value={filmForm.title}
-								onChange={(e) =>
-									setFilmForm({ ...filmForm, name: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -188,12 +167,7 @@ const FilmEdit = ({ match, history }) => {
 								fullWidth
 								name='pretty_url'
 								value={filmForm.pretty_url}
-								onChange={(e) =>
-									setFilmForm({
-										...filmForm,
-										pretty_url: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -205,12 +179,7 @@ const FilmEdit = ({ match, history }) => {
 								fullWidth
 								name='episode_id'
 								value={filmForm.episode_id}
-								onChange={(e) =>
-									setFilmForm({
-										...filmForm,
-										episode_id: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -222,12 +191,7 @@ const FilmEdit = ({ match, history }) => {
 								fullWidth
 								name='director'
 								value={filmForm.director}
-								onChange={(e) =>
-									setFilmForm({
-										...filmForm,
-										director: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -239,12 +203,7 @@ const FilmEdit = ({ match, history }) => {
 								fullWidth
 								name='release_date'
 								value={filmForm.release_date}
-								onChange={(e) =>
-									setFilmForm({
-										...filmForm,
-										release_date: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -256,12 +215,7 @@ const FilmEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={filmForm.image}
-								onChange={(e) =>
-									setFilmForm({
-										...filmForm,
-										image: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextareaAutosize
@@ -273,12 +227,7 @@ const FilmEdit = ({ match, history }) => {
 								size='small'
 								name='opening_crawl'
 								value={filmForm.opening_crawl}
-								onChange={(e) =>
-									setFilmForm({
-										...filmForm,
-										opening_crawl: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<div
