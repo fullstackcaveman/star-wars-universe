@@ -41,8 +41,8 @@ app.use(
 			fontSrc: ["'self'"],
 			imgSrc: [
 				"'self'",
-				'https://vignette.wikia.nocookie.net/',
-				'https://starwars-visualguide.com/',
+				'https://vignette.wikia.nocookie.net/*',
+				'https://starwars-visualguide.com/*',
 			],
 			baseUri: ["'self'"],
 		},
