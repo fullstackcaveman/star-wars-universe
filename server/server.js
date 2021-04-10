@@ -35,8 +35,8 @@ app.use(
 			scriptSrc: ["'self'"],
 			styleSrc: [
 				"'self'",
-				'unsafe-hashes',
-				'sha256-nMxMqdZhkHUU7&AuW/PAoLvECll944meAxD/BNRG15huA=',
+				"'unsafe-hashes'",
+				"'sha256-nMxMqdZhkHUU7&AuW/PAoLvECll944meAxD/BNRG15huA='",
 				// 'https://fonts.googleapis.com',
 				// 'https://checkout.stripe.com',
 			],
