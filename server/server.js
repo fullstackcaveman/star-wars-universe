@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
+import contentSecurityPolicy from 'helmet-csp';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import colors from 'colors';
@@ -22,7 +23,7 @@ connectDB();
 const app = express();
 
 app.use(
-	helmet.contentSecurityPolicy({
+	contentSecurityPolicy({
 		directives: {
 			defaultSrc: ["'self'"],
 			connectSrc: ["'self'"],
@@ -42,6 +43,7 @@ app.use(
 			],
 			baseUri: ["'self'"],
 		},
+		reportOnly: false,
 	})
 );
 
