@@ -12,9 +12,7 @@ import Message from '../elements/Message';
 import Background from '../elements/Background';
 
 import { listCharacterInfo } from '../../actions/characterActions';
-import { Link, NavLink } from 'react-router-dom';
-
-import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import { NavLink } from 'react-router-dom';
 
 const CharacterInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
@@ -52,18 +50,12 @@ const CharacterInfo = ({ match, history }) => {
 
 	document.title = `Star Wars | ${character.name}`;
 
-	const handleClick = (query, model) => {
-		console.log(query);
-
+	const handleClick = (model, query) => {
 		const data = query.toLowerCase();
-
-		console.log(data);
 
 		const route = data.split(' ').join('-');
 
-		console.log(route);
-
-		history.push(`/${model}/${route}`);
+		history.push(`/${model}/info/${route}`);
 	};
 
 	return (
@@ -142,7 +134,7 @@ const CharacterInfo = ({ match, history }) => {
 																		className='info-array'
 																		key={world}
 																		onClick={() =>
-																			handleClick(world, 'planets')
+																			handleClick('planets', world)
 																		}
 																	>
 																		{world}
