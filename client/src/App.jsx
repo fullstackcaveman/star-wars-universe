@@ -54,8 +54,8 @@ const App = () => {
 				<Route exact path='/films' component={FilmPage} />
 				<Route path='/films/:id' component={FilmInfo} />
 				<Route exact path='/planets' component={PlanetPage} />
-				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route path='/planets/info/:pretty_url' component={PlanetInfo} />
+				<Route path='/planets/:id' component={PlanetInfo} />
 				<Route exact path='/species' component={SpeciesPage} />
 				<Route path='/species/:id' component={SpeciesInfo} />
 				<Route exact path='/starships' component={StarshipPage} />

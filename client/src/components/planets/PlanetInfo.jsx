@@ -11,7 +11,10 @@ import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
-import { listPlanetInfo } from '../../actions/planetActions';
+import {
+	listPlanetInfo,
+	listPlanetInfoByName,
+} from '../../actions/planetActions';
 import { NavLink } from 'react-router-dom';
 
 const PlanetInfo = ({ match }) => {
@@ -27,8 +30,8 @@ const PlanetInfo = ({ match }) => {
 		climate,
 		gravity,
 		terrain,
-		// residents,
-		// films,
+		residents,
+		films,
 		name,
 		// pretty_url,
 		rotation_period,
@@ -41,7 +44,11 @@ const PlanetInfo = ({ match }) => {
 	document.title = `Star Wars | ${planet.name}`;
 
 	useEffect(() => {
-		dispatch(listPlanetInfo(match.params.id));
+		if (match.params.id) {
+			dispatch(listPlanetInfo(match.params.id));
+		} else {
+			dispatch(listPlanetInfoByName(match.params.pretty_url));
+		}
 	}, [match, dispatch]);
 
 	return (

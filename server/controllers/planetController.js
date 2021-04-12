@@ -31,7 +31,7 @@ const getPlanetByName = asyncHandler(async (req, res) => {
 	const planet = await Planet.find({ pretty_url: req.params.pretty_url });
 
 	if (planet) {
-		res.json(planet);
+		res.json(planet[0]);
 	} else {
 		res.status(404);
 		throw new Error('Planet not found');

@@ -38,11 +38,11 @@ export const listPlanets = () => async (dispatch) => {
 	}
 };
 
-export const listPlanetInfo = (id) => async (dispatch) => {
+export const listPlanetInfoByName = (name) => async (dispatch) => {
 	try {
 		dispatch({ type: PLANET_INFO_REQUEST });
 
-		const { data } = await axios.get(`/api/planets/${id}`);
+		const { data } = await axios.get(`/api/planets/info/${name}`);
 
 		dispatch({
 			type: PLANET_INFO_SUCCESS,
@@ -59,11 +59,11 @@ export const listPlanetInfo = (id) => async (dispatch) => {
 	}
 };
 
-export const listPlanetInfoByName = (pretty_url) => async (dispatch) => {
+export const listPlanetInfo = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: PLANET_INFO_REQUEST });
 
-		const { data } = await axios.get(`/api/planets/info/${pretty_url}`);
+		const { data } = await axios.get(`/api/planets/${id}`);
 
 		dispatch({
 			type: PLANET_INFO_SUCCESS,
