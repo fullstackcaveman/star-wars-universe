@@ -59,6 +59,27 @@ export const listPlanetInfo = (id) => async (dispatch) => {
 	}
 };
 
+export const listPlanetInfoByName = (pretty_url) => async (dispatch) => {
+	try {
+		dispatch({ type: PLANET_INFO_REQUEST });
+
+		const { data } = await axios.get(`/api/planets/info/${pretty_url}`);
+
+		dispatch({
+			type: PLANET_INFO_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: PLANET_INFO_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
 export const deletePlanet = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import update from 'immutability-helper';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHandleForm } from '../../hooks/useHandleForm';
 import {
 	Avatar,
 	Button,
@@ -12,7 +12,6 @@ import {
 	IconButton,
 } from '@material-ui/core';
 import { DeleteForever } from '@material-ui/icons';
-
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -22,7 +21,14 @@ import { SPECIES_UPDATE_RESET } from '../../constants/speciesConstants';
 const SpeciesEdit = ({ match, history }) => {
 	const speciesId = match.params.id;
 
-	const [speciesForm, setSpeciesForm] = useState({
+	const [
+		speciesForm,
+		setSpeciesForm,
+		handleInputChange,
+		handleArrayChange,
+		handleAddItem,
+		handleDelete,
+	] = useHandleForm({
 		name: '',
 		pretty_url: '',
 		image: '',
@@ -81,6 +87,7 @@ const SpeciesEdit = ({ match, history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+
 		dispatch(
 			updateSpecies({
 				_id: speciesId,
@@ -88,35 +95,6 @@ const SpeciesEdit = ({ match, history }) => {
 			})
 		);
 	};
-
-	// ******************************************************************
-	// Handle Arrays in form fields -
-	const handleArrayChange = (e, index, arr) => {
-		setSpeciesForm(
-			update(speciesForm, {
-				[arr]: {
-					[index]: {
-						$set: e.target.value,
-					},
-				},
-			})
-		);
-	};
-
-	const handleAddItem = (arr) => {
-		const newArray = speciesForm[arr].push('');
-		setSpeciesForm({ ...speciesForm, newArray });
-	};
-
-	const handleDelete = (arr, index) => {
-		console.log(arr, index);
-		const newArray = speciesForm[arr].filter(
-			(item) => item !== speciesForm[arr][index]
-		);
-		setSpeciesForm({ ...speciesForm, [arr]: newArray });
-	};
-
-	// ******************************************************************
 
 	const paperStyle = {
 		padding: 20,
@@ -164,15 +142,13 @@ const SpeciesEdit = ({ match, history }) => {
 							<TextField
 								style={inputStyle}
 								label='Name'
-								placeholder='Enter User Name'
+								placeholder='Enter Species Name'
 								variant='outlined'
 								size='small'
 								fullWidth
 								name='name'
 								value={speciesForm.name}
-								onChange={(e) =>
-									setSpeciesForm({ ...speciesForm, name: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -184,12 +160,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='pretty_url'
 								value={speciesForm.pretty_url}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										pretty_url: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -201,12 +172,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={speciesForm.image}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										image: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -218,12 +184,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='classification'
 								value={speciesForm.classification}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										classification: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -235,12 +196,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='designation'
 								value={speciesForm.designation}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										designation: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -252,12 +208,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='average_height'
 								value={speciesForm.average_height}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										average_height: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -269,12 +220,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='average_lifespan'
 								value={speciesForm.average_lifespan}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										average_lifespan: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -286,12 +232,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='homeworld'
 								value={speciesForm.homeworld}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										homeworld: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -303,12 +244,7 @@ const SpeciesEdit = ({ match, history }) => {
 								fullWidth
 								name='language'
 								value={speciesForm.language}
-								onChange={(e) =>
-									setSpeciesForm({
-										...speciesForm,
-										language: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<div

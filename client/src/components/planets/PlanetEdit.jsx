@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import update from 'immutability-helper';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHandleForm } from '../../hooks/useHandleForm';
 import {
 	Avatar,
 	Button,
@@ -12,7 +12,6 @@ import {
 	IconButton,
 } from '@material-ui/core';
 import { DeleteForever } from '@material-ui/icons';
-
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -22,7 +21,14 @@ import { PLANET_UPDATE_RESET } from '../../constants/planetConstants';
 const PlanetEdit = ({ match, history }) => {
 	const planetId = match.params.id;
 
-	const [planetForm, setPlanetForm] = useState({
+	const [
+		planetForm,
+		setPlanetForm,
+		handleInputChange,
+		handleArrayChange,
+		handleAddItem,
+		handleDelete,
+	] = useHandleForm({
 		name: '',
 		pretty_url: '',
 		rotation_period: '',
@@ -89,35 +95,6 @@ const PlanetEdit = ({ match, history }) => {
 		);
 	};
 
-	// ******************************************************************
-	// Handle Arrays in form fields -
-	const handleArrayChange = (e, index, arr) => {
-		setPlanetForm(
-			update(planetForm, {
-				[arr]: {
-					[index]: {
-						$set: e.target.value,
-					},
-				},
-			})
-		);
-	};
-
-	const handleAddItem = (arr) => {
-		const newArray = planetForm[arr].push('');
-		setPlanetForm({ ...planetForm, newArray });
-	};
-
-	const handleDelete = (arr, index) => {
-		console.log(arr, index);
-		const newArray = planetForm[arr].filter(
-			(item) => item !== planetForm[arr][index]
-		);
-		setPlanetForm({ ...planetForm, [arr]: newArray });
-	};
-
-	// ******************************************************************
-
 	const paperStyle = {
 		padding: 20,
 		height: 'auto',
@@ -170,9 +147,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='name'
 								value={planetForm.name}
-								onChange={(e) =>
-									setPlanetForm({ ...planetForm, name: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -184,12 +159,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='pretty_url'
 								value={planetForm.pretty_url}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										pretty_url: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -201,12 +171,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='population'
 								value={planetForm.population}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										population: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -218,12 +183,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='rotational_period'
 								value={planetForm.rotation_period}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										rotation_period: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -235,12 +195,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='orbital_period'
 								value={planetForm.orbital_period}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										orbital_period: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -252,12 +207,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='diameter'
 								value={planetForm.diameter}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										diameter: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -269,12 +219,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='surface_water'
 								value={planetForm.surface_water}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										surface_water: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -286,12 +231,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={planetForm.image}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										image: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -303,12 +243,7 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='url'
 								value={planetForm.url}
-								onChange={(e) =>
-									setPlanetForm({
-										...planetForm,
-										url: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<div

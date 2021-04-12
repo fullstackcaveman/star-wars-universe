@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import update from 'immutability-helper';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHandleForm } from '../../hooks/useHandleForm';
 import {
 	Avatar,
 	Button,
@@ -12,7 +12,6 @@ import {
 	IconButton,
 } from '@material-ui/core';
 import { DeleteForever } from '@material-ui/icons';
-
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -25,7 +24,14 @@ import { STARSHIP_UPDATE_RESET } from '../../constants/starshipConstants';
 const StarshipEdit = ({ match, history }) => {
 	const starshipId = match.params.id;
 
-	const [starshipForm, setStarshipForm] = useState({
+	const [
+		starshipForm,
+		setStarshipForm,
+		handleInputChange,
+		handleArrayChange,
+		handleAddItem,
+		handleDelete,
+	] = useHandleForm({
 		name: '',
 		pretty_url: '',
 		model: '',
@@ -98,34 +104,6 @@ const StarshipEdit = ({ match, history }) => {
 		);
 	};
 
-	// ******************************************************************
-	// Handle Arrays in form fields -
-	const handleArrayChange = (e, index, arr) => {
-		setStarshipForm(
-			update(starshipForm, {
-				[arr]: {
-					[index]: {
-						$set: e.target.value,
-					},
-				},
-			})
-		);
-	};
-
-	const handleAddItem = (arr) => {
-		const newArray = starshipForm[arr].push('');
-		setStarshipForm({ ...starshipForm, newArray });
-	};
-
-	const handleDelete = (arr, index) => {
-		const newArray = starshipForm[arr].filter(
-			(item) => item !== starshipForm[arr][index]
-		);
-		setStarshipForm({ ...starshipForm, [arr]: newArray });
-	};
-
-	// ******************************************************************
-
 	const paperStyle = {
 		padding: 20,
 		height: 'auto',
@@ -178,9 +156,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='name'
 								value={starshipForm.name || ''}
-								onChange={(e) =>
-									setStarshipForm({ ...starshipForm, name: e.target.value })
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -192,12 +168,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='pretty_url'
 								value={starshipForm.pretty_url || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										pretty_url: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -209,12 +180,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='starship_class'
 								value={starshipForm.starship_class || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										starship_class: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -226,12 +192,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={starshipForm.image || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										image: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -243,12 +204,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='cost_in_credits'
 								value={starshipForm.cost_in_credits || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										cost_in_credits: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -260,12 +216,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='length'
 								value={starshipForm.length || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										length: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -277,12 +228,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='max_atmosphering_speed'
 								value={starshipForm.max_atmosphering_speed || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										max_atmosphering_speed: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -294,12 +240,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='crew'
 								value={starshipForm.crew || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										crew: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -311,12 +252,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='passengers'
 								value={starshipForm.passengers || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										passengers: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -328,12 +264,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='cargo_capacity'
 								value={starshipForm.cargo_capacity || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										cargo_capacity: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -345,12 +276,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='consumables'
 								value={starshipForm.consumables || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										consumables: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -362,12 +288,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='hyperdrive_rating'
 								value={starshipForm.hyperdrive_rating || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										hyperdrive_rating: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<TextField
@@ -379,12 +300,7 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='MGLT'
 								value={starshipForm.MGLT || ''}
-								onChange={(e) =>
-									setStarshipForm({
-										...starshipForm,
-										MGLT: e.target.value,
-									})
-								}
+								onChange={(e) => handleInputChange(e.target)}
 							/>
 
 							<div

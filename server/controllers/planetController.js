@@ -24,6 +24,20 @@ const getPlanetById = asyncHandler(async (req, res) => {
 	}
 });
 
+// @desc   Fetch single planet by pretty_url
+// @route  GET /api/planets/info/:pretty_url
+// @access Public
+const getPlanetByName = asyncHandler(async (req, res) => {
+	const planet = await Planet.find({ pretty_url: req.params.pretty_url });
+
+	if (planet) {
+		res.json(planet);
+	} else {
+		res.status(404);
+		throw new Error('Planet not found');
+	}
+});
+
 // @desc   Delete planet
 // @route  DELETE /api/planets/:id
 // @access Private/Admin
@@ -109,4 +123,11 @@ const updatePlanet = asyncHandler(async (req, res) => {
 	}
 });
 
-export { getPlanets, getPlanetById, deletePlanet, createPlanet, updatePlanet };
+export {
+	getPlanets,
+	getPlanetById,
+	getPlanetByName,
+	deletePlanet,
+	createPlanet,
+	updatePlanet,
+};

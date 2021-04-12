@@ -121,9 +121,9 @@ const SpeciesInfo = ({ match }) => {
 											<div className='info-array-container'>
 												<Typography component='h3'>Skin Color(s):</Typography>
 												<Typography component='p' className='info-array'>
-													{(skin_colors || []).map((color) => (
-														<span key={color}>{`${color}`}</span>
-													))}
+													{(skin_colors || []).map((color) => {
+														return <span key={color}>{color}</span>;
+													})}
 												</Typography>
 											</div>
 
