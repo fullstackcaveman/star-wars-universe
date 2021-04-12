@@ -9,20 +9,25 @@
 
 	.info-card {
 		display: flex;
-		width: auto;
-		// width: 600px;
+		width: 1200px;
 
 		.flex {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			width: 100%;
+			max-width: 100%;
+
+			img {
+				height: 364px;
+			}
 
 			.card-data {
 				display: flex;
 				flex-direction: column;
-				margin: 0 auto;
+				// margin: 0 auto;
+				margin-left: 30px;
 				color: $color-white;
+				max-width: 100%;
 
 				h1 {
 					font-family: $primary-font;
@@ -39,11 +44,12 @@
 				.info-blocks {
 					display: flex;
 					flex-wrap: wrap;
+					justify-content: center;
 
 					.left-info,
 					.right-info {
 						flex-wrap: wrap;
-						max-width: 500px;
+						max-width: 600px;
 						margin: 10px;
 
 						.info-array-container {
@@ -51,6 +57,7 @@
 							margin-bottom: 10px;
 
 							.info-array {
+								cursor: pointer;
 								&.crawl {
 									font-family: $primary-font;
 									color: $starwars-yellow;

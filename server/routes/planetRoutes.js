@@ -3,6 +3,7 @@ const router = express.Router();
 import {
 	getPlanets,
 	getPlanetById,
+	getPlanetByName,
 	createPlanet,
 	deletePlanet,
 	updatePlanet,
@@ -15,5 +16,7 @@ router
 	.get(getPlanetById)
 	.delete(protect, admin, deletePlanet)
 	.put(protect, admin, updatePlanet);
+
+router.route('/info/:pretty_url').get(getPlanetByName);
 
 export default router;

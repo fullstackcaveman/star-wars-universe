@@ -484,19 +484,23 @@ footer .footer-bottom {
 }
 .info-container .info-card {
   display: flex;
-  width: auto;
+  width: 1200px;
 }
 .info-container .info-card .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
+}
+.info-container .info-card .flex img {
+  height: 364px;
 }
 .info-container .info-card .flex .card-data {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin-left: 30px;
   color: #fff;
+  max-width: 100%;
 }
 .info-container .info-card .flex .card-data h1 {
   font-family: "Roboto", sans-serif;
@@ -510,16 +514,21 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info,
 .info-container .info-card .flex .card-data .info-blocks .right-info {
   flex-wrap: wrap;
-  max-width: 500px;
+  max-width: 600px;
   margin: 10px;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container {
   margin-bottom: 10px;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array,
+.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array {
+  cursor: pointer;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.crawl,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.crawl {

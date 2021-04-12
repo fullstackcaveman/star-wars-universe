@@ -21,36 +21,10 @@ connectDB();
 
 const app = express();
 
+
 app.use(cors());
 app.use(express.json());
 // app.use(helmet());
-
-// app.use(
-// 	helmet.contentSecurityPolicy({
-// 		directives: {
-// 			defaultSrc: ["'self'"],
-// 			connectSrc: ["'self'"],
-// 			frameSrc: ["'self'"],
-// 			childSrc: ["'self'"],
-// 			scriptSrc: ["'self'"],
-// 			styleSrc: [
-// 				"'self'",
-// 				// 'https://fonts.googleapis.com',
-// 				// 'https://checkout.stripe.com',
-// 			],
-// 			fontSrc: ["'self'"],
-// 			imgSrc: [
-// 				"'self'",
-// 				'data:',
-// 				'https:',
-// 				// 'https://vignette.wikia.nocookie.net/*',
-// 				// 'https://starwars-visualguide.com/*',
-// 			],
-// 			baseUri: ["'self'"],
-// 		},
-// 		reportOnly: false,
-// 	})
-// );
 
 app.use('/api/characters', characterRoutes);
 app.use('/api/films', filmRoutes);
