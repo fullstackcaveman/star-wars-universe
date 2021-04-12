@@ -50,7 +50,7 @@ const CharacterInfo = ({ match, history }) => {
 
 	document.title = `Star Wars | ${character.name}`;
 
-	const handleClick = (model, query) => {
+	const handleInfoClick = (model, query) => {
 		const data = query.toLowerCase();
 
 		const route = data.split(' ').join('-');
@@ -134,7 +134,7 @@ const CharacterInfo = ({ match, history }) => {
 																		className='info-array'
 																		key={world}
 																		onClick={() =>
-																			handleClick('planets', world)
+																			handleInfoClick('planets', world)
 																		}
 																	>
 																		{world}
@@ -154,7 +154,7 @@ const CharacterInfo = ({ match, history }) => {
 																	<span
 																		className='info-array'
 																		key={master}
-																		onClick={() => handleClick()}
+																		onClick={() => handleInfoClick()}
 																	>
 																		{master}
 																	</span>
@@ -185,7 +185,10 @@ const CharacterInfo = ({ match, history }) => {
 													{cybernetics
 														? cybernetics.map((cyber) => {
 																return (
-																	<span className='info-array' key={cyber}>
+																	<span
+																		className='info-array no-links'
+																		key={cyber}
+																	>
 																		{cyber}
 																	</span>
 																);
@@ -200,7 +203,10 @@ const CharacterInfo = ({ match, history }) => {
 													{affiliations
 														? affiliations.map((affiliate) => {
 																return (
-																	<span className='info-array' key={affiliate}>
+																	<span
+																		className='info-array no-links'
+																		key={affiliate}
+																	>
 																		{affiliate}
 																	</span>
 																);

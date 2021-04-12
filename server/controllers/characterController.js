@@ -10,6 +10,20 @@ const getCharacters = asyncHandler(async (req, res) => {
 	res.json(characters);
 });
 
+// @desc   Fetch single character by name
+// @route  GET /api/characters/info/:pretty_url
+// @access Public
+const getCharacterByName = asyncHandler(async (req, res) => {
+	const character = await Character.find({ pretty_url: req.params.pretty_url });
+
+	if (character) {
+		res.json(character[0]);
+	} else {
+		res.status(404);
+		throw new Error('Character not found');
+	}
+});
+
 // @desc   Fetch single character
 // @route  GET /api/characters/:id
 // @access Public
@@ -146,6 +160,7 @@ const updateCharacter = asyncHandler(async (req, res) => {
 
 export {
 	getCharacters,
+	getCharacterByName,
 	getCharacterById,
 	deleteCharacter,
 	createCharacter,

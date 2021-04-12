@@ -3,6 +3,7 @@ const router = express.Router();
 import {
 	getCharacters,
 	getCharacterById,
+	getCharacterByName,
 	deleteCharacter,
 	createCharacter,
 	updateCharacter,
@@ -15,5 +16,7 @@ router
 	.get(getCharacterById)
 	.delete(protect, admin, deleteCharacter)
 	.put(protect, admin, updateCharacter);
+
+router.route('/info/:pretty_url').get(getCharacterByName);
 
 export default router;

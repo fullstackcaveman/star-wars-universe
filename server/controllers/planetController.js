@@ -71,7 +71,6 @@ const createPlanet = asyncHandler(async (req, res) => {
 		terrain: [],
 		residents: [],
 		films: [],
-		url: 'unknown',
 	});
 
 	const createdPlanet = await planet.save();
@@ -95,7 +94,7 @@ const updatePlanet = asyncHandler(async (req, res) => {
 		terrain,
 		residents,
 		films,
-		url,
+		image,
 	} = req.body;
 
 	const planet = await Planet.findById(req.params.id);
@@ -113,7 +112,7 @@ const updatePlanet = asyncHandler(async (req, res) => {
 		planet.terrain = terrain;
 		planet.residents = residents;
 		planet.films = films;
-		planet.url = url;
+		planet.image = image;
 
 		const updatedPlanet = await planet.save();
 		res.json(updatedPlanet);
