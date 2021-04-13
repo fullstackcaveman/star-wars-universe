@@ -8,6 +8,7 @@ import {
 	deleteVehicle,
 	createVehicle,
 	updateVehicle,
+	getVehicleByName,
 } from '../controllers/vehicleController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
@@ -17,5 +18,7 @@ router
 	.get(getVehicleById)
 	.delete(protect, admin, deleteVehicle)
 	.put(protect, admin, updateVehicle);
+
+router.route('/info/:pretty_url').get(getVehicleByName);
 
 export default router;

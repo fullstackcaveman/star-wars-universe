@@ -17,7 +17,7 @@ import {
 } from '../../actions/planetActions';
 import { NavLink } from 'react-router-dom';
 
-const PlanetInfo = ({ match }) => {
+const PlanetInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
@@ -50,6 +50,14 @@ const PlanetInfo = ({ match }) => {
 			dispatch(listPlanetInfoByName(match.params.pretty_url));
 		}
 	}, [match, dispatch]);
+
+	const handleInfoClick = (model, query) => {
+		const data = query.toLowerCase();
+
+		const route = data.split(' ').join('-');
+
+		history.push(`/${model}/info/${route}`);
+	};
 
 	return (
 		<>

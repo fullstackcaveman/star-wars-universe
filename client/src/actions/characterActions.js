@@ -38,6 +38,27 @@ export const listCharacters = () => async (dispatch) => {
 	}
 };
 
+export const listCharacterInfoByName = (name) => async (dispatch) => {
+	try {
+		dispatch({ type: CHARACTER_INFO_REQUEST });
+
+		const { data } = await axios.get(`/api/characters/info/${name}`);
+
+		dispatch({
+			type: CHARACTER_INFO_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: CHARACTER_INFO_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
 export const listCharacterInfo = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: CHARACTER_INFO_REQUEST });
@@ -48,8 +69,6 @@ export const listCharacterInfo = (id) => async (dispatch) => {
 			type: CHARACTER_INFO_SUCCESS,
 			payload: data,
 		});
-
-		// dispatch({ type: CHARACTER_INFO_RESET, payload: data });
 	} catch (error) {
 		dispatch({
 			type: CHARACTER_INFO_FAIL,

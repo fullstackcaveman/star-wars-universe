@@ -6,6 +6,7 @@ import {
 	deleteStarship,
 	createStarship,
 	updateStarship,
+	getStarshipByName,
 } from '../controllers/starshipController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
@@ -15,5 +16,7 @@ router
 	.get(getStarshipById)
 	.delete(protect, admin, deleteStarship)
 	.put(protect, admin, updateStarship);
+
+router.route('/info/:pretty_url').get(getStarshipByName);
 
 export default router;
