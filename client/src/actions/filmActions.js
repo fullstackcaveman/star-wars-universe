@@ -38,6 +38,27 @@ export const listFilms = () => async (dispatch) => {
 	}
 };
 
+export const listFilmInfoByName = (name) => async (dispatch) => {
+	try {
+		dispatch({ type: FILM_INFO_REQUEST });
+
+		const { data } = await axios.get(`/api/films/info/${name}`);
+
+		dispatch({
+			type: FILM_INFO_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: FILM_INFO_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
 export const listFilmInfo = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: FILM_INFO_REQUEST });
