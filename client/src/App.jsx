@@ -49,22 +49,27 @@ const App = () => {
 				<Route path='/admin/starship/:id/edit' component={StarshipEdit} />
 				<Route path='/admin/starshiplist' component={StarshipList} />
 				<Route path='/admin/userlist' component={UserList} />
-				<Route exact path='/characters' component={CharacterPage} />
+				<Route path='/characters/info/:pretty_url' component={CharacterInfo} />
 				<Route path='/characters/:id' component={CharacterInfo} />
-				<Route exact path='/films' component={FilmPage} />
+				<Route path='/characters' component={CharacterPage} />
+				<Route path='/films/info/:pretty_url' component={FilmInfo} />
 				<Route path='/films/:id' component={FilmInfo} />
-				<Route exact path='/planets' component={PlanetPage} />
+				<Route path='/films' component={FilmPage} />
 				<Route path='/planets/info/:pretty_url' component={PlanetInfo} />
 				<Route path='/planets/:id' component={PlanetInfo} />
-				<Route exact path='/species' component={SpeciesPage} />
+				<Route path='/planets' component={PlanetPage} />
+				<Route path='/species/info/:pretty_url' component={SpeciesInfo} />
 				<Route path='/species/:id' component={SpeciesInfo} />
-				<Route exact path='/starships' component={StarshipPage} />
+				<Route path='/species' component={SpeciesPage} />
+				<Route path='/starships/info/:pretty_url' component={StarshipInfo} />
 				<Route path='/starships/:id' component={StarshipInfo} />
+				<Route path='/starships' component={StarshipPage} />
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />
 				<Route path='/users/register' component={UserRegisterForm} />
+				<Route path='/vehicles/info/:pretty_url' component={VehicleInfo} />
 				<Route path='/vehicles/:id' component={VehicleInfo} />
-				<Route exact path='/vehicles' component={VehiclePage} />
+				<Route path='/vehicles' component={VehiclePage} />
 				<Route exact path='/' component={Home} />
 			</Switch>
 			<Footer />

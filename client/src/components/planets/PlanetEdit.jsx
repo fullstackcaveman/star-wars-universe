@@ -79,7 +79,6 @@ const PlanetEdit = ({ match, history }) => {
 					terrain: planet.terrain,
 					residents: planet.residents,
 					films: planet.films,
-					url: planet.url,
 				});
 			}
 		}
@@ -231,18 +230,6 @@ const PlanetEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={planetForm.image}
-								onChange={(e) => handleInputChange(e.target)}
-							/>
-
-							<TextField
-								style={inputStyle}
-								label='URL'
-								placeholder='Enter URL'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='url'
-								value={planetForm.url}
 								onChange={(e) => handleInputChange(e.target)}
 							/>
 

@@ -6,6 +6,7 @@ import {
 	deleteSpecies,
 	createSpecies,
 	updateSpecies,
+	getSpeciesByName,
 } from '../controllers/speciesController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
@@ -15,5 +16,7 @@ router
 	.get(getSpeciesById)
 	.delete(protect, admin, deleteSpecies)
 	.put(protect, admin, updateSpecies);
+
+router.route('/info/:pretty_url').get(getSpeciesByName);
 
 export default router;

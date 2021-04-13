@@ -10,6 +10,20 @@ const getStarships = asyncHandler(async (req, res) => {
 	res.json(starships);
 });
 
+// @desc   Fetch single starship by name
+// @route  GET /api/starships/info/:pretty_url
+// @access Public
+const getStarshipByName = asyncHandler(async (req, res) => {
+	const starship = await Starship.find({ pretty_url: req.params.pretty_url });
+
+	if (starship) {
+		res.json(starship[0]);
+	} else {
+		res.status(404);
+		throw new Error('Starship not found');
+	}
+});
+
 // @desc   Fetch single starship
 // @route  GET /api/starships/:id
 // @access Public
@@ -121,6 +135,7 @@ const updateStarship = asyncHandler(async (req, res) => {
 export {
 	getStarships,
 	getStarshipById,
+	getStarshipByName,
 	deleteStarship,
 	createStarship,
 	updateStarship,

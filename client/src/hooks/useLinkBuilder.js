@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, history } from 'react';
 
 export const useLinkBuilder = (input) => {
 	const [value, setValue] = useState();
@@ -14,5 +13,14 @@ export const useLinkBuilder = (input) => {
 		}
 	};
 
-	return [value, handleBuildLink];
+	const handleInfoClick = (model, query) => {
+		const data = query.toLowerCase();
+
+		const route = data.split(' ').join('-');
+
+		setValue({ linkTo: route });
+		history.push(`/${model}/info/${route}`);
+	};
+
+	return [value, handleBuildLink, handleInfoClick];
 };

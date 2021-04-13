@@ -10,6 +10,20 @@ const getSpecies = asyncHandler(async (req, res) => {
 	res.json(species);
 });
 
+// @desc   Fetch single species by name
+// @route  GET /api/species/info/:pretty_url
+// @access Public
+const getSpeciesByName = asyncHandler(async (req, res) => {
+	const species = await Species.find({ pretty_url: req.params.pretty_url });
+
+	if (species) {
+		res.json(species[0]);
+	} else {
+		res.status(404);
+		throw new Error('Species not found');
+	}
+});
+
 // @desc   Fetch single species
 // @route  GET /api/species/:id
 // @access Public
@@ -114,6 +128,7 @@ const updateSpecies = asyncHandler(async (req, res) => {
 export {
 	getSpecies,
 	getSpeciesById,
+	getSpeciesByName,
 	deleteSpecies,
 	createSpecies,
 	updateSpecies,

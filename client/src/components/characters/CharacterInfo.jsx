@@ -11,7 +11,10 @@ import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
-import { listCharacterInfo } from '../../actions/characterActions';
+import {
+	listCharacterInfo,
+	listCharacterInfoByName,
+} from '../../actions/characterActions';
 import { NavLink } from 'react-router-dom';
 
 const CharacterInfo = ({ match, history }) => {
@@ -44,13 +47,17 @@ const CharacterInfo = ({ match, history }) => {
 		relatedFilms,
 	} = character;
 
-	useEffect(() => {
-		dispatch(listCharacterInfo(match.params.id));
-	}, [match, dispatch]);
-
 	document.title = `Star Wars | ${character.name}`;
 
-	const handleClick = (model, query) => {
+	useEffect(() => {
+		if (match.params.id) {
+			dispatch(listCharacterInfo(match.params.id));
+		} else {
+			dispatch(listCharacterInfoByName(match.params.pretty_url));
+		}
+	}, [match, dispatch]);
+
+	const handleInfoClick = (model, query) => {
 		const data = query.toLowerCase();
 
 		const route = data.split(' ').join('-');
@@ -134,7 +141,7 @@ const CharacterInfo = ({ match, history }) => {
 																		className='info-array'
 																		key={world}
 																		onClick={() =>
-																			handleClick('planets', world)
+																			handleInfoClick('planets', world)
 																		}
 																	>
 																		{world}
@@ -154,7 +161,9 @@ const CharacterInfo = ({ match, history }) => {
 																	<span
 																		className='info-array'
 																		key={master}
-																		onClick={() => handleClick()}
+																		onClick={() =>
+																			handleInfoClick('characters', master)
+																		}
 																	>
 																		{master}
 																	</span>
@@ -170,7 +179,13 @@ const CharacterInfo = ({ match, history }) => {
 													{apprentices
 														? apprentices.map((apprentice) => {
 																return (
-																	<span className='info-array' key={apprentice}>
+																	<span
+																		className='info-array'
+																		key={apprentice}
+																		onClick={() =>
+																			handleInfoClick('characters', apprentice)
+																		}
+																	>
 																		{apprentice}
 																	</span>
 																);
@@ -185,7 +200,10 @@ const CharacterInfo = ({ match, history }) => {
 													{cybernetics
 														? cybernetics.map((cyber) => {
 																return (
-																	<span className='info-array' key={cyber}>
+																	<span
+																		className='info-array no-links'
+																		key={cyber}
+																	>
 																		{cyber}
 																	</span>
 																);
@@ -200,7 +218,10 @@ const CharacterInfo = ({ match, history }) => {
 													{affiliations
 														? affiliations.map((affiliate) => {
 																return (
-																	<span className='info-array' key={affiliate}>
+																	<span
+																		className='info-array no-links'
+																		key={affiliate}
+																	>
 																		{affiliate}
 																	</span>
 																);
@@ -215,7 +236,16 @@ const CharacterInfo = ({ match, history }) => {
 													{formerAffiliations
 														? formerAffiliations.map((fAffiliate) => {
 																return (
-																	<span className='info-array' key={fAffiliate}>
+																	<span
+																		className='info-array'
+																		key={fAffiliate}
+																		onClick={() =>
+																			handleInfoClick(
+																				'organizations',
+																				fAffiliate
+																			)
+																		}
+																	>
 																		{fAffiliate}
 																	</span>
 																);

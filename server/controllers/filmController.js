@@ -10,6 +10,20 @@ const getFilms = asyncHandler(async (req, res) => {
 	res.json(films);
 });
 
+// @desc   Fetch single film by name
+// @route  GET /api/films/info/:pretty_url
+// @access Public
+const getFilmByName = asyncHandler(async (req, res) => {
+	const film = await Film.find({ pretty_url: req.params.pretty_url });
+
+	if (film) {
+		res.json(film[0]);
+	} else {
+		res.status(404);
+		throw new Error('Film not found');
+	}
+});
+
 // @desc   Fetch single film
 // @route  GET /api/films/:id
 // @access Public
@@ -108,4 +122,11 @@ const updateFilm = asyncHandler(async (req, res) => {
 	}
 });
 
-export { getFilms, getFilmById, deleteFilm, createFilm, updateFilm };
+export {
+	getFilms,
+	getFilmById,
+	getFilmByName,
+	deleteFilm,
+	createFilm,
+	updateFilm,
+};

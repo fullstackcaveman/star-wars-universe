@@ -10,6 +10,20 @@ const getVehicles = asyncHandler(async (req, res) => {
 	res.json(vehicles);
 });
 
+// @desc   Fetch single vehicle by name
+// @route  GET /api/vehicles/info/:pretty_url
+// @access Public
+const getVehicleByName = asyncHandler(async (req, res) => {
+	const vehicle = await Vehicle.find({ pretty_url: req.params.pretty_url });
+
+	if (vehicle) {
+		res.json(vehicle[0]);
+	} else {
+		res.status(404);
+		throw new Error('Vehicle not found');
+	}
+});
+
 // @desc   Fetch single vehicle
 // @route  GET /api/vehicles/:id
 // @access Public
@@ -117,6 +131,7 @@ const updateVehicle = asyncHandler(async (req, res) => {
 export {
 	getVehicles,
 	getVehicleById,
+	getVehicleByName,
 	deleteVehicle,
 	createVehicle,
 	updateVehicle,
