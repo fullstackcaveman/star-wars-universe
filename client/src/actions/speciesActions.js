@@ -38,6 +38,27 @@ export const listSpecies = () => async (dispatch) => {
 	}
 };
 
+export const listSpeciesInfoByName = (name) => async (dispatch) => {
+	try {
+		dispatch({ type: SPECIES_INFO_REQUEST });
+
+		const { data } = await axios.get(`/api/species/info/${name}`);
+
+		dispatch({
+			type: SPECIES_INFO_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: SPECIES_INFO_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
 export const listSpeciesInfo = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: SPECIES_INFO_REQUEST });

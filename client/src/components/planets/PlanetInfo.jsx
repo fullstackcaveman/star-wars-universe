@@ -33,12 +33,13 @@ const PlanetInfo = ({ match, history }) => {
 		residents,
 		films,
 		name,
-		// pretty_url,
+		pretty_url,
 		rotation_period,
 		orbital_period,
 		diameter,
 		surface_water,
 		population,
+		suns,
 	} = planet;
 
 	document.title = `Star Wars | ${planet.name}`;
@@ -90,7 +91,7 @@ const PlanetInfo = ({ match, history }) => {
 									{!population ? (
 										<Typography component='h3'>Population: unknown</Typography>
 									) : (
-										<Typography component='h3'>{`Population: ${population}`}</Typography>
+										<Typography component='h3'>{`Population: ${population} souls`}</Typography>
 									)}
 
 									{!rotation_period ? (
@@ -130,7 +131,7 @@ const PlanetInfo = ({ match, history }) => {
 									{!surface_water ? (
 										<Typography component='h3'>Surface Water: n/a</Typography>
 									) : (
-										<Typography component='h3'>{`Surface Water: ${surface_water}`}</Typography>
+										<Typography component='h3'>{`Surface Water: ${surface_water}%`}</Typography>
 									)}
 
 									{!climate ? (

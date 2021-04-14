@@ -123,9 +123,11 @@ const PlanetList = ({ history, match }) => {
 											))}
 										</TableCell>
 										<TableCell align='center'>
-											<Button variant='contained' size='small'>
-												<OpenInBrowserIcon />
-											</Button>
+											<NavLink to={`/planets/info/${planet.pretty_url}`}>
+												<Button variant='contained' size='small'>
+													<OpenInBrowserIcon />
+												</Button>
+											</NavLink>
 
 											<NavLink to={`/admin/planet/${planet._id}/edit`}>
 												<Button

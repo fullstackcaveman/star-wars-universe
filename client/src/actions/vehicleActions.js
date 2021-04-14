@@ -38,6 +38,27 @@ export const listVehicles = () => async (dispatch) => {
 	}
 };
 
+export const listVehicleInfoByName = (name) => async (dispatch) => {
+	try {
+		dispatch({ type: VEHICLE_INFO_REQUEST });
+
+		const { data } = await axios.get(`/api/vehicles/info/${name}`);
+
+		dispatch({
+			type: VEHICLE_INFO_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: VEHICLE_INFO_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
 export const listVehicleInfo = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: VEHICLE_INFO_REQUEST });

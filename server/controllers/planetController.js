@@ -66,11 +66,31 @@ const createPlanet = asyncHandler(async (req, res) => {
 		surface_water: 'unknown',
 		population: 'unknown',
 		image: '/images/placeholder.jpg',
+		region: 'unknown',
+		sector: 'unknown',
+		system: 'unknown',
+		distance_from_core: 'unknown',
+		classification: 'unknown',
+		atmosphere: 'unknown',
+		grid_coords: 'unknown',
 		climate: [],
 		gravity: [],
 		terrain: [],
 		residents: [],
 		films: [],
+		suns: [],
+		moons: [],
+		trade_routes: [],
+		points_of_interest: [],
+		flora: [],
+		fauna: [],
+		native_species: [],
+		immigrated_species: [],
+		primary_languages: [],
+		major_cities: [],
+		major_imports: [],
+		major_exports: [],
+		affiliations: [],
 	});
 
 	const createdPlanet = await planet.save();
@@ -89,12 +109,32 @@ const updatePlanet = asyncHandler(async (req, res) => {
 		diameter,
 		surface_water,
 		population,
+		image,
 		climate,
 		gravity,
 		terrain,
 		residents,
 		films,
-		image,
+		region,
+		sector,
+		system,
+		distance_from_core,
+		classification,
+		atmosphere,
+		grid_coords,
+		suns,
+		moons,
+		trade_routes,
+		points_of_interest,
+		flora,
+		fauna,
+		native_species,
+		immigrated_species,
+		primary_languages,
+		major_cities,
+		major_imports,
+		major_exports,
+		affiliations,
 	} = req.body;
 
 	const planet = await Planet.findById(req.params.id);
@@ -113,6 +153,26 @@ const updatePlanet = asyncHandler(async (req, res) => {
 		planet.residents = residents;
 		planet.films = films;
 		planet.image = image;
+		planet.region = region;
+		planet.sector = sector;
+		planet.system = system;
+		planet.distance_from_core = distance_from_core;
+		planet.classification = classification;
+		planet.atmosphere = atmosphere;
+		planet.grid_coords = grid_coords;
+		planet.suns = suns;
+		planet.moons = moons;
+		planet.trade_routes = trade_routes;
+		planet.points_of_interest = points_of_interest;
+		planet.flora = flora;
+		planet.fauna = fauna;
+		planet.native_species = native_species;
+		planet.immigrated_species = immigrated_species;
+		planet.primary_languages = primary_languages;
+		planet.major_cities = major_cities;
+		planet.major_imports = major_imports;
+		planet.major_exports = major_exports;
+		planet.affiliations = affiliations;
 
 		const updatedPlanet = await planet.save();
 		res.json(updatedPlanet);

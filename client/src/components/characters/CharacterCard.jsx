@@ -21,7 +21,6 @@ const CharacterCard = (props) => {
 			<Card className={classes.root}>
 				<CardActionArea>
 					<CardMedia className={classes.media} image={character.image} />
-
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='h2'>
 							{character.name.toLowerCase()}
