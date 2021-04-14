@@ -61,9 +61,9 @@ const App = () => {
 				<Route path='/species/info/:pretty_url' component={SpeciesInfo} />
 				<Route path='/species/:id' component={SpeciesInfo} />
 				<Route path='/species' component={SpeciesPage} />
+				<Route path='/starships' component={StarshipPage} />
 				<Route path='/starships/info/:pretty_url' component={StarshipInfo} />
 				<Route path='/starships/:id' component={StarshipInfo} />
-				<Route path='/starships' component={StarshipPage} />
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />
 				<Route path='/users/register' component={UserRegisterForm} />

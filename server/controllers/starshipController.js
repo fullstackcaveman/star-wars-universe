@@ -102,6 +102,7 @@ const updateStarship = asyncHandler(async (req, res) => {
 		manufacturer,
 		pilots,
 		films,
+		image,
 	} = req.body;
 
 	const starship = await Starship.findById(req.params.id);
@@ -123,6 +124,7 @@ const updateStarship = asyncHandler(async (req, res) => {
 		starship.manufacturer = manufacturer;
 		starship.pilots = pilots;
 		starship.films = films;
+		starship.image = image;
 
 		const updatedStarship = await starship.save();
 		res.json(updatedStarship);
