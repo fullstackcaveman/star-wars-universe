@@ -75,6 +75,21 @@ const createStarship = asyncHandler(async (req, res) => {
 		manufacturer: [],
 		pilots: [],
 		films: [],
+		designer: [],
+		roles: [],
+		affiliation: [],
+		classification: 'unknown',
+		height_depth: 'unknown',
+		max_acceleration: 'unknown',
+		hyperdrive_system: 'unknown',
+		shielding: 'unknown',
+		hull: 'unknown',
+		sensor_systems: 'unknown',
+		navigation_system: 'unknown',
+		armament: [],
+		complement: [],
+		docking_bays: 'unknown',
+		other_systems: [],
 	});
 
 	const createdStarship = await starship.save();
@@ -103,6 +118,21 @@ const updateStarship = asyncHandler(async (req, res) => {
 		pilots,
 		films,
 		image,
+		designer,
+		roles,
+		affiliation,
+		classification,
+		height_depth,
+		max_acceleration,
+		hyperdrive_system,
+		shielding,
+		hull,
+		sensor_systems,
+		navigation_system,
+		armament,
+		complement,
+		docking_bays,
+		other_systems,
 	} = req.body;
 
 	const starship = await Starship.findById(req.params.id);
@@ -125,6 +155,21 @@ const updateStarship = asyncHandler(async (req, res) => {
 		starship.pilots = pilots;
 		starship.films = films;
 		starship.image = image;
+		starship.designer = designer;
+		starship.roles = roles;
+		starship.affiliation = affiliation;
+		starship.classification = classification;
+		starship.height_depth = height_depth;
+		starship.max_acceleration = max_acceleration;
+		starship.hyperdrive_system = hyperdrive_system;
+		starship.shielding = shielding;
+		starship.hull = hull;
+		starship.sensor_systems = sensor_systems;
+		starship.navigation_system = navigation_system;
+		starship.armament = armament;
+		starship.complement = complement;
+		starship.docking_bays = docking_bays;
+		starship.other_systems = other_systems;
 
 		const updatedStarship = await starship.save();
 		res.json(updatedStarship);

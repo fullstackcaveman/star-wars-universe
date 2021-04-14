@@ -69,8 +69,6 @@ export const listStarshipInfo = (id) => async (dispatch) => {
 			type: STARSHIP_INFO_SUCCESS,
 			payload: data,
 		});
-
-		// dispatch({ type: STARSHIP_INFO_RESET, payload: data });
 	} catch (error) {
 		dispatch({
 			type: STARSHIP_INFO_FAIL,
