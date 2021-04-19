@@ -1,10 +1,11 @@
-import asyncHandler from 'express-async-handler';
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import Character from '../models/characterModel.js';
 
 // @desc   Fetch all characters
 // @route  GET /api/characters
 // @access Public
-const getCharacters = asyncHandler(async (req, res) => {
+const getCharacters = exceptionHandler(async (req, res) => {
 	const characters = await Character.find({});
 
 	res.json(characters);
@@ -13,7 +14,7 @@ const getCharacters = asyncHandler(async (req, res) => {
 // @desc   Fetch single character by name
 // @route  GET /api/characters/info/:pretty_url
 // @access Public
-const getCharacterByName = asyncHandler(async (req, res) => {
+const getCharacterByName = exceptionHandler(async (req, res) => {
 	const character = await Character.find({ pretty_url: req.params.pretty_url });
 
 	if (character) {
@@ -27,7 +28,7 @@ const getCharacterByName = asyncHandler(async (req, res) => {
 // @desc   Fetch single character
 // @route  GET /api/characters/:id
 // @access Public
-const getCharacterById = asyncHandler(async (req, res) => {
+const getCharacterById = exceptionHandler(async (req, res) => {
 	const character = await Character.findById(req.params.id);
 
 	if (character) {
@@ -41,7 +42,7 @@ const getCharacterById = asyncHandler(async (req, res) => {
 // @desc   Delete character
 // @route  DELETE /api/characters/:id
 // @access Private/Admin
-const deleteCharacter = asyncHandler(async (req, res) => {
+const deleteCharacter = exceptionHandler(async (req, res) => {
 	const character = await Character.findById(req.params.id);
 
 	if (character) {
@@ -56,7 +57,7 @@ const deleteCharacter = asyncHandler(async (req, res) => {
 // @desc   Create a character
 // @route  Post /api/characters
 // @access Private/Admin
-const createCharacter = asyncHandler(async (req, res) => {
+const createCharacter = exceptionHandler(async (req, res) => {
 	const character = new Character({
 		name: 'New Character',
 		pretty_url: 'new-character',
@@ -92,7 +93,7 @@ const createCharacter = asyncHandler(async (req, res) => {
 // @desc   Update a character
 // @route  PUT /api/characters/:id
 // @access Private/Admin
-const updateCharacter = asyncHandler(async (req, res) => {
+const updateCharacter = exceptionHandler(async (req, res) => {
 	const {
 		name,
 		pretty_url,

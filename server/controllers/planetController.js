@@ -1,10 +1,11 @@
-import asyncHandler from 'express-async-handler';
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import Planet from '../models/planetModel.js';
 
 // @desc   Fetch all planets
 // @route  GET /api/planets
 // @access Public
-const getPlanets = asyncHandler(async (req, res) => {
+const getPlanets = exceptionHandler(async (req, res) => {
 	const planets = await Planet.find({});
 
 	res.json(planets);
@@ -13,7 +14,7 @@ const getPlanets = asyncHandler(async (req, res) => {
 // @desc   Fetch single planet
 // @route  GET /api/planets/:id
 // @access Public
-const getPlanetById = asyncHandler(async (req, res) => {
+const getPlanetById = exceptionHandler(async (req, res) => {
 	const planet = await Planet.findById(req.params.id);
 
 	if (planet) {
@@ -27,7 +28,7 @@ const getPlanetById = asyncHandler(async (req, res) => {
 // @desc   Fetch single planet by pretty_url
 // @route  GET /api/planets/info/:pretty_url
 // @access Public
-const getPlanetByName = asyncHandler(async (req, res) => {
+const getPlanetByName = exceptionHandler(async (req, res) => {
 	const planet = await Planet.find({ pretty_url: req.params.pretty_url });
 
 	if (planet) {
@@ -41,7 +42,7 @@ const getPlanetByName = asyncHandler(async (req, res) => {
 // @desc   Delete planet
 // @route  DELETE /api/planets/:id
 // @access Private/Admin
-const deletePlanet = asyncHandler(async (req, res) => {
+const deletePlanet = exceptionHandler(async (req, res) => {
 	const planet = await Planet.findById(req.params.id);
 
 	if (planet) {
@@ -56,7 +57,7 @@ const deletePlanet = asyncHandler(async (req, res) => {
 // @desc   Create a planet
 // @route  Post /api/planets
 // @access Private/Admin
-const createPlanet = asyncHandler(async (req, res) => {
+const createPlanet = exceptionHandler(async (req, res) => {
 	const planet = new Planet({
 		name: 'New Planet',
 		pretty_url: 'new-planet',
@@ -100,7 +101,7 @@ const createPlanet = asyncHandler(async (req, res) => {
 // @desc   Update a planet
 // @route  PUT /api/planets/:id
 // @access Private/Admin
-const updatePlanet = asyncHandler(async (req, res) => {
+const updatePlanet = exceptionHandler(async (req, res) => {
 	const {
 		name,
 		pretty_url,

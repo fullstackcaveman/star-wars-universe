@@ -1,10 +1,11 @@
-import asyncHandler from 'express-async-handler';
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import Starship from '../models/starshipModel.js';
 
 // @desc   Fetch all starships
 // @route  GET /api/starships
 // @access Public
-const getStarships = asyncHandler(async (req, res) => {
+const getStarships = exceptionHandler(async (req, res) => {
 	const starships = await Starship.find({});
 
 	res.json(starships);
@@ -13,7 +14,7 @@ const getStarships = asyncHandler(async (req, res) => {
 // @desc   Fetch single starship by name
 // @route  GET /api/starships/info/:pretty_url
 // @access Public
-const getStarshipByName = asyncHandler(async (req, res) => {
+const getStarshipByName = exceptionHandler(async (req, res) => {
 	const starship = await Starship.find({ pretty_url: req.params.pretty_url });
 
 	if (starship) {
@@ -27,7 +28,7 @@ const getStarshipByName = asyncHandler(async (req, res) => {
 // @desc   Fetch single starship
 // @route  GET /api/starships/:id
 // @access Public
-const getStarshipById = asyncHandler(async (req, res) => {
+const getStarshipById = exceptionHandler(async (req, res) => {
 	const starship = await Starship.findById(req.params.id);
 
 	if (starship) {
@@ -41,7 +42,7 @@ const getStarshipById = asyncHandler(async (req, res) => {
 // @desc   Delete starship
 // @route  DELETE /api/starships/:id
 // @access Private/Admin
-const deleteStarship = asyncHandler(async (req, res) => {
+const deleteStarship = exceptionHandler(async (req, res) => {
 	const starship = await Starship.findById(req.params.id);
 
 	if (starship) {
@@ -56,7 +57,7 @@ const deleteStarship = asyncHandler(async (req, res) => {
 // @desc   Create a starship
 // @route  Post /api/starships
 // @access Private/Admin
-const createStarship = asyncHandler(async (req, res) => {
+const createStarship = exceptionHandler(async (req, res) => {
 	const starship = new Starship({
 		name: 'New Starship',
 		pretty_url: 'new-starship',
@@ -99,7 +100,7 @@ const createStarship = asyncHandler(async (req, res) => {
 // @desc   Update a starship
 // @route  PUT /api/starships/:id
 // @access Private/Admin
-const updateStarship = asyncHandler(async (req, res) => {
+const updateStarship = exceptionHandler(async (req, res) => {
 	const {
 		name,
 		pretty_url,

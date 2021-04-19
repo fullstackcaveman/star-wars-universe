@@ -14,12 +14,16 @@ export const useLinkBuilder = (input) => {
 	};
 
 	const handleInfoClick = (model, query) => {
-		const data = query.toLowerCase();
+		if (query === 'None' || query === 'n/a') {
+			return null;
+		} else {
+			const data = query.toLowerCase();
 
-		const route = data.split(' ').join('-');
+			const route = data.split(' ').join('-');
 
-		setValue({ linkTo: route });
-		history.push(`/${model}/info/${route}`);
+			// setValue({ linkTo: route });
+			history.push(`/${model}/info/${route}`);
+		}
 	};
 
 	return [value, handleBuildLink, handleInfoClick];

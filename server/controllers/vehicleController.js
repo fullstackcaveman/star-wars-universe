@@ -1,10 +1,11 @@
-import asyncHandler from 'express-async-handler';
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import Vehicle from '../models/vehicleModel.js';
 
 // @desc   Fetch all vehicles
 // @route  GET /api/vehicles
 // @access Public
-const getVehicles = asyncHandler(async (req, res) => {
+const getVehicles = exceptionHandler(async (req, res) => {
 	const vehicles = await Vehicle.find({});
 
 	res.json(vehicles);
@@ -13,7 +14,7 @@ const getVehicles = asyncHandler(async (req, res) => {
 // @desc   Fetch single vehicle by name
 // @route  GET /api/vehicles/info/:pretty_url
 // @access Public
-const getVehicleByName = asyncHandler(async (req, res) => {
+const getVehicleByName = exceptionHandler(async (req, res) => {
 	const vehicle = await Vehicle.find({ pretty_url: req.params.pretty_url });
 
 	if (vehicle) {
@@ -27,7 +28,7 @@ const getVehicleByName = asyncHandler(async (req, res) => {
 // @desc   Fetch single vehicle
 // @route  GET /api/vehicles/:id
 // @access Public
-const getVehicleById = asyncHandler(async (req, res) => {
+const getVehicleById = exceptionHandler(async (req, res) => {
 	const vehicle = await Vehicle.findById(req.params.id);
 
 	if (vehicle) {
@@ -41,7 +42,7 @@ const getVehicleById = asyncHandler(async (req, res) => {
 // @desc   Delete vehicle
 // @route  DELETE /api/vehicles/:id
 // @access Private/Admin
-const deleteVehicle = asyncHandler(async (req, res) => {
+const deleteVehicle = exceptionHandler(async (req, res) => {
 	const vehicle = await Vehicle.findById(req.params.id);
 
 	if (vehicle) {
@@ -56,7 +57,7 @@ const deleteVehicle = asyncHandler(async (req, res) => {
 // @desc   Create a vehicle
 // @route  Post /api/vehicles
 // @access Private/Admin
-const createVehicle = asyncHandler(async (req, res) => {
+const createVehicle = exceptionHandler(async (req, res) => {
 	const vehicle = new Vehicle({
 		name: 'New Vehicle',
 		pretty_url: 'new-vehicle',
@@ -82,7 +83,7 @@ const createVehicle = asyncHandler(async (req, res) => {
 // @desc   Update a vehicle
 // @route  PUT /api/vehicles/:id
 // @access Private/Admin
-const updateVehicle = asyncHandler(async (req, res) => {
+const updateVehicle = exceptionHandler(async (req, res) => {
 	const {
 		name,
 		pretty_url,
