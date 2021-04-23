@@ -552,6 +552,9 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks .left-info {
   margin-right: 30px;
 }
+.info-container .info-card .flex .card-data .info-blocks .left-info span {
+  cursor: pointer;
+}
 
 .character-wrapper,
 .planet-wrapper {
@@ -748,15 +751,37 @@ footer .footer-bottom {
 .relatedFilms-container {
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
   color: #fff;
   padding: 10px;
   width: auto;
-  height: 200px;
+  height: 250px;
   border: 3px solid #ffe81f;
   border-radius: 2px;
+}
+.relatedFilms-container .film-title h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.relatedFilms-container .films {
+  display: flex;
+}
+.relatedFilms-container .relatedFilm-container {
+  width: 100px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.relatedFilms-container .relatedFilm-container img {
+  border-radius: 5px;
+  width: auto;
+  height: 156px;
+  margin-bottom: 5px;
+}
+.relatedFilms-container .relatedFilm-container h2 {
+  font-size: 1rem;
 }
 
 .species-container {

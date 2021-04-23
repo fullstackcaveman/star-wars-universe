@@ -78,7 +78,7 @@ const UserLoginForm = ({ location, history }) => {
 							Sign In
 						</Typography>
 					</Grid>
-					{error && <Message severity='error'>{error}</Message>}
+					{error && <Message severity='error' message={error} />}
 					{loading && <Loader />}
 					<form onSubmit={submitHandler}>
 						<TextField

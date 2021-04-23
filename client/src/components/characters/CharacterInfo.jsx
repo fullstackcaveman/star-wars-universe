@@ -17,6 +17,8 @@ import {
 } from '../../actions/characterActions';
 import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
+import RelatedFilms from '../films/RelatedFilms';
+import { listFilms } from '../../actions/filmActions';
 // import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const CharacterInfo = ({ match, history }) => {
@@ -99,7 +101,12 @@ const CharacterInfo = ({ match, history }) => {
 									<div className='info-blocks'>
 										<div className='left-info'>
 											<Typography component='h3'>
-												{`Species: ${species}`}
+												Species:{' '}
+												<span
+													onClick={() => handleInfoClick('species', species)}
+												>
+													{species}
+												</span>
 											</Typography>
 
 											<Typography component='h3'>
@@ -198,7 +205,12 @@ const CharacterInfo = ({ match, history }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'></div>
+						<div className='flex'>
+							<RelatedFilms
+								films={relatedFilms}
+								handleInfoClick={handleInfoClick}
+							/>
+						</div>
 					</>
 				)}
 			</div>
