@@ -1,10 +1,11 @@
-import asyncHandler from 'express-async-handler';
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import Species from '../models/speciesModel.js';
 
 // @desc   Fetch all species
 // @route  GET /api/species
 // @access Public
-const getSpecies = asyncHandler(async (req, res) => {
+const getSpecies = exceptionHandler(async (req, res) => {
 	const species = await Species.find({});
 
 	res.json(species);
@@ -13,7 +14,7 @@ const getSpecies = asyncHandler(async (req, res) => {
 // @desc   Fetch single species by name
 // @route  GET /api/species/info/:pretty_url
 // @access Public
-const getSpeciesByName = asyncHandler(async (req, res) => {
+const getSpeciesByName = exceptionHandler(async (req, res) => {
 	const species = await Species.find({ pretty_url: req.params.pretty_url });
 
 	if (species) {
@@ -27,7 +28,7 @@ const getSpeciesByName = asyncHandler(async (req, res) => {
 // @desc   Fetch single species
 // @route  GET /api/species/:id
 // @access Public
-const getSpeciesById = asyncHandler(async (req, res) => {
+const getSpeciesById = exceptionHandler(async (req, res) => {
 	const species = await Species.findById(req.params.id);
 
 	if (species) {
@@ -41,7 +42,7 @@ const getSpeciesById = asyncHandler(async (req, res) => {
 // @desc   Delete species
 // @route  DELETE /api/species/:id
 // @access Private/Admin
-const deleteSpecies = asyncHandler(async (req, res) => {
+const deleteSpecies = exceptionHandler(async (req, res) => {
 	const species = await Species.findById(req.params.id);
 
 	if (species) {
@@ -56,7 +57,7 @@ const deleteSpecies = asyncHandler(async (req, res) => {
 // @desc   Create a species
 // @route  Post /api/species
 // @access Private/Admin
-const createSpecies = asyncHandler(async (req, res) => {
+const createSpecies = exceptionHandler(async (req, res) => {
 	const species = new Species({
 		name: 'New Species',
 		pretty_url: 'new-species',
@@ -81,7 +82,7 @@ const createSpecies = asyncHandler(async (req, res) => {
 // @desc   Update a species
 // @route  PUT /api/species/:id
 // @access Private/Admin
-const updateSpecies = asyncHandler(async (req, res) => {
+const updateSpecies = exceptionHandler(async (req, res) => {
 	const {
 		name,
 		pretty_url,

@@ -1,8 +1,9 @@
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import jwt from 'jsonwebtoken';
-import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 
-const protect = asyncHandler(async (req, res, next) => {
+const protect = exceptionHandler(async (req, res, next) => {
 	let token;
 
 	if (

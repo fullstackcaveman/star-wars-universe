@@ -21,7 +21,6 @@ connectDB();
 
 const app = express();
 
-
 app.use(cors());
 app.use(express.json());
 // app.use(helmet());
@@ -34,6 +33,7 @@ app.use('/api/starships', starshipRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/vehicles', vehicleRoutes);
 
+// Deployment ***************************************
 const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === 'production') {
@@ -47,9 +47,9 @@ if (process.env.NODE_ENV === 'production') {
 		res.send('API is running...');
 	});
 }
+// **************************************************
 
 app.use(notFound);
-
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;

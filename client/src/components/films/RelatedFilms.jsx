@@ -1,9 +1,22 @@
 import RelatedFilm from './RelatedFilm';
 
-const RelatedFilms = () => {
+const RelatedFilms = ({ films, handleInfoClick }) => {
 	return (
 		<div className='relatedFilms-container'>
-			<RelatedFilm />
+			<div className='film-title'>
+				<h2>Related Films</h2>
+			</div>
+			<div className='films'>
+				{(films || []).map((film) => {
+					return (
+						<RelatedFilm
+							key={film}
+							film={film}
+							handleInfoClick={handleInfoClick}
+						/>
+					);
+				})}
+			</div>
 		</div>
 	);
 };

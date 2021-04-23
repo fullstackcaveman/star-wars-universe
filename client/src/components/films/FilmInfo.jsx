@@ -13,8 +13,9 @@ import Background from '../elements/Background';
 
 import { listFilmInfo } from '../../actions/filmActions';
 import { NavLink } from 'react-router-dom';
+import InfoArrayContainer from '../elements/InfoArrayContainer';
 
-const FilmInfo = ({ match }) => {
+const FilmInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
@@ -44,6 +45,18 @@ const FilmInfo = ({ match }) => {
 		dispatch(listFilmInfo(match.params.id));
 	}, [match, dispatch]);
 
+	const handleInfoClick = (model, query) => {
+		if (query === 'None' || query === 'n/a') {
+			return null;
+		} else {
+			const data = query.toLowerCase();
+
+			const route = data.split(' ').join('-');
+
+			history.push(`/${model}/info/${route}`);
+		}
+	};
+
 	return (
 		<>
 			<div className='info-container'>
@@ -64,47 +77,31 @@ const FilmInfo = ({ match }) => {
 									</div>
 									<div className='info-blocks'>
 										<div className='left-info'>
-											{!release_date ? (
-												<Typography component='h3'>
-													Classification: unknown
-												</Typography>
-											) : (
-												<Typography component='h3'>{`Release Date: ${release_date}`}</Typography>
-											)}
-											{!director ? (
-												<Typography component='h3'>
-													Classification: unknown
-												</Typography>
-											) : (
-												<Typography component='h3'>{`Director: ${director}`}</Typography>
-											)}
+											<Typography component='h3'>
+												{`Release Date: ${release_date}`}
+											</Typography>
+
+											<Typography component='h3'>
+												{`Director: ${director}`}
+											</Typography>
 
 											<div className='info-array-container'>
-												<Typography component='h3'>Producer(s):</Typography>
-												<Typography component='p' className='info-array'>
-													{(producer || []).map((producer) => (
-														<span key={producer}>{`${producer}`}</span>
-													))}
-												</Typography>
+												<InfoArrayContainer
+													baseModel={'producers'}
+													model={'Producer'}
+													arr={producer}
+													infoClick={handleInfoClick}
+												/>
 											</div>
 										</div>
 
 										<div className='right-info'>
-											{!opening_crawl ? (
-												<Typography component='h3'>
-													Opening Crawl: unknown
+											<div className='info-array-container'>
+												<Typography component='h3'>Opening Crawl:</Typography>
+												<Typography component='p' className='info-array crawl'>
+													{opening_crawl}
 												</Typography>
-											) : (
-												<div className='info-array-container'>
-													<Typography component='h3'>Opening Crawl:</Typography>
-													<Typography
-														component='p'
-														className='info-array crawl'
-													>
-														{opening_crawl}
-													</Typography>
-												</div>
-											)}
+											</div>
 										</div>
 									</div>
 

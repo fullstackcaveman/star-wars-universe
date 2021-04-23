@@ -1,10 +1,11 @@
-import asyncHandler from 'express-async-handler';
+// Passes async express route exceptions to express error handler
+import exceptionHandler from 'express-async-handler';
 import Film from '../models/filmModel.js';
 
 // @desc   Fetch all films
 // @route  GET /api/films
 // @access Public
-const getFilms = asyncHandler(async (req, res) => {
+const getFilms = exceptionHandler(async (req, res) => {
 	const films = await Film.find({});
 
 	res.json(films);
@@ -13,7 +14,7 @@ const getFilms = asyncHandler(async (req, res) => {
 // @desc   Fetch single film by name
 // @route  GET /api/films/info/:pretty_url
 // @access Public
-const getFilmByName = asyncHandler(async (req, res) => {
+const getFilmByName = exceptionHandler(async (req, res) => {
 	const film = await Film.find({ pretty_url: req.params.pretty_url });
 
 	if (film) {
@@ -27,7 +28,7 @@ const getFilmByName = asyncHandler(async (req, res) => {
 // @desc   Fetch single film
 // @route  GET /api/films/:id
 // @access Public
-const getFilmById = asyncHandler(async (req, res) => {
+const getFilmById = exceptionHandler(async (req, res) => {
 	const film = await Film.findById(req.params.id);
 
 	if (film) {
@@ -41,7 +42,7 @@ const getFilmById = asyncHandler(async (req, res) => {
 // @desc   Delete film
 // @route  DELETE /api/films/:id
 // @access Private/Admin
-const deleteFilm = asyncHandler(async (req, res) => {
+const deleteFilm = exceptionHandler(async (req, res) => {
 	const film = await Film.findById(req.params.id);
 
 	if (film) {
@@ -56,7 +57,7 @@ const deleteFilm = asyncHandler(async (req, res) => {
 // @desc   Create a film
 // @route  Post /api/films
 // @access Private/Admin
-const createFilm = asyncHandler(async (req, res) => {
+const createFilm = exceptionHandler(async (req, res) => {
 	const film = new Film({
 		title: 'New Film',
 		pretty_url: 'new-film',
@@ -80,7 +81,7 @@ const createFilm = asyncHandler(async (req, res) => {
 // @desc   Update a film
 // @route  PUT /api/films/:id
 // @access Private/Admin
-const updateFilm = asyncHandler(async (req, res) => {
+const updateFilm = exceptionHandler(async (req, res) => {
 	const {
 		title,
 		pretty_url,
