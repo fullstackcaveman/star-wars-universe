@@ -11,7 +11,9 @@ const InfoArrayContainer = (props) => {
 					<span
 						className='info-array'
 						key={item}
-						onClick={() => infoClick(baseModel, item)}
+						model={baseModel}
+						query={item}
+						onClick={infoClick}
 					>
 						{item}
 					</span>

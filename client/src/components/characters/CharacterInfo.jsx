@@ -63,6 +63,12 @@ const CharacterInfo = ({ match, history }) => {
 	// eslint-disable-next-line
 	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
+	const infoClick = (e) => {
+		const model = e.target.attributes.model.value;
+		const query = e.target.attributes.query.value;
+		handleInfoClick(model, query);
+	};
+
 	return (
 		<>
 			<div className='info-container'>
@@ -89,7 +95,9 @@ const CharacterInfo = ({ match, history }) => {
 											<Typography component='h3'>
 												Species:{' '}
 												<span
-													onClick={() => handleInfoClick('species', species)}
+													model='species'
+													query={species}
+													onClick={infoClick}
 												>
 													{species}
 												</span>
@@ -126,7 +134,7 @@ const CharacterInfo = ({ match, history }) => {
 													baseModel={'planets'}
 													model={'Homeworld'}
 													arr={homeworld}
-													infoClick={handleInfoClick}
+													infoClick={infoClick}
 												/>
 											</div>
 
@@ -135,7 +143,7 @@ const CharacterInfo = ({ match, history }) => {
 													baseModel={'characters'}
 													model={'Master'}
 													arr={masters}
-													infoClick={handleInfoClick}
+													infoClick={infoClick}
 												/>
 											</div>
 
@@ -144,7 +152,7 @@ const CharacterInfo = ({ match, history }) => {
 													baseModel={'characters'}
 													model={'Apprentice'}
 													arr={apprentices}
-													infoClick={handleInfoClick}
+													infoClick={infoClick}
 												/>
 											</div>
 
@@ -153,7 +161,7 @@ const CharacterInfo = ({ match, history }) => {
 													baseModel={'characters'}
 													model={'Cybernetic'}
 													arr={cybernetics}
-													infoClick={handleInfoClick}
+													infoClick={infoClick}
 												/>
 											</div>
 
@@ -162,7 +170,7 @@ const CharacterInfo = ({ match, history }) => {
 													baseModel={'affiliations'}
 													model={'Affiliation'}
 													arr={affiliations}
-													infoClick={handleInfoClick}
+													infoClick={infoClick}
 												/>
 											</div>
 
@@ -171,7 +179,7 @@ const CharacterInfo = ({ match, history }) => {
 													baseModel={'formerAffiliations'}
 													model={'Former Affiliation'}
 													arr={formerAffiliations}
-													infoClick={handleInfoClick}
+													infoClick={infoClick}
 												/>
 											</div>
 										</div>
