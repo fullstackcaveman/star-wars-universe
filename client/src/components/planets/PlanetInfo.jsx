@@ -16,6 +16,7 @@ import {
 	listPlanetInfoByName,
 } from '../../actions/planetActions';
 import { NavLink } from 'react-router-dom';
+import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const PlanetInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
@@ -30,16 +31,16 @@ const PlanetInfo = ({ match, history }) => {
 		climate,
 		gravity,
 		terrain,
-		residents,
-		films,
+		// residents,
+		// films,
 		name,
-		pretty_url,
+		// pretty_url,
 		rotation_period,
 		orbital_period,
 		diameter,
 		surface_water,
 		population,
-		suns,
+		// suns,
 	} = planet;
 
 	document.title = `Star Wars | ${planet.name}`;
@@ -52,13 +53,8 @@ const PlanetInfo = ({ match, history }) => {
 		}
 	}, [match, dispatch]);
 
-	const handleInfoClick = (model, query) => {
-		const data = query.toLowerCase();
-
-		const route = data.split(' ').join('-');
-
-		history.push(`/${model}/info/${route}`);
-	};
+	// eslint-disable-next-line
+	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
 	return (
 		<>

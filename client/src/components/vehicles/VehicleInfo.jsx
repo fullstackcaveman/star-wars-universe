@@ -13,6 +13,7 @@ import Background from '../elements/Background';
 
 import { listVehicleInfo } from '../../actions/vehicleActions';
 import { NavLink } from 'react-router-dom';
+import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const VehicleInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -36,8 +37,8 @@ const VehicleInfo = ({ match }) => {
 		consumables,
 		vehicle_class,
 		manufacturer,
-		pilots,
-		films,
+		// pilots,
+		// films,
 	} = vehicle;
 
 	document.title = `Star Wars | ${vehicle.name}`;
@@ -45,6 +46,9 @@ const VehicleInfo = ({ match }) => {
 	useEffect(() => {
 		dispatch(listVehicleInfo(match.params.id));
 	}, [match, dispatch]);
+
+	// eslint-disable-next-line
+	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
 	return (
 		<>

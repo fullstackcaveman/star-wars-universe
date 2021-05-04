@@ -14,7 +14,10 @@ const Characters = (props) => {
 		<div className='characters-wrapper'>
 			{characters.map((character) => {
 				return (
-					<Link to={`/characters/${character._id}`} key={character._id}>
+					<Link
+						to={`/characters/info/${character.pretty_url}`}
+						key={character._id}
+					>
 						<CharacterCard character={character} loading={loading} />
 					</Link>
 				);
