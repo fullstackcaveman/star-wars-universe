@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 
 export const useLinkBuilder = (input) => {
-	const history = useHistory();
+	const { push } = useHistory();
 	// eslint-disable-next-line
 	const [value, setValue] = useState(input);
 
@@ -26,7 +26,7 @@ export const useLinkBuilder = (input) => {
 
 			const route = interim.split(' ').join('-');
 
-			history.push(`/${model}/info/${route}`);
+			push(`/${model}/info/${route}`);
 		}
 	};
 

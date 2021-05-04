@@ -5,7 +5,6 @@ const RelatedFilm = ({ film, handleInfoClick }) => {
 	const { films } = allFilms;
 
 	const filmTitle = films.filter((title) => title.title === film);
-	console.log(filmTitle);
 
 	const handleClick = () => {
 		handleInfoClick('films', filmTitle[0].title);
