@@ -11,9 +11,10 @@ import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
-import { listFilmInfo } from '../../actions/filmActions';
+import { listFilmInfo, listFilmInfoByName } from '../../actions/filmActions';
 import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
+import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const FilmInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
@@ -31,31 +32,26 @@ const FilmInfo = ({ match, history }) => {
 		episode_id,
 		opening_crawl,
 		release_date,
-		characters,
 		producer,
-		planets,
-		starships,
-		vehicles,
-		species,
+		// characters,
+		// planets,
+		// starships,
+		// vehicles,
+		// species,
 	} = film;
 
 	document.title = `Star Wars | ${film.title}`;
 
 	useEffect(() => {
-		dispatch(listFilmInfo(match.params.id));
+		if (match.params.id) {
+			dispatch(listFilmInfo(match.params.id));
+		} else {
+			dispatch(listFilmInfoByName(match.params.pretty_url));
+		}
 	}, [match, dispatch]);
 
-	const handleInfoClick = (model, query) => {
-		if (query === 'None' || query === 'n/a') {
-			return null;
-		} else {
-			const data = query.toLowerCase();
-
-			const route = data.split(' ').join('-');
-
-			history.push(`/${model}/info/${route}`);
-		}
-	};
+	// eslint-disable-next-line
+	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
 	return (
 		<>

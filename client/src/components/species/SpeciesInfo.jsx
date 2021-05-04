@@ -11,14 +11,22 @@ import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
-import { listSpeciesInfo } from '../../actions/speciesActions';
+import {
+	listSpeciesInfo,
+	listSpeciesInfoByName,
+} from '../../actions/speciesActions';
 import { NavLink } from 'react-router-dom';
+import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
-const SpeciesInfo = ({ match }) => {
+const SpeciesInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(listSpeciesInfo(match.params.id));
+		if (match.params.id) {
+			dispatch(listSpeciesInfo(match.params.id));
+		} else {
+			dispatch(listSpeciesInfoByName(match.params.pretty_url));
+		}
 	}, [match, dispatch]);
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
@@ -39,11 +47,14 @@ const SpeciesInfo = ({ match }) => {
 		skin_colors,
 		hair_colors,
 		eye_colors,
-		people,
-		films,
+		// people,
+		// films,
 	} = species;
 
 	document.title = `Star Wars | ${species.name}`;
+
+	// eslint-disable-next-line
+	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
 	return (
 		<>

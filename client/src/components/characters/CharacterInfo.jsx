@@ -10,7 +10,6 @@ import {
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
-
 import {
 	listCharacterInfo,
 	listCharacterInfoByName,
@@ -19,7 +18,7 @@ import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedFilms from '../films/RelatedFilms';
 import { listFilms } from '../../actions/filmActions';
-// import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const CharacterInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
@@ -45,9 +44,9 @@ const CharacterInfo = ({ match, history }) => {
 		masters,
 		apprentices,
 		formerAffiliations,
-		relatedPlanets,
-		relatedStarships,
-		relatedVehicles,
+		// relatedPlanets,
+		// relatedStarships,
+		// relatedVehicles,
 		relatedFilms,
 	} = character;
 
@@ -61,21 +60,8 @@ const CharacterInfo = ({ match, history }) => {
 		}
 	}, [match, dispatch]);
 
-	// const handleInfoClick = useLinkBuilder();
-
-	// console.log(handleInfoClick);
-
-	const handleInfoClick = (model, query) => {
-		if (query === 'None' || query === 'n/a') {
-			return null;
-		} else {
-			const data = query.toLowerCase();
-
-			const route = data.split(' ').join('-');
-
-			history.push(`/${model}/info/${route}`);
-		}
-	};
+	// eslint-disable-next-line
+	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
 	return (
 		<>

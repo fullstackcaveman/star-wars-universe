@@ -13,6 +13,7 @@ import Background from '../elements/Background';
 
 import { listStarshipInfo } from '../../actions/starshipActions';
 import { NavLink } from 'react-router-dom';
+import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const StarshipInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const StarshipInfo = ({ match }) => {
 
 	const {
 		name,
-		pretty_url,
+		// pretty_url,
 		image,
 		model,
 		cost_in_credits,
@@ -39,8 +40,8 @@ const StarshipInfo = ({ match }) => {
 		MGLT,
 		starship_class,
 		manufacturer,
-		pilots,
-		films,
+		// pilots,
+		// films,
 	} = starship;
 
 	document.title = `Star Wars | ${starship.name}`;
@@ -48,6 +49,9 @@ const StarshipInfo = ({ match }) => {
 	useEffect(() => {
 		dispatch(listStarshipInfo(match.params.id));
 	}, [match, dispatch]);
+
+	// eslint-disable-next-line
+	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
 	return (
 		<>
