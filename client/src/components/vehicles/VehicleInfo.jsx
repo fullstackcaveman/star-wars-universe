@@ -88,25 +88,26 @@ const VehicleInfo = ({ match }) => {
 												<Typography component='h3'>{`Vehicle Class: ${vehicle_class}`}</Typography>
 											)}
 
-											{!cost_in_credits ? (
+											{cost_in_credits === 'unknown' ? (
 												<Typography component='h3'>Cost: unknown</Typography>
 											) : (
 												<Typography component='h3'>{`Cost: ${cost_in_credits} credits`}</Typography>
 											)}
 
-											{!length ? (
+											{length === 'unknown' ? (
 												<Typography component='h3'>Length: unknown</Typography>
 											) : (
 												<Typography component='h3'>{`Length: ${length}m`}</Typography>
 											)}
 
-											{!max_atmosphering_speed ? (
+											{max_atmosphering_speed === 'unknown' ? (
 												<Typography component='h3'>
 													Max Speed: unknown
 												</Typography>
 											) : (
 												<Typography component='h3'>{`Max Speed: ${max_atmosphering_speed}km/h`}</Typography>
 											)}
+
 											{!crew ? (
 												<Typography component='h3'>Crew: unknown</Typography>
 											) : (

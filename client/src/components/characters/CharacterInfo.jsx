@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Typography,
@@ -20,14 +20,15 @@ import RelatedFilms from '../films/RelatedFilms';
 import { listFilms } from '../../actions/filmActions';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
-const CharacterInfo = ({ match, history }) => {
+const CharacterInfo = ({ match }) => {
 	const dispatch = useDispatch();
+	const [loading, setLoading] = useState(true);
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
 
 	const characterInfo = useSelector((state) => state.characterInfo);
-	const { loading, error, character } = characterInfo;
+	const { loading: charLoader, error, character } = characterInfo;
 
 	const {
 		name,
@@ -58,6 +59,8 @@ const CharacterInfo = ({ match, history }) => {
 		} else {
 			dispatch(listCharacterInfoByName(match.params.pretty_url));
 		}
+		setTimeout(() => setLoading(charLoader), 1000);
+		// eslint-disable-next-line
 	}, [match, dispatch]);
 
 	// eslint-disable-next-line
@@ -103,9 +106,11 @@ const CharacterInfo = ({ match, history }) => {
 												</span>
 											</Typography>
 
-											<Typography component='h3'>
-												{`Birth: ${born} BBY`}
-											</Typography>
+											{born === undefined || born.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Birth: ${born} BBY`}
+												</Typography>
+											)}
 
 											<Typography component='h3'>
 												{`Gender: ${gender}`}
@@ -119,9 +124,12 @@ const CharacterInfo = ({ match, history }) => {
 												{`Mass: ${mass}kg`}
 											</Typography>
 
-											<Typography component='h3'>
-												{`Hair Color: ${hairColor}`}
-											</Typography>
+											{hairColor === undefined ||
+											hairColor.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Hair Color: ${hairColor}`}
+												</Typography>
+											)}
 
 											<Typography component='h3'>
 												{`Skin Color: ${skinColor}`}
@@ -129,59 +137,71 @@ const CharacterInfo = ({ match, history }) => {
 										</div>
 
 										<div className='right-info'>
-											<div className='info-array-container'>
-												<InfoArrayContainer
-													baseModel={'planets'}
-													model={'Homeworld'}
-													arr={homeworld}
-													infoClick={infoClick}
-												/>
-											</div>
+											{homeworld.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														baseModel={'planets'}
+														model={'Homeworld'}
+														arr={homeworld}
+														infoClick={infoClick}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<InfoArrayContainer
-													baseModel={'characters'}
-													model={'Master'}
-													arr={masters}
-													infoClick={infoClick}
-												/>
-											</div>
+											{masters.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														baseModel={'characters'}
+														model={'Master'}
+														arr={masters}
+														infoClick={infoClick}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<InfoArrayContainer
-													baseModel={'characters'}
-													model={'Apprentice'}
-													arr={apprentices}
-													infoClick={infoClick}
-												/>
-											</div>
+											{apprentices.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														baseModel={'characters'}
+														model={'Apprentice'}
+														arr={apprentices}
+														infoClick={infoClick}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<InfoArrayContainer
-													baseModel={'characters'}
-													model={'Cybernetic'}
-													arr={cybernetics}
-													infoClick={infoClick}
-												/>
-											</div>
+											{cybernetics.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														baseModel={'characters'}
+														model={'Cybernetic'}
+														arr={cybernetics}
+														infoClick={infoClick}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<InfoArrayContainer
-													baseModel={'affiliations'}
-													model={'Affiliation'}
-													arr={affiliations}
-													infoClick={infoClick}
-												/>
-											</div>
+											{affiliations.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														baseModel={'affiliations'}
+														model={'Affiliation'}
+														arr={affiliations}
+														infoClick={infoClick}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<InfoArrayContainer
-													baseModel={'formerAffiliations'}
-													model={'Former Affiliation'}
-													arr={formerAffiliations}
-													infoClick={infoClick}
-												/>
-											</div>
+											{formerAffiliations.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														baseModel={'formerAffiliations'}
+														model={'Former Affiliation'}
+														arr={formerAffiliations}
+														infoClick={infoClick}
+													/>
+												</div>
+											)}
 										</div>
 									</div>
 
