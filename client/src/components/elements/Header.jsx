@@ -91,6 +91,10 @@ const Header = () => {
 
 	const logoutHandler = () => {
 		dispatch(logout());
+		history.push('/');
+		if (isChecked) {
+			handleCheck();
+		}
 	};
 
 	const list = () => (
