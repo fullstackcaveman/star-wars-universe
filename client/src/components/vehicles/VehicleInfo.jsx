@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Typography,
@@ -11,18 +11,22 @@ import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
 
-import { listVehicleInfo } from '../../actions/vehicleActions';
+import {
+	listVehicleInfo,
+	listVehicleInfoByName,
+} from '../../actions/vehicleActions';
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 
 const VehicleInfo = ({ match }) => {
 	const dispatch = useDispatch();
+	const [loading, setLoading] = useState();
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
 
 	const vehicleInfo = useSelector((state) => state.vehicleInfo);
-	const { loading, error, vehicle } = vehicleInfo;
+	const { loading: vehicleLoader, error, vehicle } = vehicleInfo;
 
 	const {
 		name,
@@ -44,7 +48,13 @@ const VehicleInfo = ({ match }) => {
 	document.title = `Star Wars | ${vehicle.name}`;
 
 	useEffect(() => {
-		dispatch(listVehicleInfo(match.params.id));
+		if (match.params.id) {
+			dispatch(listVehicleInfo(match.params.id));
+		} else {
+			dispatch(listVehicleInfoByName(match.params.pretty_url));
+		}
+		setTimeout(() => setLoading(vehicleLoader), 1000);
+		// eslint-disable-next-line
 	}, [match, dispatch]);
 
 	// eslint-disable-next-line

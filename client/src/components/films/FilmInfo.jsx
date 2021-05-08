@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Typography,
@@ -15,15 +15,17 @@ import { listFilmInfo, listFilmInfoByName } from '../../actions/filmActions';
 import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import RelatedFilms from './RelatedFilms';
 
-const FilmInfo = ({ match, history }) => {
+const FilmInfo = ({ match }) => {
 	const dispatch = useDispatch();
+	const [loading, setLoading] = useState();
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
 
 	const filmInfo = useSelector((state) => state.filmInfo);
-	const { loading, error, film } = filmInfo;
+	const { loading: filmLoader, error, film } = filmInfo;
 
 	const {
 		title,
@@ -48,6 +50,8 @@ const FilmInfo = ({ match, history }) => {
 		} else {
 			dispatch(listFilmInfoByName(match.params.pretty_url));
 		}
+		setTimeout(() => setLoading(filmLoader), 1000);
+		// eslint-disable-next-line
 	}, [match, dispatch]);
 
 	// eslint-disable-next-line

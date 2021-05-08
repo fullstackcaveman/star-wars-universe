@@ -108,6 +108,7 @@ const CharacterEdit = ({ match, history }) => {
 				});
 			}
 		}
+		// eslint-disable-next-line
 	}, [character, characterId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {
@@ -118,6 +119,10 @@ const CharacterEdit = ({ match, history }) => {
 				...characterForm,
 			})
 		);
+	};
+
+	const handleInputChange = (e) => {
+		handleChange(e.target);
 	};
 
 	const paperStyle = {
@@ -179,7 +184,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='name'
 								value={characterForm.name || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -191,7 +196,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='pretty_url'
 								value={characterForm.pretty_url || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -203,7 +208,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='species'
 								value={characterForm.species || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -215,7 +220,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='height'
 								value={characterForm.height || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -227,7 +232,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='mass'
 								value={characterForm.mass || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -239,7 +244,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='gender'
 								value={characterForm.gender || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -251,7 +256,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='wiki'
 								value={characterForm.wiki || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -263,7 +268,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='image'
 								value={characterForm.image || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -275,7 +280,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='born'
 								value={characterForm.born || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -287,7 +292,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='bornLocation'
 								value={characterForm.bornLocation || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -299,7 +304,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='died'
 								value={characterForm.died || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -311,7 +316,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='diedLocation'
 								value={characterForm.diedLocation || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -323,7 +328,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='hairColor'
 								value={characterForm.hairColor || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -335,7 +340,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='eyeColor'
 								value={characterForm.eyeColor || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -347,7 +352,7 @@ const CharacterEdit = ({ match, history }) => {
 								fullWidth
 								name='skinColor'
 								value={characterForm.skinColor || ''}
-								onChange={(e) => handleChange(e.target)}
+								onChange={handleInputChange}
 							/>
 
 							<div className='planets' style={arrayStyle}>

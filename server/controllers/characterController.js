@@ -61,19 +61,19 @@ const createCharacter = exceptionHandler(async (req, res) => {
 	const character = new Character({
 		name: 'New Character',
 		pretty_url: 'new-character',
-		height: 'unknown',
-		mass: 'unknown',
-		gender: 'unknown',
-		wiki: 'unknown',
+		height: '',
+		mass: '',
+		gender: '',
+		wiki: '',
 		image: '/images/placeholder.jpg',
-		born: 'unknown',
-		bornLocation: 'unknown',
-		died: 'unknown',
-		diedLocation: 'unknown',
-		species: 'unknown',
-		hairColor: 'unknown',
-		eyeColor: 'unknown',
-		skinColor: 'unknown',
+		born: '',
+		bornLocation: '',
+		died: '',
+		diedLocation: '',
+		species: '',
+		hairColor: '',
+		eyeColor: '',
+		skinColor: '',
 		homeworld: [],
 		cybernetics: [],
 		affiliations: [],
@@ -109,7 +109,7 @@ const updateCharacter = exceptionHandler(async (req, res) => {
 		species,
 		hairColor,
 		eyeColor,
-		skincolor,
+		skinColor,
 		homeworld,
 		cybernetics,
 		affiliations,
@@ -139,7 +139,7 @@ const updateCharacter = exceptionHandler(async (req, res) => {
 		character.species = species;
 		character.hairColor = hairColor;
 		character.eyeColor = eyeColor;
-		character.skincolor = skincolor;
+		character.skinColor = skinColor;
 		character.homeworld = homeworld;
 		character.cybernetics = cybernetics;
 		character.affiliations = affiliations;

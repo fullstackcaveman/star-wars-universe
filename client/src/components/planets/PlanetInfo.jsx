@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Typography,
@@ -17,22 +17,24 @@ import {
 } from '../../actions/planetActions';
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import RelatedFilms from '../films/RelatedFilms';
 
 const PlanetInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
+	const [loading, setLoading] = useState();
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
 
 	const planetInfo = useSelector((state) => state.planetInfo);
-	const { loading, error, planet } = planetInfo;
+	const { loading: planetLoader, error, planet } = planetInfo;
 
 	const {
 		climate,
 		gravity,
 		terrain,
 		// residents,
-		// films,
+		films,
 		name,
 		// pretty_url,
 		rotation_period,
@@ -51,6 +53,8 @@ const PlanetInfo = ({ match, history }) => {
 		} else {
 			dispatch(listPlanetInfoByName(match.params.pretty_url));
 		}
+		setTimeout(() => setLoading(planetLoader), 1000);
+		// eslint-disable-next-line
 	}, [match, dispatch]);
 
 	// eslint-disable-next-line
@@ -73,74 +77,77 @@ const PlanetInfo = ({ match, history }) => {
 					<>
 						<Card className='info-card'>
 							<div className='flex'>
-								{!planet.image ? (
-									<CardMedia
-										component='img'
-										alt={planet.name}
-										image='../../images/placeholder.jpg'
-									/>
-								) : (
-									<CardMedia
-										component='img'
-										alt={planet.name}
-										image={planet.image}
-									/>
-								)}
+								<CardMedia
+									component='img'
+									alt={planet.name}
+									image={planet.image}
+								/>
 
 								<CardContent className='card-data'>
-									<Typography component='h1'>{name}</Typography>
+									<div>
+										<Typography component='h1'>{name}</Typography>
+									</div>
 
-									{!population ? (
-										<Typography component='h3'>Population: unknown</Typography>
-									) : (
-										<Typography component='h3'>{`Population: ${population} souls`}</Typography>
-									)}
+									<div className='info-blocks'>
+										<div className='left-info'>
+											{population === undefined ||
+											population.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Population: ${population}`}
+													<span className='small-text'>Souls</span>
+												</Typography>
+											)}
 
-									{!rotation_period ? (
-										<Typography component='h3'>
-											Rotation Period: unknown
-										</Typography>
-									) : (
-										<Typography component='h3'>{`Rotation Period: ${rotation_period} Days`}</Typography>
-									)}
+											{rotation_period === undefined ||
+											rotation_period.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Rotation Period: ${rotation_period}`}
+													<span className='small-text'>Days</span>
+												</Typography>
+											)}
 
-									{!orbital_period ? (
-										<Typography component='h3'>
-											Orbital Period: unknown
-										</Typography>
-									) : (
-										<Typography component='h3'>{`Orbital Period: ${orbital_period} Days`}</Typography>
-									)}
+											{orbital_period === undefined ||
+											orbital_period.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Orbital Period: ${orbital_period}`}
+													<span className='small-text'>Days</span>
+												</Typography>
+											)}
 
-									{!diameter ? (
-										<Typography component='h3'>Diameter: unknown</Typography>
-									) : (
-										<Typography component='h3'>{`Diameter: ${diameter}km`}</Typography>
-									)}
+											{diameter === undefined ||
+											diameter.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Diameter: ${diameter}`}
+													<span className='small-text'>km</span>
+												</Typography>
+											)}
 
-									{!gravity ? (
-										<Typography component='h3'>Gravity: unknown</Typography>
-									) : (
-										<Typography component='h3'>{`Gravity: ${gravity}`}</Typography>
-									)}
+											{gravity === undefined || gravity.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Gravity: ${gravity}`}
+												</Typography>
+											)}
 
-									{!terrain ? (
-										<Typography component='h3'>Terrain: n/a</Typography>
-									) : (
-										<Typography component='h3'>{`Terrain: ${terrain}`}</Typography>
-									)}
+											{terrain === undefined || terrain.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Terrain: ${terrain}`}
+												</Typography>
+											)}
 
-									{!surface_water ? (
-										<Typography component='h3'>Surface Water: n/a</Typography>
-									) : (
-										<Typography component='h3'>{`Surface Water: ${surface_water}%`}</Typography>
-									)}
+											{surface_water === undefined ||
+											surface_water.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Surface Water: ${surface_water}%`}
+												</Typography>
+											)}
 
-									{!climate ? (
-										<Typography component='h3'>Climate: unknown</Typography>
-									) : (
-										<Typography component='h3'>{`Climate: ${climate}`}</Typography>
-									)}
+											{climate === undefined || climate.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Climate: ${climate}`}
+												</Typography>
+											)}
+										</div>
+									</div>
 
 									{adminShowEditBtn ? (
 										<NavLink to={`/admin/planet/${planet._id}/edit`}>
@@ -157,7 +164,9 @@ const PlanetInfo = ({ match, history }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'></div>
+						<div className='flex'>
+							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
+						</div>
 					</>
 				)}
 			</div>

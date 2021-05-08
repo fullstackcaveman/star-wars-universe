@@ -13,7 +13,11 @@ const InfoArrayContainer = (props) => {
 						key={item}
 						model={baseModel}
 						query={item}
-						onClick={infoClick}
+						onClick={
+							baseModel === 'producers' || model === 'Cybernetic'
+								? null
+								: infoClick
+						}
 					>
 						{item}
 					</span>
