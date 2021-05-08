@@ -1,22 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	Avatar,
-	Button,
-	Grid,
-	Paper,
-	TextField,
-	Typography,
-} from '@material-ui/core';
+import { Avatar, Button, Grid, Paper, Typography } from '@material-ui/core';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
 import { login } from '../../actions/userActions';
+import { InputBuilder } from './FormBuilder';
+import { useHandleForm } from '../../hooks/useHandleForm';
 
 const UserLoginForm = ({ location, history }) => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	// eslint-disable-next-line
+	const [signInForm, setSignInForm, handleChange] = useHandleForm({
+		email: '',
+		password: '',
+	});
 
 	const dispatch = useDispatch();
 
@@ -33,7 +31,7 @@ const UserLoginForm = ({ location, history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		dispatch(login(email, password));
+		dispatch(login(signInForm.email, signInForm.password));
 	};
 
 	const paperStyle = {
@@ -44,10 +42,6 @@ const UserLoginForm = ({ location, history }) => {
 	};
 
 	const avatarStyle = { backgroundColor: '#ffee58', marginBottom: 10 };
-
-	const inputStyle = {
-		margin: '5px auto',
-	};
 
 	const submitBtnStyle = {
 		marginTop: '10px',
@@ -81,31 +75,16 @@ const UserLoginForm = ({ location, history }) => {
 					{error && <Message severity='error' message={error} />}
 					{loading && <Loader />}
 					<form onSubmit={submitHandler}>
-						<TextField
-							style={inputStyle}
-							label='Email'
-							placeholder='Enter User Email'
-							variant='outlined'
-							size='small'
-							fullWidth
-							required
-							name='email'
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+						<InputBuilder
+							field='Email'
+							value={signInForm.email}
+							setInput={handleChange}
 						/>
 
-						<TextField
-							style={inputStyle}
-							label='Password'
-							placeholder='Enter Password'
-							variant='outlined'
-							size='small'
-							fullWidth
-							required
-							name='password'
-							type='password'
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+						<InputBuilder
+							field='Password'
+							value={signInForm.password}
+							setInput={handleChange}
 						/>
 
 						<Button

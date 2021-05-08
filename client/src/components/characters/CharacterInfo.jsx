@@ -88,6 +88,7 @@ const CharacterInfo = ({ match }) => {
 									alt={character.name}
 									image={character.image}
 								/>
+
 								<CardContent className='card-data'>
 									<div>
 										<Typography component='h1'>{name}</Typography>
@@ -112,17 +113,23 @@ const CharacterInfo = ({ match }) => {
 												</Typography>
 											)}
 
-											<Typography component='h3'>
-												{`Gender: ${gender}`}
-											</Typography>
+											{gender === undefined || gender === '' ? null : (
+												<Typography component='h3'>
+													{`Gender: ${gender}`}
+												</Typography>
+											)}
 
-											<Typography component='h3'>
-												{`Height: ${height}m`}
-											</Typography>
+											{height === undefined || height === '' ? null : (
+												<Typography component='h3'>
+													{`Height: ${height}m`}
+												</Typography>
+											)}
 
-											<Typography component='h3'>
-												{`Mass: ${mass}kg`}
-											</Typography>
+											{mass === undefined || mass === '' ? null : (
+												<Typography component='h3'>
+													{`Mass: ${mass}kg`}
+												</Typography>
+											)}
 
 											{hairColor === undefined ||
 											hairColor.length === 0 ? null : (
@@ -131,9 +138,11 @@ const CharacterInfo = ({ match }) => {
 												</Typography>
 											)}
 
-											<Typography component='h3'>
-												{`Skin Color: ${skinColor}`}
-											</Typography>
+											{skinColor === undefined || skinColor === '' ? null : (
+												<Typography component='h3'>
+													{`Skin Color: ${skinColor}`}
+												</Typography>
+											)}
 										</div>
 
 										<div className='right-info'>

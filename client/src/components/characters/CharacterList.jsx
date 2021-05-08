@@ -14,6 +14,7 @@ import {
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import AddIcon from '@material-ui/icons/Add';
+import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
@@ -122,6 +123,12 @@ const CharacterList = ({ history, match }) => {
 											))}
 										</TableCell>
 										<TableCell align='center'>
+											<NavLink to={`/characters/info/${character.pretty_url}`}>
+												<Button variant='contained' size='small'>
+													<OpenInBrowserIcon />
+												</Button>
+											</NavLink>
+
 											<NavLink to={`/admin/character/${character._id}/edit`}>
 												<Button
 													variant='contained'

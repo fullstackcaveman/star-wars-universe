@@ -549,6 +549,14 @@ footer .footer-bottom {
   border-radius: 10px;
   color: black;
 }
+.info-container .info-card .flex .card-data .info-blocks .left-info .small-text,
+.info-container .info-card .flex .card-data .info-blocks .right-info .small-text {
+  background-color: transparent;
+  color: white;
+  margin-left: 0;
+  padding: 2px 5px;
+  cursor: text;
+}
 .info-container .info-card .flex .card-data .info-blocks .left-info {
   margin-right: 30px;
 }
