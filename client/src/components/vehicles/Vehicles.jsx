@@ -14,7 +14,7 @@ const Vehicles = (props) => {
 		<div className='characters-wrapper'>
 			{vehicles.map((vehicle) => {
 				return (
-					<Link to={`/vehicles/${vehicle._id}`} key={vehicle._id}>
+					<Link to={`/vehicles/info/${vehicle.pretty_url}`} key={vehicle._id}>
 						<VehicleCard vehicle={vehicle} loading={loading} />
 					</Link>
 				);

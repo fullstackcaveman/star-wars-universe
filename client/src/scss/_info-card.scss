@@ -13,7 +13,6 @@
 
 		.flex {
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
 			max-width: 100%;
 
@@ -24,7 +23,6 @@
 			.card-data {
 				display: flex;
 				flex-direction: column;
-				// margin: 0 auto;
 				margin-left: 30px;
 				color: $color-white;
 				max-width: 100%;
@@ -63,6 +61,12 @@
 									color: $starwars-yellow;
 								}
 								&.no-links {
+									cursor: default;
+								}
+							}
+
+							h3 {
+								.info-array .no-links {
 									cursor: default;
 								}
 							}

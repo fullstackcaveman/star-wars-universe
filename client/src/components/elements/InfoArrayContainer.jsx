@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 
 const InfoArrayContainer = (props) => {
-	const { infoClick, arr, baseModel, model } = props;
+	const { infoClick, arr, baseModel, model, addClass } = props;
 
 	return (
 		<Typography component='h3'>
@@ -9,15 +9,11 @@ const InfoArrayContainer = (props) => {
 			{(arr || []).map((item) => {
 				return (
 					<span
-						className='info-array'
+						className={addClass}
 						key={item}
 						model={baseModel}
 						query={item}
-						onClick={
-							baseModel === 'producers' || model === 'Cybernetic'
-								? null
-								: infoClick
-						}
+						onClick={infoClick}
 					>
 						{item}
 					</span>

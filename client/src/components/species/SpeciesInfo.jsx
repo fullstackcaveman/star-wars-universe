@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Typography,
@@ -17,8 +17,11 @@ import {
 } from '../../actions/speciesActions';
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import InfoArrayContainer from '../elements/InfoArrayContainer';
+import RelatedFilms from '../films/RelatedFilms';
 
 const SpeciesInfo = ({ match, history }) => {
+	const [loading, setLoading] = useState();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -27,13 +30,15 @@ const SpeciesInfo = ({ match, history }) => {
 		} else {
 			dispatch(listSpeciesInfoByName(match.params.pretty_url));
 		}
+		setTimeout(() => setLoading(speciesLoader), 1000);
+		// eslint-disable-next-line
 	}, [match, dispatch]);
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
 
 	const speciesInfo = useSelector((state) => state.speciesInfo);
-	const { loading, error, species } = speciesInfo;
+	const { loading: speciesLoader, error, species } = speciesInfo;
 
 	const {
 		name,
@@ -48,7 +53,7 @@ const SpeciesInfo = ({ match, history }) => {
 		hair_colors,
 		eye_colors,
 		// people,
-		// films,
+		films,
 	} = species;
 
 	document.title = `Star Wars | ${species.name}`;
@@ -80,78 +85,90 @@ const SpeciesInfo = ({ match, history }) => {
 									</div>
 									<div className='info-blocks'>
 										<div className='left-info'>
-											{!classification ? (
+											{classification === undefined ||
+											classification.length === 0 ? null : (
 												<Typography component='h3'>
-													Classification: unknown
+													{`Classification: ${classification}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Classification: ${classification}`}</Typography>
 											)}
 
-											{!designation ? (
+											{designation === undefined ||
+											designation.length === 0 ? null : (
 												<Typography component='h3'>
-													Designation: unknown
+													{`Designation: ${designation}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Designation: ${designation}`}</Typography>
 											)}
 
-											{!language ? (
+											{language === undefined || language === 0 ? null : (
 												<Typography component='h3'>
-													Language: unknown
+													{`Language: ${language}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Language: ${language}`}</Typography>
 											)}
 
-											{!homeworld ? (
+											{homeworld === undefined ||
+											homeworld.length === 0 ? null : (
 												<Typography component='h3'>
-													Homeworld: unknown
+													Homeworld(s):{' '}
+													<span
+														model='planets'
+														query={homeworld}
+														onClick={infoClick}
+													>
+														{homeworld}
+													</span>
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Homeworld: ${homeworld}`}</Typography>
 											)}
 
-											{!average_lifespan ? (
+											{average_lifespan === undefined ||
+											average_lifespan.length === 0 ? null : (
 												<Typography component='h3'>
-													Avg Lifespan: unknown
+													{`Avg Lifespan: ${average_lifespan}`}
+													<span className='small-text'>years</span>
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Avg Lifespan: ${average_lifespan} years`}</Typography>
 											)}
 
-											{!average_height ? null : (
-												<Typography component='h3'>{`Avg Height: ${average_height} cm`}</Typography>
+											{average_height === undefined ||
+											average_height.length === 0 ? null : (
+												<Typography component='h3'>
+													{`Avg Height: ${average_height}`}
+													<span className='small-text'>cm</span>
+												</Typography>
 											)}
 										</div>
 
 										<div className='right-info'>
-											<div className='info-array-container'>
-												<Typography component='h3'>Hair Color(s):</Typography>
-												<Typography component='p' className='info-array'>
-													{(hair_colors || []).map((color) => (
-														<span key={color}>{`${color}`}</span>
-													))}
-												</Typography>
-											</div>
+											{hair_colors === undefined ||
+											hair_colors.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														addClass='info-array no-links'
+														model={'Hair Color'}
+														arr={hair_colors}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<Typography component='h3'>Skin Color(s):</Typography>
-												<Typography component='p' className='info-array'>
-													{(skin_colors || []).map((color) => {
-														return <span key={color}>{color}</span>;
-													})}
-												</Typography>
-											</div>
+											{skin_colors === undefined ||
+											skin_colors.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														addClass='info-array no-links'
+														model={'Skin Color'}
+														arr={skin_colors}
+													/>
+												</div>
+											)}
 
-											<div className='info-array-container'>
-												<Typography component='h3'>Eye Color(s):</Typography>
-												<Typography component='p' className='info-array'>
-													{(eye_colors || []).map((color) => (
-														<span key={color}>{`${color}`}</span>
-													))}
-												</Typography>
-											</div>
+											{eye_colors === undefined ||
+											eye_colors.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														addClass='info-array no-links'
+														model={'Eye Color'}
+														arr={eye_colors}
+													/>
+												</div>
+											)}
 										</div>
 									</div>
 
@@ -170,7 +187,9 @@ const SpeciesInfo = ({ match, history }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'></div>
+						<div className='flex'>
+							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
+						</div>
 					</>
 				)}
 			</div>

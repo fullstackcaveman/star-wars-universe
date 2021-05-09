@@ -42,7 +42,7 @@ export const listStarshipInfoByName = (name) => async (dispatch) => {
 	try {
 		dispatch({ type: STARSHIP_INFO_REQUEST });
 
-		const { data } = await axios.get(`/api/starship/info/${name}`);
+		const { data } = await axios.get(`/api/starships/info/${name}`);
 
 		dispatch({
 			type: STARSHIP_INFO_SUCCESS,

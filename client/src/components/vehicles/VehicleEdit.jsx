@@ -15,25 +15,20 @@ import { DeleteForever } from '@material-ui/icons';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
-import {
-	listStarshipInfo,
-	updateStarship,
-} from '../../actions/starshipActions';
-import { STARSHIP_UPDATE_RESET } from '../../constants/starshipConstants';
+import { listVehicleInfo, updateVehicle } from '../../actions/vehicleActions';
+import { VEHICLE_UPDATE_RESET } from '../../constants/vehicleConstants';
 
-const StarshipEdit = ({ match, history }) => {
-	const starshipId = match.params.id;
+const VehicleEdit = ({ match, history }) => {
+	const vehicleId = match.params.id;
 
 	const [
-		starshipForm,
-		setStarshipForm,
-		handleInputChange,
+		vehicleForm,
+		setVehicleForm,
+		handleChange,
 		handleArrayChange,
 		handleAddItem,
 		handleDelete,
 	] = useHandleForm({
-		name: '',
-		pretty_url: '',
 		model: '',
 		image: '',
 		cost_in_credits: '',
@@ -45,7 +40,7 @@ const StarshipEdit = ({ match, history }) => {
 		consumables: '',
 		hyperdrive_rating: '',
 		MGLT: '',
-		starship_class: '',
+		vehicle_class: '',
 		classification: '',
 		height_depth: '',
 		max_acceleration: '',
@@ -68,70 +63,58 @@ const StarshipEdit = ({ match, history }) => {
 
 	const dispatch = useDispatch();
 
-	const starshipInfo = useSelector((state) => state.starshipInfo);
-	const { loading, error, starship } = starshipInfo;
+	const vehicleInfo = useSelector((state) => state.vehicleInfo);
+	const { loading, error, vehicle } = vehicleInfo;
 
-	const starshipUpdate = useSelector((state) => state.starshipUpdate);
+	const vehicleUpdate = useSelector((state) => state.vehicleUpdate);
 	const {
 		loading: loadingUpdate,
 		error: errorUpdate,
 		success: successUpdate,
-	} = starshipUpdate;
+	} = vehicleUpdate;
 
 	useEffect(() => {
 		if (successUpdate) {
-			dispatch({ type: STARSHIP_UPDATE_RESET });
-			history.push('/admin/starshiplist');
+			dispatch({ type: VEHICLE_UPDATE_RESET });
+			history.push('/admin/vehiclelist');
 		} else {
-			if (!starship.name || starship._id !== starshipId) {
-				dispatch(listStarshipInfo(starshipId));
+			if (!vehicle.name || vehicle._id !== vehicleId) {
+				dispatch(listVehicleInfo(vehicleId));
 			} else {
-				setStarshipForm({
-					name: starship.name,
-					pretty_url: starship.pretty_url,
-					model: starship.model,
-					image: starship.image,
-					manufacturer: starship.manufacturer,
-					cost_in_credits: starship.cost_in_credits,
-					length: starship.length,
-					max_atmosphering_speed: starship.max_atmosphering_speed,
-					crew: starship.crew,
-					passengers: starship.passengers,
-					cargo_capacity: starship.cargo_capacity,
-					consumables: starship.consumables,
-					hyperdrive_rating: starship.hyperdrive_rating,
-					MGLT: starship.MGLT,
-					starship_class: starship.starship_class,
-					pilots: starship.pilots,
-					films: starship.films,
-					classification: starship.classification,
-					height_depth: starship.height_depth,
-					max_acceleration: starship.max_acceleration,
-					hyperdrive_system: starship.hyperdrive_system,
-					shielding: starship.shielding,
-					hull: starship.hull,
-					sensor_systems: starship.sensor_systems,
-					navigation_system: starship.navigation_system,
-					designer: starship.designer,
-					roles: starship.roles,
-					affiliation: starship.affiliation,
-					armament: starship.armament,
-					complement: starship.complement,
-					docking_bays: starship.docking_bays,
-					other_systems: starship.other_systems,
+				setVehicleForm({
+					name: vehicle.name,
+					pretty_url: vehicle.pretty_url,
+					image: vehicle.image,
+					model: vehicle.model,
+					cost_in_credits: vehicle.cost_in_credits,
+					length: vehicle.length,
+					max_atmosphering_speed: vehicle.max_atmosphering_speed,
+					crew: vehicle.crew,
+					passengers: vehicle.passengers,
+					cargo_capacity: vehicle.cargo_capacity,
+					consumables: vehicle.consumables,
+					vehicle_class: vehicle.vehicle_class,
+					manufacturer: vehicle.manufacturer,
+					pilots: vehicle.pilots,
+					films: vehicle.films,
 				});
 			}
 		}
-	}, [starship, starshipId, dispatch, successUpdate, history]);
+		// eslint-disable-next-line
+	}, [vehicle, vehicleId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(
-			updateStarship({
-				_id: starshipId,
-				...starshipForm,
+			updateVehicle({
+				_id: vehicleId,
+				...vehicleForm,
 			})
 		);
+	};
+
+	const handleInputChange = (e) => {
+		handleChange(e.target);
 	};
 
 	const paperStyle = {
@@ -157,6 +140,13 @@ const StarshipEdit = ({ match, history }) => {
 		fontSize: '1rem',
 	};
 
+	const arrayStyle = {
+		border: '1px solid #bdbdbd',
+		borderRadius: '5px',
+		padding: '5px 0',
+		margin: '5px 0',
+	};
+
 	return (
 		<>
 			<Grid className='add-user'>
@@ -164,7 +154,7 @@ const StarshipEdit = ({ match, history }) => {
 					<Grid align='center'>
 						<Avatar style={avatarStyle} />
 						<Typography variant='h5' id='add-user-h2'>
-							{`Edit ${starship.name}`}
+							{`Edit ${vehicle.name}`}
 							{loadingUpdate && <Loader />}
 							{errorUpdate && (
 								<Message severity='error' message={errorUpdate} />
@@ -180,13 +170,13 @@ const StarshipEdit = ({ match, history }) => {
 							<TextField
 								style={inputStyle}
 								label='Name'
-								placeholder='Enter Name'
+								placeholder='Enter Vehicle Name'
 								variant='outlined'
 								size='small'
 								fullWidth
 								name='name'
-								value={starshipForm.name || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.name || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -197,20 +187,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='pretty_url'
-								value={starshipForm.pretty_url || ''}
-								onChange={(e) => handleInputChange(e.target)}
-							/>
-
-							<TextField
-								style={inputStyle}
-								label='Starship Class'
-								placeholder='Enter Starship Class'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='starship_class'
-								value={starshipForm.starship_class || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.pretty_url || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -221,8 +199,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='image'
-								value={starshipForm.image || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.image || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -233,8 +211,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='cost_in_credits'
-								value={starshipForm.cost_in_credits || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.cost_in_credits || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -245,8 +223,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='length'
-								value={starshipForm.length || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.length || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -257,8 +235,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='max_atmosphering_speed'
-								value={starshipForm.max_atmosphering_speed || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.max_atmosphering_speed || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -269,8 +247,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='crew'
-								value={starshipForm.crew || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.crew || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -281,8 +259,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='passengers'
-								value={starshipForm.passengers || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.passengers || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -293,8 +271,8 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='cargo_capacity'
-								value={starshipForm.cargo_capacity || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.cargo_capacity || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
@@ -305,32 +283,20 @@ const StarshipEdit = ({ match, history }) => {
 								size='small'
 								fullWidth
 								name='consumables'
-								value={starshipForm.consumables || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								value={vehicleForm.consumables || ''}
+								onChange={handleInputChange}
 							/>
 
 							<TextField
 								style={inputStyle}
-								label='Hyperdrive Rating'
-								placeholder='Enter Hyperdrive Rating'
+								label='vehicle Class'
+								placeholder='Enter vehicle Class'
 								variant='outlined'
 								size='small'
 								fullWidth
-								name='hyperdrive_rating'
-								value={starshipForm.hyperdrive_rating || ''}
-								onChange={(e) => handleInputChange(e.target)}
-							/>
-
-							<TextField
-								style={inputStyle}
-								label='MGLT'
-								placeholder='Enter MGLT'
-								variant='outlined'
-								size='small'
-								fullWidth
-								name='MGLT'
-								value={starshipForm.MGLT || ''}
-								onChange={(e) => handleInputChange(e.target)}
+								name='vehicle_class'
+								value={vehicleForm.vehicle_class || ''}
+								onChange={handleInputChange}
 							/>
 
 							<div
@@ -343,12 +309,12 @@ const StarshipEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Manufacturer(s):</Typography>
-								{(starshipForm.manufacturer || []).map((_man, index) => (
+								{(vehicleForm.manufacturer || []).map((_man, index) => (
 									<div key={index} className='manufacturer'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={starshipForm.manufacturer[index]}
+											value={vehicleForm.manufacturer[index]}
 											name='manufacturer'
 											onChange={(e) =>
 												handleArrayChange(e, index, 'manufacturer')
@@ -380,12 +346,12 @@ const StarshipEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Pilots:</Typography>
-								{(starshipForm.pilots || []).map((_cyb, index) => (
+								{(vehicleForm.pilots || []).map((_cyb, index) => (
 									<div key={index} className='pilots'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={starshipForm.pilots[index]}
+											value={vehicleForm.pilots[index]}
 											name='pilots'
 											onChange={(e) => handleArrayChange(e, index, 'pilots')}
 										/>
@@ -415,12 +381,12 @@ const StarshipEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Films:</Typography>
-								{(starshipForm.films || []).map((_aff, index) => (
+								{(vehicleForm.films || []).map((_aff, index) => (
 									<div key={index} className='films'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={starshipForm.films[index]}
+											value={vehicleForm.films[index]}
 											name='films'
 											onChange={(e) => handleArrayChange(e, index, 'films')}
 										/>
@@ -452,7 +418,7 @@ const StarshipEdit = ({ match, history }) => {
 						</form>
 					)}
 					<Typography variant='body2'>
-						<Link to='/admin/starshipList'>CANCEL</Link>
+						<Link to='/admin/vehicleList'>CANCEL</Link>
 					</Typography>
 				</Paper>
 			</Grid>
@@ -461,4 +427,4 @@ const StarshipEdit = ({ match, history }) => {
 	);
 };
 
-export default StarshipEdit;
+export default VehicleEdit;

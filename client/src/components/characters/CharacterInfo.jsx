@@ -109,7 +109,8 @@ const CharacterInfo = ({ match }) => {
 
 											{born === undefined || born.length === 0 ? null : (
 												<Typography component='h3'>
-													{`Birth: ${born} BBY`}
+													{`Birth: ${born}`}
+													<span className='small-text'>BBY</span>
 												</Typography>
 											)}
 
@@ -121,13 +122,15 @@ const CharacterInfo = ({ match }) => {
 
 											{height === undefined || height === '' ? null : (
 												<Typography component='h3'>
-													{`Height: ${height}m`}
+													{`Height: ${height}`}
+													<span className='small-text'>m</span>
 												</Typography>
 											)}
 
 											{mass === undefined || mass === '' ? null : (
 												<Typography component='h3'>
-													{`Mass: ${mass}kg`}
+													{`Mass: ${mass}`}
+													<span className='small-text'>kg</span>
 												</Typography>
 											)}
 
@@ -146,9 +149,11 @@ const CharacterInfo = ({ match }) => {
 										</div>
 
 										<div className='right-info'>
-											{homeworld.length === 0 ? null : (
+											{homeworld === undefined ||
+											homeworld.length === 0 ? null : (
 												<div className='info-array-container'>
 													<InfoArrayContainer
+														addClass='info-array'
 														baseModel={'planets'}
 														model={'Homeworld'}
 														arr={homeworld}
@@ -157,9 +162,10 @@ const CharacterInfo = ({ match }) => {
 												</div>
 											)}
 
-											{masters.length === 0 ? null : (
+											{masters === undefined || masters.length === 0 ? null : (
 												<div className='info-array-container'>
 													<InfoArrayContainer
+														addClass='info-array'
 														baseModel={'characters'}
 														model={'Master'}
 														arr={masters}
@@ -168,9 +174,11 @@ const CharacterInfo = ({ match }) => {
 												</div>
 											)}
 
-											{apprentices.length === 0 ? null : (
+											{apprentices === undefined ||
+											apprentices.length === 0 ? null : (
 												<div className='info-array-container'>
 													<InfoArrayContainer
+														addClass='info-array'
 														baseModel={'characters'}
 														model={'Apprentice'}
 														arr={apprentices}
@@ -179,29 +187,32 @@ const CharacterInfo = ({ match }) => {
 												</div>
 											)}
 
-											{cybernetics.length === 0 ? null : (
+											{cybernetics === undefined ||
+											cybernetics.length === 0 ? null : (
 												<div className='info-array-container'>
 													<InfoArrayContainer
+														addClass='info-array no-links'
 														baseModel={'characters'}
 														model={'Cybernetic'}
 														arr={cybernetics}
-														infoClick={infoClick}
 													/>
 												</div>
 											)}
 
-											{affiliations.length === 0 ? null : (
+											{affiliations === undefined ||
+											affiliations.length === 0 ? null : (
 												<div className='info-array-container'>
 													<InfoArrayContainer
+														addClass='info-array no-links'
 														baseModel={'affiliations'}
 														model={'Affiliation'}
 														arr={affiliations}
-														infoClick={infoClick}
 													/>
 												</div>
 											)}
 
-											{formerAffiliations.length === 0 ? null : (
+											{formerAffiliations === undefined ||
+											formerAffiliations.length === 0 ? null : (
 												<div className='info-array-container'>
 													<InfoArrayContainer
 														baseModel={'formerAffiliations'}

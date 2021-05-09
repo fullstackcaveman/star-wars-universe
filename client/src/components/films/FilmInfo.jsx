@@ -93,10 +93,10 @@ const FilmInfo = ({ match }) => {
 
 											<div className='info-array-container'>
 												<InfoArrayContainer
+													addClass='array-info'
 													baseModel={'producers'}
 													model={'Producer'}
 													arr={producer}
-													infoClick={handleInfoClick}
 												/>
 											</div>
 										</div>

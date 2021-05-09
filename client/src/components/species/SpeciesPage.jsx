@@ -7,6 +7,7 @@ import Species from './Species';
 import Pagination from '../elements/Pagination';
 
 import { listSpecies } from '../../actions/speciesActions';
+import { listFilms } from '../../actions/filmActions';
 
 const SpeciesPage = () => {
 	const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const SpeciesPage = () => {
 
 	useEffect(() => {
 		dispatch(listSpecies());
+		dispatch(listFilms());
 	}, [dispatch]);
 
 	// Fix this - shouldn't run if species fetch has an error

@@ -289,6 +289,13 @@ footer .footer-bottom {
   border: 2px solid #ffe81f;
 }
 
+.loader {
+  margin-top: 40px;
+}
+.loader .progress {
+  color: #ffe81f;
+}
+
 .pagination {
   display: flex;
   flex-direction: row;
@@ -488,7 +495,6 @@ footer .footer-bottom {
 }
 .info-container .info-card .flex {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   max-width: 100%;
 }
@@ -537,6 +543,10 @@ footer .footer-bottom {
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.no-links,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.no-links {
+  cursor: default;
+}
+.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container h3 .info-array .no-links,
+.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container h3 .info-array .no-links {
   cursor: default;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info span,

@@ -17,10 +17,12 @@ import {
 } from '../../actions/vehicleActions';
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import InfoArrayContainer from '../elements/InfoArrayContainer';
+import RelatedFilms from '../films/RelatedFilms';
 
 const VehicleInfo = ({ match }) => {
 	const dispatch = useDispatch();
-	const [loading, setLoading] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
@@ -42,7 +44,7 @@ const VehicleInfo = ({ match }) => {
 		vehicle_class,
 		manufacturer,
 		// pilots,
-		// films,
+		films,
 	} = vehicle;
 
 	document.title = `Star Wars | ${vehicle.name}`;
@@ -66,6 +68,8 @@ const VehicleInfo = ({ match }) => {
 		handleInfoClick(model, query);
 	};
 
+	console.log(vehicle);
+
 	return (
 		<>
 			<div className='info-container'>
@@ -84,79 +88,76 @@ const VehicleInfo = ({ match }) => {
 									</div>
 									<div className='info-blocks'>
 										<div className='left-info'>
-											{!model ? (
-												<Typography component='h3'>Model: unknown</Typography>
-											) : (
-												<Typography component='h3'>{`Model: ${model}`}</Typography>
-											)}
-
-											{!vehicle_class ? (
+											{!model ? null : (
 												<Typography component='h3'>
-													Vehicle Class: unknown
+													{`Model: ${model}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Vehicle Class: ${vehicle_class}`}</Typography>
 											)}
 
-											{cost_in_credits === 'unknown' ? (
-												<Typography component='h3'>Cost: unknown</Typography>
-											) : (
-												<Typography component='h3'>{`Cost: ${cost_in_credits} credits`}</Typography>
-											)}
-
-											{length === 'unknown' ? (
-												<Typography component='h3'>Length: unknown</Typography>
-											) : (
-												<Typography component='h3'>{`Length: ${length}m`}</Typography>
-											)}
-
-											{max_atmosphering_speed === 'unknown' ? (
+											{!vehicle_class ? null : (
 												<Typography component='h3'>
-													Max Speed: unknown
+													{`Vehicle Class: ${vehicle_class}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Max Speed: ${max_atmosphering_speed}km/h`}</Typography>
 											)}
 
-											{!crew ? (
-												<Typography component='h3'>Crew: unknown</Typography>
-											) : (
-												<Typography component='h3'>{`Crew: ${crew}`}</Typography>
+											{!cost_in_credits ? null : (
+												<Typography component='h3'>
+													{`Cost: ${cost_in_credits}`}
+													<span className='small-text'>credits</span>
+												</Typography>
+											)}
+
+											{!length ? null : (
+												<Typography component='h3'>
+													{`Length: ${length}`}
+													<span className='small-text'>m</span>
+												</Typography>
+											)}
+
+											{!max_atmosphering_speed ? null : (
+												<Typography component='h3'>
+													{`Max Speed: ${max_atmosphering_speed}`}
+													<span className='small-text'>km/h</span>
+												</Typography>
+											)}
+
+											{!crew ? null : (
+												<Typography component='h3'>
+													{`Crew: ${crew}`}
+												</Typography>
 											)}
 										</div>
 
 										<div className='right-info'>
-											{!passengers ? (
+											{!passengers ? null : (
 												<Typography component='h3'>
-													Passengers: unknown
+													{`Passengers: ${passengers}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Passengers: ${passengers}`}</Typography>
 											)}
 
-											{!cargo_capacity ? (
+											{!cargo_capacity ? null : (
 												<Typography component='h3'>
-													Cargo Capacity: unknown
+													{`Cargo Capacity: ${cargo_capacity}`}
+													<span className='small-text'>kg</span>
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Cargo Capacity: ${cargo_capacity}kg`}</Typography>
 											)}
 
-											{!consumables ? (
+											{!consumables ? null : (
 												<Typography component='h3'>
-													Consumables: unknown
+													{`Consumables: ${consumables}`}
 												</Typography>
-											) : (
-												<Typography component='h3'>{`Consumables: ${consumables}`}</Typography>
 											)}
-											<div className='info-array-container'>
-												<Typography component='h3'>Manufacturer(s):</Typography>
-												<Typography component='p' className='info-array'>
-													{(manufacturer || []).map((manu) => (
-														<span key={manu}>{`${manu}`}</span>
-													))}
-												</Typography>
-											</div>
+
+											{manufacturer === undefined ||
+											manufacturer.length === 0 ? null : (
+												<div className='info-array-container'>
+													<InfoArrayContainer
+														addClass='info-array no-links'
+														model='Maunfacturer'
+														arr={manufacturer}
+													/>
+												</div>
+											)}
 										</div>
 									</div>
 
@@ -175,7 +176,10 @@ const VehicleInfo = ({ match }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'></div>
+
+						<div className='flex'>
+							{/* <RelatedFilms films={films} handleInfoClick={handleInfoClick} /> */}
+						</div>
 					</>
 				)}
 			</div>

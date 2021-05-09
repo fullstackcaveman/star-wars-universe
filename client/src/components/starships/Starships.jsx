@@ -14,7 +14,10 @@ const Starships = (props) => {
 		<div className='characters-wrapper'>
 			{starships.map((starship) => {
 				return (
-					<Link to={`/starships/${starship._id}`} key={starship._id}>
+					<Link
+						to={`/starships/info/${starship.pretty_url}`}
+						key={starship._id}
+					>
 						<StarshipCard starship={starship} loading={loading} />
 					</Link>
 				);

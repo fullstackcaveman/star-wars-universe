@@ -30,6 +30,7 @@ import UserProfile from './components/forms/UserProfile';
 import UserRegisterForm from './components/forms/UserRegisterForm';
 import VehicleInfo from './components/vehicles/VehicleInfo';
 import VehiclePage from './components/vehicles/VehiclePage';
+import VehicleEdit from './components/vehicles/VehicleEdit';
 
 const App = () => {
 	return (
@@ -48,6 +49,7 @@ const App = () => {
 				<Route path='/admin/user/:id/edit' component={UserEdit} />
 				<Route path='/admin/starship/:id/edit' component={StarshipEdit} />
 				<Route path='/admin/starshiplist' component={StarshipList} />
+				<Route path='/admin/vehicle/:id/edit' component={VehicleEdit} />
 				<Route path='/admin/userlist' component={UserList} />
 				<Route path='/characters/info/:pretty_url' component={CharacterInfo} />
 				<Route path='/characters/:id' component={CharacterInfo} />
@@ -61,9 +63,9 @@ const App = () => {
 				<Route path='/species/info/:pretty_url' component={SpeciesInfo} />
 				<Route path='/species/:id' component={SpeciesInfo} />
 				<Route path='/species' component={SpeciesPage} />
-				<Route path='/starships' component={StarshipPage} />
 				<Route path='/starships/info/:pretty_url' component={StarshipInfo} />
 				<Route path='/starships/:id' component={StarshipInfo} />
+				<Route path='/starships' component={StarshipPage} />
 				<Route path='/users/login' component={UserLoginForm} />
 				<Route path='/users/profile' component={UserProfile} />
 				<Route path='/users/register' component={UserRegisterForm} />
