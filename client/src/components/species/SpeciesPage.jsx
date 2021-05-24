@@ -8,6 +8,7 @@ import Pagination from '../elements/Pagination';
 
 import { listSpecies } from '../../actions/speciesActions';
 import { listFilms } from '../../actions/filmActions';
+import { usePaginate } from '../../hooks/usePaginate';
 
 const SpeciesPage = () => {
 	const dispatch = useDispatch();
@@ -15,7 +16,6 @@ const SpeciesPage = () => {
 	const speciesList = useSelector((state) => state.speciesList);
 	const { loading, error, species } = speciesList;
 
-	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set species per page
 	const [speciesPerPage] = useState(10);
 
@@ -34,28 +34,11 @@ const SpeciesPage = () => {
 		setTimeout(() => findPage1(), 1000);
 	}, []);
 
+	const [paginate, prevPage, currentPage] = usePaginate();
+
 	const indexOfLastSpecies = currentPage * speciesPerPage;
 	const indexOfFirstSpecies = indexOfLastSpecies - speciesPerPage;
 	const currentSpecies = species.slice(indexOfFirstSpecies, indexOfLastSpecies);
-	// ######################^^^^^^^^^^^^########################
-
-	// Controls which characters to display and button styling
-	const paginate = (pageNumber) => {
-		const thisPage = document.getElementById(`page${currentPage}`);
-		thisPage.classList.remove('active');
-
-		const newPage = document.getElementById(`page${pageNumber}`);
-		newPage.classList.add('active');
-
-		setCurrentPage(pageNumber);
-	};
-
-	const prevPage = () => {
-		const newPage = currentPage - 1;
-		if (currentPage > 1) {
-			paginate(newPage);
-		}
-	};
 
 	const nextPage = () => {
 		const newPage = currentPage + 1;
