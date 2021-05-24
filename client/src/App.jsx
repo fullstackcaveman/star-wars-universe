@@ -31,6 +31,7 @@ import UserRegisterForm from './components/forms/UserRegisterForm';
 import VehicleInfo from './components/vehicles/VehicleInfo';
 import VehiclePage from './components/vehicles/VehiclePage';
 import VehicleEdit from './components/vehicles/VehicleEdit';
+import VehicleList from './components/vehicles/VehicleList';
 
 const App = () => {
 	return (
@@ -50,6 +51,7 @@ const App = () => {
 				<Route path='/admin/starship/:id/edit' component={StarshipEdit} />
 				<Route path='/admin/starshiplist' component={StarshipList} />
 				<Route path='/admin/vehicle/:id/edit' component={VehicleEdit} />
+				<Route path='/admin/vehiclelist' component={VehicleList} />
 				<Route path='/admin/userlist' component={UserList} />
 				<Route path='/characters/info/:pretty_url' component={CharacterInfo} />
 				<Route path='/characters/:id' component={CharacterInfo} />

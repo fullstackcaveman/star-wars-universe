@@ -29,8 +29,10 @@ const VehicleEdit = ({ match, history }) => {
 		handleAddItem,
 		handleDelete,
 	] = useHandleForm({
-		model: '',
+		name: '',
+		pretty_url: '',
 		image: '',
+		model: '',
 		cost_in_credits: '',
 		length: '',
 		max_atmosphering_speed: '',
@@ -38,33 +40,18 @@ const VehicleEdit = ({ match, history }) => {
 		passengers: '',
 		cargo_capacity: '',
 		consumables: '',
-		hyperdrive_rating: '',
-		MGLT: '',
 		vehicle_class: '',
-		classification: '',
-		height_depth: '',
-		max_acceleration: '',
-		hyperdrive_system: '',
-		shielding: '',
-		hull: '',
-		sensor_systems: '',
-		navigation_system: '',
-		docking_bays: '',
 		manufacturer: [],
 		pilots: [],
 		films: [],
-		designer: [],
-		roles: [],
-		affiliation: [],
-		armament: [],
-		complement: [],
-		other_systems: [],
 	});
 
 	const dispatch = useDispatch();
 
 	const vehicleInfo = useSelector((state) => state.vehicleInfo);
 	const { loading, error, vehicle } = vehicleInfo;
+
+	document.title = `Star Wars | Edit ${vehicle.name}`;
 
 	const vehicleUpdate = useSelector((state) => state.vehicleUpdate);
 	const {
