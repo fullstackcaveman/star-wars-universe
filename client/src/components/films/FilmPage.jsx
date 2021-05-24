@@ -7,6 +7,7 @@ import Films from './Films';
 import Pagination from '../elements/Pagination';
 
 import { listFilms } from '../../actions/filmActions';
+import { usePaginate } from '../../hooks/usePaginate';
 
 const FilmPage = () => {
 	const dispatch = useDispatch();
@@ -14,7 +15,6 @@ const FilmPage = () => {
 	const filmList = useSelector((state) => state.filmList);
 	const { loading, error, films } = filmList;
 
-	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set films per page
 	const [filmsPerPage] = useState(10);
 
@@ -22,37 +22,11 @@ const FilmPage = () => {
 		dispatch(listFilms());
 	}, [dispatch]);
 
-	// Enable this after the last films are added VVVVV
-	// useEffect(() => {
-	// 	const findPage1 = () => {
-	// 		const page1 = document.getElementById('page1');
-	// 		page1.classList.add('active');
-	// 	};
-	// 	setTimeout(() => findPage1(), 1000);
-	// }, []);
+	const [paginate, prevPage, currentPage] = usePaginate();
 
 	const indexOfLastFilm = currentPage * filmsPerPage;
 	const indexOfFirstFilm = indexOfLastFilm - filmsPerPage;
 	const currentFilms = films.slice(indexOfFirstFilm, indexOfLastFilm);
-	// ######################^^^^^^^^^^^^########################
-
-	// Controls which films to display and button styling
-	const paginate = (pageNumber) => {
-		const thisPage = document.getElementById(`page${currentPage}`);
-		thisPage.classList.remove('active');
-
-		const newPage = document.getElementById(`page${pageNumber}`);
-		newPage.classList.add('active');
-
-		setCurrentPage(pageNumber);
-	};
-
-	const prevPage = () => {
-		const newPage = currentPage - 1;
-		if (currentPage > 1) {
-			paginate(newPage);
-		}
-	};
 
 	const nextPage = () => {
 		const newPage = currentPage + 1;

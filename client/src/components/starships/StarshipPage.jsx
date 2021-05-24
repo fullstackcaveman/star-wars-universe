@@ -7,6 +7,7 @@ import Starships from './Starships';
 import Pagination from '../elements/Pagination';
 
 import { listStarships } from '../../actions/starshipActions';
+import { usePaginate } from '../../hooks/usePaginate';
 
 const StarshipPage = () => {
 	const dispatch = useDispatch();
@@ -14,7 +15,6 @@ const StarshipPage = () => {
 	const starshipList = useSelector((state) => state.starshipList);
 	const { loading, error, starships } = starshipList;
 
-	const [currentPage, setCurrentPage] = useState(1);
 	// Change this to set starships per page
 	const [starshipsPerPage] = useState(10);
 
@@ -32,6 +32,8 @@ const StarshipPage = () => {
 		setTimeout(() => findPage1(), 1000);
 	}, []);
 
+	const [paginate, prevPage, currentPage] = usePaginate();
+
 	const indexOfLastStarship = currentPage * starshipsPerPage;
 	const indexOfFirstStarship = indexOfLastStarship - starshipsPerPage;
 	const currentStarships = starships.slice(
@@ -39,24 +41,6 @@ const StarshipPage = () => {
 		indexOfLastStarship
 	);
 	// ######################^^^^^^^^^^^^########################
-
-	// Controls which starships to display and button styling
-	const paginate = (pageNumber) => {
-		const thisPage = document.getElementById(`page${currentPage}`);
-		thisPage.classList.remove('active');
-
-		const newPage = document.getElementById(`page${pageNumber}`);
-		newPage.classList.add('active');
-
-		setCurrentPage(pageNumber);
-	};
-
-	const prevPage = () => {
-		const newPage = currentPage - 1;
-		if (currentPage > 1) {
-			paginate(newPage);
-		}
-	};
 
 	const nextPage = () => {
 		const newPage = currentPage + 1;

@@ -127,13 +127,6 @@ const VehicleEdit = ({ match, history }) => {
 		fontSize: '1rem',
 	};
 
-	const arrayStyle = {
-		border: '1px solid #bdbdbd',
-		borderRadius: '5px',
-		padding: '5px 0',
-		margin: '5px 0',
-	};
-
 	return (
 		<>
 			<Grid className='add-user'>

@@ -261,7 +261,6 @@ const Header = () => {
 							<Avatar
 								style={avatarStyle}
 								alt={userInfo.name}
-								// src='../images/DarthVader.jpg'
 								id='user-avatar'
 								onClick={toggleDrawer(true)}
 							></Avatar>

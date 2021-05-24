@@ -8,6 +8,7 @@ import Pagination from '../elements/Pagination';
 
 import { listCharacters } from '../../actions/characterActions';
 import { listFilms } from '../../actions/filmActions';
+import { usePaginate } from '../../hooks/usePaginate';
 
 const CharacterPage = () => {
 	const dispatch = useDispatch();
@@ -15,7 +16,6 @@ const CharacterPage = () => {
 	const characterList = useSelector((state) => state.characterList);
 	const { loading, error, characters } = characterList;
 
-	const [currentPage, setCurrentPage] = useState(1);
 	const [charactersPerPage] = useState(10);
 
 	useEffect(() => {
@@ -31,29 +31,14 @@ const CharacterPage = () => {
 		setTimeout(() => findPage1(), 1000);
 	}, []);
 
+	const [paginate, prevPage, currentPage] = usePaginate();
+
 	const indexOfLastCharacter = currentPage * charactersPerPage;
 	const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
 	const currentCharacters = characters.slice(
 		indexOfFirstCharacter,
 		indexOfLastCharacter
 	);
-
-	const paginate = (pageNumber) => {
-		const thisPage = document.getElementById(`page${currentPage}`);
-		thisPage.classList.remove('active');
-
-		const newPage = document.getElementById(`page${pageNumber}`);
-		newPage.classList.add('active');
-
-		setCurrentPage(pageNumber);
-	};
-
-	const prevPage = () => {
-		const newPage = currentPage - 1;
-		if (currentPage > 1) {
-			paginate(newPage);
-		}
-	};
 
 	const nextPage = () => {
 		const newPage = currentPage + 1;

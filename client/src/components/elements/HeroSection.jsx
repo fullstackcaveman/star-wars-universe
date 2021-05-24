@@ -1,11 +1,13 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
 	return (
-		<div className='starwars'>
-			<p>STAR</p>
-			<span className='wars'>WARS</span>
-		</div>
+		<Link to='/'>
+			<div className='starwars'>
+				<p>STAR</p>
+				<span className='wars'>WARS</span>
+			</div>
+		</Link>
 	);
 };
 
