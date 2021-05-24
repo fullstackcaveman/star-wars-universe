@@ -15,7 +15,6 @@ import { listFilmInfo, listFilmInfoByName } from '../../actions/filmActions';
 import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
-import RelatedFilms from './RelatedFilms';
 
 const FilmInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -93,7 +92,7 @@ const FilmInfo = ({ match }) => {
 
 											<div className='info-array-container'>
 												<InfoArrayContainer
-													addClass='array-info'
+													addClass='info-array no-links'
 													baseModel={'producers'}
 													model={'Producer'}
 													arr={producer}

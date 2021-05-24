@@ -540,6 +540,7 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.crawl {
   font-family: "Roboto", sans-serif;
   color: #ffe81f;
+  cursor: default;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.no-links,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.no-links {

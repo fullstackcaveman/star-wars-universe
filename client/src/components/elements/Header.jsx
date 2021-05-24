@@ -85,7 +85,7 @@ const Header = () => {
 		} else if (route === 'starships') {
 			history.push('/admin/starshiplist');
 		} else if (route === 'vehicles') {
-			history.push('/admin/vehicleslist');
+			history.push('/admin/vehiclelist');
 		}
 	};
 
