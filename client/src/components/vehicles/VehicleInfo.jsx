@@ -178,7 +178,7 @@ const VehicleInfo = ({ match }) => {
 						</Card>
 
 						<div className='flex'>
-							{/* <RelatedFilms films={films} handleInfoClick={handleInfoClick} /> */}
+							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
 						</div>
 					</>
 				)}

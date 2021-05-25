@@ -2,11 +2,11 @@ import RelatedFilm from './RelatedFilm';
 
 const RelatedFilms = ({ films, handleInfoClick }) => {
 	return (
-		<div className='relatedFilms-container'>
-			<div className='film-title'>
+		<div className='relatedItems-container'>
+			<div className='item-title'>
 				<h2>Related Films</h2>
 			</div>
-			<div className='films'>
+			<div className='items'>
 				{(films || []).map((film) => {
 					return (
 						<RelatedFilm

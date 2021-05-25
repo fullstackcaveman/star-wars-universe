@@ -17,8 +17,8 @@ import {
 import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedFilms from '../films/RelatedFilms';
-import { listFilms } from '../../actions/filmActions';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
+import RelatedVehicles from '../vehicles/RelatedVehicles';
 
 const CharacterInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const CharacterInfo = ({ match }) => {
 		formerAffiliations,
 		// relatedPlanets,
 		// relatedStarships,
-		// relatedVehicles,
+		relatedVehicles,
 		relatedFilms,
 	} = character;
 
@@ -242,6 +242,12 @@ const CharacterInfo = ({ match }) => {
 						<div className='flex'>
 							<RelatedFilms
 								films={relatedFilms}
+								handleInfoClick={handleInfoClick}
+							/>
+						</div>
+						<div className='flex'>
+							<RelatedVehicles
+								vehicles={relatedVehicles}
 								handleInfoClick={handleInfoClick}
 							/>
 						</div>

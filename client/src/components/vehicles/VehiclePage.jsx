@@ -7,6 +7,7 @@ import Vehicles from './Vehicles';
 import Pagination from '../elements/Pagination';
 
 import { listVehicles } from '../../actions/vehicleActions';
+import { listFilms } from '../../actions/filmActions';
 import { usePaginate } from '../../hooks/usePaginate';
 
 const VehiclePage = () => {
@@ -20,6 +21,7 @@ const VehiclePage = () => {
 
 	useEffect(() => {
 		dispatch(listVehicles());
+		dispatch(listFilms());
 	}, [dispatch]);
 
 	// Fix this - shouldn't run if vehicle fetch has an error
