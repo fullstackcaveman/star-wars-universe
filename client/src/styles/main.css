@@ -575,6 +575,43 @@ footer .footer-bottom {
   cursor: pointer;
 }
 
+.relatedItems-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  margin: 5px 0;
+  width: auto;
+  height: 250px;
+  border: 3px solid #ffe81f;
+  border-radius: 2px;
+}
+.relatedItems-container .item-title h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.relatedItems-container .items {
+  display: flex;
+}
+.relatedItems-container .relatedItem-container {
+  width: 100px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.relatedItems-container .relatedItem-container img {
+  border-radius: 5px;
+  width: auto;
+  height: 156px;
+  margin-bottom: 5px;
+}
+.relatedItems-container .relatedItem-container h2 {
+  font-size: 1rem;
+}
+
 .character-wrapper,
 .planet-wrapper {
   display: relative;
@@ -765,42 +802,6 @@ footer .footer-bottom {
   background-position: center;
   background-repeat: none;
   background-size: cover;
-}
-
-.relatedFilms-container {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  text-align: center;
-  color: #fff;
-  padding: 10px;
-  width: auto;
-  height: 250px;
-  border: 3px solid #ffe81f;
-  border-radius: 2px;
-}
-.relatedFilms-container .film-title h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-.relatedFilms-container .films {
-  display: flex;
-}
-.relatedFilms-container .relatedFilm-container {
-  width: 100px;
-  margin: 0 10px;
-  cursor: pointer;
-}
-.relatedFilms-container .relatedFilm-container img {
-  border-radius: 5px;
-  width: auto;
-  height: 156px;
-  margin-bottom: 5px;
-}
-.relatedFilms-container .relatedFilm-container h2 {
-  font-size: 1rem;
 }
 
 .species-container {

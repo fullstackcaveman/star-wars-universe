@@ -11,7 +11,7 @@ const RelatedFilm = ({ film, handleInfoClick }) => {
 	};
 
 	return (
-		<div className='relatedFilm-container' onClick={handleClick}>
+		<div className='relatedItem-container' onClick={handleClick}>
 			<img src={filmTitle[0].image} alt={film} />
 			<h2>{film}</h2>
 		</div>

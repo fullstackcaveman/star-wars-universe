@@ -1,0 +1,47 @@
+// .relatedFilms-container
+.relatedItems-container {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	text-align: center;
+	color: #fff;
+	padding: 10px;
+	margin: 5px 0;
+	width: auto;
+	height: 250px;
+	border: 3px solid $starwars-yellow;
+	border-radius: 2px;
+
+	// .film-title
+	.item-title {
+		h2 {
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+		}
+	}
+
+	// .films
+	.items {
+		display: flex;
+	}
+
+	// .relatedFilm-container
+	.relatedItem-container {
+		width: 100px;
+		margin: 0 10px;
+		cursor: pointer;
+
+		img {
+			border-radius: 5px;
+			width: auto;
+			height: 156px;
+			margin-bottom: 5px;
+		}
+
+		h2 {
+			font-size: 1rem;
+		}
+	}
+}
