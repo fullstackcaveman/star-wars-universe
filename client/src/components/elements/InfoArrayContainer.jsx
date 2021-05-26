@@ -14,12 +14,15 @@ const InfoArrayContainer = (props) => {
 
 				return addClass === 'info-array' ? (
 					<NavLink to={`/${baseModel}/info/${route}`} key={item}>
-						<span className={addClass} model={baseModel} query={item}>
+						<span className={addClass} /*model={baseModel} query={item}*/>
 							{item}
 						</span>
 					</NavLink>
 				) : (
-					<span className={addClass} key={item} model={baseModel} query={item}>
+					<span
+						className={addClass}
+						key={item} /*model={baseModel} query={item}*/
+					>
 						{item}
 					</span>
 				);
