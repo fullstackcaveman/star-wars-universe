@@ -173,6 +173,18 @@ const VehicleEdit = ({ match, history }) => {
 
 							<TextField
 								style={inputStyle}
+								label='Model'
+								placeholder='Enter Model'
+								variant='outlined'
+								size='small'
+								fullWidth
+								name='model'
+								value={vehicleForm.model || ''}
+								onChange={handleInputChange}
+							/>
+
+							<TextField
+								style={inputStyle}
 								label='Image'
 								placeholder='Enter Image'
 								variant='outlined'
