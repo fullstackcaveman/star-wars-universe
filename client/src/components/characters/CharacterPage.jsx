@@ -8,6 +8,7 @@ import Pagination from '../elements/Pagination';
 
 import { listCharacters } from '../../actions/characterActions';
 import { listVehicles } from '../../actions/vehicleActions';
+import { listStarships } from '../../actions/starshipActions';
 import { listFilms } from '../../actions/filmActions';
 import { usePaginate } from '../../hooks/usePaginate';
 
@@ -23,6 +24,7 @@ const CharacterPage = () => {
 		dispatch(listCharacters());
 		dispatch(listFilms());
 		dispatch(listVehicles());
+		dispatch(listStarships());
 	}, [dispatch]);
 
 	useEffect(() => {

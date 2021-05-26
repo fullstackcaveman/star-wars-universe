@@ -37,12 +37,12 @@ const FilmEdit = ({ match, history }) => {
 		director: '',
 		release_date: '',
 		image: '',
-		characters: [],
 		producer: [],
-		planets: [],
-		starships: [],
-		vehicles: [],
-		species: [],
+		relatedCharacters: [],
+		relatedPlanets: [],
+		relatedStarships: [],
+		relatedVehicles: [],
+		relatedSpecies: [],
 	});
 
 	const dispatch = useDispatch();
@@ -73,12 +73,12 @@ const FilmEdit = ({ match, history }) => {
 					director: film.director,
 					release_date: film.release_date,
 					image: film.image,
-					characters: film.characters,
 					producer: film.producer,
-					planets: film.planets,
-					starships: film.starships,
-					vehicles: film.vehicles,
-					species: film.species,
+					relatedCharacters: film.relatedCharacters,
+					relatedPlanets: film.relatedPlanets,
+					relatedStarships: film.relatedStarships,
+					relatedVehicles: film.relatedVehicles,
+					relatedSpecies: film.relatedSpecies,
 				});
 			}
 		}
@@ -240,20 +240,20 @@ const FilmEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Characters:</Typography>
-								{(filmForm.characters || []).map((_character, index) => (
+								{(filmForm.relatedCharacters || []).map((_character, index) => (
 									<div key={index} className='characters'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={filmForm.characters[index]}
-											name='characters'
+											value={filmForm.relatedCharacters[index]}
+											name='relatedCharacters'
 											onChange={(e) =>
-												handleArrayChange(e, index, 'characters')
+												handleArrayChange(e, index, 'relatedCharacters')
 											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('characters', index)}
+											onClick={() => handleDelete('relatedCharacters', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -261,7 +261,7 @@ const FilmEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('characters')}
+									onClick={() => handleAddItem('relatedCharacters')}
 								>
 									Add New Character
 								</Button>
@@ -312,18 +312,20 @@ const FilmEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Planets:</Typography>
-								{(filmForm.planets || []).map((_planets, index) => (
+								{(filmForm.relatedPlanets || []).map((_planets, index) => (
 									<div key={index} className='planets'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={filmForm.planets[index]}
-											name='planets'
-											onChange={(e) => handleArrayChange(e, index, 'planets')}
+											value={filmForm.relatedPlanets[index]}
+											name='relatedPlanets'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedPlanets')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('planets', index)}
+											onClick={() => handleDelete('relatedPlanets', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -331,7 +333,7 @@ const FilmEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('planets')}
+									onClick={() => handleAddItem('relatedPlanets')}
 								>
 									Add New Planet
 								</Button>
@@ -347,18 +349,20 @@ const FilmEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Starships:</Typography>
-								{(filmForm.starships || []).map((_starships, index) => (
+								{(filmForm.relatedStarships || []).map((_starships, index) => (
 									<div key={index} className='starships'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={filmForm.starships[index]}
-											name='starships'
-											onChange={(e) => handleArrayChange(e, index, 'starships')}
+											value={filmForm.relatedStarships[index]}
+											name='relatedStarships'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedStarships')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('starships', index)}
+											onClick={() => handleDelete('relatedStarships', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -366,7 +370,7 @@ const FilmEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('starships')}
+									onClick={() => handleAddItem('relatedStarships')}
 								>
 									Add New Starship
 								</Button>
@@ -382,18 +386,20 @@ const FilmEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Vehicles:</Typography>
-								{(filmForm.vehicles || []).map((_vehicles, index) => (
+								{(filmForm.relatedVehicles || []).map((_vehicles, index) => (
 									<div key={index} className='vehicles'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={filmForm.vehicles[index]}
-											name='vehicles'
-											onChange={(e) => handleArrayChange(e, index, 'vehicles')}
+											value={filmForm.relatedVehicles[index]}
+											name='relatedVehicles'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedVehicles')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('vehicles', index)}
+											onClick={() => handleDelete('relatedVehicles', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -401,7 +407,7 @@ const FilmEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('vehicles')}
+									onClick={() => handleAddItem('relatedVehicles')}
 								>
 									Add New Vehicle
 								</Button>
@@ -417,18 +423,20 @@ const FilmEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Species:</Typography>
-								{(filmForm.species || []).map((_species, index) => (
+								{(filmForm.relatedSpecies || []).map((_species, index) => (
 									<div key={index} className='species'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={filmForm.species[index]}
-											name='species'
-											onChange={(e) => handleArrayChange(e, index, 'species')}
+											value={filmForm.relatedSpecies[index]}
+											name='relatedSpecies'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedSpecies')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('species', index)}
+											onClick={() => handleDelete('relatedSpecies', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -436,7 +444,7 @@ const FilmEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('planets')}
+									onClick={() => handleAddItem('relatedSpecies')}
 								>
 									Add New Species
 								</Button>

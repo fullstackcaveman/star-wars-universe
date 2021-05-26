@@ -19,6 +19,7 @@ import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedFilms from '../films/RelatedFilms';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedVehicles from '../vehicles/RelatedVehicles';
+import RelatedItems from '../elements/RelatedItems';
 
 const CharacterInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -29,6 +30,15 @@ const CharacterInfo = ({ match }) => {
 
 	const characterInfo = useSelector((state) => state.characterInfo);
 	const { loading: charLoader, error, character } = characterInfo;
+
+	const allFilms = useSelector((state) => state.filmList);
+	const { films } = allFilms;
+
+	const allVehicles = useSelector((state) => state.vehicleList);
+	const { vehicles } = allVehicles;
+
+	const allStarships = useSelector((state) => state.starshipList);
+	const { starships } = allStarships;
 
 	const {
 		name,
@@ -46,7 +56,7 @@ const CharacterInfo = ({ match }) => {
 		apprentices,
 		formerAffiliations,
 		// relatedPlanets,
-		// relatedStarships,
+		relatedStarships,
 		relatedVehicles,
 		relatedFilms,
 	} = character;
@@ -239,18 +249,37 @@ const CharacterInfo = ({ match }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'>
-							<RelatedFilms
-								films={relatedFilms}
-								handleInfoClick={handleInfoClick}
-							/>
-						</div>
-						<div className='flex'>
-							<RelatedVehicles
-								vehicles={relatedVehicles}
-								handleInfoClick={handleInfoClick}
-							/>
-						</div>
+
+						{relatedFilms === undefined || relatedFilms.length === 0 ? null : (
+							<div className='flex'>
+								<RelatedFilms
+									films={relatedFilms}
+									handleInfoClick={handleInfoClick}
+								/>
+							</div>
+						)}
+
+						{relatedVehicles === undefined ||
+						relatedVehicles.length === 0 ? null : (
+							<div className='flex'>
+								<RelatedVehicles
+									vehicles={relatedVehicles}
+									handleInfoClick={handleInfoClick}
+								/>
+							</div>
+						)}
+
+						{relatedStarships === undefined ||
+						relatedStarships.length === 0 ? null : (
+							<div className='flex'>
+								<RelatedItems
+									items={relatedStarships}
+									related={starships}
+									model='Starships'
+									handleInfoClick={handleInfoClick}
+								/>
+							</div>
+						)}
 					</>
 				)}
 			</div>

@@ -26,7 +26,7 @@ const importData = async () => {
 		// await User.deleteMany();
 		// await Character.deleteMany();
 		// await Film.deleteMany();
-		await Planet.deleteMany();
+		// await Planet.deleteMany();
 		// await Species.deleteMany();
 		// await Starship.deleteMany();
 		// await Vehicle.deleteMany();
