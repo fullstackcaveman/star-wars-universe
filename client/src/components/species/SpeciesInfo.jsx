@@ -46,8 +46,6 @@ const SpeciesInfo = ({ match, history }) => {
 	const allFilms = useSelector((state) => state.filmList);
 	const { films: filmography } = allFilms;
 
-	console.log(filmography);
-
 	const {
 		name,
 		image,

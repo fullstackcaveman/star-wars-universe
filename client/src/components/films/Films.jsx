@@ -14,7 +14,7 @@ const Films = (props) => {
 		<div className='characters-wrapper'>
 			{films.map((film) => {
 				return (
-					<Link to={`/films/${film._id}`} key={film._id}>
+					<Link to={`/films/info/${film.pretty_url}`} key={film._id}>
 						<FilmCard film={film} loading={loading} />
 					</Link>
 				);

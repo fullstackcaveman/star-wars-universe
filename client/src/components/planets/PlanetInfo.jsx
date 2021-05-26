@@ -164,23 +164,27 @@ const PlanetInfo = ({ match, history }) => {
 								</CardContent>
 							</div>
 						</Card>
-						<div className='flex'>
-							<RelatedItems
-								items={films}
-								related={filmography}
-								model='Films'
-								handleInfoClick={handleInfoClick}
-							/>
-						</div>
+						{films === undefined || films.length === 0 ? null : (
+							<div className='flex'>
+								<RelatedItems
+									items={films}
+									related={filmography}
+									model='Films'
+									handleInfoClick={handleInfoClick}
+								/>
+							</div>
+						)}
 
-						<div className='flex'>
-							<RelatedItems
-								items={residents}
-								related={characters}
-								model='Characters'
-								handleInfoClick={handleInfoClick}
-							/>
-						</div>
+						{residents === undefined || residents.length === 0 ? null : (
+							<div className='flex'>
+								<RelatedItems
+									items={residents}
+									related={characters}
+									model='Characters'
+									handleInfoClick={handleInfoClick}
+								/>
+							</div>
+						)}
 					</>
 				)}
 			</div>

@@ -59,8 +59,6 @@ const FilmInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${film.title}`;
 
-	console.log(relatedSpecies);
-
 	useEffect(() => {
 		if (match.params.id) {
 			dispatch(listFilmInfo(match.params.id));
@@ -73,12 +71,6 @@ const FilmInfo = ({ match }) => {
 
 	// eslint-disable-next-line
 	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
-
-	// const infoClick = (e) => {
-	// 	const model = e.target.attributes.model.value;
-	// 	const query = e.target.attributes.query.value;
-	// 	handleInfoClick(model, query);
-	// };
 
 	return (
 		<>
