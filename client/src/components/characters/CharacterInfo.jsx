@@ -165,7 +165,6 @@ const CharacterInfo = ({ match }) => {
 														baseModel={'planets'}
 														model={'Homeworld'}
 														arr={homeworld}
-														infoClick={infoClick}
 													/>
 												</div>
 											)}
@@ -177,7 +176,6 @@ const CharacterInfo = ({ match }) => {
 														baseModel={'characters'}
 														model={'Master'}
 														arr={masters}
-														infoClick={infoClick}
 													/>
 												</div>
 											)}
@@ -190,7 +188,6 @@ const CharacterInfo = ({ match }) => {
 														baseModel={'characters'}
 														model={'Apprentice'}
 														arr={apprentices}
-														infoClick={infoClick}
 													/>
 												</div>
 											)}
@@ -226,7 +223,6 @@ const CharacterInfo = ({ match }) => {
 														baseModel={'formerAffiliations'}
 														model={'Former Affiliation'}
 														arr={formerAffiliations}
-														infoClick={infoClick}
 													/>
 												</div>
 											)}
