@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import ItemCard from '../elements/ItemCard';
 import Loader from '../elements/Loader';
-import StarshipCard from './StarshipCard';
 
 const Starships = (props) => {
 	document.title = 'Star Wars Starships';
@@ -18,7 +18,7 @@ const Starships = (props) => {
 						to={`/starships/info/${starship.pretty_url}`}
 						key={starship._id}
 					>
-						<StarshipCard starship={starship} loading={loading} />
+						<ItemCard item={starship} loading={loading} />
 					</Link>
 				);
 			})}

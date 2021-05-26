@@ -11,19 +11,17 @@ const useStyles = makeStyles({
 	},
 });
 
-const CharacterCard = (props) => {
-	const { character } = props;
-
+const ItemCard = ({ item }) => {
 	const classes = useStyles();
 
 	return (
 		<div className='card-container'>
 			<Card className={classes.root}>
 				<CardActionArea>
-					<CardMedia className={classes.media} image={character.image} />
+					<CardMedia className={classes.media} image={item.image} />
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='h2'>
-							{character.name.toLowerCase()}
+							{!item.name ? item.title.toLowerCase() : item.name.toLowerCase()}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
@@ -32,4 +30,4 @@ const CharacterCard = (props) => {
 	);
 };
 
-export default CharacterCard;
+export default ItemCard;

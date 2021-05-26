@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import ItemCard from '../elements/ItemCard';
 import Loader from '../elements/Loader';
-import SpeciesCard from './SpeciesCard';
 
 const Species = (props) => {
 	document.title = 'Star Wars Species';
@@ -15,7 +15,7 @@ const Species = (props) => {
 			{species.map((species) => {
 				return (
 					<Link to={`/species/${species._id}`} key={species._id}>
-						<SpeciesCard species={species} loading={loading} />
+						<ItemCard item={species} loading={loading} />
 					</Link>
 				);
 			})}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import ItemCard from '../elements/ItemCard';
 import Loader from '../elements/Loader';
-import CharacterCard from './CharacterCard';
 
 const Characters = (props) => {
 	document.title = 'Star Wars Characters';
@@ -18,7 +18,7 @@ const Characters = (props) => {
 						to={`/characters/info/${character.pretty_url}`}
 						key={character._id}
 					>
-						<CharacterCard character={character} loading={loading} />
+						<ItemCard item={character} loading={loading} />
 					</Link>
 				);
 			})}

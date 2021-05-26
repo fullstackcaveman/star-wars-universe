@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import ItemCard from '../elements/ItemCard';
 import Loader from '../elements/Loader';
-import PlanetCard from './PlanetCard';
 
 const Planets = (props) => {
 	document.title = 'Star Wars | Planets';
@@ -15,7 +15,7 @@ const Planets = (props) => {
 			{planets.map((planet) => {
 				return (
 					<Link to={`/planets/info/${planet.pretty_url}`} key={planet._id}>
-						<PlanetCard planet={planet} loading={loading} />
+						<ItemCard item={planet} loading={loading} />
 					</Link>
 				);
 			})}
