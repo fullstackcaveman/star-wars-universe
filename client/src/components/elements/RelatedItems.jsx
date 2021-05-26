@@ -14,6 +14,7 @@ const RelatedItems = ({ items, related, model, handleInfoClick }) => {
 							key={item}
 							item={item}
 							related={related}
+							model={model}
 							handleInfoClick={handleInfoClick}
 						/>
 					);

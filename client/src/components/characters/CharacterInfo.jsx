@@ -16,9 +16,7 @@ import {
 } from '../../actions/characterActions';
 import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
-import RelatedFilms from '../films/RelatedFilms';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
-import RelatedVehicles from '../vehicles/RelatedVehicles';
 import RelatedItems from '../elements/RelatedItems';
 
 const CharacterInfo = ({ match }) => {
@@ -252,8 +250,10 @@ const CharacterInfo = ({ match }) => {
 
 						{relatedFilms === undefined || relatedFilms.length === 0 ? null : (
 							<div className='flex'>
-								<RelatedFilms
-									films={relatedFilms}
+								<RelatedItems
+									items={relatedFilms}
+									related={films}
+									model='Films'
 									handleInfoClick={handleInfoClick}
 								/>
 							</div>
@@ -262,8 +262,10 @@ const CharacterInfo = ({ match }) => {
 						{relatedVehicles === undefined ||
 						relatedVehicles.length === 0 ? null : (
 							<div className='flex'>
-								<RelatedVehicles
-									vehicles={relatedVehicles}
+								<RelatedItems
+									items={relatedVehicles}
+									related={vehicles}
+									model='Vehicles'
 									handleInfoClick={handleInfoClick}
 								/>
 							</div>

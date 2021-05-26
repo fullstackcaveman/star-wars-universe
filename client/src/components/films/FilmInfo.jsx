@@ -59,6 +59,8 @@ const FilmInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${film.title}`;
 
+	console.log(relatedSpecies);
+
 	useEffect(() => {
 		if (match.params.id) {
 			dispatch(listFilmInfo(match.params.id));
@@ -141,7 +143,6 @@ const FilmInfo = ({ match }) => {
 								</CardContent>
 							</div>
 						</Card>
-
 						{relatedCharacters === undefined ||
 						relatedCharacters.length === 0 ? null : (
 							<div className='flex'>
@@ -153,7 +154,6 @@ const FilmInfo = ({ match }) => {
 								/>
 							</div>
 						)}
-
 						{relatedSpecies === undefined ||
 						relatedSpecies.length === 0 ? null : (
 							<div className='flex'>
@@ -165,7 +165,6 @@ const FilmInfo = ({ match }) => {
 								/>
 							</div>
 						)}
-
 						{relatedPlanets === undefined ||
 						relatedPlanets.length === 0 ? null : (
 							<div className='flex'>
@@ -177,7 +176,6 @@ const FilmInfo = ({ match }) => {
 								/>
 							</div>
 						)}
-
 						{relatedVehicles === undefined ||
 						relatedVehicles.length === 0 ? null : (
 							<div className='flex'>
@@ -189,7 +187,6 @@ const FilmInfo = ({ match }) => {
 								/>
 							</div>
 						)}
-
 						{relatedStarships === undefined ||
 						relatedStarships.length === 0 ? null : (
 							<div className='flex'>

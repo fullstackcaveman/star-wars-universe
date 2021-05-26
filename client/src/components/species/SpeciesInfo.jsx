@@ -18,7 +18,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
-import RelatedFilms from '../films/RelatedFilms';
+import RelatedItems from '../elements/RelatedItems';
 
 const SpeciesInfo = ({ match, history }) => {
 	const [loading, setLoading] = useState();
@@ -40,6 +40,14 @@ const SpeciesInfo = ({ match, history }) => {
 	const speciesInfo = useSelector((state) => state.speciesInfo);
 	const { loading: speciesLoader, error, species } = speciesInfo;
 
+	const allCharacters = useSelector((state) => state.characterList);
+	const { characters } = allCharacters;
+
+	const allFilms = useSelector((state) => state.filmList);
+	const { films: filmography } = allFilms;
+
+	console.log(filmography);
+
 	const {
 		name,
 		image,
@@ -52,7 +60,7 @@ const SpeciesInfo = ({ match, history }) => {
 		skin_colors,
 		hair_colors,
 		eye_colors,
-		// people,
+		people,
 		films,
 	} = species;
 
@@ -188,7 +196,27 @@ const SpeciesInfo = ({ match, history }) => {
 							</div>
 						</Card>
 						<div className='flex'>
-							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
+							{films === undefined || films.length === 0 ? null : (
+								<div className='flex'>
+									<RelatedItems
+										items={films}
+										related={filmography}
+										model='Films'
+										handleInfoClick={handleInfoClick}
+									/>
+								</div>
+							)}
+
+							{people === undefined || people.length === 0 ? null : (
+								<div className='flex'>
+									<RelatedItems
+										items={people}
+										related={characters}
+										model='Characters'
+										handleInfoClick={handleInfoClick}
+									/>
+								</div>
+							)}
 						</div>
 					</>
 				)}
