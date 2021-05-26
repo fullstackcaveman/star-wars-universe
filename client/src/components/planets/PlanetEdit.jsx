@@ -121,6 +121,7 @@ const PlanetEdit = ({ match, history }) => {
 				});
 			}
 		}
+		// eslint-disable-next-line
 	}, [planet, planetId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {

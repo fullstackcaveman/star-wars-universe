@@ -14,7 +14,7 @@ const Planets = (props) => {
 		<div className='planets-container'>
 			{planets.map((planet) => {
 				return (
-					<Link to={`/planets/${planet._id}`} key={planet._id}>
+					<Link to={`/planets/info/${planet.pretty_url}`} key={planet._id}>
 						<PlanetCard planet={planet} loading={loading} />
 					</Link>
 				);

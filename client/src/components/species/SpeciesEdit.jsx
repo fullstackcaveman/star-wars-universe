@@ -83,6 +83,7 @@ const SpeciesEdit = ({ match, history }) => {
 				});
 			}
 		}
+		// eslint-disable-next-line
 	}, [species, speciesId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {

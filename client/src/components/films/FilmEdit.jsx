@@ -82,6 +82,7 @@ const FilmEdit = ({ match, history }) => {
 				});
 			}
 		}
+		// eslint-disable-next-line
 	}, [film, filmId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {

@@ -122,6 +122,7 @@ const StarshipEdit = ({ match, history }) => {
 				});
 			}
 		}
+		// eslint-disable-next-line
 	}, [starship, starshipId, dispatch, successUpdate, history]);
 
 	const submitHandler = (e) => {
