@@ -17,8 +17,7 @@ import {
 } from '../../actions/planetActions';
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
-import RelatedFilms from '../films/RelatedFilms';
-import RelatedCharacters from '../characters/RelatedCharacters';
+import RelatedItems from '../elements/RelatedItems';
 
 const PlanetInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
@@ -29,6 +28,12 @@ const PlanetInfo = ({ match, history }) => {
 
 	const planetInfo = useSelector((state) => state.planetInfo);
 	const { loading: planetLoader, error, planet } = planetInfo;
+
+	const allCharacters = useSelector((state) => state.characterList);
+	const { characters } = allCharacters;
+
+	const allFilms = useSelector((state) => state.filmList);
+	const { films: filmography } = allFilms;
 
 	const {
 		climate,
@@ -60,12 +65,6 @@ const PlanetInfo = ({ match, history }) => {
 
 	// eslint-disable-next-line
 	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
-
-	const infoClick = (e) => {
-		const model = e.target.attributes.model.value;
-		const query = e.target.attributes.query.value;
-		handleInfoClick(model, query);
-	};
 
 	return (
 		<>
@@ -166,12 +165,19 @@ const PlanetInfo = ({ match, history }) => {
 							</div>
 						</Card>
 						<div className='flex'>
-							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
+							<RelatedItems
+								items={films}
+								related={filmography}
+								model='Films'
+								handleInfoClick={handleInfoClick}
+							/>
 						</div>
 
 						<div className='flex'>
-							<RelatedCharacters
-								characters={residents}
+							<RelatedItems
+								items={residents}
+								related={characters}
+								model='Characters'
 								handleInfoClick={handleInfoClick}
 							/>
 						</div>

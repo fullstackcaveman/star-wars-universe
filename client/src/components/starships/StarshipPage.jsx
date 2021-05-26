@@ -8,6 +8,7 @@ import Pagination from '../elements/Pagination';
 
 import { listStarships } from '../../actions/starshipActions';
 import { usePaginate } from '../../hooks/usePaginate';
+import { listFilms } from '../../actions/filmActions';
 
 const StarshipPage = () => {
 	const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const StarshipPage = () => {
 
 	useEffect(() => {
 		dispatch(listStarships());
+		dispatch(listFilms());
 	}, [dispatch]);
 
 	// Fix this - shouldn't run if character fetch has an error

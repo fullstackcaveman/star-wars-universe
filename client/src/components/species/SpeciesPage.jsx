@@ -7,6 +7,7 @@ import Species from './Species';
 import Pagination from '../elements/Pagination';
 
 import { listSpecies } from '../../actions/speciesActions';
+import { listCharacters } from '../../actions/characterActions';
 import { listFilms } from '../../actions/filmActions';
 import { usePaginate } from '../../hooks/usePaginate';
 
@@ -21,6 +22,7 @@ const SpeciesPage = () => {
 
 	useEffect(() => {
 		dispatch(listSpecies());
+		dispatch(listCharacters());
 		dispatch(listFilms());
 	}, [dispatch]);
 

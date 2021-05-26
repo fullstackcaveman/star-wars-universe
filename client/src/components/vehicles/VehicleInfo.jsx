@@ -18,7 +18,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
-import RelatedFilms from '../films/RelatedFilms';
+import RelatedItems from '../elements/RelatedItems';
 
 const VehicleInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -29,6 +29,9 @@ const VehicleInfo = ({ match }) => {
 
 	const vehicleInfo = useSelector((state) => state.vehicleInfo);
 	const { loading: vehicleLoader, error, vehicle } = vehicleInfo;
+
+	const allFilms = useSelector((state) => state.filmList);
+	const { films: filmography } = allFilms;
 
 	const {
 		name,
@@ -61,12 +64,6 @@ const VehicleInfo = ({ match }) => {
 
 	// eslint-disable-next-line
 	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
-
-	const infoClick = (e) => {
-		const model = e.target.attributes.model.value;
-		const query = e.target.attributes.query.value;
-		handleInfoClick(model, query);
-	};
 
 	return (
 		<>
@@ -176,7 +173,16 @@ const VehicleInfo = ({ match }) => {
 						</Card>
 
 						<div className='flex'>
-							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
+							{films === undefined || films.length === 0 ? null : (
+								<div className='flex'>
+									<RelatedItems
+										items={films}
+										related={filmography}
+										model='Films'
+										handleInfoClick={handleInfoClick}
+									/>
+								</div>
+							)}
 						</div>
 					</>
 				)}
