@@ -68,8 +68,6 @@ const VehicleInfo = ({ match }) => {
 		handleInfoClick(model, query);
 	};
 
-	console.log(vehicle);
-
 	return (
 		<>
 			<div className='info-container'>
