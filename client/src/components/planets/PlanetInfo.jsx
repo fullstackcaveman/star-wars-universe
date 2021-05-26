@@ -18,6 +18,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedFilms from '../films/RelatedFilms';
+import RelatedCharacters from '../characters/RelatedCharacters';
 
 const PlanetInfo = ({ match, history }) => {
 	const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const PlanetInfo = ({ match, history }) => {
 		climate,
 		gravity,
 		terrain,
-		// residents,
+		residents,
 		films,
 		name,
 		// pretty_url,
@@ -166,6 +167,13 @@ const PlanetInfo = ({ match, history }) => {
 						</Card>
 						<div className='flex'>
 							<RelatedFilms films={films} handleInfoClick={handleInfoClick} />
+						</div>
+
+						<div className='flex'>
+							<RelatedCharacters
+								characters={residents}
+								handleInfoClick={handleInfoClick}
+							/>
 						</div>
 					</>
 				)}

@@ -6,7 +6,12 @@ import Message from '../elements/Message';
 import Films from './Films';
 import Pagination from '../elements/Pagination';
 
+import { listCharacters } from '../../actions/characterActions';
 import { listFilms } from '../../actions/filmActions';
+import { listPlanets } from '../../actions/planetActions';
+import { listSpecies } from '../../actions/speciesActions';
+import { listStarships } from '../../actions/starshipActions';
+import { listVehicles } from '../../actions/vehicleActions';
 import { usePaginate } from '../../hooks/usePaginate';
 
 const FilmPage = () => {
@@ -20,6 +25,11 @@ const FilmPage = () => {
 
 	useEffect(() => {
 		dispatch(listFilms());
+		dispatch(listCharacters());
+		dispatch(listPlanets());
+		dispatch(listSpecies());
+		dispatch(listStarships());
+		dispatch(listVehicles());
 	}, [dispatch]);
 
 	const [paginate, prevPage, currentPage] = usePaginate();

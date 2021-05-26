@@ -66,12 +66,12 @@ const createFilm = exceptionHandler(async (req, res) => {
 		director: '',
 		release_date: '',
 		image: '/images/placeholder.jpg',
-		characters: [],
 		producer: [],
-		planets: [],
-		starships: [],
-		vehicles: [],
-		species: [],
+		relatedCharacters: [],
+		relatedPlanets: [],
+		relatedStarships: [],
+		relatedVehicles: [],
+		relatedSpecies: [],
 	});
 
 	const createdFilm = await film.save();
@@ -90,12 +90,12 @@ const updateFilm = exceptionHandler(async (req, res) => {
 		director,
 		release_date,
 		image,
-		characters,
 		producer,
-		planets,
-		starships,
-		vehicles,
-		species,
+		relatedCharacters,
+		relatedPlanets,
+		relatedStarships,
+		relatedVehicles,
+		relatedSpecies,
 	} = req.body;
 
 	const film = await Film.findById(req.params.id);
@@ -108,12 +108,12 @@ const updateFilm = exceptionHandler(async (req, res) => {
 		film.director = director;
 		film.release_date = release_date;
 		film.image = image;
-		film.characters = characters;
 		film.producer = producer;
-		film.planets = planets;
-		film.starships = starships;
-		film.vehicles = vehicles;
-		film.species = species;
+		film.relatedCharacters = relatedCharacters;
+		film.relatedPlanets = relatedPlanets;
+		film.relatedStarships = relatedStarships;
+		film.relatedVehicles = relatedVehicles;
+		film.relatedSpecies = relatedSpecies;
 
 		const updatedFilm = await film.save();
 		res.json(updatedFilm);

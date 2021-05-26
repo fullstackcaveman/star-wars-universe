@@ -6,6 +6,7 @@ import Message from '../elements/Message';
 import Planets from './Planets';
 import Pagination from '../elements/Pagination';
 
+import { listCharacters } from '../../actions/characterActions';
 import { listPlanets } from '../../actions/planetActions';
 import { listFilms } from '../../actions/filmActions';
 import { usePaginate } from '../../hooks/usePaginate';
@@ -22,6 +23,7 @@ const PlanetPage = () => {
 	useEffect(() => {
 		dispatch(listPlanets());
 		dispatch(listFilms());
+		dispatch(listCharacters());
 	}, [dispatch]);
 
 	useEffect(() => {
