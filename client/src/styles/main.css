@@ -597,19 +597,32 @@ footer .footer-bottom {
 .relatedItems-container .items {
   display: flex;
 }
-.relatedItems-container .relatedItem-container {
+.relatedItems-container .items a {
+  color: white;
+}
+.relatedItems-container .items a .relatedItem-container {
   width: 100px;
   margin: 0 10px;
   cursor: pointer;
 }
-.relatedItems-container .relatedItem-container img {
+.relatedItems-container .items a .relatedItem-container img {
   border-radius: 5px;
   width: auto;
   height: 156px;
   margin-bottom: 5px;
 }
-.relatedItems-container .relatedItem-container h2 {
+.relatedItems-container .items a .relatedItem-container h2 {
   font-size: 1rem;
+}
+.relatedItems-container .items #Vehicles img,
+.relatedItems-container .items #Starships img,
+.relatedItems-container .items #Planets img,
+.relatedItems-container .items #Species img,
+.relatedItems-container .items #Characters img {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  margin: 10px 0;
 }
 
 .character-wrapper,

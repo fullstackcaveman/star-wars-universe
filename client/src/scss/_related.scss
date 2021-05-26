@@ -25,23 +25,39 @@
 	// .films
 	.items {
 		display: flex;
-	}
 
-	// .relatedFilm-container
-	.relatedItem-container {
-		width: 100px;
-		margin: 0 10px;
-		cursor: pointer;
+		a {
+			color: white;
 
-		img {
-			border-radius: 5px;
-			width: auto;
-			height: 156px;
-			margin-bottom: 5px;
+			.relatedItem-container {
+				width: 100px;
+				margin: 0 10px;
+				cursor: pointer;
+
+				img {
+					border-radius: 5px;
+					width: auto;
+					height: 156px;
+					margin-bottom: 5px;
+				}
+
+				h2 {
+					font-size: 1rem;
+				}
+			}
 		}
 
-		h2 {
-			font-size: 1rem;
+		#Vehicles,
+		#Starships,
+		#Planets,
+		#Species,
+		#Characters {
+			img {
+				width: 105px;
+				height: 105px;
+				border-radius: 50%;
+				margin: 10px 0;
+			}
 		}
 	}
 }
