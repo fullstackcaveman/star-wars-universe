@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 import AddIcon from '@material-ui/icons/Add';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
@@ -107,6 +108,11 @@ const FilmList = ({ history, match }) => {
 										<TableCell align='center'>{film.release_date}</TableCell>
 										<TableCell align='center'>{film.director}</TableCell>
 										<TableCell align='center'>
+											<NavLink to={`/films/info/${film.pretty_url}`}>
+												<Button variant='contained' size='small'>
+													<OpenInBrowserIcon />
+												</Button>
+											</NavLink>
 											<NavLink to={`/admin/film/${film._id}/edit`}>
 												<Button
 													variant='contained'

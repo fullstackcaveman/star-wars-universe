@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 import AddIcon from '@material-ui/icons/Add';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
@@ -124,6 +125,12 @@ const StarshipList = ({ history, match }) => {
 											))}
 										</TableCell>
 										<TableCell align='center'>
+											<NavLink to={`/starships/info/${starship.pretty_url}`}>
+												<Button variant='contained' size='small'>
+													<OpenInBrowserIcon />
+												</Button>
+											</NavLink>
+
 											<NavLink to={`/admin/starship/${starship._id}/edit`}>
 												<Button
 													variant='contained'
