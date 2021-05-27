@@ -174,7 +174,6 @@ header {
   height: 50px;
   width: 100%;
   padding: 5px;
-  z-index: 100;
 }
 header .header-left {
   padding: 0 20px;
@@ -195,6 +194,7 @@ header .nav-btn {
   height: 170px;
   width: 260px;
   margin-top: 30px;
+  z-index: 100;
 }
 .starwars p,
 .starwars span {
@@ -486,7 +486,7 @@ footer .footer-bottom {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
+  max-width: 1360px;
   height: 100%;
 }
 .info-container .info-card {
@@ -520,12 +520,12 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info,
 .info-container .info-card .flex .card-data .info-blocks .right-info {
   flex-wrap: wrap;
-  max-width: 600px;
+  max-width: 645px;
   margin: 10px;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container,
@@ -545,9 +545,10 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.no-links,
 .info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.no-links {
   cursor: default;
+  width: 100%;
 }
-.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container h3 .info-array .no-links,
-.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container h3 .info-array .no-links {
+.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container h3 .info-array.no-links,
+.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container h3 .info-array.no-links {
   cursor: default;
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info span,
@@ -570,11 +571,80 @@ footer .footer-bottom {
 }
 .info-container .info-card .flex .card-data .info-blocks .left-info {
   margin-right: 30px;
+  width: 30% span;
+  width-cursor: pointer;
 }
-.info-container .info-card .flex .card-data .info-blocks .left-info span {
-  cursor: pointer;
+.info-container .info-card .flex .card-data .info-blocks .right-info {
+  width: 70%;
 }
 
+@media (max-width: 1250px) {
+  .info-container {
+    width: 95%;
+  }
+}
+@media (max-width: 1080px) {
+  .info-container .info-card {
+    height: 575px;
+  }
+  .info-container .info-card .flex .card-data {
+    flex-direction: column;
+  }
+}
+@media (max-width: 860px) {
+  .info-container .info-card {
+    height: 580px;
+  }
+  .info-container .info-card .flex .card-data {
+    flex-direction: column;
+  }
+  .info-container .info-card .flex .card-data .info-blocks {
+    width: 140%;
+  }
+}
+@media (max-width: 709px) {
+  .info-container .info-card {
+    height: 650px;
+  }
+  .info-container .info-card .flex .card-data {
+    flex-direction: column;
+  }
+  .info-container .info-card .flex .card-data .info-blocks {
+    width: 140%;
+  }
+}
+@media (max-width: 635px) {
+  .info-container .info-card {
+    height: 1000px;
+  }
+  .info-container .info-card .flex {
+    flex-direction: column;
+  }
+  .info-container .info-card .flex .card-data {
+    flex-direction: column;
+  }
+  .info-container .info-card .flex .card-data .info-blocks {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+@media (max-width: 430px) {
+  .info-container .info-card {
+    height: 1200px;
+  }
+  .info-container .info-card .flex {
+    flex-direction: column;
+  }
+  .info-container .info-card .flex .card-data {
+    flex-direction: column;
+  }
+  .info-container .info-card .flex .card-data .info-blocks {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
 .relatedItems-container {
   box-sizing: border-box;
   display: flex;
@@ -625,82 +695,6 @@ footer .footer-bottom {
   margin: 10px 0;
 }
 
-.character-wrapper,
-.planet-wrapper {
-  display: relative;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  align-items: center;
-  width: 500px;
-  height: 30px;
-  padding: 5px 10px;
-  border: 1px solid #4f1605;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  background: linear-gradient(to bottom, #f6e6b4 0%, #ea8100 100%);
-  color: #4f1605;
-  letter-spacing: 0.05rem;
-}
-.character-wrapper.expand,
-.planet-wrapper.expand {
-  height: 280px;
-}
-.character-wrapper .container,
-.planet-wrapper .container {
-  position: relative;
-  height: 29px;
-}
-.character-wrapper .container .name,
-.planet-wrapper .container .name {
-  position: absolute;
-  margin: 0;
-  top: 5px;
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-.character-wrapper .flex,
-.planet-wrapper .flex {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.character-wrapper .flex.hidden,
-.planet-wrapper .flex.hidden {
-  display: none;
-}
-.character-wrapper .flex .row,
-.planet-wrapper .flex .row {
-  display: flex;
-  justify-content: space-around;
-  height: 80%;
-  width: 100%;
-  padding: 10px;
-}
-.character-wrapper .flex .row .image,
-.planet-wrapper .flex .row .image {
-  visibility: visible;
-  width: 200px;
-  background-image: url("../images/placeholder.jpg") no-repeat center center/cover;
-  margin-top: 10px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px black;
-}
-.character-wrapper .flex .row .info,
-.planet-wrapper .flex .row .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 90%;
-  margin-top: 20px;
-}
-.character-wrapper .flex .row .info p,
-.planet-wrapper .flex .row .info p {
-  margin: 8px auto;
-  font-size: 1.1rem;
-}
-
 .list-page {
   display: flex;
   flex-direction: column;
@@ -745,103 +739,6 @@ footer .footer-bottom {
 .MuiCard-root .MuiTypography-root {
   font-family: "STARJEDI";
   font-size: large;
-}
-
-.character-info-container,
-.planet-info-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 1480px;
-  height: 100%;
-}
-.character-info-container .character-info-card,
-.character-info-container .planet-info-card,
-.planet-info-container .character-info-card,
-.planet-info-container .planet-info-card {
-  display: flex;
-  width: 600px;
-}
-.character-info-container .character-info-card .flex,
-.character-info-container .planet-info-card .flex,
-.planet-info-container .character-info-card .flex,
-.planet-info-container .planet-info-card .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.character-info-container .character-info-card .flex .character-data,
-.character-info-container .character-info-card .flex .planet-data,
-.character-info-container .planet-info-card .flex .character-data,
-.character-info-container .planet-info-card .flex .planet-data,
-.planet-info-container .character-info-card .flex .character-data,
-.planet-info-container .character-info-card .flex .planet-data,
-.planet-info-container .planet-info-card .flex .character-data,
-.planet-info-container .planet-info-card .flex .planet-data {
-  margin: 0 auto;
-  color: #fff;
-}
-.character-info-container .character-info-card .flex .character-data h1,
-.character-info-container .character-info-card .flex .planet-data h1,
-.character-info-container .planet-info-card .flex .character-data h1,
-.character-info-container .planet-info-card .flex .planet-data h1,
-.planet-info-container .character-info-card .flex .character-data h1,
-.planet-info-container .character-info-card .flex .planet-data h1,
-.planet-info-container .planet-info-card .flex .character-data h1,
-.planet-info-container .planet-info-card .flex .planet-data h1 {
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  font-size: 2rem;
-}
-.character-info-container .character-info-card .flex .character-data h3,
-.character-info-container .character-info-card .flex .planet-data h3,
-.character-info-container .planet-info-card .flex .character-data h3,
-.character-info-container .planet-info-card .flex .planet-data h3,
-.planet-info-container .character-info-card .flex .character-data h3,
-.planet-info-container .character-info-card .flex .planet-data h3,
-.planet-info-container .planet-info-card .flex .character-data h3,
-.planet-info-container .planet-info-card .flex .planet-data h3 {
-  font-family: "Roboto", sans-serif;
-  text-align: left;
-}
-
-.films-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("../images/under-construction.png");
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
-}
-
-.species-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("../images/under-construction.png");
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
-}
-
-.starships-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("../images/under-construction.png");
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
-}
-
-.vehicles-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("../images/under-construction.png");
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
 }
 
 /*# sourceMappingURL=main.css.map */

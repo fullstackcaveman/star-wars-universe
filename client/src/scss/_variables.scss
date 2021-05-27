@@ -18,3 +18,11 @@ $starwars-yellow: #ffe81f;
 $background-animation-time: 50s;
 $background-image: '../images/stars.png';
 $background-twinkle: '../images/twinkling.png';
+
+// Media Queries
+$breakpoint-xl: 1250px;
+$breakpoint-large: 1080px;
+$breakpoint-med-lg: 860px;
+$breakpoint-medium: 709px;
+$breakpoint-small: 635px;
+$breakpoint-xs: 430px;

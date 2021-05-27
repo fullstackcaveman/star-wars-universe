@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	width: 100%;
+	max-width: 1360px;
 	height: 100%;
 
 	.info-card {
@@ -41,12 +41,12 @@
 				.info-blocks {
 					display: flex;
 					flex-wrap: wrap;
-					justify-content: space-around;
+					justify-content: space-between;
 
 					.left-info,
 					.right-info {
 						flex-wrap: wrap;
-						max-width: 600px;
+						max-width: 645px;
 						margin: 10px;
 
 						.info-array-container {
@@ -62,12 +62,15 @@
 								}
 								&.no-links {
 									cursor: default;
+									width: 100%;
 								}
 							}
 
 							h3 {
-								.info-array .no-links {
-									cursor: default;
+								.info-array {
+									&.no-links {
+										cursor: default;
+									}
 								}
 							}
 						}
@@ -94,10 +97,102 @@
 
 					.left-info {
 						margin-right: 30px;
-
-						span {
+						width: 30% span {
 							cursor: pointer;
 						}
+					}
+
+					.right-info {
+						width: 70%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-xl) {
+	.info-container {
+		width: 95%;
+	}
+}
+
+@media (max-width: $breakpoint-large) {
+	.info-container {
+		.info-card {
+			height: 575px;
+			.flex {
+				.card-data {
+					flex-direction: column;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-med-lg) {
+	.info-container {
+		.info-card {
+			height: 580px;
+			.flex {
+				.card-data {
+					flex-direction: column;
+					.info-blocks {
+						width: 140%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-medium) {
+	.info-container {
+		.info-card {
+			height: 650px;
+			.flex {
+				.card-data {
+					flex-direction: column;
+					.info-blocks {
+						width: 140%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-small) {
+	.info-container {
+		.info-card {
+			height: 1000px;
+			.flex {
+				flex-direction: column;
+				.card-data {
+					flex-direction: column;
+					.info-blocks {
+						flex-direction: column;
+						align-items: center;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-xs) {
+	.info-container {
+		.info-card {
+			height: 1200px;
+			.flex {
+				flex-direction: column;
+				.card-data {
+					flex-direction: column;
+					.info-blocks {
+						flex-direction: column;
+						align-items: center;
+						width: 100%;
 					}
 				}
 			}
