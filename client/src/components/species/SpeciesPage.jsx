@@ -58,7 +58,7 @@ const SpeciesPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Items items={currentSpecies} model='species' loading={loading} />
+					<Items items={currentSpecies} model='Species' loading={loading} />
 
 					<Pagination
 						items={speciesPerPage}

@@ -60,7 +60,7 @@ const StarshipPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Items items={currentStarships} model='starships' loading={loading} />
+					<Items items={currentStarships} model='Starships' loading={loading} />
 
 					<Pagination
 						items={starshipsPerPage}

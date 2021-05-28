@@ -4,6 +4,7 @@ import Loader from './Loader';
 
 const Items = ({ items, model, loading }) => {
 	document.title = `Star Wars ${model}`;
+	const modelLower = model.toLowerCase();
 
 	if (loading) {
 		return <Loader />;
@@ -13,7 +14,7 @@ const Items = ({ items, model, loading }) => {
 		<div className='characters-wrapper'>
 			{items.map((item) => {
 				return (
-					<Link to={`/${model}/info/${item.pretty_url}`} key={item._id}>
+					<Link to={`/${modelLower}/info/${item.pretty_url}`} key={item._id}>
 						<ItemCard item={item} loading={loading} />
 					</Link>
 				);

@@ -62,7 +62,7 @@ const CharacterPage = () => {
 				<>
 					<Items
 						items={currentCharacters}
-						model='characters'
+						model='Characters'
 						loading={loading}
 					/>
 

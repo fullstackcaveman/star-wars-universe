@@ -60,7 +60,7 @@ const VehiclePage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Items items={currentVehicles} model='vehicles' loading={loading} />
+					<Items items={currentVehicles} model='Vehicles' loading={loading} />
 
 					<Pagination
 						items={vehiclesPerPage}

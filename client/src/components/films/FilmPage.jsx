@@ -54,7 +54,7 @@ const FilmPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Items items={currentFilms} model='films' loading={loading} />
+					<Items items={currentFilms} model='Films' loading={loading} />
 
 					{films.length === 0 ? (
 						<Pagination

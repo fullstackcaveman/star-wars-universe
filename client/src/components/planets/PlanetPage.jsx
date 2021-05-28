@@ -56,7 +56,7 @@ const PlanetPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Items items={currentPlanets} model='planets' loading={loading} />
+					<Items items={currentPlanets} model='Planets' loading={loading} />
 
 					<Pagination
 						items={planetsPerPage}
