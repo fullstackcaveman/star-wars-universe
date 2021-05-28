@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Background from '../elements/Background';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
-import Films from './Films';
 import Pagination from '../elements/Pagination';
+import Items from '../elements/Items';
 
 import { listCharacters } from '../../actions/characterActions';
 import { listFilms } from '../../actions/filmActions';
@@ -54,7 +54,8 @@ const FilmPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Films films={currentFilms} loading={loading} />
+					<Items items={currentFilms} model='films' loading={loading} />
+
 					{films.length === 0 ? (
 						<Pagination
 							items={filmsPerPage}

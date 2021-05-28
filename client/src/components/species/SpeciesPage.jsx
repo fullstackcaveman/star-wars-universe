@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Background from '../elements/Background';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
-import Species from './Species';
 import Pagination from '../elements/Pagination';
+import Items from '../elements/Items';
 
 import { listSpecies } from '../../actions/speciesActions';
 import { listCharacters } from '../../actions/characterActions';
@@ -58,7 +58,8 @@ const SpeciesPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Species species={currentSpecies} loading={loading} />
+					<Items items={currentSpecies} model='species' loading={loading} />
+
 					<Pagination
 						items={speciesPerPage}
 						totalitems={species.length}

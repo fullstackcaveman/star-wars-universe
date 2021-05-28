@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Background from '../elements/Background';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
-import Planets from './Planets';
 import Pagination from '../elements/Pagination';
+import Items from '../elements/Items';
 
 import { listCharacters } from '../../actions/characterActions';
 import { listPlanets } from '../../actions/planetActions';
@@ -56,7 +56,8 @@ const PlanetPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Planets planets={currentPlanets} loading={loading} />
+					<Items items={currentPlanets} model='planets' loading={loading} />
+
 					<Pagination
 						items={planetsPerPage}
 						totalitems={planets.length}

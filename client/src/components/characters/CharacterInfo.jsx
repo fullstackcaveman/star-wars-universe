@@ -14,7 +14,7 @@ import {
 	listCharacterInfo,
 	listCharacterInfoByName,
 } from '../../actions/characterActions';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedItems from '../elements/RelatedItems';
@@ -107,6 +107,7 @@ const CharacterInfo = ({ match }) => {
 											<Typography component='h3'>
 												Species:{' '}
 												<span
+													className='pointer'
 													model='species'
 													query={species}
 													onClick={infoClick}

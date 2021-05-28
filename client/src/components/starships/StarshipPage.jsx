@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Background from '../elements/Background';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
-import Starships from './Starships';
 import Pagination from '../elements/Pagination';
+import Items from '../elements/Items';
 
 import { listStarships } from '../../actions/starshipActions';
 import { usePaginate } from '../../hooks/usePaginate';
@@ -60,7 +60,8 @@ const StarshipPage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Starships starships={currentStarships} loading={loading} />
+					<Items items={currentStarships} model='starships' loading={loading} />
+
 					<Pagination
 						items={starshipsPerPage}
 						totalitems={starships.length}

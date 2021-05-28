@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Background from '../elements/Background';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
-import Vehicles from './Vehicles';
 import Pagination from '../elements/Pagination';
+import Items from '../elements/Items';
 
 import { listVehicles } from '../../actions/vehicleActions';
 import { listFilms } from '../../actions/filmActions';
@@ -60,7 +60,8 @@ const VehiclePage = () => {
 				<Message severity='error' message={error} />
 			) : (
 				<>
-					<Vehicles vehicles={currentVehicles} loading={loading} />
+					<Items items={currentVehicles} model='vehicles' loading={loading} />
+
 					<Pagination
 						items={vehiclesPerPage}
 						totalitems={vehicles.length}

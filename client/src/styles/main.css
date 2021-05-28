@@ -574,6 +574,9 @@ footer .footer-bottom {
   width: 30% span;
   width-cursor: pointer;
 }
+.info-container .info-card .flex .card-data .info-blocks .left-info .pointer {
+  cursor: pointer;
+}
 .info-container .info-card .flex .card-data .info-blocks .right-info {
   width: 70%;
 }

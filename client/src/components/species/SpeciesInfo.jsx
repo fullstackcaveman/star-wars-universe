@@ -116,6 +116,7 @@ const SpeciesInfo = ({ match, history }) => {
 												<Typography component='h3'>
 													Homeworld(s):{' '}
 													<span
+														className='pointer'
 														model='planets'
 														query={homeworld}
 														onClick={infoClick}
