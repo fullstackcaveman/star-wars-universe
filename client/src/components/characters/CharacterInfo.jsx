@@ -14,7 +14,7 @@ import {
 	listCharacterInfo,
 	listCharacterInfoByName,
 } from '../../actions/characterActions';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedItems from '../elements/RelatedItems';
