@@ -7,9 +7,11 @@ import Pagination from '../elements/Pagination';
 import Items from '../elements/Items';
 
 import { listCharacters } from '../../actions/characterActions';
-import { listVehicles } from '../../actions/vehicleActions';
-import { listStarships } from '../../actions/starshipActions';
 import { listFilms } from '../../actions/filmActions';
+import { listPlanets } from '../../actions/planetActions';
+import { listSpecies } from '../../actions/speciesActions';
+import { listStarships } from '../../actions/starshipActions';
+import { listVehicles } from '../../actions/vehicleActions';
 import { usePaginate } from '../../hooks/usePaginate';
 
 const CharacterPage = () => {
@@ -23,8 +25,10 @@ const CharacterPage = () => {
 	useEffect(() => {
 		dispatch(listCharacters());
 		dispatch(listFilms());
-		dispatch(listVehicles());
+		dispatch(listPlanets());
+		dispatch(listSpecies());
 		dispatch(listStarships());
+		dispatch(listVehicles());
 	}, [dispatch]);
 
 	useEffect(() => {
