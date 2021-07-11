@@ -77,12 +77,16 @@ const UserLoginForm = ({ location, history }) => {
 					<form onSubmit={submitHandler}>
 						<InputBuilder
 							field='Email'
+							type='email'
+							required='required'
 							value={signInForm.email}
 							setInput={handleChange}
 						/>
 
 						<InputBuilder
 							field='Password'
+							type='password'
+							required='required'
 							value={signInForm.password}
 							setInput={handleChange}
 						/>

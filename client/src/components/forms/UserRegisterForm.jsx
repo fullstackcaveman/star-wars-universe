@@ -111,6 +111,7 @@ const UserRegisterForm = ({ location, history }) => {
 							fullWidth
 							required
 							name='email'
+							type='email'
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 						/>

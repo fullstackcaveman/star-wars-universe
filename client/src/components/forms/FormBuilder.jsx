@@ -5,7 +5,8 @@ const inputStyle = {
 };
 
 export const InputBuilder = (props) => {
-	const { value, field, setInput } = props;
+	const { value, field, type, required, setInput } = props;
+
 	const fieldLower = field.toLowerCase();
 
 	const whatSent = (e) => {
@@ -20,8 +21,9 @@ export const InputBuilder = (props) => {
 			variant='outlined'
 			size='small'
 			fullWidth
-			required
+			required={required}
 			name={`${fieldLower}`}
+			type={type}
 			value={value || ''}
 			onChange={whatSent}
 		/>
