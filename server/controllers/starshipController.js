@@ -104,7 +104,7 @@ const updateStarship = exceptionHandler(async (req, res) => {
 	const {
 		name,
 		pretty_url,
-		ship_model,
+		starship_model,
 		cost_in_credits,
 		length,
 		max_atmosphering_speed,
@@ -141,7 +141,7 @@ const updateStarship = exceptionHandler(async (req, res) => {
 	if (starship) {
 		starship.name = name;
 		starship.pretty_url = pretty_url;
-		starship.ship_model = ship_model;
+		starship.starship_model = starship_model;
 		starship.cost_in_credits = cost_in_credits;
 		starship.length = length;
 		starship.max_atmosphering_speed = max_atmosphering_speed;

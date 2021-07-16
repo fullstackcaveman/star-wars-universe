@@ -11,7 +11,7 @@ const starshipSchema = mongoose.Schema(
 			type: String,
 			unique: true,
 		},
-		model: String,
+		starship_model: String,
 		image: String,
 		cost_in_credits: String,
 		length: String,

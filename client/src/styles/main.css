@@ -658,8 +658,7 @@ footer .footer-bottom {
   color: #fff;
   padding: 10px;
   margin: 5px 0;
-  width: auto;
-  height: 250px;
+  max-width: 100%;
   border: 3px solid #ffe81f;
   border-radius: 2px;
 }
@@ -669,6 +668,11 @@ footer .footer-bottom {
 }
 .relatedItems-container .items {
   display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .relatedItems-container .items a {
   color: white;
