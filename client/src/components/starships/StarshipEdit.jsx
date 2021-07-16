@@ -89,7 +89,7 @@ const StarshipEdit = ({ match, history }) => {
 				setStarshipForm({
 					name: starship.name,
 					pretty_url: starship.pretty_url,
-					model: starship.model,
+					starship_model: starship.starship_model,
 					image: starship.image,
 					manufacturer: starship.manufacturer,
 					cost_in_credits: starship.cost_in_credits,
@@ -211,6 +211,18 @@ const StarshipEdit = ({ match, history }) => {
 								fullWidth
 								name='starship_class'
 								value={starshipForm.starship_class || ''}
+								onChange={(e) => handleInputChange(e.target)}
+							/>
+
+							<TextField
+								style={inputStyle}
+								label='Starship Model'
+								placeholder='Enter Starship Model'
+								variant='outlined'
+								size='small'
+								fullWidth
+								name='starship_model'
+								value={starshipForm.starship_model || ''}
 								onChange={(e) => handleInputChange(e.target)}
 							/>
 

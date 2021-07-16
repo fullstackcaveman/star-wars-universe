@@ -8,10 +8,11 @@
 	color: #fff;
 	padding: 10px;
 	margin: 5px 0;
-	width: auto;
-	height: 250px;
+	max-width: 100%;
+	// height: auto;
 	border: 3px solid $starwars-yellow;
 	border-radius: 2px;
+	// flex-wrap: wrap;
 
 	.item-title {
 		h2 {
@@ -22,6 +23,11 @@
 
 	.items {
 		display: flex;
+		flex-wrap: wrap;
+		justify-items: center;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
 
 		a {
 			color: white;
