@@ -24,8 +24,8 @@ const FilmPage = () => {
 	const [filmsPerPage] = useState(10);
 
 	useEffect(() => {
-		dispatch(listFilms());
 		dispatch(listCharacters());
+		dispatch(listFilms());
 		dispatch(listPlanets());
 		dispatch(listSpecies());
 		dispatch(listStarships());

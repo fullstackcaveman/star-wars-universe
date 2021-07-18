@@ -20,6 +20,12 @@ import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
 
+import { listFilms } from '../../actions/filmActions';
+import { listPlanets } from '../../actions/planetActions';
+import { listSpecies } from '../../actions/speciesActions';
+import { listStarships } from '../../actions/starshipActions';
+import { listVehicles } from '../../actions/vehicleActions';
+
 const SpeciesInfo = ({ match, history }) => {
 	const [loading, setLoading] = useState();
 	const dispatch = useDispatch();
@@ -30,6 +36,11 @@ const SpeciesInfo = ({ match, history }) => {
 		} else {
 			dispatch(listSpeciesInfoByName(match.params.pretty_url));
 		}
+		dispatch(listFilms());
+		dispatch(listPlanets());
+		dispatch(listSpecies());
+		dispatch(listStarships());
+		dispatch(listVehicles());
 		setTimeout(() => setLoading(speciesLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);

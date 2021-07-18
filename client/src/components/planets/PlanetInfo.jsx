@@ -19,7 +19,16 @@ import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedItems from '../elements/RelatedItems';
 
-const PlanetInfo = ({ match, history }) => {
+import { listCharacters } from '../../actions/characterActions';
+import { listFilms } from '../../actions/filmActions';
+import { listPlanets } from '../../actions/planetActions';
+import { listSpecies } from '../../actions/speciesActions';
+import { listStarships } from '../../actions/starshipActions';
+import { listVehicles } from '../../actions/vehicleActions';
+
+const PlanetInfo = ({ match }) => {
+	console.log(match);
+
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState();
 
@@ -33,14 +42,22 @@ const PlanetInfo = ({ match, history }) => {
 	const { characters } = allCharacters;
 
 	const allFilms = useSelector((state) => state.filmList);
-	const { films: filmography } = allFilms;
+	const { films } = allFilms;
+
+	// const allPlanets = useSelector((state) => state.planetList);
+	// const { planets } = allPlanets;
+
+	const allStarships = useSelector((state) => state.starshipList);
+	const { starships } = allStarships;
+
+	const allVehicles = useSelector((state) => state.vehicleList);
+	const { vehicles } = allVehicles;
 
 	const {
 		climate,
 		gravity,
 		terrain,
-		residents,
-		films,
+		relatedCharacters,
 		name,
 		// pretty_url,
 		rotation_period,
@@ -48,6 +65,7 @@ const PlanetInfo = ({ match, history }) => {
 		diameter,
 		surface_water,
 		population,
+		relatedFilms,
 		// suns,
 	} = planet;
 
@@ -59,6 +77,11 @@ const PlanetInfo = ({ match, history }) => {
 		} else {
 			dispatch(listPlanetInfoByName(match.params.pretty_url));
 		}
+		// dispatch(listCharacters());
+		// dispatch(listFilms());
+		// dispatch(listSpecies());
+		// dispatch(listStarships());
+		// dispatch(listVehicles());
 		setTimeout(() => setLoading(planetLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
@@ -164,21 +187,22 @@ const PlanetInfo = ({ match, history }) => {
 								</CardContent>
 							</div>
 						</Card>
-						{films === undefined || films.length === 0 ? null : (
+						{relatedFilms === undefined || relatedFilms.length === 0 ? null : (
 							<div className='flex'>
 								<RelatedItems
-									items={films}
-									related={filmography}
+									items={relatedFilms}
+									related={films}
 									model='Films'
 									handleInfoClick={handleInfoClick}
 								/>
 							</div>
 						)}
 
-						{residents === undefined || residents.length === 0 ? null : (
+						{relatedCharacters === undefined ||
+						relatedCharacters.length === 0 ? null : (
 							<div className='flex'>
 								<RelatedItems
-									items={residents}
+									items={relatedCharacters}
 									related={characters}
 									model='Characters'
 									handleInfoClick={handleInfoClick}

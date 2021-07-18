@@ -17,6 +17,13 @@ import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
 
+import { listCharacters } from '../../actions/characterActions';
+import { listFilms } from '../../actions/filmActions';
+import { listPlanets } from '../../actions/planetActions';
+import { listSpecies } from '../../actions/speciesActions';
+import { listStarships } from '../../actions/starshipActions';
+import { listVehicles } from '../../actions/vehicleActions';
+
 const FilmInfo = ({ match }) => {
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState();
@@ -65,6 +72,12 @@ const FilmInfo = ({ match }) => {
 		} else {
 			dispatch(listFilmInfoByName(match.params.pretty_url));
 		}
+		// dispatch(listCharacters());
+		// dispatch(listPlanets());
+		// dispatch(listSpecies());
+		// dispatch(listStarships());
+		// dispatch(listVehicles());
+
 		setTimeout(() => setLoading(filmLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
