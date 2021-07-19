@@ -15,4 +15,6 @@ I'm also in the process of styling the app which comes with its own set of issue
 The app is deployed on Heroku at this time here: http://starwars.fullstackcaveman.com
 I am finding some issues with the deployed version that is on my list to work through... There are custom routes that call data that need to be reworked to keep the app from breaking on page refresh.
 
+FIXED ^^^^^^^^^^^^^^^^^^^^^^
+
 More fun to come!
