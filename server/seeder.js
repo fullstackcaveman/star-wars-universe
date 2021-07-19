@@ -1,19 +1,19 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import colors from 'colors';
-// import { characters } from './data/characterData.js';
+// import { characters } from './seeds/characterData.js';
 // import Character from './models/characterModel.js';
-// import { films } from './data/filmData.js';
+// import { films } from './seeds/filmData.js';
 // import Film from './models/filmModel.js';
-// import { planets } from './data/planetData.js';
+// import { planets } from './seeds/planetData.js';
 // import Planet from './models/planetModel.js';
-// import { species } from './data/speciesData.js';
+// import { species } from './seeds/speciesData.js';
 // import Species from './models/speciesModel.js';
-// import { starships } from './data/starshipData.js';
+// import { starships } from './seeds/starshipData.js';
 // import Starship from './models/starshipModel.js';
-// import { users } from './data/usersData.js';
+// import { users } from './seeds/usersData.js';
 // import User from './models/userModel.js';
-// import { vehicles } from './data/vehicleData.js';
+// import { vehicles } from './seeds/vehicleData.js';
 // import Vehicle from './models/vehicleModel.js';
 import connectDB from './config/db.js';
 
