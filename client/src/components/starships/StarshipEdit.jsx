@@ -103,7 +103,7 @@ const StarshipEdit = ({ match, history }) => {
 					MGLT: starship.MGLT,
 					starship_class: starship.starship_class,
 					pilots: starship.pilots,
-					films: starship.films,
+					relatedFilms: starship.relatedFilms,
 					classification: starship.classification,
 					height_depth: starship.height_depth,
 					max_acceleration: starship.max_acceleration,
@@ -419,7 +419,7 @@ const StarshipEdit = ({ match, history }) => {
 							</div>
 
 							<div
-								className='films'
+								className='relatedFilms'
 								style={{
 									border: '1px solid #bdbdbd',
 									borderRadius: '5px',
@@ -427,19 +427,21 @@ const StarshipEdit = ({ match, history }) => {
 									margin: '5px 0',
 								}}
 							>
-								<Typography variant='body1'>Films:</Typography>
-								{(starshipForm.films || []).map((_aff, index) => (
-									<div key={index} className='films'>
+								<Typography variant='body1'>Related Films:</Typography>
+								{(starshipForm.relatedFilms || []).map((_aff, index) => (
+									<div key={index} className='relatedFilms'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={starshipForm.films[index]}
-											name='films'
-											onChange={(e) => handleArrayChange(e, index, 'films')}
+											value={starshipForm.relatedFilms[index]}
+											name='relatedFilms'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedFilms')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('films', index)}
+											onClick={() => handleDelete('relatedFilms', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -447,7 +449,7 @@ const StarshipEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('films')}
+									onClick={() => handleAddItem('relatedFilms')}
 								>
 									Add New Film
 								</Button>

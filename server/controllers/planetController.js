@@ -61,24 +61,24 @@ const createPlanet = exceptionHandler(async (req, res) => {
 	const planet = new Planet({
 		name: 'New Planet',
 		pretty_url: 'new-planet',
-		rotation_period: 'unknown',
-		orbital_period: 'unknown',
-		diameter: 'unknown',
-		surface_water: 'unknown',
-		population: 'unknown',
+		rotation_period: '',
+		orbital_period: '',
+		diameter: '',
+		surface_water: '',
+		population: '',
 		image: '/images/placeholder.jpg',
-		region: 'unknown',
-		sector: 'unknown',
-		system: 'unknown',
-		distance_from_core: 'unknown',
-		classification: 'unknown',
-		atmosphere: 'unknown',
-		grid_coords: 'unknown',
+		region: '',
+		sector: '',
+		system: '',
+		distance_from_core: '',
+		classification: '',
+		atmosphere: '',
+		grid_coords: '',
 		climate: [],
 		gravity: [],
 		terrain: [],
 		residents: [],
-		films: [],
+		relatedFilms: [],
 		suns: [],
 		moons: [],
 		trade_routes: [],
@@ -115,7 +115,7 @@ const updatePlanet = exceptionHandler(async (req, res) => {
 		gravity,
 		terrain,
 		residents,
-		films,
+		relatedFilms,
 		region,
 		sector,
 		system,
@@ -152,7 +152,7 @@ const updatePlanet = exceptionHandler(async (req, res) => {
 		planet.gravity = gravity;
 		planet.terrain = terrain;
 		planet.residents = residents;
-		planet.films = films;
+		planet.relatedFilms = relatedFilms;
 		planet.image = image;
 		planet.region = region;
 		planet.sector = sector;

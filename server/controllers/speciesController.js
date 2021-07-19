@@ -61,18 +61,18 @@ const createSpecies = exceptionHandler(async (req, res) => {
 	const species = new Species({
 		name: 'New Species',
 		pretty_url: 'new-species',
-		classification: 'unknown',
-		designation: 'unknown',
-		average_height: 'unknown',
-		skin_colors: ['unknown'],
-		hair_colors: ['unknown'],
-		eye_colors: ['unknown'],
-		average_lifespan: 'unknown',
-		homeworld: 'unknown',
-		language: 'unknown',
+		classification: '',
+		designation: '',
+		average_height: '',
+		skin_colors: [],
+		hair_colors: [],
+		eye_colors: [],
+		average_lifespan: '',
+		homeworld: '',
+		language: '',
 		image: '/images/placeholder.jpg',
-		people: ['unknown'],
-		films: ['unknown'],
+		people: [],
+		relatedFilms: [],
 	});
 
 	const createdSpecies = await species.save();
@@ -97,7 +97,7 @@ const updateSpecies = exceptionHandler(async (req, res) => {
 		language,
 		image,
 		people,
-		films,
+		relatedFilms,
 	} = req.body;
 
 	const species = await Species.findById(req.params.id);
@@ -116,7 +116,7 @@ const updateSpecies = exceptionHandler(async (req, res) => {
 		species.language = language;
 		species.image = image;
 		species.people = people;
-		species.films = films;
+		species.relatedFilms = relatedFilms;
 
 		const updatedSpecies = await species.save();
 		res.json(updatedSpecies);

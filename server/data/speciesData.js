@@ -13,7 +13,7 @@ export const species = [
 		hair_colors: ['blonde', 'brown', 'black', 'red'],
 		eye_colors: ['brown', 'blue', 'green', 'hazel', 'grey', 'amber'],
 		people: ['Dormé', 'Dooku', 'Bail Prestor Organa', 'Jocasta Nu'],
-		films: [
+		relatedFilms: [
 			'A New Hope',
 			'The Empire Strikes Back',
 			'Return of the Jedi',
@@ -36,7 +36,7 @@ export const species = [
 		language: '',
 		image: '/images/placeholder.jpg',
 		people: ['C-3PO', 'R2-D2', 'R5-D4', 'IG-88'],
-		films: [
+		relatedFilms: [
 			'A New Hope',
 			'The Empire Strikes Back',
 			'Return of the Jedi',
@@ -59,7 +59,7 @@ export const species = [
 		language: 'Shyriiwook',
 		image: '/images/placeholder.jpg',
 		people: ['Chewbacca', 'Tarfful'],
-		films: [
+		relatedFilms: [
 			'A New Hope',
 			'The Empire Strikes Back',
 			'Return of the Jedi',
@@ -80,7 +80,7 @@ export const species = [
 		language: 'Galatic Basic',
 		image: '/images/placeholder.jpg',
 		people: ['Greedo'],
-		films: ['A New Hope'],
+		relatedFilms: ['A New Hope'],
 	},
 	{
 		name: 'Hutt',
@@ -96,7 +96,7 @@ export const species = [
 		language: 'Huttese',
 		image: '/images/placeholder.jpg',
 		people: ['Jabba Desilijic Tiure'],
-		films: ['A New Hope', 'Return of the Jedi'],
+		relatedFilms: ['A New Hope', 'Return of the Jedi'],
 	},
 	{
 		name: "Yoda's species",
@@ -112,7 +112,7 @@ export const species = [
 		homeworld: 'unknown',
 		language: 'Galactic basic',
 		people: ['Yoda'],
-		films: [
+		relatedFilms: [
 			'The Empire Strikes Back',
 			'Return of the Jedi',
 			'The Phantom Menace',
@@ -134,7 +134,7 @@ export const species = [
 		language: 'Dosh',
 		image: '/images/placeholder.jpg',
 		people: ['Bossk'],
-		films: ['The Empire Strikes Back'],
+		relatedFilms: ['The Empire Strikes Back'],
 	},
 	{
 		name: 'Mon Calamari',
@@ -150,7 +150,7 @@ export const species = [
 		language: 'Mon Calamarian',
 		image: '/images/placeholder.jpg',
 		people: ['Ackbar'],
-		films: ['Return of the Jedi'],
+		relatedFilms: ['Return of the Jedi'],
 	},
 	{
 		name: 'Ewok',
@@ -166,7 +166,7 @@ export const species = [
 		language: 'Ewokese',
 		image: '/images/placeholder.jpg',
 		people: ['Wicket Systri Warrick'],
-		films: ['Return of the Jedi'],
+		relatedFilms: ['Return of the Jedi'],
 	},
 	{
 		name: 'Sullustan',
@@ -182,7 +182,7 @@ export const species = [
 		language: 'Sullutese',
 		image: '/images/placeholder.jpg',
 		people: ['Nien Nunb'],
-		films: ['Return of the Jedi'],
+		relatedFilms: ['Return of the Jedi'],
 	},
 	{
 		name: 'Neimodian',
@@ -198,7 +198,7 @@ export const species = [
 		language: 'Neimoidia',
 		image: '/images/placeholder.jpg',
 		people: ['Nute Gunray'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: 'Gungan',
@@ -214,7 +214,7 @@ export const species = [
 		language: 'Gungan basic',
 		image: '/images/placeholder.jpg',
 		people: ['Jar Jar Binks', 'Roos Tarpals', 'Rugor Nass'],
-		films: ['The Phantom Menace', 'Attack of the Clones'],
+		relatedFilms: ['The Phantom Menace', 'Attack of the Clones'],
 	},
 	{
 		name: 'Toydarian',
@@ -230,7 +230,7 @@ export const species = [
 		language: 'Toydarian',
 		image: '/images/placeholder.jpg',
 		people: ['Watto'],
-		films: ['The Phantom Menace', 'Attack of the Clones'],
+		relatedFilms: ['The Phantom Menace', 'Attack of the Clones'],
 	},
 	{
 		name: 'Dug',
@@ -246,7 +246,7 @@ export const species = [
 		language: 'Dugese',
 		image: '/images/placeholder.jpg',
 		people: ['Sebulba'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: "Twi'lek",
@@ -262,7 +262,7 @@ export const species = [
 		language: "Twi'leki",
 		image: '/images/placeholder.jpg',
 		people: ['Bib Fortuna', 'Ayla Secura'],
-		films: [
+		relatedFilms: [
 			'Return of the Jedi',
 			'The Phantom Menace',
 			'Attack of the Clones',
@@ -283,7 +283,7 @@ export const species = [
 		language: 'Aleena',
 		image: '/images/placeholder.jpg',
 		people: ['Ratts Tyerel'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: 'Vulptereen',
@@ -299,7 +299,7 @@ export const species = [
 		language: 'vulpterish',
 		image: '/images/placeholder.jpg',
 		people: ['Dud Bolt'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: 'Xexto',
@@ -315,7 +315,7 @@ export const species = [
 		language: 'Xextese',
 		image: '/images/placeholder.jpg',
 		people: ['Gasgano'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: 'Toong',
@@ -331,7 +331,7 @@ export const species = [
 		language: 'Tundan',
 		image: '/images/placeholder.jpg',
 		people: ['Ben Quadinaros'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Cerean',
@@ -347,7 +347,7 @@ export const species = [
 		language: 'Cerean',
 		image: '/images/placeholder.jpg',
 		people: ['Ki-Adi-Mundi'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Nautolan',
@@ -363,7 +363,7 @@ export const species = [
 		language: 'Nautila',
 		image: '/images/placeholder.jpg',
 		people: ['Kit Fisto'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: 'Zabrak',
@@ -379,7 +379,7 @@ export const species = [
 		language: 'Zabraki',
 		image: '/images/placeholder.jpg',
 		people: ['Darth Maul', 'Eeth Koth'],
-		films: ['The Phantom Menace'],
+		relatedFilms: ['The Phantom Menace'],
 	},
 	{
 		name: 'Tholothian',
@@ -395,7 +395,7 @@ export const species = [
 		language: 'unknown',
 		image: '/images/placeholder.jpg',
 		people: ['Adi Gallia'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Iktotchi',
@@ -411,7 +411,7 @@ export const species = [
 		language: 'Iktotchese',
 		image: '/images/placeholder.jpg',
 		people: ['Saesee Tiin'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Quermian',
@@ -427,7 +427,7 @@ export const species = [
 		language: 'Quermian',
 		image: '/images/placeholder.jpg',
 		people: ['Yarael Poof'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Kel Dor',
@@ -443,7 +443,7 @@ export const species = [
 		language: 'Kel Dor',
 		image: '/images/placeholder.jpg',
 		people: ['Plo Koon'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Chagrian',
@@ -459,7 +459,7 @@ export const species = [
 		language: 'Chagria',
 		image: '/images/placeholder.jpg',
 		people: ['Mas Amedda'],
-		films: ['The Phantom Menace', 'Revenge of the Sith'],
+		relatedFilms: ['The Phantom Menace', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Geonosian',
@@ -475,7 +475,7 @@ export const species = [
 		language: 'Geonosian',
 		image: '/images/placeholder.jpg',
 		people: ['Poggle the Lesser'],
-		films: ['Attack of the Clones', 'Revenge of the Sith'],
+		relatedFilms: ['Attack of the Clones', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Mirialan',
@@ -491,7 +491,7 @@ export const species = [
 		language: 'Mirialan',
 		image: '/images/placeholder.jpg',
 		people: ['Luminara Unduli', 'Barriss Offee'],
-		films: ['Attack of the Clones', 'Revenge of the Sith'],
+		relatedFilms: ['Attack of the Clones', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Clawdite',
@@ -507,7 +507,7 @@ export const species = [
 		language: 'Clawdite',
 		image: '/images/placeholder.jpg',
 		people: ['Zam Wesell'],
-		films: ['Attack of the Clones', 'Revenge of the Sith'],
+		relatedFilms: ['Attack of the Clones', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Besalisk',
@@ -523,7 +523,7 @@ export const species = [
 		language: 'besalisk',
 		image: '/images/placeholder.jpg',
 		people: ['Dexter Jettster'],
-		films: ['Attack of the Clones'],
+		relatedFilms: ['Attack of the Clones'],
 	},
 	{
 		name: 'Kaminoan',
@@ -539,7 +539,7 @@ export const species = [
 		language: 'Kaminoan',
 		image: '/images/placeholder.jpg',
 		people: ['Lama Su', 'Taun We'],
-		films: ['Attack of the Clones'],
+		relatedFilms: ['Attack of the Clones'],
 	},
 	{
 		name: 'Skakoan',
@@ -555,7 +555,7 @@ export const species = [
 		language: 'Skakoan',
 		image: '/images/placeholder.jpg',
 		people: ['Wat Tambor'],
-		films: ['Attack of the Clones', 'Revenge of the Sith'],
+		relatedFilms: ['Attack of the Clones', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Muun',
@@ -571,7 +571,7 @@ export const species = [
 		language: 'Muun',
 		image: '/images/placeholder.jpg',
 		people: ['San Hill'],
-		films: ['Attack of the Clones', 'Revenge of the Sith'],
+		relatedFilms: ['Attack of the Clones', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Togruta',
@@ -587,7 +587,7 @@ export const species = [
 		language: 'Togruti',
 		image: '/images/placeholder.jpg',
 		people: ['Shaak Ti'],
-		films: ['Attack of the Clones', 'Revenge of the Sith'],
+		relatedFilms: ['Attack of the Clones', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Kaleesh',
@@ -603,7 +603,7 @@ export const species = [
 		language: 'Kaleesh',
 		image: '/images/placeholder.jpg',
 		people: ['Grievous'],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: "Pau'an",
@@ -619,6 +619,6 @@ export const species = [
 		hair_colors: ['none'],
 		eye_colors: ['black'],
 		people: ['Tion Medon'],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 ];

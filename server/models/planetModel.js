@@ -41,7 +41,7 @@ const planetSchema = mongoose.Schema(
 		gravity: Array,
 		terrain: Array,
 		residents: Array,
-		films: Array,
+		relatedFilms: Array,
 		suns: Array,
 	},
 	{
