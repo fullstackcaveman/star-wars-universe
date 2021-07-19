@@ -81,7 +81,7 @@ const CharacterInfo = ({ match }) => {
 		dispatch(listSpecies());
 		dispatch(listStarships());
 		dispatch(listVehicles());
-		setTimeout(() => setLoading(charLoader), 1000);
+		setTimeout(() => setLoading(charLoader), 2000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
 

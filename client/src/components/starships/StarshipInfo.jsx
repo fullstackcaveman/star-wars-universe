@@ -64,7 +64,7 @@ const StarshipInfo = ({ match }) => {
 		}
 		dispatch(listFilms());
 
-		setTimeout(() => setLoading(starshipLoader), 1000);
+		setTimeout(() => setLoading(starshipLoader), 2000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
 

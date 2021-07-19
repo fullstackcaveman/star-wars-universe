@@ -43,7 +43,7 @@ const SpeciesInfo = ({ match }) => {
 		// dispatch(listSpecies());
 		// dispatch(listStarships());
 		// dispatch(listVehicles());
-		setTimeout(() => setLoading(speciesLoader), 1000);
+		setTimeout(() => setLoading(speciesLoader), 2000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
 
