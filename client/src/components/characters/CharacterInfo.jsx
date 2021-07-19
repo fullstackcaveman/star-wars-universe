@@ -26,12 +26,6 @@ import { listStarships } from '../../actions/starshipActions';
 import { listVehicles } from '../../actions/vehicleActions';
 
 const CharacterInfo = ({ match }) => {
-	console.log(match);
-
-	// localStorage.setItem('characterInfo', JSON.stringify(match.url));
-
-	// Posibly use session storage here to record match so that a refresh will pull the same data...
-
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState(true);
 
@@ -54,24 +48,24 @@ const CharacterInfo = ({ match }) => {
 	const { vehicles } = allVehicles;
 
 	const {
-		name,
-		species,
-		born,
-		gender,
-		height,
-		mass,
-		hairColor,
-		skinColor,
-		homeworld,
-		cybernetics,
 		affiliations,
-		masters,
 		apprentices,
+		born,
+		cybernetics,
 		formerAffiliations,
+		gender,
+		hairColor,
+		height,
+		homeworld,
+		name,
+		mass,
+		masters,
+		relatedFilms,
 		relatedPlanets,
 		relatedStarships,
 		relatedVehicles,
-		relatedFilms,
+		skinColor,
+		species,
 	} = character;
 
 	document.title = `Star Wars | ${character.name}`;

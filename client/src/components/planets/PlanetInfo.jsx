@@ -10,7 +10,6 @@ import {
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
-
 import {
 	listPlanetInfo,
 	listPlanetInfoByName,
@@ -21,16 +20,13 @@ import RelatedItems from '../elements/RelatedItems';
 
 import { listCharacters } from '../../actions/characterActions';
 import { listFilms } from '../../actions/filmActions';
-import { listPlanets } from '../../actions/planetActions';
-import { listSpecies } from '../../actions/speciesActions';
-import { listStarships } from '../../actions/starshipActions';
-import { listVehicles } from '../../actions/vehicleActions';
+// import { listSpecies } from '../../actions/speciesActions';
+// import { listStarships } from '../../actions/starshipActions';
+// import { listVehicles } from '../../actions/vehicleActions';
 
 const PlanetInfo = ({ match }) => {
-	console.log(match);
-
 	const dispatch = useDispatch();
-	const [loading, setLoading] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
@@ -38,35 +34,26 @@ const PlanetInfo = ({ match }) => {
 	const planetInfo = useSelector((state) => state.planetInfo);
 	const { loading: planetLoader, error, planet } = planetInfo;
 
-	const allCharacters = useSelector((state) => state.characterList);
-	const { characters } = allCharacters;
-
 	const allFilms = useSelector((state) => state.filmList);
 	const { films } = allFilms;
 
-	// const allPlanets = useSelector((state) => state.planetList);
-	// const { planets } = allPlanets;
-
-	const allStarships = useSelector((state) => state.starshipList);
-	const { starships } = allStarships;
-
-	const allVehicles = useSelector((state) => state.vehicleList);
-	const { vehicles } = allVehicles;
+	const allCharacters = useSelector((state) => state.characterList);
+	const { characters } = allCharacters;
 
 	const {
 		climate,
-		gravity,
-		terrain,
-		relatedCharacters,
-		name,
-		// pretty_url,
-		rotation_period,
-		orbital_period,
 		diameter,
-		surface_water,
+		gravity,
+		name,
+		orbital_period,
 		population,
+		// pretty_url,
+		relatedCharacters,
 		relatedFilms,
+		rotation_period,
 		// suns,
+		surface_water,
+		terrain,
 	} = planet;
 
 	document.title = `Star Wars | ${planet.name}`;
@@ -77,8 +64,8 @@ const PlanetInfo = ({ match }) => {
 		} else {
 			dispatch(listPlanetInfoByName(match.params.pretty_url));
 		}
-		// dispatch(listCharacters());
-		// dispatch(listFilms());
+		dispatch(listFilms());
+		dispatch(listCharacters());
 		// dispatch(listSpecies());
 		// dispatch(listStarships());
 		// dispatch(listVehicles());

@@ -26,7 +26,7 @@ import { listVehicles } from '../../actions/vehicleActions';
 
 const FilmInfo = ({ match }) => {
 	const dispatch = useDispatch();
-	const [loading, setLoading] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const checked = useSelector((state) => state.adminShowEditBtn);
 	const { adminShowEditBtn } = checked;
@@ -50,18 +50,18 @@ const FilmInfo = ({ match }) => {
 	const { vehicles } = allVehicles;
 
 	const {
-		title,
-		image,
 		director,
 		episode_id,
+		image,
 		opening_crawl,
-		release_date,
 		producer,
 		relatedCharacters,
 		relatedPlanets,
+		relatedSpecies,
 		relatedStarships,
 		relatedVehicles,
-		relatedSpecies,
+		release_date,
+		title,
 	} = film;
 
 	document.title = `Star Wars | ${film.title}`;
@@ -72,11 +72,11 @@ const FilmInfo = ({ match }) => {
 		} else {
 			dispatch(listFilmInfoByName(match.params.pretty_url));
 		}
-		// dispatch(listCharacters());
-		// dispatch(listPlanets());
-		// dispatch(listSpecies());
-		// dispatch(listStarships());
-		// dispatch(listVehicles());
+		dispatch(listCharacters());
+		dispatch(listPlanets());
+		dispatch(listSpecies());
+		dispatch(listStarships());
+		dispatch(listVehicles());
 
 		setTimeout(() => setLoading(filmLoader), 1000);
 		// eslint-disable-next-line

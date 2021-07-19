@@ -20,6 +20,8 @@ import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
 
+import { listFilms } from '../../actions/filmActions';
+
 const StarshipInfo = ({ match }) => {
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState(true);
@@ -31,7 +33,7 @@ const StarshipInfo = ({ match }) => {
 	const { loading: starshipLoader, error, starship } = starshipInfo;
 
 	const allFilms = useSelector((state) => state.filmList);
-	const { films: filmography } = allFilms;
+	const { films } = allFilms;
 
 	const {
 		name,
@@ -49,7 +51,7 @@ const StarshipInfo = ({ match }) => {
 		starship_class,
 		manufacturer,
 		// pilots,
-		films,
+		relatedFilms,
 	} = starship;
 
 	document.title = `Star Wars | ${starship.name}`;
@@ -60,6 +62,8 @@ const StarshipInfo = ({ match }) => {
 		} else {
 			dispatch(listStarshipInfoByName(match.params.pretty_url));
 		}
+		dispatch(listFilms());
+
 		setTimeout(() => setLoading(starshipLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
@@ -186,11 +190,12 @@ const StarshipInfo = ({ match }) => {
 							</div>
 						</Card>
 						<div className='flex'>
-							{films === undefined || films.length === 0 ? null : (
+							{relatedFilms === undefined ||
+							relatedFilms.length === 0 ? null : (
 								<div className='flex'>
 									<RelatedItems
-										items={films}
-										related={filmography}
+										items={relatedFilms}
+										related={films}
 										model='Films'
 										handleInfoClick={handleInfoClick}
 									/>
