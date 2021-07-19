@@ -69,7 +69,7 @@ const PlanetInfo = ({ match }) => {
 		// dispatch(listSpecies());
 		// dispatch(listStarships());
 		// dispatch(listVehicles());
-		setTimeout(() => setLoading(planetLoader), 1000);
+		setTimeout(() => setLoading(planetLoader), 2000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
 

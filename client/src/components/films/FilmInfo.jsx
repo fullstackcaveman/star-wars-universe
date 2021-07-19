@@ -18,7 +18,6 @@ import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
 
 import { listCharacters } from '../../actions/characterActions';
-import { listFilms } from '../../actions/filmActions';
 import { listPlanets } from '../../actions/planetActions';
 import { listSpecies } from '../../actions/speciesActions';
 import { listStarships } from '../../actions/starshipActions';
@@ -78,7 +77,7 @@ const FilmInfo = ({ match }) => {
 		dispatch(listStarships());
 		dispatch(listVehicles());
 
-		setTimeout(() => setLoading(filmLoader), 1000);
+		setTimeout(() => setLoading(filmLoader), 2000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
 

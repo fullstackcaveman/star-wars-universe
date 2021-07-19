@@ -61,7 +61,7 @@ const VehicleInfo = ({ match }) => {
 		}
 		dispatch(listFilms());
 
-		setTimeout(() => setLoading(vehicleLoader), 1000);
+		setTimeout(() => setLoading(vehicleLoader), 2000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
 
