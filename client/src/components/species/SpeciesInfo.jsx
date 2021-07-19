@@ -20,8 +20,15 @@ import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
 
-const SpeciesInfo = ({ match, history }) => {
-	const [loading, setLoading] = useState();
+import { listFilms } from '../../actions/filmActions';
+import { listCharacters } from '../../actions/characterActions';
+// import { listPlanets } from '../../actions/planetActions';
+// import { listSpecies } from '../../actions/speciesActions';
+// import { listStarships } from '../../actions/starshipActions';
+// import { listVehicles } from '../../actions/vehicleActions';
+
+const SpeciesInfo = ({ match }) => {
+	const [loading, setLoading] = useState(true);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -30,6 +37,12 @@ const SpeciesInfo = ({ match, history }) => {
 		} else {
 			dispatch(listSpeciesInfoByName(match.params.pretty_url));
 		}
+		dispatch(listFilms());
+		dispatch(listCharacters());
+		// dispatch(listPlanets());
+		// dispatch(listSpecies());
+		// dispatch(listStarships());
+		// dispatch(listVehicles());
 		setTimeout(() => setLoading(speciesLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
@@ -44,7 +57,7 @@ const SpeciesInfo = ({ match, history }) => {
 	const { characters } = allCharacters;
 
 	const allFilms = useSelector((state) => state.filmList);
-	const { films: filmography } = allFilms;
+	const { films } = allFilms;
 
 	const {
 		name,
@@ -58,8 +71,8 @@ const SpeciesInfo = ({ match, history }) => {
 		skin_colors,
 		hair_colors,
 		eye_colors,
-		people,
-		films,
+		relatedCharacters,
+		relatedFilms,
 	} = species;
 
 	document.title = `Star Wars | ${species.name}`;
@@ -195,21 +208,23 @@ const SpeciesInfo = ({ match, history }) => {
 							</div>
 						</Card>
 						<div className='flex'>
-							{films === undefined || films.length === 0 ? null : (
+							{relatedFilms === undefined ||
+							relatedFilms.length === 0 ? null : (
 								<div className='flex'>
 									<RelatedItems
-										items={films}
-										related={filmography}
+										items={relatedFilms}
+										related={films}
 										model='Films'
 										handleInfoClick={handleInfoClick}
 									/>
 								</div>
 							)}
 
-							{people === undefined || people.length === 0 ? null : (
+							{relatedCharacters === undefined ||
+							relatedCharacters.length === 0 ? null : (
 								<div className='flex'>
 									<RelatedItems
-										items={people}
+										items={relatedCharacters}
 										related={characters}
 										model='Characters'
 										handleInfoClick={handleInfoClick}

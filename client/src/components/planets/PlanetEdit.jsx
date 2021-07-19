@@ -49,7 +49,7 @@ const PlanetEdit = ({ match, history }) => {
 		terrain: [],
 		suns: [],
 		residents: [],
-		films: [],
+		relatedFilms: [],
 		moons: [],
 		trade_routes: [],
 		points_of_interest: [],
@@ -104,7 +104,7 @@ const PlanetEdit = ({ match, history }) => {
 					gravity: planet.gravity,
 					terrain: planet.terrain,
 					residents: planet.residents,
-					films: planet.films,
+					relatedFilms: planet.relatedFilms,
 					suns: planet.suns,
 					moons: planet.moons,
 					trade_routes: planet.trade_routes,
@@ -533,7 +533,7 @@ const PlanetEdit = ({ match, history }) => {
 							</div>
 
 							<div
-								className='films'
+								className='relatedFilms'
 								style={{
 									border: '1px solid #bdbdbd',
 									borderRadius: '5px',
@@ -541,19 +541,21 @@ const PlanetEdit = ({ match, history }) => {
 									margin: '5px 0',
 								}}
 							>
-								<Typography variant='body1'>Films:</Typography>
-								{(planetForm.films || []).map((_item, index) => (
-									<div key={index} className='films'>
+								<Typography variant='body1'>Related Films:</Typography>
+								{(planetForm.relatedFilms || []).map((_item, index) => (
+									<div key={index} className='relatedFilms'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={planetForm.films[index]}
-											name='films'
-											onChange={(e) => handleArrayChange(e, index, 'films')}
+											value={planetForm.relatedFilms[index]}
+											name='relatedFilms'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedFilms')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('films', index)}
+											onClick={() => handleDelete('relatedFilms', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -561,7 +563,7 @@ const PlanetEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('films')}
+									onClick={() => handleAddItem('relatedFilms')}
 								>
 									Add New Film
 								</Button>

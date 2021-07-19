@@ -19,6 +19,12 @@ import InfoArrayContainer from '../elements/InfoArrayContainer';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedItems from '../elements/RelatedItems';
 
+import { listFilms } from '../../actions/filmActions';
+import { listPlanets } from '../../actions/planetActions';
+import { listSpecies } from '../../actions/speciesActions';
+import { listStarships } from '../../actions/starshipActions';
+import { listVehicles } from '../../actions/vehicleActions';
+
 const CharacterInfo = ({ match }) => {
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState(true);
@@ -32,31 +38,34 @@ const CharacterInfo = ({ match }) => {
 	const allFilms = useSelector((state) => state.filmList);
 	const { films } = allFilms;
 
-	const allVehicles = useSelector((state) => state.vehicleList);
-	const { vehicles } = allVehicles;
+	const allPlanets = useSelector((state) => state.planetList);
+	const { planets } = allPlanets;
 
 	const allStarships = useSelector((state) => state.starshipList);
 	const { starships } = allStarships;
 
+	const allVehicles = useSelector((state) => state.vehicleList);
+	const { vehicles } = allVehicles;
+
 	const {
-		name,
-		species,
-		born,
-		gender,
-		height,
-		mass,
-		hairColor,
-		skinColor,
-		homeworld,
-		cybernetics,
 		affiliations,
-		masters,
 		apprentices,
+		born,
+		cybernetics,
 		formerAffiliations,
-		// relatedPlanets,
+		gender,
+		hairColor,
+		height,
+		homeworld,
+		name,
+		mass,
+		masters,
+		relatedFilms,
+		relatedPlanets,
 		relatedStarships,
 		relatedVehicles,
-		relatedFilms,
+		skinColor,
+		species,
 	} = character;
 
 	document.title = `Star Wars | ${character.name}`;
@@ -67,6 +76,11 @@ const CharacterInfo = ({ match }) => {
 		} else {
 			dispatch(listCharacterInfoByName(match.params.pretty_url));
 		}
+		dispatch(listFilms());
+		dispatch(listPlanets());
+		dispatch(listSpecies());
+		dispatch(listStarships());
+		dispatch(listVehicles());
 		setTimeout(() => setLoading(charLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
@@ -251,6 +265,18 @@ const CharacterInfo = ({ match }) => {
 									items={relatedFilms}
 									related={films}
 									model='Films'
+									handleInfoClick={handleInfoClick}
+								/>
+							</div>
+						)}
+
+						{relatedPlanets === undefined ||
+						relatedPlanets.length === 0 ? null : (
+							<div className='flex'>
+								<RelatedItems
+									items={relatedPlanets}
+									related={planets}
+									model='Planets'
 									handleInfoClick={handleInfoClick}
 								/>
 							</div>

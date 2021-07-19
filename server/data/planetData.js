@@ -44,7 +44,7 @@ export const planets = [
 			'Shmi Skywalker',
 			'Cliegg Lars',
 		],
-		films: [
+		relatedFilms: [
 			'A New Hope',
 			'Return of the Jedi',
 			'The Phantom Menace',
@@ -86,7 +86,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Leia Organa', 'Bail Prestor Organa', 'Raymus Antilles'],
-		films: ['A New Hope', 'Revenge of the Sith'],
+		relatedFilms: ['A New Hope', 'Revenge of the Sith'],
 	},
 	{
 		name: 'Yavin IV',
@@ -122,7 +122,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['A New Hope'],
+		relatedFilms: ['A New Hope'],
 	},
 	{
 		name: 'Hoth',
@@ -158,7 +158,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['The Empire Strikes Back'],
+		relatedFilms: ['The Empire Strikes Back'],
 	},
 	{
 		name: 'Dagobah',
@@ -194,7 +194,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: [
+		relatedFilms: [
 			'The Empire Strikes Back',
 			'Return of the Jedi',
 			'Revenge of the Sith',
@@ -234,7 +234,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Lobot'],
-		films: ['The Empire Strikes Back'],
+		relatedFilms: ['The Empire Strikes Back'],
 	},
 	{
 		name: 'Endor',
@@ -270,7 +270,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Wicket Systri Warrick'],
-		films: ['Return of the Jedi'],
+		relatedFilms: ['Return of the Jedi'],
 	},
 	{
 		name: 'Naboo',
@@ -318,7 +318,7 @@ export const planets = [
 			'Cordé',
 			'Dormé',
 		],
-		films: [
+		relatedFilms: [
 			'Return of the Jedi',
 			'The Phantom Menace',
 			'Attack of the Clones',
@@ -359,7 +359,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Finis Valorum', 'Adi Gallia', 'Jocasta Nu'],
-		films: [
+		relatedFilms: [
 			'Return of the Jedi',
 			'The Phantom Menace',
 			'Attack of the Clones',
@@ -380,7 +380,7 @@ export const planets = [
 		gravity: ['1', 'standard'],
 		terrain: ['ocean'],
 		residents: ['Boba Fett', 'Lama Su', 'Taun We'],
-		films: ['Attack of the Clones'],
+		relatedFilms: ['Attack of the Clones'],
 		suns: [],
 		region: '',
 		sector: '',
@@ -435,7 +435,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Poggle the Lesser'],
-		films: ['Attack of the Clones'],
+		relatedFilms: ['Attack of the Clones'],
 	},
 	{
 		name: 'Utapau',
@@ -470,7 +470,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Tion Medon'],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Mustafar',
@@ -505,7 +505,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Kashyyyk',
@@ -540,7 +540,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Chewbacca', 'Tarfful'],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Polis Massa',
@@ -575,7 +575,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Mygeeto',
@@ -610,7 +610,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Felucia',
@@ -645,7 +645,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Cato Neimoidia',
@@ -680,7 +680,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Nute Gunray'],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Saleucami',
@@ -715,7 +715,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['Revenge of the Sith'],
+		relatedFilms: ['Revenge of the Sith'],
 	},
 	{
 		name: 'Stewjon',
@@ -750,7 +750,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Obi-Wan Kenobi'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Eriadu',
@@ -785,7 +785,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Wilhuff Tarkin'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Corellia',
@@ -820,7 +820,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Han Solo', 'Wedge Antilles'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Rodia',
@@ -855,7 +855,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Greedo'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Nal Hutta',
@@ -890,7 +890,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Jabba Desilijic Tiure'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Dantooine',
@@ -925,7 +925,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Bestine IV',
@@ -960,7 +960,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Jek Tono Porkins'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Ord Mantell',
@@ -995,7 +995,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: ['The Empire Strikes Back'],
+		relatedFilms: ['The Empire Strikes Back'],
 	},
 	{
 		name: 'unknown',
@@ -1030,7 +1030,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Yoda', 'IG-88', 'Arvel Crynyd', 'Qui-Gon Jinn', 'R4-P17'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Trandosha',
@@ -1065,7 +1065,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Bossk'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Socorro',
@@ -1100,7 +1100,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Lando Calrissian'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Mon Cala',
@@ -1135,7 +1135,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Ackbar'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Chandrila',
@@ -1170,7 +1170,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Mon Mothma'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Sullust',
@@ -1205,7 +1205,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Nien Nunb'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Toydaria',
@@ -1240,7 +1240,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Watto'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Malastare',
@@ -1275,7 +1275,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Sebulba'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Dathomir',
@@ -1310,7 +1310,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Darth Maul'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Ryloth',
@@ -1345,7 +1345,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Bib Fortuna', 'Ayla Secura'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Aleen Minor',
@@ -1380,7 +1380,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Ratts Tyerel'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Vulpter',
@@ -1415,7 +1415,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Dud Bolt'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Troiken',
@@ -1450,7 +1450,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Gasgano'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Tund',
@@ -1485,7 +1485,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Ben Quadinaros'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Haruun Kal',
@@ -1520,7 +1520,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Mace Windu'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Cerea',
@@ -1555,7 +1555,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Ki-Adi-Mundi'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Glee Anselm',
@@ -1590,7 +1590,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Kit Fisto'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Iridonia',
@@ -1625,7 +1625,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Eeth Koth'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Tholoth',
@@ -1660,7 +1660,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: [],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Iktotch',
@@ -1695,7 +1695,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Saesee Tiin'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Quermia',
@@ -1730,7 +1730,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Yarael Poof'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Dorin',
@@ -1765,7 +1765,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Plo Koon'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Champala',
@@ -1800,7 +1800,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Mas Amedda'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Mirial',
@@ -1835,7 +1835,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Luminara Unduli', 'Barriss Offee'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Serenno',
@@ -1870,7 +1870,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Dooku'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Concord Dawn',
@@ -1905,7 +1905,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Jango Fett'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Zolan',
@@ -1940,7 +1940,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Zam Wesell'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Ojom',
@@ -1975,7 +1975,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Dexter Jettster'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Skako',
@@ -2010,7 +2010,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Wat Tambor'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Muunilinst',
@@ -2045,7 +2045,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['San Hill'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Shili',
@@ -2080,7 +2080,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Shaak Ti'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Kalee',
@@ -2115,7 +2115,7 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Grievous'],
-		films: [],
+		relatedFilms: [],
 	},
 	{
 		name: 'Umbara',
@@ -2150,6 +2150,6 @@ export const planets = [
 		major_exports: [],
 		affiliations: [],
 		residents: ['Sly Moore'],
-		films: [],
+		relatedFilms: [],
 	},
 ];

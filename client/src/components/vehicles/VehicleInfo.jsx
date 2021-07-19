@@ -19,6 +19,7 @@ import { NavLink } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
+import { listFilms } from '../../actions/filmActions';
 
 const VehicleInfo = ({ match }) => {
 	const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const VehicleInfo = ({ match }) => {
 	const { loading: vehicleLoader, error, vehicle } = vehicleInfo;
 
 	const allFilms = useSelector((state) => state.filmList);
-	const { films: filmography } = allFilms;
+	const { films } = allFilms;
 
 	const {
 		name,
@@ -47,7 +48,7 @@ const VehicleInfo = ({ match }) => {
 		vehicle_class,
 		manufacturer,
 		// pilots,
-		films,
+		relatedFilms,
 	} = vehicle;
 
 	document.title = `Star Wars | ${vehicle.name}`;
@@ -58,6 +59,8 @@ const VehicleInfo = ({ match }) => {
 		} else {
 			dispatch(listVehicleInfoByName(match.params.pretty_url));
 		}
+		dispatch(listFilms());
+
 		setTimeout(() => setLoading(vehicleLoader), 1000);
 		// eslint-disable-next-line
 	}, [match, dispatch]);
@@ -173,11 +176,12 @@ const VehicleInfo = ({ match }) => {
 						</Card>
 
 						<div className='flex'>
-							{films === undefined || films.length === 0 ? null : (
+							{relatedFilms === undefined ||
+							relatedFilms.length === 0 ? null : (
 								<div className='flex'>
 									<RelatedItems
-										items={films}
-										related={filmography}
+										items={relatedFilms}
+										related={films}
 										model='Films'
 										handleInfoClick={handleInfoClick}
 									/>
