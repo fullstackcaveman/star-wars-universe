@@ -22,7 +22,7 @@ const speciesSchema = mongoose.Schema(
 		hair_colors: Array,
 		eye_colors: Array,
 		people: Array,
-		films: Array,
+		relatedFilms: Array,
 	},
 	{
 		timestamps: true,

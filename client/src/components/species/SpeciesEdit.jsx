@@ -42,7 +42,7 @@ const SpeciesEdit = ({ match, history }) => {
 		hair_colors: [],
 		eye_colors: [],
 		people: [],
-		films: [],
+		relatedFilms: [],
 	});
 
 	const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const SpeciesEdit = ({ match, history }) => {
 					hair_colors: species.hair_colors,
 					eye_colors: species.eye_colors,
 					people: species.people,
-					films: species.films,
+					relatedFilms: species.relatedFilms,
 				});
 			}
 		}
@@ -395,7 +395,7 @@ const SpeciesEdit = ({ match, history }) => {
 							</div>
 
 							<div
-								className='films'
+								className='relatedFilms'
 								style={{
 									border: '1px solid #bdbdbd',
 									borderRadius: '5px',
@@ -404,26 +404,30 @@ const SpeciesEdit = ({ match, history }) => {
 								}}
 							>
 								<Typography variant='body1'>Related Films:</Typography>
-								{(speciesForm.films || []).map((_films, index) => (
-									<div key={index} className='eye-colors'>
-										<TextField
-											variant='outlined'
-											size='small'
-											value={speciesForm.films[index]}
-											name='films'
-											onChange={(e) => handleArrayChange(e, index, 'films')}
-										/>
-										<IconButton
-											size='small'
-											onClick={() => handleDelete('films', index)}
-										>
-											<DeleteForever />
-										</IconButton>
-									</div>
-								))}
+								{(speciesForm.relatedFilms || []).map(
+									(_relatedFilms, index) => (
+										<div key={index} className='eye-colors'>
+											<TextField
+												variant='outlined'
+												size='small'
+												value={speciesForm.relatedFilms[index]}
+												name='relatedFilms'
+												onChange={(e) =>
+													handleArrayChange(e, index, 'relatedFilms')
+												}
+											/>
+											<IconButton
+												size='small'
+												onClick={() => handleDelete('relatedFilms', index)}
+											>
+												<DeleteForever />
+											</IconButton>
+										</div>
+									)
+								)}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('films')}
+									onClick={() => handleAddItem('relatedFilms')}
 								>
 									Add New Film
 								</Button>

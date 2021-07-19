@@ -25,7 +25,7 @@ const starshipSchema = mongoose.Schema(
 		starship_class: String,
 		manufacturer: Array,
 		pilots: Array,
-		films: Array,
+		relatedFilms: Array,
 		designer: Array,
 		roles: Array,
 		affiliation: Array,

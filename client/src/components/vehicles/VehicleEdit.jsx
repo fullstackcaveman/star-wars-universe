@@ -43,7 +43,7 @@ const VehicleEdit = ({ match, history }) => {
 		vehicle_class: '',
 		manufacturer: [],
 		pilots: [],
-		films: [],
+		relatedFilms: [],
 	});
 
 	const dispatch = useDispatch();
@@ -83,7 +83,7 @@ const VehicleEdit = ({ match, history }) => {
 					vehicle_class: vehicle.vehicle_class,
 					manufacturer: vehicle.manufacturer,
 					pilots: vehicle.pilots,
-					films: vehicle.films,
+					relatedFilms: vehicle.relatedFilms,
 				});
 			}
 		}
@@ -364,7 +364,7 @@ const VehicleEdit = ({ match, history }) => {
 							</div>
 
 							<div
-								className='films'
+								className='relatedFilms'
 								style={{
 									border: '1px solid #bdbdbd',
 									borderRadius: '5px',
@@ -372,19 +372,21 @@ const VehicleEdit = ({ match, history }) => {
 									margin: '5px 0',
 								}}
 							>
-								<Typography variant='body1'>Films:</Typography>
-								{(vehicleForm.films || []).map((_aff, index) => (
-									<div key={index} className='films'>
+								<Typography variant='body1'>Related Films:</Typography>
+								{(vehicleForm.relatedFilms || []).map((_aff, index) => (
+									<div key={index} className='relatedFilms'>
 										<TextField
 											variant='outlined'
 											size='small'
-											value={vehicleForm.films[index]}
-											name='films'
-											onChange={(e) => handleArrayChange(e, index, 'films')}
+											value={vehicleForm.relatedFilms[index]}
+											name='relatedFilms'
+											onChange={(e) =>
+												handleArrayChange(e, index, 'relatedFilms')
+											}
 										/>
 										<IconButton
 											size='small'
-											onClick={() => handleDelete('films', index)}
+											onClick={() => handleDelete('relatedFilms', index)}
 										>
 											<DeleteForever />
 										</IconButton>
@@ -392,7 +394,7 @@ const VehicleEdit = ({ match, history }) => {
 								))}
 								<Button
 									variant='contained'
-									onClick={() => handleAddItem('films')}
+									onClick={() => handleAddItem('relatedFilms')}
 								>
 									Add New Film
 								</Button>

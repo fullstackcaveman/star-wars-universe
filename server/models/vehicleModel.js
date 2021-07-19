@@ -24,7 +24,7 @@ const vehicleSchema = mongoose.Schema(
 		vehicle_class: String,
 		manufacturer: Array,
 		pilots: Array,
-		films: Array,
+		relatedFilms: Array,
 	},
 	{
 		timestamps: true,

@@ -62,18 +62,18 @@ const createVehicle = exceptionHandler(async (req, res) => {
 		name: 'New Vehicle',
 		pretty_url: 'new-vehicle',
 		image: '/images/placeholder.jpg',
-		vehicle_model: 'unknown',
-		cost_in_credits: 'unknown',
-		length: 'unknown',
-		max_atmosphering_speed: 'unknown',
-		crew: 'unknown',
-		passengers: 'unknown',
-		cargo_capacity: 'unknown',
-		consumables: 'unknown',
-		vehicle_class: 'unknown',
+		vehicle_model: '',
+		cost_in_credits: '',
+		length: '',
+		max_atmosphering_speed: '',
+		crew: '',
+		passengers: '',
+		cargo_capacity: '',
+		consumables: '',
+		vehicle_class: '',
 		manufacturer: [],
 		pilots: [],
-		films: [],
+		relatedFilms: [],
 	});
 
 	const createdVehicle = await vehicle.save();
@@ -99,7 +99,7 @@ const updateVehicle = exceptionHandler(async (req, res) => {
 		vehicle_class,
 		manufacturer,
 		pilots,
-		films,
+		relatedFilms,
 	} = req.body;
 
 	const vehicle = await Vehicle.findById(req.params.id);
@@ -119,7 +119,7 @@ const updateVehicle = exceptionHandler(async (req, res) => {
 		vehicle.vehicle_class = vehicle_class;
 		vehicle.manufacturer = manufacturer;
 		vehicle.pilots = pilots;
-		vehicle.films = films;
+		vehicle.relatedFilms = relatedFilms;
 
 		const updatedVehicle = await vehicle.save();
 		res.json(updatedVehicle);
