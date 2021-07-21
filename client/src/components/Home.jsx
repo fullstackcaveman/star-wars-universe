@@ -17,6 +17,10 @@ const Home = () => {
 							<div className='films-link' />
 						</Link>
 
+						<Link to='/planets'>
+							<div className='planets-link' />
+						</Link>
+
 						<Link to='/species'>
 							<div className='species-link' />
 						</Link>
@@ -27,10 +31,6 @@ const Home = () => {
 
 						<Link to='/vehicles'>
 							<div className='vehicles-link' />
-						</Link>
-
-						<Link to='/planets'>
-							<div className='planets-link' />
 						</Link>
 					</div>
 
