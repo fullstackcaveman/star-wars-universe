@@ -47,7 +47,7 @@ const UserList = ({ history }) => {
 	};
 
 	return (
-		<>
+		<div className='edit-table'>
 			<h2>Users</h2>
 			{loading ? (
 				<Loader />
@@ -104,7 +104,7 @@ const UserList = ({ history }) => {
 				</TableContainer>
 			)}
 			<Background />
-		</>
+		</div>
 	);
 };
 

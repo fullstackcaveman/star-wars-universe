@@ -45,6 +45,40 @@ body {
 		text-align: center;
 		box-sizing: border-box;
 		max-height: 100%;
+
+		.edit-table {
+			width: 98%;
+
+			.MuiPaper-root {
+				margin-top: 20px;
+
+				.MuiTable-root {
+					border: 1px solid #fff;
+
+					.MuiTableHead-root {
+						background-color: black;
+
+						.MuiTableRow-root {
+							.MuiTableCell-root {
+								color: $starwars-yellow;
+							}
+						}
+					}
+
+					.MuiTableRow-root {
+						background-color: black;
+
+						.MuiTableCell-root {
+							color: #fff;
+
+							button {
+								margin: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

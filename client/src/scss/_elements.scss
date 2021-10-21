@@ -98,7 +98,7 @@ footer {
 		text-align: center;
 		padding: 0 20px;
 		width: 100%;
-		color: white;
+		color: rgb(204, 204, 204);
 	}
 
 	.footer-top {
@@ -109,26 +109,26 @@ footer {
 		font-size: 0.8rem;
 
 		a {
-			color: white;
+			color: rgb(204, 204, 204);
 
 			&:visited {
-				color: white;
+				color: rgb(204, 204, 204);
 			}
 		}
 
 		.github-icon,
 		.linkedin-icon {
 			height: 15px;
-			color: white;
+			color: rgb(204, 204, 204);
 		}
 	}
 
 	.footer-bottom {
 		a {
-			color: white;
+			color: rgb(204, 204, 204);
 
 			&:visited {
-				color: white;
+				color: rgb(204, 204, 204);
 			}
 		}
 	}

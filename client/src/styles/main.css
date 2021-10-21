@@ -176,6 +176,30 @@ body .App {
   box-sizing: border-box;
   max-height: 100%;
 }
+body .App .edit-table {
+  width: 98%;
+}
+body .App .edit-table .MuiPaper-root {
+  margin-top: 20px;
+}
+body .App .edit-table .MuiPaper-root .MuiTable-root {
+  border: 1px solid #fff;
+}
+body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableHead-root {
+  background-color: black;
+}
+body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableHead-root .MuiTableRow-root .MuiTableCell-root {
+  color: #ffe81f;
+}
+body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableRow-root {
+  background-color: black;
+}
+body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableRow-root .MuiTableCell-root {
+  color: #fff;
+}
+body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableRow-root .MuiTableCell-root button {
+  margin: 5px;
+}
 
 header {
   display: flex;
@@ -264,7 +288,7 @@ footer .footer-container {
   text-align: center;
   padding: 0 20px;
   width: 100%;
-  color: white;
+  color: #cccccc;
 }
 footer .footer-top {
   display: flex;
@@ -274,21 +298,21 @@ footer .footer-top {
   font-size: 0.8rem;
 }
 footer .footer-top a {
-  color: white;
+  color: #cccccc;
 }
 footer .footer-top a:visited {
-  color: white;
+  color: #cccccc;
 }
 footer .footer-top .github-icon,
 footer .footer-top .linkedin-icon {
   height: 15px;
-  color: white;
+  color: #cccccc;
 }
 footer .footer-bottom a {
-  color: white;
+  color: #cccccc;
 }
 footer .footer-bottom a:visited {
-  color: white;
+  color: #cccccc;
 }
 footer .footer-top,
 footer .footer-bottom {

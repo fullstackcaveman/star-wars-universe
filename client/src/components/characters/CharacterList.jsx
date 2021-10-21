@@ -82,7 +82,7 @@ const CharacterList = ({ history, match }) => {
 	};
 
 	return (
-		<>
+		<div className='edit-table'>
 			<Button
 				style={{ marginBottom: '10px' }}
 				variant='contained'
@@ -155,7 +155,7 @@ const CharacterList = ({ history, match }) => {
 				</TableContainer>
 			)}
 			<Background />
-		</>
+		</div>
 	);
 };
 

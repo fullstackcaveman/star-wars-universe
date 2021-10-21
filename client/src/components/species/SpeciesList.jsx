@@ -82,7 +82,7 @@ const SpeciesList = ({ history, match }) => {
 	};
 
 	return (
-		<>
+		<div className='edit-table'>
 			<Button
 				style={{ marginBottom: '10px' }}
 				variant='contained'
@@ -151,7 +151,7 @@ const SpeciesList = ({ history, match }) => {
 				</TableContainer>
 			)}
 			<Background />
-		</>
+		</div>
 	);
 };
 
