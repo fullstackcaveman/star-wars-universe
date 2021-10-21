@@ -7,7 +7,14 @@ const Footer = () => {
 			<div className='footer-container'>
 				<div className='footer-top'>
 					<h2>
-						FullStackCaveman |{' '}
+						<a
+							href='https://fullstackcaveman.com'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							FullStackCaveman{' '}
+						</a>
+						|{' '}
 						<a
 							href='https://github.com/fullstackcaveman'
 							target='_blank'
@@ -25,7 +32,7 @@ const Footer = () => {
 							<LinkedInIcon className='linkedin-icon' /> LinkedIn
 						</a>
 					</h2>
-					<h2>&copy;FullStackCaveman 2021</h2>
+					<h2>&copy;FullStackCaveman {new Date().getFullYear()}</h2>
 				</div>
 				<div className='footer-bottom'>
 					<h2>

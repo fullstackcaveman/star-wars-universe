@@ -1,7 +1,12 @@
 // sass --watch src/scss/main.scss:src/styles/main.css
-@import 'reset';
 
+@import 'reset';
 @import 'variables';
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: $starwars-yellow black;
+}
 
 html,
 body {
@@ -15,6 +20,16 @@ body {
 	font-family: 'Roboto', sans-serif;
 	box-sizing: border-box;
 	text-align: center;
+
+	&::-webkit-scrollbar {
+		background: black;
+		width: 5px;
+
+		&-thumb {
+			background-color: $starwars-yellow;
+			border-radius: 20px;
+		}
+	}
 
 	#root {
 		box-sizing: border-box;
