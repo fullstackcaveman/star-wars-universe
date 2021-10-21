@@ -734,7 +734,7 @@ footer .footer-bottom {
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   justify-content: center;
 }
