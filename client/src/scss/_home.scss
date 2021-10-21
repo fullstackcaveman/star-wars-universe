@@ -89,3 +89,46 @@
 		}
 	}
 }
+
+@media (max-width: 530px) {
+	#home {
+		.links-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+
+				.characters-link,
+				.films-link,
+				.planets-link,
+				.species-link,
+				.starships-link,
+				.vehicles-link {
+					width: 320px;
+					height: 300px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 280px) {
+	#home {
+		.links-container {
+			a {
+				.characters-link,
+				.films-link,
+				.planets-link,
+				.species-link,
+				.starships-link,
+				.vehicles-link {
+					height: 250px;
+				}
+			}
+		}
+	}
+}

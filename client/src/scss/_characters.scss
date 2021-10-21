@@ -21,4 +21,30 @@
 		flex-wrap: wrap;
 		width: 100%;
 	}
+
+	.pagination {
+		display: flex;
+		width: 100%;
+		.numbers {
+			display: flex;
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.list-page {
+		.pagination {
+			.numbers {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-width: 280px) {
+	.list-page {
+		h1 {
+			font-size: 2rem;
+		}
+	}
 }
