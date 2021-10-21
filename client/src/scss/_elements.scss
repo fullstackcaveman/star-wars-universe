@@ -103,16 +103,49 @@ footer {
 
 	.footer-top {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 		text-align: center;
 		font-size: 0.8rem;
+		padding: 5px;
 
-		a {
-			color: rgb(204, 204, 204);
+		h2 {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-			&:visited {
-				color: rgb(204, 204, 204);
+			.copyright {
+				vertical-align: middle;
+				margin-right: 10px;
+				a {
+					color: $starwars-yellow;
+
+					&:visited {
+						color: $starwars-yellow;
+					}
+				}
+			}
+
+			.socials {
+				display: flex;
+				align-items: center;
+				a {
+					color: $starwars-yellow;
+
+					.github-icon {
+						color: $starwars-yellow;
+						color: $starwars-yellow;
+					}
+
+					.linkedin-icon {
+						color: $starwars-yellow;
+						height: 19px;
+					}
+
+					&:visited {
+						color: $starwars-yellow;
+					}
+				}
 			}
 		}
 

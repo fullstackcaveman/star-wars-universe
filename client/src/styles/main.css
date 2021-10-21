@@ -292,16 +292,44 @@ footer .footer-container {
 }
 footer .footer-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 0.8rem;
+  padding: 5px;
 }
-footer .footer-top a {
-  color: #cccccc;
+footer .footer-top h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-footer .footer-top a:visited {
-  color: #cccccc;
+footer .footer-top h2 .copyright {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+footer .footer-top h2 .copyright a {
+  color: #ffe81f;
+}
+footer .footer-top h2 .copyright a:visited {
+  color: #ffe81f;
+}
+footer .footer-top h2 .socials {
+  display: flex;
+  align-items: center;
+}
+footer .footer-top h2 .socials a {
+  color: #ffe81f;
+}
+footer .footer-top h2 .socials a .github-icon {
+  color: #ffe81f;
+  color: #ffe81f;
+}
+footer .footer-top h2 .socials a .linkedin-icon {
+  color: #ffe81f;
+  height: 19px;
+}
+footer .footer-top h2 .socials a:visited {
+  color: #ffe81f;
 }
 footer .footer-top .github-icon,
 footer .footer-top .linkedin-icon {

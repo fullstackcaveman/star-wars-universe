@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer>
 			<div className='footer-container'>
 				<div className='footer-top'>
-					<h2>
+					{/* <h2>
 						<a
 							href='https://fullstackcaveman.com'
 							target='_blank'
@@ -14,25 +14,53 @@ const Footer = () => {
 						>
 							FullStackCaveman{' '}
 						</a>
-						|{' '}
+
 						<a
 							href='https://github.com/fullstackcaveman'
 							target='_blank'
 							rel='noreferrer'
 						>
-							<GitHubIcon className='github-icon' /> GitHub
-						</a>{' '}
-						|{' '}
+							<GitHubIcon className='github-icon' />
+						</a>
 						<a
 							href='https://linkedin.com/in/fullstackcaveman/'
 							target='_blank'
 							rel='noreferrer'
 						>
 							{' '}
-							<LinkedInIcon className='linkedin-icon' /> LinkedIn
+							<LinkedInIcon className='linkedin-icon' />
 						</a>
+					</h2> */}
+					<h2>
+						<div className='copyright'>
+							&copy;{' '}
+							<a
+								href='http://fullstackcaveman.com'
+								target='_blank'
+								rel='noreferrer noopener'
+							>
+								FullStackCaveman{' '}
+							</a>
+							<span>{new Date().getFullYear()}</span>
+						</div>
+						<div className='socials'>
+							<a
+								href='https://github.com/fullstackcaveman'
+								target='_blank'
+								rel='noreferrer'
+							>
+								<GitHubIcon className='github-icon' />
+							</a>
+							<a
+								href='https://linkedin.com/in/fullstackcaveman/'
+								target='_blank'
+								rel='noreferrer'
+							>
+								{' '}
+								<LinkedInIcon className='linkedin-icon' />
+							</a>
+						</div>
 					</h2>
-					<h2>&copy;FullStackCaveman {new Date().getFullYear()}</h2>
 				</div>
 				<div className='footer-bottom'>
 					<h2>
