@@ -15,13 +15,15 @@ const Pagination = ({ items, totalitems, paginate, prev, next }) => {
 					<SkipPreviousIcon />
 				</p>
 			</li>
-			{pageNumbers.map((number) => (
-				<li key={number} className={'page-item'} id={`page${number}`}>
-					<p className='page-link' onClick={() => paginate(number)}>
-						{number}
-					</p>
-				</li>
-			))}
+			<div className='numbers'>
+				{pageNumbers.map((number) => (
+					<li key={number} className={'page-item'} id={`page${number}`}>
+						<p className='page-link' onClick={() => paginate(number)}>
+							{number}
+						</p>
+					</li>
+				))}
+			</div>
 			<li onClick={next}>
 				<p>
 					<SkipNextIcon />

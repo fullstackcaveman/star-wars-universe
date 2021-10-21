@@ -9,10 +9,8 @@
 	padding: 10px;
 	margin: 5px 0;
 	max-width: 100%;
-	// height: auto;
 	border: 3px solid $starwars-yellow;
 	border-radius: 2px;
-	// flex-wrap: wrap;
 
 	.item-title {
 		h2 {
@@ -25,7 +23,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-items: center;
-		align-items: center;
+		align-items: flex-start;
 		text-align: center;
 		justify-content: center;
 

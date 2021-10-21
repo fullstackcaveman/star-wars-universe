@@ -544,6 +544,38 @@ footer .footer-bottom {
   border: #ffee58 2px solid;
 }
 
+@media (max-width: 530px) {
+  #home .links-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #home .links-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #home .links-container a .characters-link,
+#home .links-container a .films-link,
+#home .links-container a .planets-link,
+#home .links-container a .species-link,
+#home .links-container a .starships-link,
+#home .links-container a .vehicles-link {
+    width: 320px;
+    height: 300px;
+  }
+}
+@media (max-width: 280px) {
+  #home .links-container a .characters-link,
+#home .links-container a .films-link,
+#home .links-container a .planets-link,
+#home .links-container a .species-link,
+#home .links-container a .starships-link,
+#home .links-container a .vehicles-link {
+    height: 250px;
+  }
+}
 .info-container {
   display: flex;
   flex-direction: column;
@@ -551,7 +583,86 @@ footer .footer-bottom {
   align-items: center;
   text-align: center;
   max-width: 1360px;
+  margin: 20px;
+}
+.info-container .MuiPaper-root {
+  margin: 0;
   height: 100%;
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root {
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 98%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info {
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info {
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info {
+  flex-wrap: wrap;
+  margin: 10px;
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container .info-array,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container .info-array {
+  cursor: pointer;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container .info-array.crawl,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container .info-array.crawl {
+  font-family: "Roboto", sans-serif;
+  color: #ffe81f;
+  cursor: default;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container .info-array.no-links,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container .info-array.no-links {
+  cursor: default;
+  width: 100%;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container h3 .info-array.no-links,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container h3 .info-array.no-links {
+  cursor: default;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info span,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info span {
+  background-color: #ffe81f;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  margin: 0 2px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  color: black;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .small-text,
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .small-text {
+  background-color: transparent;
+  color: white;
+  margin-left: 0;
+  padding: 2px 5px;
+  cursor: text;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info span {
+  cursor: pointer;
+}
+.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .pointer {
+  cursor: pointer;
 }
 .info-container .info-card {
   display: flex;
@@ -568,9 +679,10 @@ footer .footer-bottom {
 .info-container .info-card .flex .card-data {
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
+  justify-content: center;
   color: #fff;
   width: 100%;
+  height: 100%;
 }
 .info-container .info-card .flex .card-data h1 {
   font-family: "Roboto", sans-serif;
@@ -581,135 +693,62 @@ footer .footer-bottom {
   font-family: "Roboto", sans-serif;
   text-align: left;
 }
-.info-container .info-card .flex .card-data .info-blocks {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info,
-.info-container .info-card .flex .card-data .info-blocks .right-info {
-  flex-wrap: wrap;
-  max-width: 645px;
-  margin: 10px;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container,
-.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container {
-  margin-bottom: 10px;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array,
-.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array {
-  cursor: pointer;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.crawl,
-.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.crawl {
-  font-family: "Roboto", sans-serif;
-  color: #ffe81f;
-  cursor: default;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container .info-array.no-links,
-.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container .info-array.no-links {
-  cursor: default;
-  width: 100%;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .info-array-container h3 .info-array.no-links,
-.info-container .info-card .flex .card-data .info-blocks .right-info .info-array-container h3 .info-array.no-links {
-  cursor: default;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info span,
-.info-container .info-card .flex .card-data .info-blocks .right-info span {
-  background-color: #ffe81f;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.9rem;
-  margin: 0 2px;
-  padding: 2px 7px;
-  border-radius: 10px;
-  color: black;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .small-text,
-.info-container .info-card .flex .card-data .info-blocks .right-info .small-text {
-  background-color: transparent;
-  color: white;
-  margin-left: 0;
-  padding: 2px 5px;
-  cursor: text;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info {
-  margin-right: 30px;
-  width: 30% span;
-  width-cursor: pointer;
-}
-.info-container .info-card .flex .card-data .info-blocks .left-info .pointer {
-  cursor: pointer;
-}
-.info-container .info-card .flex .card-data .info-blocks .right-info {
-  width: 70%;
-}
 
 @media (max-width: 1250px) {
   .info-container {
-    width: 95%;
+    height: 100%;
+  }
+  .info-container .MuiPaper-root {
+    height: 100%;
+  }
+  .info-container .MuiPaper-root .flex .card-data {
+    margin: 10px 0;
+  }
+  .info-container .MuiPaper-root .flex .card-data .info-blocks {
+    flex-direction: column;
+  }
+  .info-container .MuiPaper-root .flex .card-data .info-blocks .left-info,
+.info-container .MuiPaper-root .flex .card-data .info-blocks .right-info {
+    width: 100%;
   }
 }
 @media (max-width: 1080px) {
-  .info-container .info-card {
-    height: 575px;
-  }
   .info-container .info-card .flex .card-data {
     flex-direction: column;
   }
 }
 @media (max-width: 860px) {
-  .info-container .info-card {
-    height: 580px;
-  }
   .info-container .info-card .flex .card-data {
     flex-direction: column;
-  }
-  .info-container .info-card .flex .card-data .info-blocks {
-    width: 140%;
-  }
-}
-@media (max-width: 709px) {
-  .info-container .info-card {
-    height: 650px;
-  }
-  .info-container .info-card .flex .card-data {
-    flex-direction: column;
-  }
-  .info-container .info-card .flex .card-data .info-blocks {
-    width: 140%;
   }
 }
 @media (max-width: 635px) {
-  .info-container .info-card {
-    height: 1000px;
-  }
   .info-container .info-card .flex {
     flex-direction: column;
+    padding: 10px;
   }
   .info-container .info-card .flex .card-data {
     flex-direction: column;
+    width: 100%;
+    padding: 10px;
   }
   .info-container .info-card .flex .card-data .info-blocks {
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
 }
-@media (max-width: 430px) {
-  .info-container .info-card {
-    height: 1200px;
+@media (max-width: 280px) {
+  .info-container {
+    width: 270px;
   }
-  .info-container .info-card .flex {
-    flex-direction: column;
-  }
-  .info-container .info-card .flex .card-data {
-    flex-direction: column;
-  }
-  .info-container .info-card .flex .card-data .info-blocks {
-    flex-direction: column;
-    align-items: center;
+  .info-container .MuiPaper-root {
     width: 100%;
+  }
+  .info-container .MuiPaper-root .flex {
+    width: 100%;
+  }
+  .info-container .MuiPaper-root .flex img {
+    width: 95%;
   }
 }
 .relatedItems-container {
@@ -734,7 +773,7 @@ footer .footer-bottom {
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   justify-content: center;
 }
@@ -788,7 +827,24 @@ footer .footer-bottom {
   flex-wrap: wrap;
   width: 100%;
 }
+.list-page .pagination {
+  display: flex;
+  width: 100%;
+}
+.list-page .pagination .numbers {
+  display: flex;
+}
 
+@media (max-width: 500px) {
+  .list-page .pagination .numbers {
+    display: none;
+  }
+}
+@media (max-width: 280px) {
+  .list-page h1 {
+    font-size: 2rem;
+  }
+}
 .MuiCard-root {
   box-sizing: border-box;
   width: 250px;

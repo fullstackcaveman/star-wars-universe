@@ -5,10 +5,11 @@
 	align-items: center;
 	text-align: center;
 	max-width: 1360px;
-	height: 100%;
+	margin: 20px;
 
-	.info-card {
-		display: flex;
+	.MuiPaper-root {
+		margin: 0;
+		height: 100%;
 		width: 100%;
 
 		.flex {
@@ -16,42 +17,32 @@
 			align-items: center;
 			width: 100%;
 
-			img {
-				height: 364px;
-			}
-
-			.card-data {
-				display: flex;
-				flex-direction: column;
-				margin-left: 30px;
-				color: $color-white;
+			.MuiCardContent-root {
 				width: 100%;
-
-				h1 {
-					font-family: $primary-font;
-					text-align: center;
-					font-size: 2rem;
-				}
-
-				h3 {
-					font-family: $primary-font;
-					text-align: left;
-				}
 
 				.info-blocks {
 					display: flex;
-					flex-wrap: wrap;
-					justify-content: space-between;
+					flex-direction: column;
+					justify-content: center;
+					width: 98%;
+
+					.left-info {
+						width: 100%;
+					}
+					.right-info {
+						width: 100%;
+					}
 
 					.left-info,
 					.right-info {
 						flex-wrap: wrap;
-						max-width: 645px;
 						margin: 10px;
+						width: 100%;
 
 						.info-array-container {
 							// For wrapping array items
 							margin-bottom: 10px;
+							width: 100%;
 
 							.info-array {
 								cursor: pointer;
@@ -96,8 +87,7 @@
 					}
 
 					.left-info {
-						margin-right: 30px;
-						width: 30% span {
+						span {
 							cursor: pointer;
 						}
 
@@ -105,11 +95,119 @@
 							cursor: pointer;
 						}
 					}
-
-					.right-info {
-						width: 70%;
-					}
 				}
+			}
+		}
+	}
+
+	.info-card {
+		display: flex;
+		width: 100%;
+
+		.flex {
+			display: flex;
+			align-items: center;
+			width: 100%;
+
+			img {
+				height: 364px;
+			}
+
+			.card-data {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				color: $color-white;
+				width: 100%;
+				height: 100%;
+
+				h1 {
+					font-family: $primary-font;
+					text-align: center;
+					font-size: 2rem;
+				}
+
+				h3 {
+					font-family: $primary-font;
+					text-align: left;
+				}
+
+				// .info-blocks {
+				// 	display: flex;
+				// 	flex-wrap: wrap;
+				// 	justify-content: space-between;
+				// 	width: 100%;
+
+				// 	.left-info {
+				// 		width: 25%;
+				// 	}
+				// 	.right-info {
+				// 		width: 70%;
+				// 	}
+
+				// 	.left-info,
+				// 	.right-info {
+				// 		flex-wrap: wrap;
+				// 		margin: 10px;
+				// 		width: 100%;
+
+				// 		.info-array-container {
+				// 			// For wrapping array items
+				// 			margin-bottom: 10px;
+				// 			width: 100%;
+
+				// 			.info-array {
+				// 				cursor: pointer;
+				// 				&.crawl {
+				// 					font-family: $primary-font;
+				// 					color: $starwars-yellow;
+				// 					cursor: default;
+				// 				}
+				// 				&.no-links {
+				// 					cursor: default;
+				// 					width: 100%;
+				// 				}
+				// 			}
+
+				// 			h3 {
+				// 				.info-array {
+				// 					&.no-links {
+				// 						cursor: default;
+				// 					}
+				// 				}
+				// 			}
+				// 		}
+
+				// 		span {
+				// 			background-color: $starwars-yellow;
+				// 			font-family: $primary-font;
+				// 			font-size: 0.9rem;
+
+				// 			margin: 0 2px;
+				// 			padding: 2px 7px;
+				// 			border-radius: 10px;
+				// 			color: black;
+				// 		}
+
+				// 		.small-text {
+				// 			background-color: transparent;
+				// 			color: white;
+				// 			margin-left: 0;
+				// 			padding: 2px 5px;
+				// 			cursor: text;
+				// 		}
+				// 	}
+
+				// 	.left-info {
+				// 		span {
+				// 			cursor: pointer;
+				// 		}
+
+				// 		.pointer {
+				// 			cursor: pointer;
+				// 		}
+				// 	}
+				// }
 			}
 		}
 	}
@@ -117,14 +215,30 @@
 
 @media (max-width: $breakpoint-xl) {
 	.info-container {
-		width: 95%;
+		height: 100%;
+		.MuiPaper-root {
+			height: 100%;
+			.flex {
+				.card-data {
+					margin: 10px 0;
+					.info-blocks {
+						flex-direction: column;
+
+						.left-info,
+						.right-info {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
 @media (max-width: $breakpoint-large) {
 	.info-container {
 		.info-card {
-			height: 575px;
+			// height: 100%;
 			.flex {
 				.card-data {
 					flex-direction: column;
@@ -137,29 +251,9 @@
 @media (max-width: $breakpoint-med-lg) {
 	.info-container {
 		.info-card {
-			height: 580px;
 			.flex {
 				.card-data {
 					flex-direction: column;
-					.info-blocks {
-						width: 140%;
-					}
-				}
-			}
-		}
-	}
-}
-
-@media (max-width: $breakpoint-medium) {
-	.info-container {
-		.info-card {
-			height: 650px;
-			.flex {
-				.card-data {
-					flex-direction: column;
-					.info-blocks {
-						width: 140%;
-					}
 				}
 			}
 		}
@@ -169,15 +263,17 @@
 @media (max-width: $breakpoint-small) {
 	.info-container {
 		.info-card {
-			height: 1000px;
 			.flex {
 				flex-direction: column;
+				padding: 10px;
+
 				.card-data {
 					flex-direction: column;
+					width: 100%;
+					padding: 10px;
 					.info-blocks {
 						flex-direction: column;
 						align-items: center;
-						width: 100%;
 					}
 				}
 			}
@@ -185,19 +281,18 @@
 	}
 }
 
-@media (max-width: $breakpoint-xs) {
+@media (max-width: 280px) {
 	.info-container {
-		.info-card {
-			height: 1200px;
+		width: 270px;
+
+		.MuiPaper-root {
+			width: 100%;
+
 			.flex {
-				flex-direction: column;
-				.card-data {
-					flex-direction: column;
-					.info-blocks {
-						flex-direction: column;
-						align-items: center;
-						width: 100%;
-					}
+				width: 100%;
+
+				img {
+					width: 95%;
 				}
 			}
 		}
