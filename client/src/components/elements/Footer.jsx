@@ -9,7 +9,7 @@ const Footer = () => {
 					<h2>
 						<div className='copyright'>
 							<a
-								href='http://fullstackcaveman.com'
+								href='https://fullstackcaveman.com'
 								target='_blank'
 								rel='noreferrer noopener'
 							>
@@ -21,14 +21,14 @@ const Footer = () => {
 							<a
 								href='https://github.com/fullstackcaveman'
 								target='_blank'
-								rel='noreferrer'
+								rel='noreferrer noopener nofollow'
 							>
 								<GitHubIcon className='github-icon' />
 							</a>
 							<a
 								href='https://linkedin.com/in/fullstackcaveman/'
 								target='_blank'
-								rel='noreferrer'
+								rel='noreferrer noopener nofollow'
 							>
 								{' '}
 								<LinkedInIcon className='linkedin-icon' />
@@ -43,7 +43,7 @@ const Footer = () => {
 						<a
 							href='https://starwars.fandom.com/wiki/Main_Page'
 							target='_blank'
-							rel='noreferrer'
+							rel='noreferrer noopener nofollow'
 						>
 							Wookiepedia
 						</a>{' '}
