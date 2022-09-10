@@ -2,19 +2,17 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
-import {
-	Avatar,
-	Button,
-	Grid,
-	Paper,
-	TextField,
-	Typography,
-	IconButton,
-} from '@material-ui/core';
-import { DeleteForever } from '@material-ui/icons';
-import Message from '../elements/Message';
-import Loader from '../elements/Loader';
+import Avatar from '@mui/material/Avatar';
 import Background from '../elements/Background';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import DeleteForever from '@mui/icons-material/DeleteForever';
+import IconButton from '@mui/material/IconButton';
+import Loader from '../elements/Loader';
+import Message from '../elements/Message';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import {
 	listCharacterInfo,
 	updateCharacter,

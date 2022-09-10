@@ -1,33 +1,17 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import {
-	Avatar,
-	Button,
-	Divider,
-	Typography,
-	Drawer,
-	List,
-	ListItem,
-	makeStyles,
-	Checkbox,
-	FormControlLabel,
-} from '@material-ui/core';
-
-import clsx from 'clsx';
-
 import { logout } from '../../actions/userActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { ADMIN_SHOW_EDIT_BUTTON } from '../../constants/userConstants';
-
-const useStyles = makeStyles({
-	list: {
-		width: 200,
-		backgroundColor: 'black',
-	},
-	fullList: {
-		width: 'auto',
-	},
-});
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const buttonStyles = {
 	padding: 0,
@@ -45,7 +29,6 @@ const Header = () => {
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
-	const classes = useStyles();
 	const [open, setOpen] = useState(false);
 
 	const [isChecked, setIsChecked] = useState(false);
@@ -99,9 +82,6 @@ const Header = () => {
 
 	const list = () => (
 		<div
-			className={clsx(classes.list, {
-				[classes.fullList]: anchor === 'top' || anchor === 'bottom',
-			})}
 			role='presentation'
 			onClick={toggleDrawer(false)}
 			onKeyDown={toggleDrawer(false)}
