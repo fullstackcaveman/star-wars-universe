@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/dd57bb97-dabe-40b8-b358-2f0c82bed83e/deploy-status)](https://app.netlify.com/sites/suspicious-clarke-fe9f6a/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6ff738b3-7605-4b3b-8ec2-7018124fd75b/deploy-status)](https://app.netlify.com/sites/cerulean-paletas-39bb4b/deploys)
 
 While attending Lambda School, one of our Sprint Challenges was to create a Star Wars themed React.js app using advanced styling techniques and utilizing an external API to get the Star Wars data from.
 
