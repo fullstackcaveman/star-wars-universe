@@ -1,24 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-	Avatar,
-	Button,
-	Divider,
-	Typography,
-	Drawer,
-	List,
-	ListItem,
-	// makeStyles,
-	Checkbox,
-	FormControlLabel,
-} from '@mui/material';
 
 import clsx from 'clsx';
 
 import { logout } from '../../actions/userActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import { ADMIN_SHOW_EDIT_BUTTON } from '../../constants/userConstants';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
