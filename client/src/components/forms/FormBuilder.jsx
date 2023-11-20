@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 const inputStyle = {
 	margin: '5px auto',

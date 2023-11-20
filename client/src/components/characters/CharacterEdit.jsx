@@ -15,6 +15,15 @@ import { DeleteForever } from '@mui/icons-material';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import DeleteForever from '@mui/icons-material/DeleteForever';
+import IconButton from '@mui/material/IconButton';
+import Loader from '../elements/Loader';
+import Message from '../elements/Message';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import {
 	listCharacterInfo,
 	updateCharacter,

@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 
 const InfoArrayContainer = (props) => {
