@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	Avatar,
 	Button,
@@ -9,25 +9,25 @@ import {
 	Drawer,
 	List,
 	ListItem,
-	makeStyles,
+	// makeStyles,
 	Checkbox,
 	FormControlLabel,
-} from '@material-ui/core';
+} from '@mui/material';
 
 import clsx from 'clsx';
 
 import { logout } from '../../actions/userActions';
 import { ADMIN_SHOW_EDIT_BUTTON } from '../../constants/userConstants';
 
-const useStyles = makeStyles({
-	list: {
-		width: 200,
-		backgroundColor: 'black',
-	},
-	fullList: {
-		width: 'auto',
-	},
-});
+// const useStyles = makeStyles({
+// 	list: {
+// 		width: 200,
+// 		backgroundColor: 'black',
+// 	},
+// 	fullList: {
+// 		width: 'auto',
+// 	},
+// });
 
 const buttonStyles = {
 	padding: 0,
@@ -45,7 +45,7 @@ const Header = () => {
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 
-	const classes = useStyles();
+	// const classes = useStyles();
 	const [open, setOpen] = useState(false);
 
 	const [isChecked, setIsChecked] = useState(false);
@@ -65,33 +65,33 @@ const Header = () => {
 		setOpen(openState);
 	};
 
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const handleClick = (route) => {
 		if (route === 'home') {
-			history.push('/');
+			navigate('/');
 		} else if (route === 'profile') {
-			history.push('/users/profile');
+			navigate('/users/profile');
 		} else if (route === 'users') {
-			history.push('/admin/userlist');
+			navigate('/admin/userlist');
 		} else if (route === 'characters') {
-			history.push('/admin/characterlist');
+			navigate('/admin/characterlist');
 		} else if (route === 'films') {
-			history.push('/admin/filmlist');
+			navigate('/admin/filmlist');
 		} else if (route === 'planets') {
-			history.push('/admin/planetlist');
+			navigate('/admin/planetlist');
 		} else if (route === 'species') {
-			history.push('/admin/specieslist');
+			navigate('/admin/specieslist');
 		} else if (route === 'starships') {
-			history.push('/admin/starshiplist');
+			navigate('/admin/starshiplist');
 		} else if (route === 'vehicles') {
-			history.push('/admin/vehiclelist');
+			navigate('/admin/vehiclelist');
 		}
 	};
 
 	const logoutHandler = () => {
 		dispatch(logout());
-		history.push('/');
+		navigate('/');
 		if (isChecked) {
 			handleCheck();
 		}
@@ -99,9 +99,9 @@ const Header = () => {
 
 	const list = () => (
 		<div
-			className={clsx(classes.list, {
-				[classes.fullList]: anchor === 'top' || anchor === 'bottom',
-			})}
+			// className={clsx(classes.list, {
+			// 	[classes.fullList]: anchor === 'top' || anchor === 'bottom',
+			// })}
 			role='presentation'
 			onClick={toggleDrawer(false)}
 			onKeyDown={toggleDrawer(false)}

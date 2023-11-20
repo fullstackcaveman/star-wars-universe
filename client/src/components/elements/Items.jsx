@@ -11,7 +11,7 @@ const Items = ({ items, model, loading }) => {
 	}
 
 	return (
-		<div className='characters-wrapper'>
+		<ul className='grid grid-cols-1 gap-6 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center'>
 			{items.map((item) => {
 				return (
 					<Link to={`/${modelLower}/info/${item.pretty_url}`} key={item._id}>
@@ -19,7 +19,7 @@ const Items = ({ items, model, loading }) => {
 					</Link>
 				);
 			})}
-		</div>
+		</ul>
 	);
 };
 

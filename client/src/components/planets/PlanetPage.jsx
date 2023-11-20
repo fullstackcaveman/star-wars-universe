@@ -18,7 +18,7 @@ const PlanetPage = () => {
 	const { loading, error, planets } = planetList;
 
 	// Change this to set planets per page
-	const [planetsPerPage] = useState(10);
+	const [planetsPerPage] = useState(12);
 
 	useEffect(() => {
 		dispatch(listPlanets());

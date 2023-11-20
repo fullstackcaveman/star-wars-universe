@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	Typography,
-	Card,
-	CardMedia,
-	CardContent,
-	Button,
-} from '@material-ui/core';
+
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';
@@ -14,7 +14,7 @@ import {
 	listCharacterInfo,
 	listCharacterInfoByName,
 } from '../../actions/characterActions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedItems from '../elements/RelatedItems';
@@ -70,11 +70,13 @@ const CharacterInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${character.name}`;
 
+	const { pretty_url, id } = useParams();
+
 	useEffect(() => {
-		if (match.params.id) {
-			dispatch(listCharacterInfo(match.params.id));
+		if (id) {
+			dispatch(listCharacterInfo(id));
 		} else {
-			dispatch(listCharacterInfoByName(match.params.pretty_url));
+			dispatch(listCharacterInfoByName(pretty_url));
 		}
 		dispatch(listFilms());
 		dispatch(listPlanets());

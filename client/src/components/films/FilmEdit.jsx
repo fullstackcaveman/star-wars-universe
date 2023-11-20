@@ -11,8 +11,8 @@ import {
 	Typography,
 	IconButton,
 	TextareaAutosize,
-} from '@material-ui/core';
-import { DeleteForever } from '@material-ui/icons';
+} from '@mui/material';
+import { DeleteForever } from '@mui/icons-material';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';

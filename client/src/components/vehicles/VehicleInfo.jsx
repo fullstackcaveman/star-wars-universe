@@ -6,7 +6,7 @@ import {
 	CardMedia,
 	CardContent,
 	Button,
-} from '@material-ui/core';
+} from '@mui/material';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Background from '../elements/Background';

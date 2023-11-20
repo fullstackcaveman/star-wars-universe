@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 div,
@@ -79,13 +83,13 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-decoration: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -100,772 +104,927 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
 
 body {
-  line-height: 1;
+	line-height: 1;
 }
 
 ol,
 ul,
 li {
-  list-style: none;
+	list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+	content: '';
+	content: none;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 @font-face {
-  font-family: "STARJEDI";
-  src: local("STARJEDI"), url("../fonts/STARJEDI.TTF") format("truetype");
-  font-weight: normal;
+	font-family: 'STARJEDI';
+	src: local('STARJEDI'), url('../fonts/STARJEDI.TTF') format('truetype');
+	font-weight: normal;
 }
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #ffe81f black;
+	scrollbar-width: thin;
+	scrollbar-color: #ffe81f black;
 }
 
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  font-family: "Roboto", sans-serif;
-  font-family: "Roboto", sans-serif;
-  box-sizing: border-box;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+	text-align: center;
 }
 body::-webkit-scrollbar {
-  background: black;
-  width: 5px;
+	background: black;
+	width: 5px;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #ffe81f;
-  border-radius: 20px;
+	background-color: #ffe81f;
+	border-radius: 20px;
 }
 body #root {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 body .App {
-  font-size: 62.5%;
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  max-height: 100%;
+	font-size: 62.5%;
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	box-sizing: border-box;
+	max-height: 100%;
 }
 body .App .edit-table {
-  width: 98%;
+	width: 98%;
 }
 body .App .edit-table .MuiPaper-root {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 body .App .edit-table .MuiPaper-root .MuiTable-root {
-  border: 1px solid #fff;
+	border: 1px solid #fff;
 }
 body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableHead-root {
-  background-color: black;
+	background-color: black;
 }
-body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableHead-root .MuiTableRow-root .MuiTableCell-root {
-  color: #ffe81f;
+body
+	.App
+	.edit-table
+	.MuiPaper-root
+	.MuiTable-root
+	.MuiTableHead-root
+	.MuiTableRow-root
+	.MuiTableCell-root {
+	color: #ffe81f;
 }
 body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableRow-root {
-  background-color: black;
+	background-color: black;
 }
-body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableRow-root .MuiTableCell-root {
-  color: #fff;
+body
+	.App
+	.edit-table
+	.MuiPaper-root
+	.MuiTable-root
+	.MuiTableRow-root
+	.MuiTableCell-root {
+	color: #fff;
 }
-body .App .edit-table .MuiPaper-root .MuiTable-root .MuiTableRow-root .MuiTableCell-root button {
-  margin: 5px;
+body
+	.App
+	.edit-table
+	.MuiPaper-root
+	.MuiTable-root
+	.MuiTableRow-root
+	.MuiTableCell-root
+	button {
+	margin: 5px;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  height: 50px;
-  width: 100%;
-  padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	padding: 5px;
 }
 header .header-left {
-  padding: 0 20px;
+	padding: 0 20px;
 }
 header .nav-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
 }
 
 .MuiDrawer-paper.MuiDrawer-paperAnchorRight {
-  background-color: black;
+	background-color: black;
 }
 
 .starwars {
-  position: relative;
-  height: 170px;
-  width: 260px;
-  margin-top: 30px;
-  z-index: 100;
+	position: relative;
+	height: 170px;
+	width: 260px;
+	margin-top: 30px;
+	z-index: 100;
 }
 .starwars p,
 .starwars span {
-  font-family: "STARJEDI";
-  font-size: 5rem;
-  color: black;
-  text-shadow: -2px -2px 0 #ffee58, 2px -2px 0 #ffee58, -2px 2px 0 #ffee58, 2px 2px 0 #ffee58;
+	font-family: 'STARJEDI';
+	font-size: 5rem;
+	color: black;
+	text-shadow: -2px -2px 0 #ffee58, 2px -2px 0 #ffee58, -2px 2px 0 #ffee58,
+		2px 2px 0 #ffee58;
 }
 .starwars p.wars,
 .starwars span.wars {
-  position: absolute;
-  top: 65px;
-  left: 12px;
+	position: absolute;
+	top: 65px;
+	left: 12px;
 }
 
 .btn {
-  border: none;
-  cursor: pointer;
+	border: none;
+	cursor: pointer;
 }
 .btn.btn-primary {
-  color: #fff;
-  margin: 0 10px;
-  padding: 2px 8px;
-  border-radius: 3px;
-  background-color: #4f1605;
+	color: #fff;
+	margin: 0 10px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	background-color: #4f1605;
 }
 .btn.btn-primary.btn-character {
-  position: absolute;
-  top: 6px;
-  right: 0;
+	position: absolute;
+	top: 6px;
+	right: 0;
 }
 .btn:focus {
-  outline: none;
+	outline: none;
 }
 
 footer {
-  box-sizing: border-box;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  height: 50px;
-  width: 100%;
-  margin-top: 20px;
-  background-color: transparent;
-  z-index: 100;
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	height: 50px;
+	width: 100%;
+	margin-top: 20px;
+	background-color: transparent;
+	z-index: 100;
 }
 footer .footer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
-  width: 100%;
-  color: #cccccc;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 0 20px;
+	width: 100%;
+	color: #cccccc;
 }
 footer .footer-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 0.8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 0.8rem;
 }
 footer .footer-top h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 footer .footer-top h2 .copyright {
-  vertical-align: middle;
-  margin-right: 10px;
+	vertical-align: middle;
+	margin-right: 10px;
 }
 footer .footer-top h2 .copyright a {
-  color: #ffe81f;
+	color: #ffe81f;
 }
 footer .footer-top h2 .copyright a:visited {
-  color: #ffe81f;
+	color: #ffe81f;
 }
 footer .footer-top h2 .socials {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 footer .footer-top h2 .socials a {
-  color: #ffe81f;
+	color: #ffe81f;
 }
 footer .footer-top h2 .socials a .github-icon {
-  color: #ffe81f;
-  color: #ffe81f;
+	color: #ffe81f;
+	color: #ffe81f;
 }
 footer .footer-top h2 .socials a .linkedin-icon {
-  color: #ffe81f;
-  height: 19px;
+	color: #ffe81f;
+	height: 19px;
 }
 footer .footer-top h2 .socials a:visited {
-  color: #ffe81f;
+	color: #ffe81f;
 }
 footer .footer-top .github-icon,
 footer .footer-top .linkedin-icon {
-  height: 15px;
-  color: #cccccc;
+	height: 15px;
+	color: #cccccc;
 }
 footer .footer-bottom a {
-  color: #cccccc;
+	color: #cccccc;
 }
 footer .footer-bottom a:visited {
-  color: #cccccc;
+	color: #cccccc;
 }
 footer .footer-top,
 footer .footer-bottom {
-  align-items: center;
-  text-align: center;
-  margin: 5px auto;
-  width: 100%;
+	align-items: center;
+	text-align: center;
+	margin: 5px auto;
+	width: 100%;
 }
 
 .add-user .MuiPaper-root {
-  border: 2px solid #ffe81f;
+	border: 2px solid #ffe81f;
 }
 
 .loader {
-  margin-top: 40px;
+	margin-top: 40px;
 }
 .loader .progress {
-  color: #ffe81f;
+	color: #ffe81f;
 }
 
 .pagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 .pagination li {
-  border: 1px solid black;
-  border-radius: 3px;
-  margin: 10px 3px;
-  background: linear-gradient(to bottom, #fd8f00 0%, #ffe81f 30%, #fff 50%, #ffe81f 80%, #fd8f00 100%);
-  cursor: pointer;
+	border: 1px solid black;
+	border-radius: 3px;
+	margin: 10px 3px;
+	background: linear-gradient(
+		to bottom,
+		#fd8f00 0%,
+		#ffe81f 30%,
+		#fff 50%,
+		#ffe81f 80%,
+		#fd8f00 100%
+	);
+	cursor: pointer;
 }
 .pagination li p {
-  color: #4f1605;
-  font-size: 1.6rem;
-  padding: 0 10px;
-  padding-top: 5px;
+	color: #4f1605;
+	font-size: 1.6rem;
+	padding: 0 10px;
+	padding-top: 5px;
 }
 .pagination li p.active {
-  color: black;
+	color: black;
 }
 .pagination li.active {
-  opacity: 0.4;
+	opacity: 0.4;
 }
 
 @keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to {
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
 }
 @-webkit-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to {
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
 }
 @-moz-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to {
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
 }
 @-webkit-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to {
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
 }
 .background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
 }
 .background-container img {
-  height: 70vh;
-  width: 70vh;
-  position: absolute;
-  z-index: 3;
-  right: 20px;
+	height: 70vh;
+	width: 70vh;
+	position: absolute;
+	z-index: 3;
+	right: 20px;
 }
 .background-container .stars {
-  background: black url("../images/stars.png") repeat;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: block;
-  z-index: 0;
+	background: black url('../images/stars.png') repeat;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	z-index: 0;
 }
 .background-container .twinkling {
-  width: 10000px;
-  height: 100%;
-  background: transparent url("../images/twinkling.png") repeat;
-  background-size: 1000px 1000px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 2;
-  -moz-animation: move-background 50s linear infinite;
-  -ms-animation: move-background 50s linear infinite;
-  -o-animation: move-background 50s linear infinite;
-  -webkit-animation: move-background 50s linear infinite;
-  animation: move-background 50s linear infinite;
+	width: 10000px;
+	height: 100%;
+	background: transparent url('../images/twinkling.png') repeat;
+	background-size: 1000px 1000px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 2;
+	-moz-animation: move-background 50s linear infinite;
+	-ms-animation: move-background 50s linear infinite;
+	-o-animation: move-background 50s linear infinite;
+	-webkit-animation: move-background 50s linear infinite;
+	animation: move-background 50s linear infinite;
 }
 
 #home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	height: 100%;
 }
 #home .links-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
-  width: 95%;
-  padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-wrap: wrap;
+	width: 95%;
+	padding: 10px;
 }
 #home .links-container .characters-link {
-  background-image: url("https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791151/Star%20Wars%20Universe/DarthVader_lz9b2x.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 480px;
-  height: 320px;
-  border-radius: 2px;
-  margin: 10px;
-  border: #ffee58 2px solid;
+	background-image: url('https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791151/Star%20Wars%20Universe/DarthVader_lz9b2x.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 480px;
+	height: 320px;
+	border-radius: 2px;
+	margin: 10px;
+	border: #ffee58 2px solid;
 }
 #home .links-container .films-link {
-  background-image: url("https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791142/Star%20Wars%20Universe/StarWarsFilms_qizvfa.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 480px;
-  height: 320px;
-  border-radius: 2px;
-  margin: 10px;
-  border: #ffee58 2px solid;
+	background-image: url('https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791142/Star%20Wars%20Universe/StarWarsFilms_qizvfa.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 480px;
+	height: 320px;
+	border-radius: 2px;
+	margin: 10px;
+	border: #ffee58 2px solid;
 }
 #home .links-container .starships-link {
-  background-image: url("https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791132/Star%20Wars%20Universe/starships_fecxl6.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 480px;
-  height: 320px;
-  border-radius: 2px;
-  margin: 10px;
-  border: #ffee58 2px solid;
+	background-image: url('https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791132/Star%20Wars%20Universe/starships_fecxl6.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 480px;
+	height: 320px;
+	border-radius: 2px;
+	margin: 10px;
+	border: #ffee58 2px solid;
 }
 #home .links-container .species-link {
-  background-image: url("https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791177/Star%20Wars%20Universe/species_yfy4kt.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 480px;
-  height: 320px;
-  border-radius: 2px;
-  margin: 10px;
-  border: #ffee58 2px solid;
+	background-image: url('https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791177/Star%20Wars%20Universe/species_yfy4kt.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 480px;
+	height: 320px;
+	border-radius: 2px;
+	margin: 10px;
+	border: #ffee58 2px solid;
 }
 #home .links-container .vehicles-link {
-  background-image: url("https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791146/Star%20Wars%20Universe/vehicles_toevjo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 480px;
-  height: 320px;
-  border-radius: 2px;
-  margin: 10px;
-  border: #ffee58 2px solid;
+	background-image: url('https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791146/Star%20Wars%20Universe/vehicles_toevjo.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 480px;
+	height: 320px;
+	border-radius: 2px;
+	margin: 10px;
+	border: #ffee58 2px solid;
 }
 #home .links-container .planets-link {
-  background-image: url("https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791123/Star%20Wars%20Universe/planets_znlkgz.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 480px;
-  height: 320px;
-  border-radius: 2px;
-  margin: 10px;
-  border: #ffee58 2px solid;
+	background-image: url('https://res.cloudinary.com/fullstackcaveman/image/upload/v1634791123/Star%20Wars%20Universe/planets_znlkgz.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 480px;
+	height: 320px;
+	border-radius: 2px;
+	margin: 10px;
+	border: #ffee58 2px solid;
 }
 
 @media (max-width: 530px) {
-  #home .links-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #home .links-container a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  #home .links-container a .characters-link,
-#home .links-container a .films-link,
-#home .links-container a .planets-link,
-#home .links-container a .species-link,
-#home .links-container a .starships-link,
-#home .links-container a .vehicles-link {
-    width: 320px;
-    height: 300px;
-  }
+	#home .links-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#home .links-container a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+	#home .links-container a .characters-link,
+	#home .links-container a .films-link,
+	#home .links-container a .planets-link,
+	#home .links-container a .species-link,
+	#home .links-container a .starships-link,
+	#home .links-container a .vehicles-link {
+		width: 320px;
+		height: 300px;
+	}
 }
 @media (max-width: 280px) {
-  #home .links-container a .characters-link,
-#home .links-container a .films-link,
-#home .links-container a .planets-link,
-#home .links-container a .species-link,
-#home .links-container a .starships-link,
-#home .links-container a .vehicles-link {
-    height: 250px;
-  }
+	#home .links-container a .characters-link,
+	#home .links-container a .films-link,
+	#home .links-container a .planets-link,
+	#home .links-container a .species-link,
+	#home .links-container a .starships-link,
+	#home .links-container a .vehicles-link {
+		height: 250px;
+	}
 }
 .info-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 1360px;
-  margin: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	max-width: 1360px;
+	margin: 20px;
 }
 .info-container .MuiPaper-root {
-  margin: 0;
-  height: 100%;
-  width: 100%;
+	margin: 0;
+	height: 100%;
+	width: 100%;
 }
 .info-container .MuiPaper-root .flex {
-  display: flex;
-  align-items: center;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 .info-container .MuiPaper-root .flex .MuiCardContent-root {
-  width: 100%;
+	width: 100%;
 }
 .info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 98%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 98%;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info {
-  width: 100%;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info {
+	width: 100%;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info {
-  width: 100%;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info {
+	width: 100%;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info {
-  flex-wrap: wrap;
-  margin: 10px;
-  width: 100%;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info {
+	flex-wrap: wrap;
+	margin: 10px;
+	width: 100%;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container {
-  margin-bottom: 10px;
-  width: 100%;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.info-array-container,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	.info-array-container {
+	margin-bottom: 10px;
+	width: 100%;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container .info-array,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container .info-array {
-  cursor: pointer;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.info-array-container
+	.info-array,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	.info-array-container
+	.info-array {
+	cursor: pointer;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container .info-array.crawl,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container .info-array.crawl {
-  font-family: "Roboto", sans-serif;
-  color: #ffe81f;
-  cursor: default;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.info-array-container
+	.info-array.crawl,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	.info-array-container
+	.info-array.crawl {
+	font-family: 'Roboto', sans-serif;
+	color: #ffe81f;
+	cursor: default;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container .info-array.no-links,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container .info-array.no-links {
-  cursor: default;
-  width: 100%;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.info-array-container
+	.info-array.no-links,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	.info-array-container
+	.info-array.no-links {
+	cursor: default;
+	width: 100%;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .info-array-container h3 .info-array.no-links,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .info-array-container h3 .info-array.no-links {
-  cursor: default;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.info-array-container
+	h3
+	.info-array.no-links,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	.info-array-container
+	h3
+	.info-array.no-links {
+	cursor: default;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info span,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info span {
-  background-color: #ffe81f;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.9rem;
-  margin: 0 2px;
-  padding: 2px 7px;
-  border-radius: 10px;
-  color: black;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	span,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	span {
+	background-color: #ffe81f;
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.9rem;
+	margin: 0 2px;
+	padding: 2px 7px;
+	border-radius: 10px;
+	color: black;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .small-text,
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .right-info .small-text {
-  background-color: transparent;
-  color: white;
-  margin-left: 0;
-  padding: 2px 5px;
-  cursor: text;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.small-text,
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.right-info
+	.small-text {
+	background-color: transparent;
+	color: white;
+	margin-left: 0;
+	padding: 2px 5px;
+	cursor: text;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info span {
-  cursor: pointer;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	span {
+	cursor: pointer;
 }
-.info-container .MuiPaper-root .flex .MuiCardContent-root .info-blocks .left-info .pointer {
-  cursor: pointer;
+.info-container
+	.MuiPaper-root
+	.flex
+	.MuiCardContent-root
+	.info-blocks
+	.left-info
+	.pointer {
+	cursor: pointer;
 }
 .info-container .info-card {
-  display: flex;
-  width: 100%;
+	display: flex;
+	width: 100%;
 }
 .info-container .info-card .flex {
-  display: flex;
-  align-items: center;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 .info-container .info-card .flex img {
-  height: 364px;
+	height: 364px;
 }
 .info-container .info-card .flex .card-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fff;
-  width: 100%;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+	width: 100%;
+	height: 100%;
 }
 .info-container .info-card .flex .card-data h1 {
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  font-size: 2rem;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	font-size: 2rem;
 }
 .info-container .info-card .flex .card-data h3 {
-  font-family: "Roboto", sans-serif;
-  text-align: left;
+	font-family: 'Roboto', sans-serif;
+	text-align: left;
 }
 
 @media (max-width: 1250px) {
-  .info-container {
-    height: 100%;
-  }
-  .info-container .MuiPaper-root {
-    height: 100%;
-  }
-  .info-container .MuiPaper-root .flex .card-data {
-    margin: 10px 0;
-  }
-  .info-container .MuiPaper-root .flex .card-data .info-blocks {
-    flex-direction: column;
-  }
-  .info-container .MuiPaper-root .flex .card-data .info-blocks .left-info,
-.info-container .MuiPaper-root .flex .card-data .info-blocks .right-info {
-    width: 100%;
-  }
+	.info-container {
+		height: 100%;
+	}
+	.info-container .MuiPaper-root {
+		height: 100%;
+	}
+	.info-container .MuiPaper-root .flex .card-data {
+		margin: 10px 0;
+	}
+	.info-container .MuiPaper-root .flex .card-data .info-blocks {
+		flex-direction: column;
+	}
+	.info-container .MuiPaper-root .flex .card-data .info-blocks .left-info,
+	.info-container .MuiPaper-root .flex .card-data .info-blocks .right-info {
+		width: 100%;
+	}
 }
 @media (max-width: 1080px) {
-  .info-container .info-card .flex .card-data {
-    flex-direction: column;
-  }
+	.info-container .info-card .flex .card-data {
+		flex-direction: column;
+	}
 }
 @media (max-width: 860px) {
-  .info-container .info-card .flex .card-data {
-    flex-direction: column;
-  }
+	.info-container .info-card .flex .card-data {
+		flex-direction: column;
+	}
 }
 @media (max-width: 635px) {
-  .info-container .info-card .flex {
-    flex-direction: column;
-    padding: 10px;
-  }
-  .info-container .info-card .flex .card-data {
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-  }
-  .info-container .info-card .flex .card-data .info-blocks {
-    flex-direction: column;
-    align-items: center;
-  }
+	.info-container .info-card .flex {
+		flex-direction: column;
+		padding: 10px;
+	}
+	.info-container .info-card .flex .card-data {
+		flex-direction: column;
+		width: 100%;
+		padding: 10px;
+	}
+	.info-container .info-card .flex .card-data .info-blocks {
+		flex-direction: column;
+		align-items: center;
+	}
 }
 @media (max-width: 280px) {
-  .info-container {
-    width: 270px;
-  }
-  .info-container .MuiPaper-root {
-    width: 100%;
-  }
-  .info-container .MuiPaper-root .flex {
-    width: 100%;
-  }
-  .info-container .MuiPaper-root .flex img {
-    width: 95%;
-  }
+	.info-container {
+		width: 270px;
+	}
+	.info-container .MuiPaper-root {
+		width: 100%;
+	}
+	.info-container .MuiPaper-root .flex {
+		width: 100%;
+	}
+	.info-container .MuiPaper-root .flex img {
+		width: 95%;
+	}
 }
 .relatedItems-container {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  text-align: center;
-  color: #fff;
-  padding: 10px;
-  margin: 5px 0;
-  max-width: 100%;
-  border: 3px solid #ffe81f;
-  border-radius: 2px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	text-align: center;
+	color: #fff;
+	padding: 10px;
+	margin: 5px 0;
+	max-width: 100%;
+	border: 3px solid #ffe81f;
+	border-radius: 2px;
 }
 .relatedItems-container .item-title h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+	font-size: 1.2rem;
+	margin-bottom: 10px;
 }
 .relatedItems-container .items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-items: center;
-  align-items: flex-start;
-  text-align: center;
-  justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-items: center;
+	align-items: flex-start;
+	text-align: center;
+	justify-content: center;
 }
 .relatedItems-container .items a {
-  color: white;
+	color: white;
 }
 .relatedItems-container .items a .relatedItem-container {
-  width: 100px;
-  margin: 0 10px;
-  cursor: pointer;
+	width: 100px;
+	margin: 0 10px;
+	cursor: pointer;
 }
 .relatedItems-container .items a .relatedItem-container img {
-  border-radius: 5px;
-  width: auto;
-  height: 156px;
-  margin-bottom: 5px;
+	border-radius: 5px;
+	width: auto;
+	height: 156px;
+	margin-bottom: 5px;
 }
 .relatedItems-container .items a .relatedItem-container h2 {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 .relatedItems-container .items #Vehicles img,
 .relatedItems-container .items #Starships img,
 .relatedItems-container .items #Planets img,
 .relatedItems-container .items #Species img,
 .relatedItems-container .items #Characters img {
-  width: 105px;
-  height: 105px;
-  border-radius: 50%;
-  margin: 10px 0;
+	width: 105px;
+	height: 105px;
+	border-radius: 50%;
+	margin: 10px 0;
 }
 
 .list-page {
-  display: flex;
-  flex-direction: column;
-  max-width: 1480px;
+	display: flex;
+	flex-direction: column;
+	max-width: 1480px;
 }
 .list-page h1 {
-  font-family: "STARJEDI";
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 10px auto;
-  color: black;
-  text-shadow: -1px -1px 0 #ffee58, 1px -1px 0 #ffee58, -1px 1px 0 #ffee58, 1px 1px 0 #ffee58;
+	font-family: 'STARJEDI';
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin: 10px auto;
+	color: black;
+	text-shadow: -1px -1px 0 #ffee58, 1px -1px 0 #ffee58, -1px 1px 0 #ffee58,
+		1px 1px 0 #ffee58;
 }
 .list-page .characters-wrapper,
 .list-page .planets-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-wrap: wrap;
+	width: 100%;
 }
 .list-page .pagination {
-  display: flex;
-  width: 100%;
+	display: flex;
+	width: 100%;
 }
 .list-page .pagination .numbers {
-  display: flex;
+	display: flex;
 }
 
 @media (max-width: 500px) {
-  .list-page .pagination .numbers {
-    display: none;
-  }
+	.list-page .pagination .numbers {
+		display: none;
+	}
 }
 @media (max-width: 280px) {
-  .list-page h1 {
-    font-size: 2rem;
-  }
+	.list-page h1 {
+		font-size: 2rem;
+	}
 }
 .MuiCard-root {
-  box-sizing: border-box;
-  width: 250px;
-  margin: 10px;
-  height: 370px;
+	box-sizing: border-box;
+	width: 250px;
+	margin: 10px;
+	height: 370px;
 }
 .MuiCard-root.MuiPaper-root {
-  color: #ffe81f;
-  border: 3px solid #ffe81f;
-  background: transparent;
+	color: #ffe81f;
+	border: 3px solid #ffe81f;
+	background: transparent;
 }
 .MuiCard-root .MuiCardMedia-root {
-  max-height: 100%;
-  width: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+	max-height: 100%;
+	width: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 .MuiCard-root .MuiTypography-root {
-  font-family: "STARJEDI";
-  font-size: large;
+	font-family: 'STARJEDI';
+	font-size: large;
 }
 
 /*# sourceMappingURL=main.css.map */

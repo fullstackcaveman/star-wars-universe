@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 export const useLinkBuilder = (input) => {
-	const { push } = useHistory();
+	const navigate = useNavigate();
 	// eslint-disable-next-line
 	const [value, setValue] = useState(input);
 
@@ -26,7 +26,7 @@ export const useLinkBuilder = (input) => {
 
 			const route = interim.split(' ').join('-');
 
-			push(`/${model}/info/${route}`);
+			navigate(`/${model}/info/${route}`);
 		}
 	};
 

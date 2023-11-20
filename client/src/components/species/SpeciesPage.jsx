@@ -18,7 +18,7 @@ const SpeciesPage = () => {
 	const { loading, error, species } = speciesList;
 
 	// Change this to set species per page
-	const [speciesPerPage] = useState(10);
+	const [speciesPerPage] = useState(12);
 
 	useEffect(() => {
 		dispatch(listSpecies());

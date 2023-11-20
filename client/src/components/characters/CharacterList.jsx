@@ -10,11 +10,11 @@ import {
 	TableContainer,
 	TableHead,
 	TableRow,
-} from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import AddIcon from '@material-ui/icons/Add';
-import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
+} from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import AddIcon from '@mui/icons-material/Add';
+import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';

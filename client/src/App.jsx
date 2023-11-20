@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import CharacterEdit from './components/characters/CharacterEdit';
 import CharacterInfo from './components/characters/CharacterInfo';
 import CharacterList from './components/characters/CharacterList';
@@ -38,44 +38,47 @@ const App = () => {
 		<div className='App'>
 			<Header />
 			<HeroSection />
-			<Switch>
-				<Route path='/admin/character/:id/edit' component={CharacterEdit} />
-				<Route path='/admin/characterlist' component={CharacterList} />
-				<Route path='/admin/film/:id/edit' component={FilmEdit} />
-				<Route path='/admin/filmlist' component={FilmList} />
-				<Route path='/admin/planet/:id/edit' component={PlanetEdit} />
-				<Route path='/admin/planetlist' component={PlanetList} />
-				<Route path='/admin/species/:id/edit' component={SpeciesEdit} />
-				<Route path='/admin/specieslist' component={SpeciesList} />
-				<Route path='/admin/user/:id/edit' component={UserEdit} />
-				<Route path='/admin/starship/:id/edit' component={StarshipEdit} />
-				<Route path='/admin/starshiplist' component={StarshipList} />
-				<Route path='/admin/vehicle/:id/edit' component={VehicleEdit} />
-				<Route path='/admin/vehiclelist' component={VehicleList} />
-				<Route path='/admin/userlist' component={UserList} />
-				<Route path='/characters/info/:pretty_url' component={CharacterInfo} />
-				<Route path='/characters/:id' component={CharacterInfo} />
-				<Route path='/characters' component={CharacterPage} />
-				<Route path='/films/info/:pretty_url' component={FilmInfo} />
-				<Route path='/films/:id' component={FilmInfo} />
-				<Route path='/films' component={FilmPage} />
-				<Route path='/planets/info/:pretty_url' component={PlanetInfo} />
-				<Route path='/planets/:id' component={PlanetInfo} />
-				<Route path='/planets' component={PlanetPage} />
-				<Route path='/species/info/:pretty_url' component={SpeciesInfo} />
-				<Route path='/species/:id' component={SpeciesInfo} />
-				<Route path='/species' component={SpeciesPage} />
-				<Route path='/starships/info/:pretty_url' component={StarshipInfo} />
-				<Route path='/starships/:id' component={StarshipInfo} />
-				<Route path='/starships' component={StarshipPage} />
-				<Route path='/users/login' component={UserLoginForm} />
-				<Route path='/users/profile' component={UserProfile} />
-				<Route path='/users/register' component={UserRegisterForm} />
-				<Route path='/vehicles/info/:pretty_url' component={VehicleInfo} />
-				<Route path='/vehicles/:id' component={VehicleInfo} />
-				<Route path='/vehicles' component={VehiclePage} />
-				<Route exact path='/' component={Home} />
-			</Switch>
+			<Routes>
+				<Route path='/admin/character/:id/edit' element={<CharacterEdit />} />
+				<Route path='/admin/characterlist' element={<CharacterList />} />
+				<Route path='/admin/film/:id/edit' element={<FilmEdit />} />
+				<Route path='/admin/filmlist' element={<FilmList />} />
+				<Route path='/admin/planet/:id/edit' element={<PlanetEdit />} />
+				<Route path='/admin/planetlist' element={<PlanetList />} />
+				<Route path='/admin/species/:id/edit' element={<SpeciesEdit />} />
+				<Route path='/admin/specieslist' element={<SpeciesList />} />
+				<Route path='/admin/user/:id/edit' element={<UserEdit />} />
+				<Route path='/admin/starship/:id/edit' element={<StarshipEdit />} />
+				<Route path='/admin/starshiplist' element={<StarshipList />} />
+				<Route path='/admin/vehicle/:id/edit' element={<VehicleEdit />} />
+				<Route path='/admin/vehiclelist' element={<VehicleList />} />
+				<Route path='/admin/userlist' element={<UserList />} />
+				<Route
+					path='/characters/info/:pretty_url'
+					element={<CharacterInfo />}
+				/>
+				<Route path='/characters/:id' element={<CharacterInfo />} />
+				<Route path='/characters' element={<CharacterPage />} />
+				<Route path='/films/info/:pretty_url' element={<FilmInfo />} />
+				<Route path='/films/:id' element={<FilmInfo />} />
+				<Route path='/films' element={<FilmPage />} />
+				<Route path='/planets/info/:pretty_url' element={<PlanetInfo />} />
+				<Route path='/planets/:id' element={<PlanetInfo />} />
+				<Route path='/planets' element={<PlanetPage />} />
+				<Route path='/species/info/:pretty_url' element={<SpeciesInfo />} />
+				<Route path='/species/:id' element={<SpeciesInfo />} />
+				<Route path='/species' element={<SpeciesPage />} />
+				<Route path='/starships/info/:pretty_url' element={<StarshipInfo />} />
+				<Route path='/starships/:id' element={<StarshipInfo />} />
+				<Route path='/starships' element={<StarshipPage />} />
+				<Route path='/users/login' element={<UserLoginForm />} />
+				<Route path='/users/profile' element={<UserProfile />} />
+				<Route path='/users/register' element={<UserRegisterForm />} />
+				<Route path='/vehicles/info/:pretty_url' element={<VehicleInfo />} />
+				<Route path='/vehicles/:id' element={<VehicleInfo />} />
+				<Route path='/vehicles' element={<VehiclePage />} />
+				<Route exact path='/' element={<Home />} />
+			</Routes>
 			<Footer />
 		</div>
 	);

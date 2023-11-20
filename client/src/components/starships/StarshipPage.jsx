@@ -17,7 +17,7 @@ const StarshipPage = () => {
 	const { loading, error, starships } = starshipList;
 
 	// Change this to set starships per page
-	const [starshipsPerPage] = useState(10);
+	const [starshipsPerPage] = useState(12);
 
 	useEffect(() => {
 		dispatch(listStarships());

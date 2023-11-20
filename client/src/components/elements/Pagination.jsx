@@ -1,5 +1,5 @@
-import SkipNextIcon from '@material-ui/icons/SkipNext';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 
 const Pagination = ({ items, totalitems, paginate, prev, next }) => {
 	const pageNumbers = [];

@@ -1,4 +1,4 @@
-import { Alert } from '@material-ui/lab';
+import { Alert } from '@mui/lab';
 
 const Message = ({ severity, message }) => {
 	return (

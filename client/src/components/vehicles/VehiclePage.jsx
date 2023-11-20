@@ -17,7 +17,7 @@ const VehiclePage = () => {
 	const { loading, error, vehicles } = vehicleList;
 
 	// Change this to set vehicles per page
-	const [vehiclesPerPage] = useState(10);
+	const [vehiclesPerPage] = useState(12);
 
 	useEffect(() => {
 		dispatch(listVehicles());

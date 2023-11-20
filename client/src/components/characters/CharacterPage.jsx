@@ -20,7 +20,7 @@ const CharacterPage = () => {
 	const characterList = useSelector((state) => state.characterList);
 	const { loading, error, characters } = characterList;
 
-	const [charactersPerPage] = useState(10);
+	const [charactersPerPage] = useState(12);
 
 	useEffect(() => {
 		dispatch(listCharacters());
@@ -47,6 +47,8 @@ const CharacterPage = () => {
 		indexOfFirstCharacter,
 		indexOfLastCharacter
 	);
+
+	console.log(currentCharacters);
 
 	const nextPage = () => {
 		const newPage = currentPage + 1;

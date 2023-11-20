@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Avatar, Button, Grid, Paper, Typography } from '@material-ui/core';
+import { Avatar, Button, Grid, Paper, Typography } from '@mui/material';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';

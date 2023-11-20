@@ -8,7 +8,7 @@ import {
 	Paper,
 	TextField,
 	Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import Message from '../elements/Message';
 import Loader from '../elements/Loader';
 import Background from '../elements/Background';
