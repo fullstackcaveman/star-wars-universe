@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
 import Avatar from '@mui/material/Avatar';
@@ -19,8 +19,10 @@ import {
 } from '../../actions/starshipActions';
 import { STARSHIP_UPDATE_RESET } from '../../constants/starshipConstants';
 
-const StarshipEdit = ({ match, history }) => {
-	const starshipId = id;
+const StarshipEdit = () => {
+	const params = useParams();
+	const starshipId = params.id;
+	const navigate = useNavigate();
 
 	const [
 		starshipForm,
@@ -79,7 +81,7 @@ const StarshipEdit = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: STARSHIP_UPDATE_RESET });
-			history.push('/admin/starshiplist');
+			navigate('/admin/starshiplist');
 		} else {
 			if (!starship.name || starship._id !== starshipId) {
 				dispatch(listStarshipInfo(starshipId));
@@ -121,7 +123,7 @@ const StarshipEdit = ({ match, history }) => {
 			}
 		}
 		// eslint-disable-next-line
-	}, [starship, starshipId, dispatch, successUpdate, history]);
+	}, [starship, starshipId, dispatch, successUpdate, navigate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

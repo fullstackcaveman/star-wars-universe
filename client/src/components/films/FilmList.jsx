@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -19,9 +19,10 @@ import Background from '../elements/Background';
 import { listFilms, deleteFilm, createFilm } from '../../actions/filmActions';
 import { FILM_CREATE_RESET } from '../../constants/filmConstants';
 
-const FilmList = ({ history, match }) => {
+const FilmList = () => {
 	document.title = 'Star Wars | Film List';
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const filmList = useSelector((state) => state.filmList);
 	const { loading, error, films } = filmList;
@@ -48,15 +49,15 @@ const FilmList = ({ history, match }) => {
 		dispatch({ type: FILM_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/film/${createdFilm._id}/edit`);
+			navigate(`/admin/film/${createdFilm._id}/edit`);
 		} else {
 			dispatch(listFilms());
 		}
-	}, [dispatch, history, userInfo, successDelete, successCreate, createdFilm]);
+	}, [dispatch, navigate, userInfo, successDelete, successCreate, createdFilm]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure?')) {

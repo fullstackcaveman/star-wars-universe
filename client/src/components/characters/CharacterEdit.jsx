@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
 
@@ -20,8 +20,10 @@ import {
 } from '../../actions/characterActions';
 import { CHARACTER_UPDATE_RESET } from '../../constants/characterConstants';
 
-const CharacterEdit = ({ match, history }) => {
-	const characterId = id;
+const CharacterEdit = () => {
+	const params = useParams();
+	const characterId = params.id;
+	const navigate = useNavigate();
 
 	const [
 		characterForm,
@@ -73,7 +75,7 @@ const CharacterEdit = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: CHARACTER_UPDATE_RESET });
-			history.push('/admin/characterlist');
+			navigate('/admin/characterlist');
 		} else {
 			if (!character.name || character._id !== characterId) {
 				dispatch(listCharacterInfo(characterId));
@@ -108,7 +110,7 @@ const CharacterEdit = ({ match, history }) => {
 			}
 		}
 		// eslint-disable-next-line
-	}, [character, characterId, dispatch, successUpdate, history]);
+	}, [character, characterId, dispatch, successUpdate, navigate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

@@ -48,8 +48,6 @@ const CharacterPage = () => {
 		indexOfLastCharacter
 	);
 
-	console.log(currentCharacters);
-
 	const nextPage = () => {
 		const newPage = currentPage + 1;
 		if (currentPage < characters.length / charactersPerPage) {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -17,8 +17,10 @@ import {
 	getUserDetails,
 } from '../../actions/userActions';
 
-const UserEdit = ({ match, history }) => {
-	const userId = id;
+const UserEdit = () => {
+	const params = useParams();
+	const userId = params.id;
+	const navigate = useNavigate();
 
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -42,7 +44,7 @@ const UserEdit = ({ match, history }) => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(adminUpdateUserProfile({ id: user._id, name, email, isAdmin }));
-		history.push('/admin/userList');
+		navigate('/admin/userList');
 	};
 
 	const paperStyle = {
