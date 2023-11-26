@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
 import Avatar from '@mui/material/Avatar';
@@ -16,8 +16,10 @@ import Background from '../elements/Background';
 import { listPlanetInfo, updatePlanet } from '../../actions/planetActions';
 import { PLANET_UPDATE_RESET } from '../../constants/planetConstants';
 
-const PlanetEdit = ({ match, history }) => {
-	const planetId = id;
+const PlanetEdit = () => {
+	const params = useParams();
+	const planetId = params.id;
+	const navigate = useNavigate();
 
 	const [
 		planetForm,
@@ -77,7 +79,7 @@ const PlanetEdit = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: PLANET_UPDATE_RESET });
-			history.push('/admin/planetlist');
+			navigate('/admin/planetlist');
 		} else {
 			if (!planet.name || planet._id !== planetId) {
 				dispatch(listPlanetInfo(planetId));
@@ -120,7 +122,7 @@ const PlanetEdit = ({ match, history }) => {
 			}
 		}
 		// eslint-disable-next-line
-	}, [planet, planetId, dispatch, successUpdate, history]);
+	}, [planet, planetId, dispatch, successUpdate, navigate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

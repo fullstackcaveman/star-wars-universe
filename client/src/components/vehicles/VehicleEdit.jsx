@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
 import Avatar from '@mui/material/Avatar';
@@ -16,8 +16,10 @@ import Background from '../elements/Background';
 import { listVehicleInfo, updateVehicle } from '../../actions/vehicleActions';
 import { VEHICLE_UPDATE_RESET } from '../../constants/vehicleConstants';
 
-const VehicleEdit = ({ match, history }) => {
-	const vehicleId = id;
+const VehicleEdit = () => {
+	const params = useParams();
+	const vehicleId = params.id;
+	const navigate = useNavigate();
 
 	const [
 		vehicleForm,
@@ -61,7 +63,7 @@ const VehicleEdit = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: VEHICLE_UPDATE_RESET });
-			history.push('/admin/vehiclelist');
+			navigate('/admin/vehiclelist');
 		} else {
 			if (!vehicle.name || vehicle._id !== vehicleId) {
 				dispatch(listVehicleInfo(vehicleId));
@@ -86,7 +88,7 @@ const VehicleEdit = ({ match, history }) => {
 			}
 		}
 		// eslint-disable-next-line
-	}, [vehicle, vehicleId, dispatch, successUpdate, history]);
+	}, [vehicle, vehicleId, dispatch, successUpdate, navigate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

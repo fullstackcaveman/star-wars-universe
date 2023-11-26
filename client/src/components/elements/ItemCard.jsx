@@ -11,7 +11,7 @@ const ItemCard = ({ item }) => {
 					alt={item.name}
 				/>
 				<h3 className='mt-6 text-lg font-medium text-yellow-300'>
-					{item.name}
+					{item.name ? item.name : item.title}
 				</h3>
 			</div>
 		</li>

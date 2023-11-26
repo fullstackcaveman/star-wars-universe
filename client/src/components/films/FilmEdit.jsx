@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
 import Avatar from '@mui/material/Avatar';
@@ -17,8 +17,10 @@ import Background from '../elements/Background';
 import { listFilmInfo, updateFilm } from '../../actions/filmActions';
 import { FILM_UPDATE_RESET } from '../../constants/filmConstants';
 
-const FilmEdit = ({ match, history }) => {
-	const filmId = id;
+const FilmEdit = () => {
+	const params = useParams();
+	const filmId = params.id;
+	const navigate = useNavigate();
 
 	const [
 		filmForm,
@@ -58,7 +60,7 @@ const FilmEdit = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: FILM_UPDATE_RESET });
-			history.push('/admin/filmlist');
+			navigate('/admin/filmlist');
 		} else {
 			if (!film.title || film._id !== filmId) {
 				dispatch(listFilmInfo(filmId));
@@ -81,7 +83,7 @@ const FilmEdit = ({ match, history }) => {
 			}
 		}
 		// eslint-disable-next-line
-	}, [film, filmId, dispatch, successUpdate, history]);
+	}, [film, filmId, dispatch, successUpdate, navigate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

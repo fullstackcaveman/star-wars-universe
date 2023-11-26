@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleForm } from '../../hooks/useHandleForm';
 import Avatar from '@mui/material/Avatar';
@@ -16,8 +16,10 @@ import Background from '../elements/Background';
 import { listSpeciesInfo, updateSpecies } from '../../actions/speciesActions';
 import { SPECIES_UPDATE_RESET } from '../../constants/speciesConstants';
 
-const SpeciesEdit = ({ match, history }) => {
-	const speciesId = id;
+const SpeciesEdit = () => {
+	const params = useParams();
+	const speciesId = params.id;
+	const navigate = useNavigate();
 
 	const [
 		speciesForm,
@@ -58,7 +60,7 @@ const SpeciesEdit = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: SPECIES_UPDATE_RESET });
-			history.push('/admin/specieslist');
+			navigate('/admin/specieslist');
 		} else {
 			if (!species.name || species._id !== speciesId) {
 				dispatch(listSpeciesInfo(speciesId));
@@ -82,7 +84,7 @@ const SpeciesEdit = ({ match, history }) => {
 			}
 		}
 		// eslint-disable-next-line
-	}, [species, speciesId, dispatch, successUpdate, history]);
+	}, [species, speciesId, dispatch, successUpdate, navigate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
