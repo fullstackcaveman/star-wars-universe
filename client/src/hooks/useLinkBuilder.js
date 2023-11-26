@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export const useLinkBuilder = (input) => {
 	const navigate = useNavigate();

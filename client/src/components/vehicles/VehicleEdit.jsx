@@ -17,7 +17,7 @@ import { listVehicleInfo, updateVehicle } from '../../actions/vehicleActions';
 import { VEHICLE_UPDATE_RESET } from '../../constants/vehicleConstants';
 
 const VehicleEdit = ({ match, history }) => {
-	const vehicleId = match.params.id;
+	const vehicleId = id;
 
 	const [
 		vehicleForm,

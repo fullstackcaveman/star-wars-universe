@@ -20,7 +20,7 @@ import {
 import { STARSHIP_UPDATE_RESET } from '../../constants/starshipConstants';
 
 const StarshipEdit = ({ match, history }) => {
-	const starshipId = match.params.id;
+	const starshipId = id;
 
 	const [
 		starshipForm,

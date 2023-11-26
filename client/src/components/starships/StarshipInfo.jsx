@@ -13,7 +13,7 @@ import {
 	listStarshipInfo,
 	listStarshipInfoByName,
 } from '../../actions/starshipActions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
@@ -54,11 +54,13 @@ const StarshipInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${starship.name}`;
 
+	const { pretty_url, id } = useParams();
+
 	useEffect(() => {
-		if (match.params.id) {
-			dispatch(listStarshipInfo(match.params.id));
+		if (id) {
+			dispatch(listStarshipInfo(id));
 		} else {
-			dispatch(listStarshipInfoByName(match.params.pretty_url));
+			dispatch(listStarshipInfoByName(pretty_url));
 		}
 		dispatch(listFilms());
 

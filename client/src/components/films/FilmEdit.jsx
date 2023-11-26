@@ -18,7 +18,7 @@ import { listFilmInfo, updateFilm } from '../../actions/filmActions';
 import { FILM_UPDATE_RESET } from '../../constants/filmConstants';
 
 const FilmEdit = ({ match, history }) => {
-	const filmId = match.params.id;
+	const filmId = id;
 
 	const [
 		filmForm,

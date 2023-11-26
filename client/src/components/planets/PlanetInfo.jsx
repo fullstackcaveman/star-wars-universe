@@ -12,7 +12,7 @@ import {
 	listPlanetInfo,
 	listPlanetInfoByName,
 } from '../../actions/planetActions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import RelatedItems from '../elements/RelatedItems';
 
@@ -56,11 +56,13 @@ const PlanetInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${planet.name}`;
 
+	const { pretty_url, id } = useParams();
+
 	useEffect(() => {
-		if (match.params.id) {
-			dispatch(listPlanetInfo(match.params.id));
+		if (id) {
+			dispatch(listPlanetInfo(id));
 		} else {
-			dispatch(listPlanetInfoByName(match.params.pretty_url));
+			dispatch(listPlanetInfoByName(pretty_url));
 		}
 		dispatch(listFilms());
 		dispatch(listCharacters());

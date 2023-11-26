@@ -21,7 +21,7 @@ import {
 import { CHARACTER_UPDATE_RESET } from '../../constants/characterConstants';
 
 const CharacterEdit = ({ match, history }) => {
-	const characterId = match.params.id;
+	const characterId = id;
 
 	const [
 		characterForm,

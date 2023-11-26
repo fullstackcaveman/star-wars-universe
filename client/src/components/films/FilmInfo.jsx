@@ -10,7 +10,7 @@ import Message from '../elements/Message';
 import Background from '../elements/Background';
 
 import { listFilmInfo, listFilmInfoByName } from '../../actions/filmActions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
@@ -63,11 +63,13 @@ const FilmInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${film.title}`;
 
+	const { pretty_url, id } = useParams();
+
 	useEffect(() => {
-		if (match.params.id) {
-			dispatch(listFilmInfo(match.params.id));
+		if (id) {
+			dispatch(listFilmInfo(id));
 		} else {
-			dispatch(listFilmInfoByName(match.params.pretty_url));
+			dispatch(listFilmInfoByName(pretty_url));
 		}
 		dispatch(listCharacters());
 		dispatch(listPlanets());
