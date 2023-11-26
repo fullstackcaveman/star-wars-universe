@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -12,7 +12,7 @@ import Loader from '../elements/Loader';
 import Background from '../elements/Background';
 import { register } from '../../actions/userActions';
 
-const UserRegisterForm = ({ location, history }) => {
+const UserRegisterForm = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -20,18 +20,19 @@ const UserRegisterForm = ({ location, history }) => {
 	const [message, setMessage] = useState(null);
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	const userRegister = useSelector((state) => state.userRegister);
 	const { loading, error, userInfo } = userRegister;
 
-	const redirect = '/';
-	// const redirect = location.search ? location.search.split('=')[1] : '/';
+	const redirect = location.search ? location.search.split('=')[1] : '/';
 
 	useEffect(() => {
 		if (userInfo) {
-			history.push(redirect);
+			navigate(redirect);
 		}
-	}, [history, userInfo, redirect]);
+	}, [navigate, userInfo, redirect]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

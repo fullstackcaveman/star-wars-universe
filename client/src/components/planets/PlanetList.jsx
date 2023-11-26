@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -26,6 +26,7 @@ import { PLANET_CREATE_RESET } from '../../constants/planetConstants';
 const PlanetList = ({ history, match }) => {
 	document.title = 'Star Wars | Planet List';
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const planetList = useSelector((state) => state.planetList);
 	const { loading, error, planets } = planetList;
@@ -52,17 +53,17 @@ const PlanetList = ({ history, match }) => {
 		dispatch({ type: PLANET_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/planet/${createdPlanet._id}/edit`);
+			navigate(`/admin/planet/${createdPlanet._id}/edit`);
 		} else {
 			dispatch(listPlanets());
 		}
 	}, [
 		dispatch,
-		history,
+		navigate,
 		userInfo,
 		successDelete,
 		successCreate,

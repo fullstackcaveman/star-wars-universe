@@ -98,9 +98,9 @@ const VehicleInfo = ({ match }) => {
 												</Typography>
 											)}
 
-											{!cost_in_credits ? null : (
+											{cost_in_credits === 'unknown' ? null : (
 												<Typography component='h3'>
-													{`Cost: ${cost_in_credits}`}
+													{`Cost: ${Number(cost_in_credits).toLocaleString()}`}
 													<span className='small-text'>credits</span>
 												</Typography>
 											)}
@@ -133,14 +133,16 @@ const VehicleInfo = ({ match }) => {
 												</Typography>
 											)}
 
-											{!cargo_capacity ? null : (
+											{cargo_capacity === 'unknown' ? null : (
 												<Typography component='h3'>
-													{`Cargo Capacity: ${cargo_capacity}`}
+													{`Cargo Capacity: ${Number(
+														cargo_capacity
+													).toLocaleString()}`}
 													<span className='small-text'>kg</span>
 												</Typography>
 											)}
 
-											{!consumables ? null : (
+											{consumables === 'unknown' ? null : (
 												<Typography component='h3'>
 													{`Consumables: ${consumables}`}
 												</Typography>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -26,6 +26,7 @@ import { SPECIES_CREATE_RESET } from '../../constants/speciesConstants';
 const SpeciesList = ({ history, match }) => {
 	document.title = 'Star Wars | Species List';
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const speciesList = useSelector((state) => state.speciesList);
 	const { loading, error, species } = speciesList;
@@ -52,17 +53,17 @@ const SpeciesList = ({ history, match }) => {
 		dispatch({ type: SPECIES_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/species/${createdSpecies._id}/edit`);
+			navigate(`/admin/species/${createdSpecies._id}/edit`);
 		} else {
 			dispatch(listSpecies());
 		}
 	}, [
 		dispatch,
-		history,
+		navigate,
 		userInfo,
 		successDelete,
 		successCreate,

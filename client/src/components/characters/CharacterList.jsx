@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -26,6 +26,7 @@ import { CHARACTER_CREATE_RESET } from '../../constants/characterConstants';
 const CharacterList = ({ history, match }) => {
 	document.title = 'Star Wars | Character List';
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const characterList = useSelector((state) => state.characterList);
 	const { loading, error, characters } = characterList;
@@ -52,17 +53,17 @@ const CharacterList = ({ history, match }) => {
 		dispatch({ type: CHARACTER_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/character/${createdCharacter._id}/edit`);
+			navigate(`/admin/character/${createdCharacter._id}/edit`);
 		} else {
 			dispatch(listCharacters());
 		}
 	}, [
 		dispatch,
-		history,
+		navigate,
 		userInfo,
 		successDelete,
 		successCreate,

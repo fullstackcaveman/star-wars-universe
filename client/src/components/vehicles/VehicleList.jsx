@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -26,6 +26,7 @@ import { VEHICLE_CREATE_RESET } from '../../constants/vehicleConstants';
 const VehicleList = ({ history, match }) => {
 	document.title = 'Star Wars | Vehicle List';
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const vehicleList = useSelector((state) => state.vehicleList);
 	const { loading, error, vehicles } = vehicleList;
@@ -52,17 +53,17 @@ const VehicleList = ({ history, match }) => {
 		dispatch({ type: VEHICLE_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/vehicle/${createdVehicle._id}/edit`);
+			navigate(`/admin/vehicle/${createdVehicle._id}/edit`);
 		} else {
 			dispatch(listVehicles());
 		}
 	}, [
 		dispatch,
-		history,
+		navigate,
 		userInfo,
 		successDelete,
 		successCreate,

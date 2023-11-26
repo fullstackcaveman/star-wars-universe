@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -19,6 +20,7 @@ const UserProfile = ({ location, history }) => {
 	const [message, setMessage] = useState(null);
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const userDetails = useSelector((state) => state.userDetails);
 	const { loading, error, user } = userDetails;
@@ -31,7 +33,7 @@ const UserProfile = ({ location, history }) => {
 
 	useEffect(() => {
 		if (!userInfo) {
-			history.push('/users/login');
+			navigate('/users/login');
 		} else {
 			if (!user.name) {
 				dispatch(getUserDetails('profile'));
@@ -42,7 +44,7 @@ const UserProfile = ({ location, history }) => {
 				setConfirmPassword(user.confirmPassword);
 			}
 		}
-	}, [history, userInfo, dispatch, user]);
+	}, [navigate, userInfo, dispatch, user]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

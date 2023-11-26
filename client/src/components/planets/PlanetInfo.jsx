@@ -76,6 +76,36 @@ const PlanetInfo = ({ match }) => {
 	// eslint-disable-next-line
 	const [value, handleBuildLink, handleInfoClick] = useLinkBuilder();
 
+	let formattedTerrain = '';
+	let formattedClimate = '';
+	let formattedGravity = '';
+
+	if (!loading) {
+		terrain.forEach((item, idx) => {
+			if (idx !== terrain.length - 1) {
+				formattedTerrain += `${item}, `;
+			} else {
+				formattedTerrain += item;
+			}
+		});
+
+		climate.forEach((item, idx) => {
+			if (idx !== climate.length - 1) {
+				formattedClimate += `${item}, `;
+			} else {
+				formattedClimate += item;
+			}
+		});
+
+		gravity.forEach((item, idx) => {
+			if (idx !== gravity.length - 1) {
+				formattedGravity += `${item}, `;
+			} else {
+				formattedGravity += item;
+			}
+		});
+	}
+
 	return (
 		<>
 			<div className='info-container'>
@@ -134,13 +164,13 @@ const PlanetInfo = ({ match }) => {
 
 											{gravity === undefined || gravity.length === 0 ? null : (
 												<Typography component='h3'>
-													{`Gravity: ${gravity}`}
+													{`Gravity: ${formattedGravity}`}
 												</Typography>
 											)}
 
 											{terrain === undefined || terrain.length === 0 ? null : (
 												<Typography component='h3'>
-													{`Terrain: ${terrain}`}
+													{`Terrain: ${formattedTerrain}`}
 												</Typography>
 											)}
 
@@ -153,7 +183,7 @@ const PlanetInfo = ({ match }) => {
 
 											{climate === undefined || climate.length === 0 ? null : (
 												<Typography component='h3'>
-													{`Climate: ${climate}`}
+													{`Climate: ${formattedClimate}`}
 												</Typography>
 											)}
 										</div>

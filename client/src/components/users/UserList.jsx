@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -20,6 +20,7 @@ import { listUsers, deleteUser } from '../../actions/userActions';
 
 const UserList = ({ history }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const userList = useSelector((state) => state.userList);
 	const { loading, error, users } = userList;
@@ -34,9 +35,9 @@ const UserList = ({ history }) => {
 		if (userInfo && userInfo.isAdmin) {
 			dispatch(listUsers());
 		} else {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
-	}, [dispatch, history, userInfo, successDelete]);
+	}, [dispatch, navigate, userInfo, successDelete]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure?')) {

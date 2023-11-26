@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -13,7 +13,7 @@ import { login } from '../../actions/userActions';
 import { InputBuilder } from './FormBuilder';
 import { useHandleForm } from '../../hooks/useHandleForm';
 
-const UserLoginForm = ({ location, history }) => {
+const UserLoginForm = () => {
 	// eslint-disable-next-line
 	const [signInForm, setSignInForm, handleChange] = useHandleForm({
 		email: '',
@@ -21,18 +21,19 @@ const UserLoginForm = ({ location, history }) => {
 	});
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const { loading, error, userInfo } = userLogin;
 
-	const redirect = '/';
-	// const redirect = location.search ? location.search.split('=')[1] : '/';
+	const redirect = location.search ? location.search.split('=')[1] : '/';
 
 	useEffect(() => {
 		if (userInfo) {
-			history.push(redirect);
+			navigate(redirect);
 		}
-	}, [history, userInfo, redirect]);
+	}, [navigate, userInfo, redirect]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -26,6 +26,7 @@ import { STARSHIP_CREATE_RESET } from '../../constants/starshipConstants';
 const StarshipList = ({ history, match }) => {
 	document.title = 'Star Wars | Starship List';
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const starshipList = useSelector((state) => state.starshipList);
 	const { loading, error, starships } = starshipList;
@@ -52,17 +53,17 @@ const StarshipList = ({ history, match }) => {
 		dispatch({ type: STARSHIP_CREATE_RESET });
 
 		if (!userInfo.isAdmin) {
-			history.push('/users/login');
+			navigate('/users/login');
 		}
 
 		if (successCreate) {
-			history.push(`/admin/starship/${createdStarship._id}/edit`);
+			navigate(`/admin/starship/${createdStarship._id}/edit`);
 		} else {
 			dispatch(listStarships());
 		}
 	}, [
 		dispatch,
-		history,
+		navigate,
 		userInfo,
 		successDelete,
 		successCreate,
