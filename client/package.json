@@ -4,13 +4,14 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@babel/plugin-transform-private-property-in-object": "^7.21.11",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
 		"@heroicons/react": "^2.0.18",
 		"@mui/icons-material": "^5.14.18",
 		"@mui/lab": "^5.0.0-alpha.153",
 		"@mui/material": "^5.14.18",
+		"@redux-devtools/extension": "^3.2.6",
 		"axios": "^1.6.2",
 		"formik": "^2.4.5",
 		"immutability-helper": "^3.1.1",
@@ -21,7 +22,6 @@
 		"react-router-native": "^6.19.0",
 		"react-scripts": "^5.0.1",
 		"redux": "^4.2.1",
-		"redux-devtools-extension": "^2.13.9",
 		"redux-thunk": "^2.4.2"
 	},
 	"scripts": {

@@ -17,7 +17,7 @@ import { listPlanetInfo, updatePlanet } from '../../actions/planetActions';
 import { PLANET_UPDATE_RESET } from '../../constants/planetConstants';
 
 const PlanetEdit = ({ match, history }) => {
-	const planetId = match.params.id;
+	const planetId = id;
 
 	const [
 		planetForm,

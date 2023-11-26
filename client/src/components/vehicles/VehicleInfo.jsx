@@ -13,7 +13,7 @@ import {
 	listVehicleInfo,
 	listVehicleInfoByName,
 } from '../../actions/vehicleActions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
@@ -51,11 +51,13 @@ const VehicleInfo = ({ match }) => {
 
 	document.title = `Star Wars | ${vehicle.name}`;
 
+	const { pretty_url, id } = useParams();
+
 	useEffect(() => {
-		if (match.params.id) {
-			dispatch(listVehicleInfo(match.params.id));
+		if (id) {
+			dispatch(listVehicleInfo(id));
 		} else {
-			dispatch(listVehicleInfoByName(match.params.pretty_url));
+			dispatch(listVehicleInfoByName(pretty_url));
 		}
 		dispatch(listFilms());
 

@@ -18,7 +18,7 @@ import {
 } from '../../actions/userActions';
 
 const UserEdit = ({ match, history }) => {
-	const userId = match.params.id;
+	const userId = id;
 
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');

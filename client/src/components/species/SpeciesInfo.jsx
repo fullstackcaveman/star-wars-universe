@@ -13,7 +13,7 @@ import {
 	listSpeciesInfo,
 	listSpeciesInfoByName,
 } from '../../actions/speciesActions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useLinkBuilder } from '../../hooks/useLinkBuilder';
 import InfoArrayContainer from '../elements/InfoArrayContainer';
 import RelatedItems from '../elements/RelatedItems';
@@ -29,11 +29,13 @@ const SpeciesInfo = ({ match }) => {
 	const [loading, setLoading] = useState(true);
 	const dispatch = useDispatch();
 
+	const { pretty_url, id } = useParams();
+
 	useEffect(() => {
-		if (match.params.id) {
-			dispatch(listSpeciesInfo(match.params.id));
+		if (id) {
+			dispatch(listSpeciesInfo(id));
 		} else {
-			dispatch(listSpeciesInfoByName(match.params.pretty_url));
+			dispatch(listSpeciesInfoByName(pretty_url));
 		}
 		dispatch(listFilms());
 		dispatch(listCharacters());

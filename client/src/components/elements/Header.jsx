@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import clsx from 'clsx';
-
 import { logout } from '../../actions/userActions';
 import { ADMIN_SHOW_EDIT_BUTTON } from '../../constants/userConstants';
 import Avatar from '@mui/material/Avatar';

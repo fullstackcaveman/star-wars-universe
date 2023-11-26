@@ -17,7 +17,7 @@ import { listSpeciesInfo, updateSpecies } from '../../actions/speciesActions';
 import { SPECIES_UPDATE_RESET } from '../../constants/speciesConstants';
 
 const SpeciesEdit = ({ match, history }) => {
-	const speciesId = match.params.id;
+	const speciesId = id;
 
 	const [
 		speciesForm,
