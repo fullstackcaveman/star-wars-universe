@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+
 import Background from '../elements/Background';
+import Items from '../elements/Items';
 import Loader from '../elements/Loader';
 import Message from '../elements/Message';
 import Pagination from '../elements/Pagination';
-import Items from '../elements/Items';
-
 import { listCharacters } from '../../actions/characterActions';
 import { listFilms } from '../../actions/filmActions';
 import { listPlanets } from '../../actions/planetActions';
