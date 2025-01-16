@@ -27,6 +27,9 @@
 		"url": "https://github.com/fullstackcaveman/star-wars-universe/issues"
 	},
 	"homepage": "https://github.com/fullstackcaveman/star-wars-universe#readme",
+	"engines": {
+		"node": "22.13.0"
+	},
 	"dependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"bcryptjs": "^2.4.3",
